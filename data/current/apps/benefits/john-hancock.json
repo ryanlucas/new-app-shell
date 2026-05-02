@@ -1,0 +1,15 @@
+{
+  "appId": "john-hancock",
+  "appLabel": "John Hancock 401(k)",
+  "appPath": "/apps/401K/john-hancock/intro",
+  "appProductGate": "JOHNHANCOCK",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "John Hancock is a third-party 401(k) provider integrated via Rippling's app marketplace.",
+      "No first-party internal navigation surface — clicking the app launches the provider's portal. Setup uses the generic /apps/401K/{appName}/intro flow.",
+      "Modeled as a single-page (no nav) app."
+    ]
+  },
+  "nav": []
+}

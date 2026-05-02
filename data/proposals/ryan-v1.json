@@ -1,0 +1,135 @@
+{
+  "id": "ryan-v1",
+  "label": "Ryan v1 — Finance, Identity-into-IT, Platform foundations, PEO cleanup",
+  "description": "First-pass IA proposal: (1) rename Spend → Finance and fold Banking into it; (2) merge Identity into IT to match commercial bundling; (3) collapse Tools and Settings into a single Platform foundations suite; (4) reposition User Management as an ungated foundation primitive in Platform (was a paid Identity SKU), and add Directory; (5) PEO cleanup — drop the PEO suite, redistribute its 2 compliance artifacts (Workplace Posters, State Tax Accounts) into HR and gate them on isPeoClient; PEO becomes a plan rather than a suite.",
+  "ops": [
+    {
+      "op": "renameSuite",
+      "id": "spend",
+      "newId": "finance",
+      "newLabel": "Finance"
+    },
+    {
+      "op": "mergeSuite",
+      "from": "banking",
+      "into": "finance"
+    },
+    {
+      "op": "renameSuite",
+      "id": "tools",
+      "newId": "platform",
+      "newLabel": "Platform",
+      "newIcon": "Layers"
+    },
+    {
+      "op": "mergeSuite",
+      "from": "settings",
+      "into": "platform"
+    },
+    {
+      "op": "moveApp",
+      "appId": "user-management",
+      "toSuite": "platform"
+    },
+    {
+      "op": "overrideNode",
+      "id": "user-management",
+      "patch": {
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": null
+        }
+      }
+    },
+    {
+      "op": "removeApp",
+      "appId": "manual-user-management"
+    },
+    {
+      "op": "addApp",
+      "suiteId": "platform",
+      "id": "directory",
+      "label": "Directory",
+      "icon": "BookUser",
+      "path": "/directory",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {}
+    },
+    {
+      "op": "mergeSuite",
+      "from": "identity",
+      "into": "it"
+    },
+    {
+      "op": "moveApp",
+      "appId": "workplace-posters",
+      "toSuite": "hr"
+    },
+    {
+      "op": "overrideNode",
+      "id": "workplace-posters",
+      "patch": {
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": ["isPeoClient"],
+          "whenUnowned": null
+        }
+      }
+    },
+    {
+      "op": "moveApp",
+      "appId": "state-tax-accounts",
+      "toSuite": "hr"
+    },
+    {
+      "op": "overrideNode",
+      "id": "state-tax-accounts",
+      "patch": {
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": ["isPeoClient"],
+          "whenUnowned": null
+        }
+      }
+    },
+    {
+      "op": "removeSuite",
+      "id": "peo"
+    },
+    {
+      "op": "addPlan",
+      "id": "peo",
+      "label": "Rippling PEO",
+      "description": "Co-employment client. Rippling is the legal employer of record; HR/Payroll/Benefits/Time/Compliance are bundled and delivered through Rippling's PEO entity.",
+      "ownedSuites": ["hr", "payroll", "benefits", "time", "custom-apps", "data", "platform"],
+      "conditions": ["isPeoClient"],
+      "afterPlan": "hr-payroll-benefits"
+    }
+  ],
+  "_notes": [
+    "User Management is moved out of Identity BEFORE the identity→it merge so it ends up in Platform, not bundled with IT.",
+    "manual-user-management (separate spoke MANUAL_USER_MANAGEMENT) is folded into the unified user-management app.",
+    "Directory is new — the catalog has no Directory app today.",
+    "Identity apps (RPass, Okta, AzureAD, SCIM, SSO, Yubikey, Two-FA, Access Reviews, Groups) end up under IT.",
+    "PEO becomes a *plan*, not a suite — it's a commercial mode, not a separate product surface. The plan's `conditions: [\"isPeoClient\"]` causes the HR-resident PEO compliance apps (Workplace Posters, State Tax Accounts) to render only for PEO customers.",
+    "PEO Overview is dropped from L2 nav — would become an HR-home dashboard card for PEO customers (out of scope for L2 catalog).",
+    "PEO Join / PEO Leave flows from the backend (is_peo_join_visible, is_peo_leave_visible) are not modeled here; cross-sell to non-PEO customers can be handled at the plan level later."
+  ]
+}

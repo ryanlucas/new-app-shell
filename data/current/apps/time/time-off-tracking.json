@@ -1,0 +1,185 @@
+{
+  "appId": "time-off-tracking",
+  "appLabel": "Time Off",
+  "appPath": "/time-products/dashboard/time-off",
+  "appProductGate": "PTO",
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "This is the Time-suite Time Off variant (admin-flavored) — not the legacy /pto employee app. Tabs come from useTimeOffPageLinksSuspense.",
+      "Settings/policies for time-off live under the broader Time Products /policies/time-off and /settings/time-off paths — added separately as additional admin-only nodes."
+    ]
+  },
+  "nav": [
+    {
+      "id": "summary",
+      "label": "Summary",
+      "icon": "BarChart",
+      "path": "/time-products/dashboard/time-off/summary",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_SUMMARY"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimeOffPageLinks.ts:23"
+    },
+    {
+      "id": "calendar",
+      "label": "Calendar",
+      "icon": "Calendar",
+      "path": "/time-products/dashboard/time-off/calendar",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_CALENDAR"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimeOffPageLinks.ts:27"
+    },
+    {
+      "id": "time-off",
+      "label": "Time Off",
+      "icon": "PalmTree",
+      "path": "/time-products/dashboard/time-off/time-off-schedule",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_TIME_OFF"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimeOffPageLinks.ts:31"
+    },
+    {
+      "id": "leaves",
+      "label": "Leaves",
+      "icon": "FileMinus",
+      "path": "/time-products/dashboard/time-off/leaves",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_LEAVES"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimeOffPageLinks.ts:35"
+    },
+    {
+      "id": "balances",
+      "label": "Balances",
+      "icon": "Scale",
+      "path": "/time-products/dashboard/time-off/balances",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_BALANCES"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimeOffPageLinks.ts:39"
+    },
+    {
+      "id": "time-off-requests",
+      "label": "Requests",
+      "icon": "Inbox",
+      "path": "/time-products/dashboard/time-off/requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:127"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "icon": "FileText",
+      "path": "/time-products/dashboard/policies/time-off",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:84"
+    },
+    {
+      "id": "leave-types",
+      "label": "Leave Types",
+      "icon": "List",
+      "path": "/time-products/dashboard/settings/leave-types",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:109"
+    },
+    {
+      "id": "holidays",
+      "label": "Holidays",
+      "icon": "Star",
+      "path": "/time-products/dashboard/settings/holidays",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:110"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/time-products/dashboard/settings/time-off",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["pto_admin", "time_admin"],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:108"
+    }
+  ]
+}

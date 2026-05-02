@@ -1,0 +1,15 @@
+{
+  "appId": "user-management",
+  "appLabel": "User Management",
+  "appPath": "/user-management",
+  "appProductGate": "USER_MANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "User Management is registered as an RPK app via UserManagementAppInterface (rippling-main: app/user_management/rpk/app.py) with installation_url and dashboard_url both '/user-management'. Gated by FEATURE_FLAG_USER_MANAGEMENT_APP_ENABLED.",
+      "No frontend route table for /user-management was found in rippling-webapp. The dashboard surface is likely the IT People page (/it/people) or a forthcoming surface — the standalone /user-management URL appears to be a pre-launch registration with no dedicated L3 nav yet.",
+      "The expected nav (Users, Groups, Provisioning, Reports, Settings) is not present in the current codebase; emitting nav: [] to reflect actual state."
+    ]
+  },
+  "nav": []
+}

@@ -1,0 +1,57 @@
+{
+  "appId": "unlimited-custom-apps",
+  "appLabel": "Custom Apps",
+  "appPath": "/app-studio",
+  "appProductGate": "UNLIMITED_CUSTOM_APPS",
+  "_meta": {
+    "generatedBy": "phase-2J",
+    "uncertainties": [
+      "App lives under TWO related routes: /app-studio (App Studio admin/builder) and /custom-apps (rendered custom-app surfaces). Skeleton appPath /custom-apps is the consumer surface; corrected to /app-studio for the admin shell.",
+      "Top-level admin nav is dashboard -> all-apps; siblings include create-app, app-templates, edit-app, create-quick-app — all flows rather than persistent nav.",
+      "Expected items (App Catalog / Builder / Recipes / Marketplace / Settings) only partly map: Builder = create-app/edit-app flows; App Catalog = app-templates; Marketplace and Recipes are not present in AppManager routes (Recipes lives in HubPlatform/recipeRecommendation).",
+      "Custom-apps-admin and developer personas; full+partial appropriate. EE accesses installed custom apps via /custom-apps/:appAPIName but those routes are dynamic per app."
+    ]
+  },
+  "nav": [
+    {
+      "id": "all-apps",
+      "label": "All Apps",
+      "path": "/app-studio/dashboard/all-apps",
+      "icon": "LayoutGrid",
+      "personas": ["full", "partial"],
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:14-39"
+    },
+    {
+      "id": "app-templates",
+      "label": "App Templates",
+      "path": "/app-studio/app-templates",
+      "icon": "BookTemplate",
+      "personas": ["full", "partial"],
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:37-45"
+    },
+    {
+      "id": "create-app",
+      "label": "Create App",
+      "path": "/app-studio/create-app",
+      "icon": "Plus",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:46-55"
+    },
+    {
+      "id": "create-quick-app",
+      "label": "Quick App",
+      "path": "/app-studio/create-quick-app",
+      "icon": "Zap",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:27-35"
+    },
+    {
+      "id": "composition-manager",
+      "label": "Composition Manager",
+      "path": "/app-studio/composition-manager",
+      "icon": "Component",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:38"
+    }
+  ]
+}

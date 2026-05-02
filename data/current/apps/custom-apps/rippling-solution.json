@@ -1,0 +1,16 @@
+{
+  "appId": "rippling-solution",
+  "appLabel": "Solutions",
+  "appPath": "/solutions",
+  "appProductGate": "RIPPLING_SOLUTION",
+  "_meta": {
+    "generatedBy": "phase-2J",
+    "uncertainties": [
+      "RIPPLING_SOLUTION is a SKU/spoke prefix (RIPPLING_SOLUTION_SPOKE_PREFIX in finance/Billing) used to identify partner-built apps; it is not a standalone webapp surface with its own routes.",
+      "No /solutions route or dedicated container found in webapp. Solutions are surfaced as installed apps under the App Shop and via per-spoke /apps/:appId pages.",
+      "Expected items (My Solutions / Library / Marketplace / Templates) are not present as a discrete nav — Library/Marketplace surface is App Shop (/app-shop) and per-app pages.",
+      "Returning nav: [] given the absence of a discrete app shell."
+    ]
+  },
+  "nav": []
+}

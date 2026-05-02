@@ -1,0 +1,253 @@
+{
+  "appId": "payroll",
+  "appLabel": "Run Payroll",
+  "appPath": "/payroll",
+  "appProductGate": "PAYROLL",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Run Payroll has multiple sub-flows (run, amendments, bank-accounts) that are flow routes, not left-rail items; only the top-level Dashboard tabs are surfaced as L3 nav.",
+      "Persona scope assumed full+partial for admin-side; partial scope likely 'payroll' but unverified."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/payroll/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:overview",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:35"
+    },
+    {
+      "id": "pay-runs",
+      "label": "Pay Runs",
+      "icon": "PlayCircle",
+      "path": "/payroll/run",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:run",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/payrollAdmin.routes.tsx:147"
+    },
+    {
+      "id": "people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/payroll/dashboard/people",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:people",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:47"
+    },
+    {
+      "id": "reimbursements",
+      "label": "Reimbursements",
+      "icon": "Receipt",
+      "path": "/payroll/dashboard/paytypes",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:paytypes",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:78"
+    },
+    {
+      "id": "deductions",
+      "label": "Deductions",
+      "icon": "MinusCircle",
+      "path": "/payroll/dashboard/deductions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:deductions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:90"
+    },
+    {
+      "id": "garnishments",
+      "label": "Garnishments",
+      "icon": "Gavel",
+      "path": "/payroll/dashboard/garnishments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:garnishments",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:118"
+    },
+    {
+      "id": "tax-payments",
+      "label": "Tax Payments",
+      "icon": "Banknote",
+      "path": "/payroll/dashboard/taxPayments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:taxPayments",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:242"
+    },
+    {
+      "id": "tax-exemptions",
+      "label": "Tax Exemptions",
+      "icon": "FileMinus",
+      "path": "/payroll/dashboard/taxExemptions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:taxExemptions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:198"
+    },
+    {
+      "id": "expected-tax-notices",
+      "label": "Expected Notices",
+      "icon": "AlertTriangle",
+      "path": "/payroll/dashboard/expectedTaxNotices",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:expectedTaxNotices",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:176"
+    },
+    {
+      "id": "amendments",
+      "label": "Amendments",
+      "icon": "FileEdit",
+      "path": "/payroll/dashboard/amendments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:amendments",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:220"
+    },
+    {
+      "id": "accounting",
+      "label": "Accounting",
+      "icon": "BookOpen",
+      "path": "/payroll/dashboard/accounting",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:accounting",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:130"
+    },
+    {
+      "id": "reports",
+      "label": "Reports",
+      "icon": "BarChart3",
+      "path": "/payroll/dashboard/reports",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:reports",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:142"
+    },
+    {
+      "id": "documents",
+      "label": "Documents",
+      "icon": "Folder",
+      "path": "/payroll/dashboard/documents",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:documents",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:154"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/payroll/dashboard/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:settings",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:56"
+    }
+  ]
+}

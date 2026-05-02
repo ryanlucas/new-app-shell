@@ -1,0 +1,16 @@
+{
+  "appId": "business-partner",
+  "appLabel": "Business Partner",
+  "appPath": "/company-details/business-partner",
+  "appProductGate": "BUSINESS_PARTNER",
+  "_meta": {
+    "generatedBy": "phase-2L",
+    "uncertainties": [
+      "Business Partner is a single-page admin surface mounted at /company-details/business-partner (BUSINESS_PARTNER_DUMMY_APP_ID is hidden via lambda _: False; the dummy app's actionUrl is rewritten to /company-details/business-partner). The page lists Business Partner Groups and drills down into per-group detail pages — no internal top-level nav.",
+      "Visibility is gated by BusinessPartnerRoot's getBusinessPartnerAppPermissions (hasBPManagePerm OR hasBPReadPerm) plus full/super admin override. We model as full + partial with business_partner scope.",
+      "This is NOT the same as Partner Admin (/partner) — that is the customer-side admin app for accountant/COR/EOR partners. Business Partner here is an HR feature for assigning manager-like relationships.",
+      "Setup flow lives at /company-details/business-partner/setup (a wizard, not a nav node)."
+    ]
+  },
+  "nav": []
+}

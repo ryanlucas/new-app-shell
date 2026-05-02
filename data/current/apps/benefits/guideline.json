@@ -1,0 +1,15 @@
+{
+  "appId": "guideline",
+  "appLabel": "Guideline 401(k)",
+  "appPath": "/apps/401K/guideline/intro",
+  "appProductGate": "GUIDELINE",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Guideline is a third-party 401(k) provider integrated via Rippling's app marketplace.",
+      "No first-party internal navigation surface — clicking the app launches the provider's own portal/SSO. Setup uses the generic /apps/401K/{appName}/intro flow.",
+      "Modeled as a single-page (no nav) app. Users self-serve in Guideline's UI."
+    ]
+  },
+  "nav": []
+}

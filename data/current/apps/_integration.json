@@ -1,0 +1,130 @@
+{
+  "appId": "_integration",
+  "appLabel": "Provisioning Integration (template)",
+  "appPath": null,
+  "appProductGate": null,
+  "_meta": {
+    "generatedBy": "phase-2-skeleton",
+    "note": "Shared template for the ~70 third-party provisioning integrations (Slack, GitHub, Salesforce, Okta, Gmail, Office365, AWS, etc.). Used by `third-party-integrations` umbrella app.",
+    "uncertainties": [
+      "Integration apps share a common nav pattern (Overview, Settings, Sync Logs, Mappings, Permissions). Not yet verified per-integration."
+    ]
+  },
+  "nav": [
+    {
+      "id": "integration-overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "integration_full_admin"
+        ],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/AppManagement/* (template)"
+    },
+    {
+      "id": "integration-settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "integration_full_admin"
+        ],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/AppManagement/* (template)"
+    },
+    {
+      "id": "integration-sync-logs",
+      "label": "Sync Logs",
+      "icon": "History",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "integration_full_admin"
+        ],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/AppManagement/* (template)"
+    },
+    {
+      "id": "integration-mappings",
+      "label": "Field Mappings",
+      "icon": "GitBranch",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "integration_full_admin"
+        ],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/AppManagement/* (template)"
+    },
+    {
+      "id": "integration-permissions",
+      "label": "Permissions",
+      "icon": "Shield",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "integration_full_admin"
+        ],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/AppManagement/* (template)"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "appId": "approvals",
+  "appLabel": "Approvals",
+  "appPath": "/approvals/dashboard",
+  "appProductGate": "CONDITIONAL_APPROVALS",
+  "_meta": {
+    "generatedBy": "phase-2L",
+    "uncertainties": [
+      "Approvals is universal — every Rippling user can be a requester or a reviewer. The four list tabs (Needs my review / My requests / Reviewed / All requests) are visible to all personas; pending counts/visibility per tab are gated by per-policy reviewer scope at runtime, not by frontend visibility.",
+      "Approval Policies tab is only shown when the company has at least one policy (shouldShowPoliciesTab). In practice this maps to admin personas (full/partial with permissions admin) but the UI gate is a data check, not a static permission.",
+      "Templates ('templates/select/:id') is wrapped in withSuperAdmin in the route file — it is reachable by full admins who can create new policies. Settings tab now redirects to /account-settings/notification (kept for backward compat), so we do not surface it as a distinct nav node."
+    ]
+  },
+  "nav": [
+    {
+      "id": "need-my-review",
+      "label": "Needs my review",
+      "icon": "Inbox",
+      "path": "/approvals/dashboard/need-my-review",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "CONDITIONAL_APPROVALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ApprovalPolicy/containers/approvalsDashboard/hooks/useGetApprovalsLinks.tsx:71"
+    },
+    {
+      "id": "my-requests",
+      "label": "My requests",
+      "icon": "FileText",
+      "path": "/approvals/dashboard/my-requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "CONDITIONAL_APPROVALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ApprovalPolicy/containers/approvalsDashboard/hooks/useGetApprovalsLinks.tsx:80"
+    },
+    {
+      "id": "reviewed",
+      "label": "Reviewed",
+      "icon": "CheckCircle",
+      "path": "/approvals/dashboard/reviewed",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "CONDITIONAL_APPROVALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ApprovalPolicy/containers/approvalsDashboard/hooks/useGetApprovalsLinks.tsx:86"
+    },
+    {
+      "id": "all-requests",
+      "label": "All requests",
+      "icon": "List",
+      "path": "/approvals/dashboard/all-requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": [],
+        "productGate": "CONDITIONAL_APPROVALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ApprovalPolicy/containers/approvalsDashboard/hooks/useGetApprovalsLinks.tsx:92"
+    },
+    {
+      "id": "policies",
+      "label": "Approval policies",
+      "icon": "Workflow",
+      "path": "/approvals/dashboard/policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["permissions"],
+        "productGate": "CONDITIONAL_APPROVALS",
+        "permissionGate": null,
+        "conditions": ["company has at least one approval policy (shouldShowPoliciesTab)"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ApprovalPolicy/containers/approvalsDashboard/hooks/useGetApprovalsLinks.tsx:98"
+    },
+    {
+      "id": "templates",
+      "label": "Templates",
+      "icon": "BookOpen",
+      "path": "/approvals/templates/select",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "CONDITIONAL_APPROVALS",
+        "permissionGate": null,
+        "conditions": ["withSuperAdmin guard"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ApprovalPolicy/routes/approvals.routes.tsx:191"
+    }
+  ]
+}

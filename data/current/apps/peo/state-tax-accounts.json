@@ -1,0 +1,34 @@
+{
+  "appId": "state-tax-accounts",
+  "appLabel": "State Tax Accounts",
+  "appPath": "/compliance/tax-accounts",
+  "appProductGate": null,
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "State Tax Accounts is a single-page grid surfaced at /compliance/tax-accounts (mounted by Compliance 360 routes via StateTaxAccountsWithFein).",
+      "Visibility: PEO/ASO clients only (clientType set, see ComplianceDashboard nav link gating). Wrapped in withFeinSelector — user picks a CompanyTaxInfo (FEIN) to view its state-level accounts.",
+      "Admin-only (compliance_admin permission) since the host route is the Compliance 360 admin dashboard.",
+      "No internal sub-navigation — single Grid component."
+    ]
+  },
+  "nav": [
+    {
+      "id": "state-tax-accounts",
+      "label": "State Tax Accounts",
+      "icon": "Landmark",
+      "path": "/compliance/tax-accounts",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["compliance", "peo"],
+        "productGate": null,
+        "permissionGate": "compliance_admin",
+        "conditions": ["clientType (PEO or ASO) is set"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Peo/components/stateTaxAccounts/StateTaxAccounts.tsx:14"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "appId": "workflows",
+  "appLabel": "Workflows",
+  "appPath": "/workflows",
+  "appProductGate": "WORKFLOWS_UTIL",
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Workflows is mounted at /custom-workflows (the modern dashboard); /workflows likely redirects there. Was renamed from 'Alerts' on 2023-03-15.",
+      "Modern v2 dashboard is gated by isDashboardV2Enabled (= hasAtLeastPartialAdminPermissions). When admin: shows nested My Workflows / All Workflows under Dashboard. When non-admin: just My Workflows.",
+      "Analytics tab gated by isAnalyticsEnabled (true for non-partners).",
+      "Tags v2 gated by isV2TagsTabEnabled (FF) AND isTagsEnabled (non-partner).",
+      "Legacy section appears only when isLegacyDashboardEnabled — it nests overview/events/actions/tags under a 'Legacy' parent. Modeling only the v2 (modern) nav below; legacy variants captured under the alerts app.",
+      "Per spec, Workflows is universal — included as full+partial+manager+ee on Dashboard since non-admins see 'My Workflows'. Variants noted via personaVariants where applicable."
+    ]
+  },
+  "nav": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "icon": "LayoutDashboard",
+      "path": "/custom-workflows/dashboard/dashboardv2",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": ["workflows"],
+        "productGate": "WORKFLOWS_UTIL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "ee": { "label": "My Workflows" },
+        "manager": { "label": "My Workflows" }
+      },
+      "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:28"
+    },
+    {
+      "id": "my-workflows",
+      "label": "My Workflows",
+      "icon": "Workflow",
+      "path": "/custom-workflows/dashboard/dashboardv2/my-workflows",
+      "parent": "dashboard",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": ["workflows"],
+        "productGate": "WORKFLOWS_UTIL",
+        "permissionGate": "isFullAdmin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:34"
+    },
+    {
+      "id": "all-workflows",
+      "label": "All Workflows",
+      "icon": "ListChecks",
+      "path": "/custom-workflows/dashboard/dashboardv2/all-workflows",
+      "parent": "dashboard",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": ["workflows"],
+        "productGate": "WORKFLOWS_UTIL",
+        "permissionGate": "isFullAdmin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:38"
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "icon": "BarChart3",
+      "path": "/custom-workflows/dashboard/analytics",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["workflows"],
+        "productGate": "WORKFLOWS_UTIL",
+        "permissionGate": null,
+        "conditions": ["isAnalyticsEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:45"
+    },
+    {
+      "id": "tags",
+      "label": "Tags",
+      "icon": "Tag",
+      "path": "/custom-workflows/dashboard/tagsv2",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["workflows"],
+        "productGate": "WORKFLOWS_UTIL",
+        "permissionGate": null,
+        "conditions": ["isTagsEnabled", "FF:isV2TagsTabEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:52"
+    }
+  ]
+}

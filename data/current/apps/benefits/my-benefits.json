@@ -1,0 +1,118 @@
+{
+  "appId": "my-benefits",
+  "appLabel": "My Benefits",
+  "appPath": "/insurance/employee/US/overview",
+  "appProductGate": "INSURANCE",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Employee-facing surface; appPath uses the US base. International overlays use a country-prefixed path under /benefits.",
+      "Settings sub-tabs are query-string driven (?section=...) — modeled as child links.",
+      "Beneficiaries link is conditional on isLifeLinePresent (employee has a life-insurance line)."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/insurance/employee/US/overview/home",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/employee/dashboard/InsuranceEmployeeNavBar.tsx:113"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/insurance/employee/US/overview/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/employee/dashboard/InsuranceEmployeeNavBar.tsx:120"
+    },
+    {
+      "id": "settings-dependents",
+      "label": "Your Dependents",
+      "icon": "Users",
+      "path": "/insurance/employee/US/overview/settings?section=dependents",
+      "parent": "settings",
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/containers/unifiedOverview/employee/common/constants.ts:62"
+    },
+    {
+      "id": "settings-beneficiaries",
+      "label": "Life Insurance Beneficiaries",
+      "icon": "HeartHandshake",
+      "path": "/insurance/employee/US/overview/settings?section=beneficiaries",
+      "parent": "settings",
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": null,
+        "conditions": ["isLifeLinePresent"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/containers/unifiedOverview/employee/common/constants.ts:67"
+    },
+    {
+      "id": "forms",
+      "label": "Forms",
+      "icon": "FileText",
+      "path": "/insurance/employee/US/overview/forms",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/employee/dashboard/InsuranceEmployeeNavBar.tsx:126"
+    },
+    {
+      "id": "materials",
+      "label": "Additional Materials",
+      "icon": "Folder",
+      "path": "/insurance/employee/US/overview/materials",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/employee/dashboard/InsuranceEmployeeNavBar.tsx:132"
+    }
+  ]
+}

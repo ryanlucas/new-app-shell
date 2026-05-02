@@ -1,0 +1,135 @@
+{
+  "appId": "my-time",
+  "appLabel": "My Time",
+  "appPath": "/time-products/dashboard/my-time",
+  "appProductGate": "TIME_PLATFORM",
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "My Time is the EE-facing root inside Time Products. Each child link is gated by a per-feature Time Products spoke flag (driven by useGetChildFeaturesSuspense(CORE_FEATURE_KEYS_MY_TIME)).",
+      "All sub-tabs are EE persona only. There is no admin variant — admins viewing this hit the same EE pages.",
+      "Title text is derived from spoke `featureName` rather than hard-coded, so display labels here use canonical titles."
+    ]
+  },
+  "nav": [
+    {
+      "id": "timeclock",
+      "label": "Clock In/Out",
+      "icon": "Timer",
+      "path": "/time-products/dashboard/my-time/timeclock",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_TIMECLOCK"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:31"
+    },
+    {
+      "id": "my-requests",
+      "label": "Requests",
+      "icon": "Inbox",
+      "path": "/time-products/dashboard/my-time/requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["feature:CORE_FEATURE_KEYS_MY_REQUESTS"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:36"
+    },
+    {
+      "id": "my-schedule",
+      "label": "My Schedule",
+      "icon": "Calendar",
+      "path": "/time-products/dashboard/my-time/schedule",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["feature:SCHEDULING_FEATURE_KEYS_MY_SCHEDULE"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:41"
+    },
+    {
+      "id": "my-timecards",
+      "label": "My Timecards",
+      "icon": "Clock",
+      "path": "/time-products/dashboard/my-time/timecards",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_MY_TIMECARDS"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:46"
+    },
+    {
+      "id": "my-attendance",
+      "label": "My Attendance",
+      "icon": "ClipboardCheck",
+      "path": "/time-products/dashboard/my-time/attendance",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["feature:SCHEDULING_FEATURE_KEYS_MY_ATTENDANCE"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:51"
+    },
+    {
+      "id": "my-time-off",
+      "label": "My Time Off",
+      "icon": "PalmTree",
+      "path": "/time-products/dashboard/my-time/time-off",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "PTO",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_MY_TIME_OFF"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:56"
+    },
+    {
+      "id": "my-settings",
+      "label": "My Settings",
+      "icon": "Settings",
+      "path": "/time-products/dashboard/my-time/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["feature:CORE_FEATURE_KEYS_MY_SETTINGS"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:61"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "personas": [
+    {
+      "id": "full",
+      "label": "Full Admin",
+      "description": "Has all company-wide admin privileges via ACL (is_full_admin / isAdmin). Treated as super-admin equivalent for navigation/admin surfacing.",
+      "source": "rippling-webapp/app/api/adminPrivileges.ts:15"
+    },
+    {
+      "id": "partial",
+      "label": "Partial Admin",
+      "description": "Has scoped admin permissions for one or more specific products. Each scope is a discrete is_*_admin flag set by the ACL/permission profile.",
+      "source": "rippling-webapp/app/api/adminPrivileges.ts:16",
+      "scopes": [
+        {
+          "id": "billing_admin",
+          "label": "Billing Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:26"
+        },
+        {
+          "id": "billing_partial_admin",
+          "label": "Billing Partial Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:27"
+        },
+        {
+          "id": "payroll_admin",
+          "label": "Payroll Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:28"
+        },
+        {
+          "id": "partial_payroll_admin",
+          "label": "Partial Payroll Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:29"
+        },
+        {
+          "id": "app_admin",
+          "label": "App Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:30"
+        },
+        {
+          "id": "hardware_admin",
+          "label": "Hardware Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:31"
+        },
+        {
+          "id": "partial_hardware_admin",
+          "label": "Partial Hardware Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:32"
+        },
+        {
+          "id": "insurance_admin",
+          "label": "Insurance Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:33"
+        },
+        {
+          "id": "partial_insurance_admin",
+          "label": "Partial Insurance Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:34"
+        },
+        {
+          "id": "benefits_settings",
+          "label": "Benefits Settings Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:35"
+        },
+        {
+          "id": "partial_benefits_settings",
+          "label": "Partial Benefits Settings Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:36"
+        },
+        {
+          "id": "pension_admin",
+          "label": "Pension Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:37"
+        },
+        {
+          "id": "spend_management_full_admin",
+          "label": "Spend Management Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:38"
+        },
+        {
+          "id": "custom_translations_admin",
+          "label": "Custom Translations Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:61"
+        },
+        {
+          "id": "group_manager_admin",
+          "label": "Group Manager Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:63"
+        },
+        {
+          "id": "security_full_admin",
+          "label": "Security Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:65"
+        },
+        {
+          "id": "partial_security_full_admin",
+          "label": "Partial Security Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:66"
+        },
+        {
+          "id": "task_inbox_admin",
+          "label": "Task Inbox Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:67"
+        },
+        {
+          "id": "company_notification_settings",
+          "label": "Company Notification Settings Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:68"
+        },
+        {
+          "id": "partial_company_notification_settings",
+          "label": "Partial Company Notification Settings Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:69"
+        },
+        {
+          "id": "job_function_admin",
+          "label": "Job Function Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:70"
+        },
+        {
+          "id": "it_home_full_admin",
+          "label": "IT Home Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:73"
+        },
+        {
+          "id": "partial_it_home_full_admin",
+          "label": "Partial IT Home Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:74"
+        },
+        {
+          "id": "it_home_device_manager",
+          "label": "IT Home Device Manager",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:75"
+        },
+        {
+          "id": "partial_it_home_device_manager",
+          "label": "Partial IT Home Device Manager",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:76"
+        },
+        {
+          "id": "it_home_app_manager",
+          "label": "IT Home App Manager",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:77"
+        },
+        {
+          "id": "partial_it_home_app_manager",
+          "label": "Partial IT Home App Manager",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:78"
+        },
+        {
+          "id": "two_fa_admin",
+          "label": "Two-FA Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:79"
+        },
+        {
+          "id": "partial_two_fa_admin",
+          "label": "Partial Two-FA Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:80"
+        },
+        {
+          "id": "travel_admin",
+          "label": "Travel Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:83"
+        },
+        {
+          "id": "partial_travel_admin",
+          "label": "Partial Travel Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:84"
+        },
+        {
+          "id": "integration_custom_integration_admin",
+          "label": "Integration Custom Integration Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:93"
+        },
+        {
+          "id": "partial_integration_custom_integration_admin",
+          "label": "Partial Integration Custom Integration Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:94"
+        },
+        {
+          "id": "integration_full_admin",
+          "label": "Integration Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:95"
+        },
+        {
+          "id": "partial_integration_full_admin",
+          "label": "Partial Integration Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:96"
+        },
+        {
+          "id": "integration_app_creator",
+          "label": "Integration App Creator",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:97"
+        },
+        {
+          "id": "partial_integration_app_creator",
+          "label": "Partial Integration App Creator",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:98"
+        },
+        {
+          "id": "unity_admin",
+          "label": "Unity Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:101"
+        },
+        {
+          "id": "partial_unity_admin",
+          "label": "Partial Unity Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:102"
+        },
+        {
+          "id": "transformations_admin",
+          "label": "Transformations Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:107"
+        },
+        {
+          "id": "partial_transformations_admin",
+          "label": "Partial Transformations Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:108"
+        },
+        {
+          "id": "transformations_creator",
+          "label": "Transformations Creator",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:109"
+        },
+        {
+          "id": "partial_transformations_creator",
+          "label": "Partial Transformations Creator",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:110"
+        },
+        {
+          "id": "api_tokens_full_admin",
+          "label": "API Tokens Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:113"
+        },
+        {
+          "id": "partial_api_tokens_full_admin",
+          "label": "Partial API Tokens Full Admin",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:114"
+        },
+        {
+          "id": "api_tokens_operator",
+          "label": "API Tokens Operator",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:115"
+        },
+        {
+          "id": "partial_api_tokens_operator",
+          "label": "Partial API Tokens Operator",
+          "source": "rippling-webapp/app/api/adminPrivileges.ts:116"
+        }
+      ]
+    },
+    {
+      "id": "manager",
+      "label": "Manager",
+      "description": "Role has at least one direct report. isManager flag is set by update_isManager() when get_direct_reports().exists() is true. Unlocks manager surfaces (approvals, performance-as-reviewer, team views).",
+      "source": "rippling-main/app/hris/models/role/role_with_company.py:977"
+    },
+    {
+      "id": "ee",
+      "label": "Employee",
+      "description": "Standard employee with self-service access. isEmployee defaults True; set to True when role transitions to HIRED state.",
+      "source": "rippling-main/app/hris/models/role/role_with_company.py:971"
+    }
+  ],
+  "_meta": {
+    "generatedBy": "phase-1C",
+    "uncertainties": [
+      "Some boolean flags on AdminPermissions (e.g. has_super_admin_with_add_edit_admins, has_any_permissions, has_permissions_privilege) are deprecated/derived rather than first-class partial-admin scopes and are excluded.",
+      "Hire/terminate (can_request_hire, etc.) and employment-data (can_read_employment_sensitive, etc.) permissions are scoped capabilities, not partial-admin product scopes; excluded from the scopes list intentionally.",
+      "is_super_admin (line 14) and is_external_admin (line 17) are core admin variants, not partial-admin product scopes; not enumerated here.",
+      "Travel sub-permissions (can_modify_travel_policies_and_settings etc., lines 85-90) and Unity creator subset (can_create_unity_app, line 103) are nested capabilities under the parent travel/unity admin scopes."
+    ]
+  }
+}

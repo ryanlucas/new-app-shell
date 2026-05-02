@@ -1,0 +1,15 @@
+{
+  "appId": "extended-access",
+  "appLabel": "Extended Access",
+  "appPath": "/extended-access",
+  "appProductGate": "EXTENDED_ACCESS",
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "Extended Access is registered as an INTERNAL/invisible app (rippling-main: app/apps/data/apps/internal/extended_access.json). It carries primary_slug 'extended-access' but `invisible: true` and is used only for billing classification (ExtendedAccessBillingInterface).",
+      "No frontend route table for /extended-access exists in rippling-webapp. There is no admin product surface; emitting nav: [] reflects the actual codebase state.",
+      "The expected nav (Active Grants, Templates, History) is not implemented. Possibly aspirational or owned by a separate product."
+    ]
+  },
+  "nav": []
+}

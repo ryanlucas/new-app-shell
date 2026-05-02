@@ -1,0 +1,82 @@
+{
+  "appId": "it-approvals",
+  "appLabel": "IT Approvals",
+  "appPath": "/it/approvals",
+  "appProductGate": "IT_MANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "ApprovalsNavBar tabs are reviewer-centric. 'My Requests' is the requester view; 'Needs Review' / 'Reviewed' / 'All Requests' are reviewer/admin views."
+    ]
+  },
+  "nav": [
+    {
+      "id": "needs-review",
+      "label": "Needs Review",
+      "icon": "Inbox",
+      "path": "/it/approvals/needs-review",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:88"
+    },
+    {
+      "id": "my-requests",
+      "label": "My Requests",
+      "icon": "User",
+      "path": "/it/approvals/my-requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:92"
+    },
+    {
+      "id": "reviewed",
+      "label": "Reviewed",
+      "icon": "CheckSquare",
+      "path": "/it/approvals/reviewed",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:96"
+    },
+    {
+      "id": "all-requests",
+      "label": "All Requests",
+      "icon": "Layers",
+      "path": "/it/approvals/all-requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:100"
+    }
+  ]
+}

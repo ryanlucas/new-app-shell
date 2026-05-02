@@ -1,0 +1,155 @@
+{
+  "appId": "timecards",
+  "appLabel": "Timecards",
+  "appPath": "/time-products/dashboard/timecards",
+  "appProductGate": "TIMEATTENDANCE",
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "Timecards is the unified Time Products entry for time-attendance admins. Tabs come from useTimecardsPageLinksSuspense (CORE_FEATURE_KEYS_TIMECARDS spoke children).",
+      "Legacy TimeTracking app paths (/time-tracking/dashboard) still exist in routes-v6/routes.tsx (Pending Approval, All Timecards, Time Entries, Reports, Settings) and most redirect into the unified product — modelled the unified L3 nav here."
+    ]
+  },
+  "nav": [
+    {
+      "id": "clocked-in",
+      "label": "Currently Clocked In",
+      "icon": "Activity",
+      "path": "/time-products/dashboard/timecards/clocked-in",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin", "time_approver"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_CLOCKED_IN"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimecardsPageLinks.ts:15"
+    },
+    {
+      "id": "timecards-review",
+      "label": "Timecards",
+      "icon": "Clock",
+      "path": "/time-products/dashboard/timecards/timecards",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin", "time_approver"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_TIMECARDS"],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "manager": {
+          "label": "My Team's Timecards"
+        }
+      },
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimecardsPageLinks.ts:19"
+    },
+    {
+      "id": "approvals",
+      "label": "Pending Approval",
+      "icon": "CheckSquare",
+      "path": "/time-products/dashboard/approvals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["time_admin", "time_approver"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:5"
+    },
+    {
+      "id": "attendance-events",
+      "label": "Attendance Events",
+      "icon": "AlertCircle",
+      "path": "/time-products/dashboard/attendance/attendance-events",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:31"
+    },
+    {
+      "id": "people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/time-products/dashboard/people/time-attendance",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:75"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "icon": "FileText",
+      "path": "/time-products/dashboard/policies/time-tracking",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:82"
+    },
+    {
+      "id": "kiosks",
+      "label": "Kiosks",
+      "icon": "Tablet",
+      "path": "/time-products/dashboard/kiosk-management",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:13"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/time-products/dashboard/settings/time-attendance",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["time_admin"],
+        "productGate": "TIMEATTENDANCE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:106"
+    }
+  ]
+}

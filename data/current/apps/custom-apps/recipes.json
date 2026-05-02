@@ -1,0 +1,15 @@
+{
+  "appId": "recipes",
+  "appLabel": "Recipes",
+  "appPath": "/recipes",
+  "appProductGate": "RECIPES",
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Recipes is rendered as a single-page dashboard (RecipeDashboard) at /recipes/dashboard with no internal sub-routing. Template/category filters are in-page state, not URL routes.",
+      "The 'expected' nav (My Recipes, Library, Marketplace, Logs, Settings) does not match the live route table — only a single dashboard route exists. Returning empty L3 nav.",
+      "Access gated to admin/partial admin via WithRecipeAdmin HOC (role.isAdmin || role.isPartialAdmin) at app/products/platform/HubPlatform/modules/RecipeApp/routes.tsx:8."
+    ]
+  },
+  "nav": []
+}

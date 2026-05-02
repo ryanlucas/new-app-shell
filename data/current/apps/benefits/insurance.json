@@ -1,0 +1,237 @@
+{
+  "appId": "insurance",
+  "appLabel": "Health Insurance",
+  "appPath": "/insurance",
+  "appProductGate": "INSURANCE",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Admin nav uses STANDALONE_SECTIONS to filter visible links by current section; flattened representation here.",
+      "Country-prefixed routes (e.g. /insurance/admin/{country}/...) are not modeled — assumes US default.",
+      "EE-facing 'My Benefits' is owned by the my-benefits app entry and is not duplicated here."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Benefits",
+      "icon": "ShieldHeart",
+      "path": "/insurance/admin/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:25"
+    },
+    {
+      "id": "overview-materials",
+      "label": "Additional Materials",
+      "icon": "FileText",
+      "path": "/insurance/admin/overview/materials",
+      "parent": "overview",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:102"
+    },
+    {
+      "id": "employees",
+      "label": "Employee Details",
+      "icon": "Users",
+      "path": "/insurance/admin/employees",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:39"
+    },
+    {
+      "id": "employees-change-report",
+      "label": "Enrollment History",
+      "icon": "History",
+      "path": "/insurance/admin/employees/change-report",
+      "parent": "employees",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:76"
+    },
+    {
+      "id": "employees-upcoming-events",
+      "label": "Upcoming Events",
+      "icon": "CalendarClock",
+      "path": "/insurance/admin/employees/upcoming-events",
+      "parent": "employees",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowUpcomingEvents"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:92"
+    },
+    {
+      "id": "employees-qle",
+      "label": "Qualifying Life Events",
+      "icon": "HeartPulse",
+      "path": "/insurance/admin/employees/qualifying-life-events",
+      "parent": "employees",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowQualifyingLifeEventsTab"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:141"
+    },
+    {
+      "id": "employees-eoi",
+      "label": "Evidence of Insurability",
+      "icon": "FileCheck",
+      "path": "/insurance/admin/employees/evidence-of-insurability",
+      "parent": "employees",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowEoiTab"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:151"
+    },
+    {
+      "id": "deductions",
+      "label": "Deductions",
+      "icon": "Receipt",
+      "path": "/insurance/admin/deductions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:84"
+    },
+    {
+      "id": "carrier-transmission",
+      "label": "Carrier Connections",
+      "icon": "Plug",
+      "path": "/insurance/admin/carrier-transmission",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowFormContact"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:110"
+    },
+    {
+      "id": "carrier-transmission-account-structure",
+      "label": "Account Structure",
+      "icon": "Network",
+      "path": "/insurance/admin/carrier-transmission/account-structure",
+      "parent": "carrier-transmission",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowFormContact"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:121"
+    },
+    {
+      "id": "carrier-transmission-sequoia",
+      "label": "Sequoia Census File",
+      "icon": "FileSpreadsheet",
+      "path": "/insurance/admin/carrier-transmission/sequoia",
+      "parent": "carrier-transmission",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowSequoiaTab"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:131"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/insurance/admin/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": ["shouldShowAdvanceSettings"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:161"
+    },
+    {
+      "id": "settings-details",
+      "label": "Company Details",
+      "icon": "Building",
+      "path": "/insurance/admin/settings/details",
+      "parent": "settings",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "INSURANCE",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:171"
+    }
+  ]
+}

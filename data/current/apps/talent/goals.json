@@ -1,0 +1,85 @@
+{
+  "appId": "goals",
+  "appLabel": "Goals",
+  "appPath": "/goals",
+  "appProductGate": "GOALS",
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Top-level Goals navbar: My Goals, All Goals, Team Goals (managers only), Goal Cycles (admin/cycle-creator/config-owner).",
+      "Team Goals depends on currentRole.isManager from app/services/user/role.",
+      "No 'Templates' or 'Reports' tabs at navbar level — those exist within the Goals app via flow setup but not as nav.",
+      "GOALS spoke handle vs gate name mismatch is plausible — verify spoke handle (likely 'Goals' or 'GoalsSpoke') if needed."
+    ]
+  },
+  "nav": [
+    {
+      "id": "my-goals",
+      "label": "My goals",
+      "icon": "Target",
+      "path": "/goals/dashboard/my-goals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "GOALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Goals/containers/DashboardWrapper.tsx:67-71"
+    },
+    {
+      "id": "all-goals",
+      "label": "All goals",
+      "icon": "List",
+      "path": "/goals/dashboard/all-goals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "GOALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Goals/containers/DashboardWrapper.tsx:72-76"
+    },
+    {
+      "id": "team-goals",
+      "label": "Team goals",
+      "icon": "Users",
+      "path": "/goals/dashboard/team-goals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": [],
+        "productGate": "GOALS",
+        "permissionGate": "currentRole.isManager",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Goals/containers/DashboardWrapper.tsx:77-83"
+    },
+    {
+      "id": "goal-cycles",
+      "label": "Goal cycles",
+      "icon": "RefreshCw",
+      "path": "/goals/dashboard/goal-cycles",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["goals"],
+        "productGate": "GOALS",
+        "permissionGate": "isGoalsAdmin OR isGoalsCycleCreator OR isGoalConfigOwner",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Goals/containers/DashboardWrapper.tsx:84-91"
+    }
+  ]
+}

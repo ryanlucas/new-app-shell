@@ -1,0 +1,15 @@
+{
+  "appId": "carta",
+  "appLabel": "Carta (Equity)",
+  "appPath": "/apps/carta-equity-management/overview",
+  "appProductGate": "CARTAV2",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Carta is a third-party equity provider integrated as a Rippling app spoke. Setup is a multi-step OAuth/data-import flow rooted at /apps/carta-equity-management/setup.",
+      "Post-install the app overlays the generic EquityManagement Overview page; deeper equity actions (modeling, issuing) live in Carta's own portal.",
+      "Modeled as a single overview page (no nav)."
+    ]
+  },
+  "nav": []
+}

@@ -1,0 +1,187 @@
+{
+  "appId": "lms",
+  "appLabel": "Learning Management",
+  "appPath": "/apps/RipplingLMS",
+  "appProductGate": "RIPPLINGLMS",
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "appPath is /apps/RipplingLMS (legacy URL); newer routes also exist at /lms/* but the navbar is bound to /apps/RipplingLMS as baseURL.",
+      "Admin tabs (Manage Learning, Settings) are gated by canViewManageCourses / canViewSettings. Modeled as full/partial.",
+      "Explore tab only appears if there are self-enrollable courses or learning paths.",
+      "Learning Paths sub-tab only appears if canAddLearningPath."
+    ]
+  },
+  "nav": [
+    {
+      "id": "my-learning",
+      "label": "My learning",
+      "icon": "GraduationCap",
+      "path": "/apps/RipplingLMS/my-courses",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:89-108"
+    },
+    {
+      "id": "my-learning-enrolled",
+      "label": "Enrolled",
+      "icon": "BookOpen",
+      "path": "/apps/RipplingLMS/my-courses/enrolled",
+      "parent": "my-learning",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:94-97"
+    },
+    {
+      "id": "my-learning-upcoming",
+      "label": "Upcoming",
+      "icon": "CalendarClock",
+      "path": "/apps/RipplingLMS/my-courses/upcoming",
+      "parent": "my-learning",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:98-101"
+    },
+    {
+      "id": "my-learning-completed",
+      "label": "Completed",
+      "icon": "CheckCircle",
+      "path": "/apps/RipplingLMS/my-courses/completed",
+      "parent": "my-learning",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:102-105"
+    },
+    {
+      "id": "explore",
+      "label": "Explore",
+      "icon": "Compass",
+      "path": "/apps/RipplingLMS/explore",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": null,
+        "conditions": ["hasSelfEnrollCourses OR hasSelfEnrollLearningPaths"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:110-115"
+    },
+    {
+      "id": "manage-learning",
+      "label": "Manage learning",
+      "icon": "BookMarked",
+      "path": "/apps/RipplingLMS/manage-learning",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["lms"],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": "lms.canViewManageCourses",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:13-36"
+    },
+    {
+      "id": "manage-learning-courses",
+      "label": "Courses",
+      "icon": "BookOpen",
+      "path": "/apps/RipplingLMS/manage-learning/courses",
+      "parent": "manage-learning",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["lms"],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": "lms.canViewManageCourses",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:18-21"
+    },
+    {
+      "id": "manage-learning-learning-paths",
+      "label": "Learning paths",
+      "icon": "Route",
+      "path": "/apps/RipplingLMS/manage-learning/learning-paths",
+      "parent": "manage-learning",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["lms"],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": "lms.canAddLearningPath",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:22-29"
+    },
+    {
+      "id": "manage-learning-employees",
+      "label": "Employees",
+      "icon": "Users",
+      "path": "/apps/RipplingLMS/manage-learning/employees",
+      "parent": "manage-learning",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["lms"],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": "lms.canViewManageCourses",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:30-33"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/apps/RipplingLMS/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["lms"],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": "lms.canViewSettings",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:38-45"
+    }
+  ]
+}

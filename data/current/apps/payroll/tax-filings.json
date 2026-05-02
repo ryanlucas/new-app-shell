@@ -1,0 +1,100 @@
+{
+  "appId": "tax-filings",
+  "appLabel": "Tax Filings",
+  "appPath": "/payroll/dashboard/taxPayments",
+  "appProductGate": "PAYROLL",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Tax Filings is not a standalone app in the codebase; it is composed of Tax Payments + Expected Notices + Tax Exemptions tabs inside Run Payroll's dashboard, plus Global Filings module for international.",
+      "Modeled as a virtual L3 nav grouping these tax-related pages."
+    ]
+  },
+  "nav": [
+    {
+      "id": "tax-payments",
+      "label": "Tax Payments",
+      "icon": "Banknote",
+      "path": "/payroll/dashboard/taxPayments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:taxPayments",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:242"
+    },
+    {
+      "id": "expected-notices",
+      "label": "Expected Notices",
+      "icon": "AlertTriangle",
+      "path": "/payroll/dashboard/expectedTaxNotices",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:expectedTaxNotices",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:176"
+    },
+    {
+      "id": "tax-exemptions",
+      "label": "Tax Exemptions",
+      "icon": "FileMinus",
+      "path": "/payroll/dashboard/taxExemptions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:taxExemptions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:198"
+    },
+    {
+      "id": "amendments",
+      "label": "Amendments",
+      "icon": "FileEdit",
+      "path": "/payroll/dashboard/amendments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:amendments",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:220"
+    },
+    {
+      "id": "documents",
+      "label": "Filing Documents",
+      "icon": "Folder",
+      "path": "/payroll/dashboard/documents",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "PAYROLL",
+        "permissionGate": "payroll:documents",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:154"
+    }
+  ]
+}

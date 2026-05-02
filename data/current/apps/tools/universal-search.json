@@ -1,0 +1,15 @@
+{
+  "appId": "universal-search",
+  "appLabel": "Search",
+  "appPath": "/search",
+  "appProductGate": "UNIVERSAL_SEARCH",
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Universal Search is primarily a global flyout/launcher invoked from the top bar — not a destination with its own L3 nav.",
+      "The only mounted route is a dashboard at PATHS.DASHBOARD that renders an AppIntegrationsGrid (admin configuration of search integrations). Not surfaced as L3 nav since the app itself is a flyout.",
+      "Returning empty L3 nav per spec."
+    ]
+  },
+  "nav": []
+}

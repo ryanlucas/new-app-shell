@@ -1,0 +1,134 @@
+{
+  "appId": "global-payroll",
+  "appLabel": "Global Payroll",
+  "appPath": "/global-payroll",
+  "appProductGate": "GLOBAL_PAYROLL",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Global Payroll route paths are deeply nested under /global-payroll/admin/* and /global-payroll/employee/*; the L3 nav approximates the top-level dashboard sections.",
+      "Mounting prefix not strictly verified — assumed '/global-payroll' based on directory naming and shell-suites context."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/global-payroll/admin/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:46"
+    },
+    {
+      "id": "run-management",
+      "label": "Run Management",
+      "icon": "PlayCircle",
+      "path": "/global-payroll/admin/run-management",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/routes-v6/runManagement/runManagement.routes.tsx:1"
+    },
+    {
+      "id": "filings",
+      "label": "Filings",
+      "icon": "FileText",
+      "path": "/global-payroll/admin/filings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/filings/filings.routes.ts:1"
+    },
+    {
+      "id": "amendments",
+      "label": "Amendments",
+      "icon": "FileEdit",
+      "path": "/global-payroll/admin/amendments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:80"
+    },
+    {
+      "id": "documents",
+      "label": "Documents",
+      "icon": "Folder",
+      "path": "/global-payroll/admin/documents",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/routes-v6/documentsProcessing/documentsProcessing.routes.tsx:1"
+    },
+    {
+      "id": "bulk-import",
+      "label": "Bulk Import",
+      "icon": "Upload",
+      "path": "/global-payroll/admin/bulk-import",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:67"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/global-payroll/admin/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["payroll"],
+        "productGate": "GLOBAL_PAYROLL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/GlobalPayroll/routes-v6/settings/settings.routes.tsx:1"
+    }
+  ]
+}

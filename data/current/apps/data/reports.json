@@ -1,0 +1,101 @@
+{
+  "appId": "reports",
+  "appLabel": "Reports",
+  "appPath": "/reports/dashboard",
+  "appProductGate": "REPORTS",
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "Reports' L3 nav is implemented as in-page tabs (DASHBOARD_TABS), not URL paths — paths are query-string-based. We expose stable kebab-case ids and approximate paths.",
+      "REPORT_PERMISSIONS tab is admin-only (full/partial); RECENT/BUILT_IN/CREATED_BY_ME/SHARED_WITH_ME are reachable by EE within their data scope.",
+      "Templates / Reports Library are surfaced via the Built-in tab; we did not find separate Scheduled Reports or Library nodes at this layer (they live inside the report viewer)."
+    ]
+  },
+  "nav": [
+    {
+      "id": "recent",
+      "label": "Recent",
+      "icon": "Clock",
+      "path": "/reports/dashboard?tab=recent",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee", "manager"],
+        "scopeForPartial": ["reports_admin"],
+        "productGate": "REPORTS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:17"
+    },
+    {
+      "id": "built-in",
+      "label": "Built-in",
+      "icon": "BookOpen",
+      "path": "/reports/dashboard?tab=built-in",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee", "manager"],
+        "scopeForPartial": ["reports_admin"],
+        "productGate": "REPORTS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:24"
+    },
+    {
+      "id": "created-by-me",
+      "label": "Created by me",
+      "icon": "User",
+      "path": "/reports/dashboard?tab=created-by-me",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee", "manager"],
+        "scopeForPartial": ["reports_admin"],
+        "productGate": "REPORTS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:31"
+    },
+    {
+      "id": "shared-with-me",
+      "label": "Shared with me",
+      "icon": "Share2",
+      "path": "/reports/dashboard?tab=shared-with-me",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee", "manager"],
+        "scopeForPartial": ["reports_admin"],
+        "productGate": "REPORTS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:38"
+    },
+    {
+      "id": "report-permissions",
+      "label": "Report Permissions",
+      "icon": "Shield",
+      "path": "/reports/dashboard?tab=report-permissions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["reports_admin"],
+        "productGate": "REPORTS",
+        "permissionGate": "report_permissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:45"
+    }
+  ]
+}

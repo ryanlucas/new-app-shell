@@ -1,0 +1,84 @@
+{
+  "appId": "compliance-360",
+  "appLabel": "Compliance 360",
+  "appPath": "/compliance",
+  "appProductGate": "AUTOMATED_COMPLIANCE",
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "Compliance 360 is admin-only - gated by isRoleComplianceDashboardAdmin (compliance_admin permission); maps to full+partial",
+      "PEO offboarding checklist nav item is conditional on PEO termination date within last 90 days",
+      "Tax accounts nav appears only when clientType (PEO) is set"
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "ShieldCheck",
+      "path": "/compliance/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["compliance"],
+        "productGate": "AUTOMATED_COMPLIANCE",
+        "permissionGate": "compliance_admin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compliance/components/complianceDashboard/ComplianceDashboard.tsx:158"
+    },
+    {
+      "id": "historical-issues",
+      "label": "Historical Issues",
+      "icon": "History",
+      "path": "/compliance/historical-issues",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["compliance"],
+        "productGate": "AUTOMATED_COMPLIANCE",
+        "permissionGate": "compliance_admin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compliance/components/complianceDashboard/ComplianceDashboard.tsx:162"
+    },
+    {
+      "id": "tax-accounts",
+      "label": "Tax Accounts",
+      "icon": "Landmark",
+      "path": "/compliance/tax-accounts",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["compliance"],
+        "productGate": "AUTOMATED_COMPLIANCE",
+        "permissionGate": "compliance_admin",
+        "conditions": ["clientType (PEO) set"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compliance/components/complianceDashboard/ComplianceDashboard.tsx:168"
+    },
+    {
+      "id": "peo-offboarding",
+      "label": "PEO Offboarding",
+      "icon": "ListChecks",
+      "path": "/compliance/peo-offboarding",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["compliance"],
+        "productGate": "AUTOMATED_COMPLIANCE",
+        "permissionGate": "compliance_admin",
+        "conditions": ["clientType set", "PEO terminationDate within last 90 days"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compliance/components/complianceDashboard/ComplianceDashboard.tsx:178"
+    }
+  ]
+}

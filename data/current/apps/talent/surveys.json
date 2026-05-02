@@ -1,0 +1,221 @@
+{
+  "appId": "surveys",
+  "appLabel": "Surveys",
+  "appPath": "/surveys",
+  "appProductGate": "PULSE",
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Pulse base path is /surveys (visible in PulseNavigationHandler redirects).",
+      "Surveys top-tab visible if SURVEY_CREATOR capability OR any surveys exist for the user (mostly admins/managers).",
+      "Templates and Question Bank gated by EMPLOYEE_SURVEYS + APP_ADMIN capabilities (full admin only).",
+      "Settings gated by EMPLOYEE_SURVEYS + APP_ADMIN."
+    ]
+  },
+  "nav": [
+    {
+      "id": "surveys",
+      "label": "Surveys",
+      "icon": "ClipboardList",
+      "path": "/surveys/dashboard/surveys",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:50-69"
+    },
+    {
+      "id": "surveys-active",
+      "label": "Active",
+      "icon": "Play",
+      "path": "/surveys/dashboard/surveys/active",
+      "parent": "surveys",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:58"
+    },
+    {
+      "id": "surveys-archived",
+      "label": "Archived",
+      "icon": "Archive",
+      "path": "/surveys/dashboard/surveys/archived",
+      "parent": "surveys",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:59"
+    },
+    {
+      "id": "surveys-draft",
+      "label": "Draft",
+      "icon": "FileEdit",
+      "path": "/surveys/dashboard/surveys/draft",
+      "parent": "surveys",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:60-66"
+    },
+    {
+      "id": "my-responses",
+      "label": "My responses",
+      "icon": "FileText",
+      "path": "/surveys/dashboard/my-responses",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "PULSE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:71-90"
+    },
+    {
+      "id": "my-responses-invited",
+      "label": "Invited",
+      "icon": "Inbox",
+      "path": "/surveys/dashboard/my-responses/invited",
+      "parent": "my-responses",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "PULSE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:87"
+    },
+    {
+      "id": "my-responses-completed",
+      "label": "Completed",
+      "icon": "CheckCircle",
+      "path": "/surveys/dashboard/my-responses/completed",
+      "parent": "my-responses",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "PULSE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:88"
+    },
+    {
+      "id": "templates",
+      "label": "Templates",
+      "icon": "LayoutTemplate",
+      "path": "/surveys/dashboard/templates",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:92-99"
+    },
+    {
+      "id": "question-bank",
+      "label": "Question bank",
+      "icon": "BookOpen",
+      "path": "/surveys/dashboard/question-bank",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:100-107"
+    },
+    {
+      "id": "question-bank-questions",
+      "label": "Questions",
+      "icon": "HelpCircle",
+      "path": "/surveys/dashboard/question-bank/questions",
+      "parent": "question-bank",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:104"
+    },
+    {
+      "id": "question-bank-topics",
+      "label": "Topics",
+      "icon": "Tag",
+      "path": "/surveys/dashboard/question-bank/topics",
+      "parent": "question-bank",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:105"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/surveys/dashboard/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["surveys"],
+        "productGate": "PULSE",
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:110-118"
+    }
+  ]
+}

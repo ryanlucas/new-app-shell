@@ -1,0 +1,422 @@
+{
+  "appId": "hris-org-management",
+  "appLabel": "Org Management",
+  "appPath": "/company-details",
+  "appProductGate": "HRIS_ORG_MANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2A",
+    "uncertainties": [
+      "Top-level surfaces span multiple base routes (company-details, org-chart, organizational-details, tracks). Tabs gated by FFs and granular permissions."
+    ]
+  },
+  "nav": [
+    {
+      "id": "company-details",
+      "label": "Company Details",
+      "icon": "Building2",
+      "path": "/company-details",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/router-v6/org.base.routes.tsx:37"
+    },
+    {
+      "id": "company-details-information",
+      "label": "Information",
+      "icon": "Info",
+      "path": "/company-details/information",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:55"
+    },
+    {
+      "id": "company-details-work-emails",
+      "label": "Work Emails",
+      "icon": "Mail",
+      "path": "/company-details/work-emails",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["WORK_EMAIL_POLICY_HIRING_FLOW"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:67"
+    },
+    {
+      "id": "company-details-work-locations",
+      "label": "Work Locations",
+      "icon": "MapPin",
+      "path": "/company-details/work-locations",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:119"
+    },
+    {
+      "id": "company-details-departments",
+      "label": "Departments",
+      "icon": "Layers",
+      "path": "/company-details/departments",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:136"
+    },
+    {
+      "id": "company-details-teams",
+      "label": "Teams",
+      "icon": "Users2",
+      "path": "/company-details/teams",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:153"
+    },
+    {
+      "id": "company-details-entities",
+      "label": "Entities",
+      "icon": "Network",
+      "path": "/company-details/entities",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["EOR_CA_FLOW"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:160"
+    },
+    {
+      "id": "company-details-levels",
+      "label": "Levels",
+      "icon": "BarChart3",
+      "path": "/company-details/levels",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:180"
+    },
+    {
+      "id": "company-details-titles",
+      "label": "Titles",
+      "icon": "BadgeCheck",
+      "path": "/company-details/titles",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:197"
+    },
+    {
+      "id": "company-details-job-dimensions",
+      "label": "Custom Org Attributes",
+      "icon": "Tags",
+      "path": "/company-details/job-dimensions",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:204"
+    },
+    {
+      "id": "company-details-business-structure",
+      "label": "Business Structure",
+      "icon": "GitBranch",
+      "path": "/company-details/business-structure",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["BUSINESS_STRUCTURE_FLAG"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:211"
+    },
+    {
+      "id": "company-details-job-templates",
+      "label": "Job Templates",
+      "icon": "FileBadge",
+      "path": "/company-details/job-templates",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:223"
+    },
+    {
+      "id": "company-details-pay-rates",
+      "label": "Pay Rates",
+      "icon": "DollarSign",
+      "path": "/company-details/pay-rates",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["PAY_RATES_AND_PIECE_RATES"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:232"
+    },
+    {
+      "id": "company-details-piece-rates",
+      "label": "Piece Rates",
+      "icon": "DollarSign",
+      "path": "/company-details/piece-rates",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["PAY_RATES_AND_PIECE_RATES"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:238"
+    },
+    {
+      "id": "company-details-business-partner",
+      "label": "Business Partners",
+      "icon": "Handshake",
+      "path": "/company-details/business-partner",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["BUSINESS_PARTNERS"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:243"
+    },
+    {
+      "id": "company-details-employment-types",
+      "label": "Employment Types",
+      "icon": "FileType",
+      "path": "/company-details/company-employment-types",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:254"
+    },
+    {
+      "id": "company-details-work-pattern",
+      "label": "Work Pattern",
+      "icon": "Calendar",
+      "path": "/company-details/work-pattern",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:264"
+    },
+    {
+      "id": "company-details-termination-reasons",
+      "label": "Termination Reasons",
+      "icon": "UserMinus",
+      "path": "/company-details/termination-reasons",
+      "parent": "company-details",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/containers/companyDetails/hooks/useCompanyDetailsNavConfig.ts:273"
+    },
+    {
+      "id": "org-chart",
+      "label": "Org Chart",
+      "icon": "GitFork",
+      "path": "/org-chart",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/router-v6/org.base.routes.tsx:17"
+    },
+    {
+      "id": "org-chart-diagram",
+      "label": "Diagram",
+      "icon": "Workflow",
+      "path": "/org-chart/diagram",
+      "parent": "org-chart",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/modules/OrgChart/containers/OrgChartRoot/OrgChartRoot.tsx:33"
+    },
+    {
+      "id": "org-chart-chart",
+      "label": "Chart",
+      "icon": "ChartNetwork",
+      "path": "/org-chart/chart",
+      "parent": "org-chart",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/modules/OrgChart/containers/OrgChartRoot/OrgChartRoot.tsx:38"
+    },
+    {
+      "id": "org-chart-settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/org-chart/settings",
+      "parent": "org-chart",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/modules/OrgChart/containers/OrgChartRoot/OrgChartRoot.tsx:52"
+    },
+    {
+      "id": "tracks",
+      "label": "Tracks",
+      "icon": "Route",
+      "path": "/tracks",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/router-v6/org.base.routes.tsx:5"
+    },
+    {
+      "id": "organizational-details",
+      "label": "Organizational Details",
+      "icon": "Building",
+      "path": "/organizational-details",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["HRIS_OM_CUSTOM_ORG_DATA"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Org/router-v6/organisationalDetails.routes.tsx:14"
+    }
+  ]
+}

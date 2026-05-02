@@ -1,0 +1,66 @@
+{
+  "appId": "procurement",
+  "appLabel": "Procurement",
+  "appPath": "/spend-management/dashboard/procurement",
+  "appProductGate": "PROCUREMENT",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Procurement is mounted inside Spend Management dashboard. Standalone procurement.routes.tsx exposes request, request_template, and purchase_order flow routes which are not nav items.",
+      "Internal request/PO/template management screens are accessed primarily via list filters within the Procurement tab."
+    ]
+  },
+  "nav": [
+    {
+      "id": "procurement",
+      "label": "Procurement",
+      "icon": "ShoppingCart",
+      "path": "/spend-management/dashboard/procurement",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "PROCUREMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
+    },
+    {
+      "id": "vendors",
+      "label": "Vendors",
+      "icon": "Building2",
+      "path": "/spend-management/dashboard/vendors",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "PROCUREMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:142"
+    },
+    {
+      "id": "procurement-settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/spend-management/settings/procurement",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "PROCUREMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1600"
+    }
+  ]
+}

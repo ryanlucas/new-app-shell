@@ -1,0 +1,33 @@
+{
+  "appId": "meetings",
+  "appLabel": "Meetings",
+  "appPath": "/meetings",
+  "appProductGate": "MEETINGS",
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Only the Recordings tab is currently visible — the codebase explicitly comments out Recorders, Insights, and Settings pending permission work (AppDashboard.tsx:27-43). Routes for those pages exist (recorders, insights, settings) but are not surfaced as nav links.",
+      "Recordings is universal — no role gating in the link list. Settings/Insights would be admin-only when enabled.",
+      "/meetings/recorded/:id is a deep-link to a call detail page, not a nav item."
+    ]
+  },
+  "nav": [
+    {
+      "id": "recordings",
+      "label": "Recordings",
+      "icon": "Video",
+      "path": "/meetings/recordings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "MEETINGS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/sales/Meetings/containers/AppDashboard.tsx:22"
+    }
+  ]
+}

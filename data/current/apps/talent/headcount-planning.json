@@ -1,0 +1,340 @@
+{
+  "appId": "headcount-planning",
+  "appLabel": "Headcount Planning",
+  "appPath": "/headcount-planning",
+  "appProductGate": "HEADCOUNT",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Manager-facing 'My Team' subtree shown only when HAS_MY_TEAM_ACCESS — modeled with persona='manager'.",
+      "Plan tab visibility differs by FF (HEADCOUNT_UNIFIED_LANDING_PAGE): collaborator vs viewer access.",
+      "Budget Planning subtree is conditional on IS_BUDGET_APP_* permissions; modeled at top level.",
+      "Plan sub-tabs are query-string driven (?section=overview|position|reporting)."
+    ]
+  },
+  "nav": [
+    {
+      "id": "my-team",
+      "label": "My Team",
+      "icon": "Users",
+      "path": "/headcount-planning/my-team",
+      "parent": null,
+      "visibility": {
+        "personas": ["manager", "full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_MY_TEAM_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:103"
+    },
+    {
+      "id": "my-team-current",
+      "label": "Current",
+      "icon": "Users",
+      "path": "/headcount-planning/my-team/current",
+      "parent": "my-team",
+      "visibility": {
+        "personas": ["manager", "full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_MY_TEAM_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:108"
+    },
+    {
+      "id": "my-team-analytics",
+      "label": "Analytics",
+      "icon": "ChartBar",
+      "path": "/headcount-planning/my-team/analytics",
+      "parent": "my-team",
+      "visibility": {
+        "personas": ["manager", "full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_MY_TEAM_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:112"
+    },
+    {
+      "id": "plans",
+      "label": "Plan",
+      "icon": "ClipboardList",
+      "path": "/headcount-planning/plans",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:124"
+    },
+    {
+      "id": "plans-overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/headcount-planning/plans?section=overview",
+      "parent": "plans",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:130"
+    },
+    {
+      "id": "plans-position",
+      "label": "Positions",
+      "icon": "Briefcase",
+      "path": "/headcount-planning/plans?section=position",
+      "parent": "plans",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:134"
+    },
+    {
+      "id": "plans-reporting",
+      "label": "Reporting",
+      "icon": "BarChart3",
+      "path": "/headcount-planning/plans?section=reporting",
+      "parent": "plans",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:138"
+    },
+    {
+      "id": "budget-planning",
+      "label": "Budget",
+      "icon": "Wallet",
+      "path": "/headcount-planning/budget-planning",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_BUDGET_APP_VIEWER",
+        "conditions": ["isHCBudgetingEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:145"
+    },
+    {
+      "id": "budget-active",
+      "label": "Active",
+      "icon": "CheckCircle",
+      "path": "/headcount-planning/budget-planning/active",
+      "parent": "budget-planning",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_ACTIVE_BUDGET_PLAN_VIEWER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:160"
+    },
+    {
+      "id": "budget-drafts",
+      "label": "Drafts",
+      "icon": "FilePen",
+      "path": "/headcount-planning/budget-planning/drafts",
+      "parent": "budget-planning",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_BUDGET_APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:168"
+    },
+    {
+      "id": "scenarios",
+      "label": "Scenarios",
+      "icon": "GitBranch",
+      "path": "/headcount-planning/scenarios",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUEST_DESK_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:198"
+    },
+    {
+      "id": "requests",
+      "label": "Approval Requests",
+      "icon": "Inbox",
+      "path": "/headcount-planning/requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUEST_DESK_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:202"
+    },
+    {
+      "id": "requests-mine",
+      "label": "My Requests",
+      "icon": "FileText",
+      "path": "/headcount-planning/requests/my-requests",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUEST_DESK_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:209"
+    },
+    {
+      "id": "requests-need-review",
+      "label": "Need My Review",
+      "icon": "ClipboardCheck",
+      "path": "/headcount-planning/requests/need-my-review",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUEST_DESK_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:213"
+    },
+    {
+      "id": "requests-reviewed",
+      "label": "Reviewed",
+      "icon": "CheckCheck",
+      "path": "/headcount-planning/requests/reviewed",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUEST_DESK_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:230"
+    },
+    {
+      "id": "requests-all",
+      "label": "All Requests",
+      "icon": "List",
+      "path": "/headcount-planning/requests/all-requests",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["headcount"],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUEST_DESK_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:243"
+    },
+    {
+      "id": "shared-scenarios",
+      "label": "Shared with Me",
+      "icon": "Share2",
+      "path": "/headcount-planning/shared-scenarios",
+      "parent": null,
+      "visibility": {
+        "personas": ["partial"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "HAS_REQUESTS_COLLABORATOR_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:251"
+    },
+    {
+      "id": "approval-policies",
+      "label": "Approval Policies",
+      "icon": "ShieldCheck",
+      "path": "/headcount-planning/approval-policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_APPROVAL_POLICY_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:256"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/headcount-planning/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": "IS_HEADCOUNT_APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/HeadcountPlanning/containers/headcountAppNavBar/HeadcountAppNavBar.tsx:263"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "appId": "my-pay",
+  "appLabel": "My Pay",
+  "appPath": "/my-pay",
+  "appProductGate": "MYPAY",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Tasks subroute may be conditionally shown only when the user has open tasks; modeled as visible by default."
+    ]
+  },
+  "nav": [
+    {
+      "id": "pay",
+      "label": "Pay",
+      "icon": "Wallet",
+      "path": "/my-pay/pay",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "MYPAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:38"
+    },
+    {
+      "id": "taxes",
+      "label": "Taxes",
+      "icon": "Percent",
+      "path": "/my-pay/taxes",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "MYPAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:60"
+    },
+    {
+      "id": "exemptions",
+      "label": "Exemptions",
+      "icon": "FileMinus",
+      "path": "/my-pay/exemptions",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "MYPAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:104"
+    },
+    {
+      "id": "bank-account",
+      "label": "Bank Account",
+      "icon": "Landmark",
+      "path": "/my-pay/bankaccount",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "MYPAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:49"
+    },
+    {
+      "id": "tasks",
+      "label": "Tasks",
+      "icon": "CheckSquare",
+      "path": "/my-pay/tasks",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "MYPAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:82"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/my-pay/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "MYPAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:71"
+    }
+  ]
+}

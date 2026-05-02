@@ -1,0 +1,31 @@
+{
+  "appId": "my-it",
+  "appLabel": "My IT",
+  "appPath": "/it/my-it",
+  "appProductGate": "IT_MANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "Currently exposes only one tab (Third-Party Apps). Likely to grow as helpdesk EE flows expand."
+    ]
+  },
+  "nav": [
+    {
+      "id": "third-party-apps",
+      "label": "Third-Party Apps",
+      "icon": "AppWindow",
+      "path": "/it/my-it/third-party-apps",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee", "manager", "full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:18"
+    }
+  ]
+}

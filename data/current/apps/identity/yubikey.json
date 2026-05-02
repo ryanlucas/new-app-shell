@@ -1,0 +1,83 @@
+{
+  "appId": "yubikey",
+  "appLabel": "YubiKey",
+  "appPath": "/yubikey",
+  "appProductGate": "YUBIKEY",
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "Yubikey has a separate admin and employee NavBar (AdminNavBar / EmployeeNavBar). EE-facing surface is /yubikey/employee/overview; admin surface is /yubikey/overview. Captured both as nav rows.",
+      "Setup, purchase, policy create/edit are flow-style routes (Flow components) — treated as actions, not L3 nav."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/yubikey/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["identity_admin"],
+        "productGate": "YUBIKEY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:20"
+    },
+    {
+      "id": "ordering-policies",
+      "label": "Ordering Policies",
+      "icon": "ClipboardList",
+      "path": "/yubikey/ordering-policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["identity_admin"],
+        "productGate": "YUBIKEY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:21"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/yubikey/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["identity_admin"],
+        "productGate": "YUBIKEY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:22"
+    },
+    {
+      "id": "employee-overview",
+      "label": "My Yubikeys",
+      "icon": "Key",
+      "path": "/yubikey/employee/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee", "manager", "full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "YUBIKEY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:25; routes/routes.tsx:147-155"
+    }
+  ]
+}

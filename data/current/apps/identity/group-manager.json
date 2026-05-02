@@ -1,0 +1,53 @@
+{
+  "appId": "group-manager",
+  "appLabel": "Groups",
+  "appPath": "/group-manager",
+  "appProductGate": "GROUP_MANAGER",
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "Group Manager mounts at /group-manager (HubPlatform/routes-v6/hubPlatformRoutes.tsx:503). Internal nav consists of Saved Groups (always) and Recommendations (conditional: has_create_permission AND (third-party integrations exist AND recommendations available)).",
+      "ROUTES constants include SETTINGS, but the routes file (groupManager.routes.tsx) does not register a settings route. Captured Settings as nav-only-when-route-exists; not emitting it.",
+      "Personas use 'partial' with 'identity_admin' scope; group permissions are gated by has_create_permission (server-driven via fetchGroupPermissions)."
+    ]
+  },
+  "nav": [
+    {
+      "id": "saved-groups",
+      "label": "Saved Groups",
+      "icon": "Users",
+      "path": "/group-manager/dashboard/saved-groups",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["identity_admin"],
+        "productGate": "GROUP_MANAGER",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/platform/HubPlatform/modules/GroupManager/containers/dashboard/Dashboard.tsx:88-93"
+    },
+    {
+      "id": "recommendations",
+      "label": "Recommendations",
+      "icon": "Sparkles",
+      "path": "/group-manager/dashboard/recommendations",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["identity_admin"],
+        "productGate": "GROUP_MANAGER",
+        "permissionGate": "has_create_permission",
+        "conditions": [
+          "has_create_permission",
+          "totalThirdPartyIntegrationsCount > 0 && recommendationsCount > 0 (or already on tab)"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/platform/HubPlatform/modules/GroupManager/containers/dashboard/Dashboard.tsx:94-106"
+    }
+  ]
+}

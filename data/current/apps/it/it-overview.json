@@ -1,0 +1,185 @@
+{
+  "appId": "it-overview",
+  "appLabel": "IT Overview",
+  "appPath": "/it/overview",
+  "appProductGate": "IT_MANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "IT Overview is a single dashboard page (metrics widgets) inside the umbrella IT app's sidebar. The 'umbrella' nav lives at /it/* and uses StandAloneNavigation (left rail). The items below are the sibling items of /it/overview rendered by that StandAloneNavigation, not internal tabs on the Overview page itself. The page content has no internal tab bar.",
+      "Items like Hardware, RPass, Device Store, My IT, Approvals, Automations, Integrations are also peer apps in the catalog — captured here because IT's umbrella surfaces them in its sidebar."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/it/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:184"
+    },
+    {
+      "id": "it-people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/it/it-people",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:194"
+    },
+    {
+      "id": "integrations",
+      "label": "Integrations",
+      "icon": "Plug",
+      "path": "/it/integrations",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:204"
+    },
+    {
+      "id": "third-party-access",
+      "label": "Third-Party Access",
+      "icon": "ShieldCheck",
+      "path": "/it/third-party-access",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:218"
+    },
+    {
+      "id": "hardware",
+      "label": "Devices",
+      "icon": "Laptop",
+      "path": "/it/hardware",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:265"
+    },
+    {
+      "id": "rpass",
+      "label": "RPass",
+      "icon": "KeyRound",
+      "path": "/it/rpass",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "RPASS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:371"
+    },
+    {
+      "id": "device-store",
+      "label": "Device Store",
+      "icon": "ShoppingCart",
+      "path": "/it/device-store",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:373"
+    },
+    {
+      "id": "approvals",
+      "label": "Approvals",
+      "icon": "CheckSquare",
+      "path": "/it/approvals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:439"
+    },
+    {
+      "id": "automations",
+      "label": "Automations",
+      "icon": "Workflow",
+      "path": "/it/automations",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin"],
+        "productGate": "IT_AUTOMATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:455"
+    },
+    {
+      "id": "my-it",
+      "label": "My IT",
+      "icon": "UserCircle",
+      "path": "/it/my-it",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee"],
+        "scopeForPartial": [],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/routes/it.routes.tsx:472"
+    }
+  ]
+}

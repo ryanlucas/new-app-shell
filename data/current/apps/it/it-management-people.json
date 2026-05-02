@@ -1,0 +1,116 @@
+{
+  "appId": "it-management-people",
+  "appLabel": "IT Management",
+  "appPath": "/it-management",
+  "appProductGate": "IT_MANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "This is the legacy /it-management dashboard with the people-centric admin tabs. Tasks tab visible only to device managers/full admins. Activity logs and policies tabs always shown."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/it-management/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:67"
+    },
+    {
+      "id": "people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/it-management/people",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:71"
+    },
+    {
+      "id": "requests",
+      "label": "Requests",
+      "icon": "Inbox",
+      "path": "/it-management/requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:75"
+    },
+    {
+      "id": "tasks",
+      "label": "Tasks",
+      "icon": "ListChecks",
+      "path": "/it-management/tasks",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": ["isITHomeFullAdmin || isITHomeDeviceManager"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:82"
+    },
+    {
+      "id": "activity-logs",
+      "label": "Activity Logs",
+      "icon": "ScrollText",
+      "path": "/it-management/activity-logs",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:93"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "icon": "FileText",
+      "path": "/it-management/policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["it_home_full_admin"],
+        "productGate": "IT_MANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:97"
+    }
+  ]
+}

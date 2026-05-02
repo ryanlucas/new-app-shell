@@ -1,0 +1,151 @@
+{
+  "appId": "travel",
+  "appLabel": "Travel",
+  "appPath": "/travel/dashboard",
+  "appProductGate": "TRAVEL",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Travel admin nav (settings, get-started) is gated by TravelPrivileges.CAN_MODIFY_POLICIES_AND_SETTINGS; bookings tab gated by CAN_VIEW_TRIP_INFORMATION.",
+      "Profile tab is EE-facing; Approvals + Bookings cross over manager/admin personas."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/travel/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:187"
+    },
+    {
+      "id": "trips",
+      "label": "Trips",
+      "icon": "Plane",
+      "path": "/travel/dashboard/trips",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:194"
+    },
+    {
+      "id": "book",
+      "label": "Book a Trip",
+      "icon": "Calendar",
+      "path": "/travel/dashboard/book",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:219"
+    },
+    {
+      "id": "approvals",
+      "label": "Approvals",
+      "icon": "CheckCircle",
+      "path": "/travel/dashboard/approvals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:303"
+    },
+    {
+      "id": "bookings",
+      "label": "Bookings",
+      "icon": "List",
+      "path": "/travel/dashboard/bookings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": "travel:CAN_VIEW_TRIP_INFORMATION",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:328"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "icon": "Shield",
+      "path": "/travel/dashboard/policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": "travel:CAN_MODIFY_POLICIES_AND_SETTINGS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:226"
+    },
+    {
+      "id": "profile",
+      "label": "Profile",
+      "icon": "User",
+      "path": "/travel/dashboard/profile",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:251"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/travel/dashboard/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["travel"],
+        "productGate": "TRAVEL",
+        "permissionGate": "travel:CAN_MODIFY_POLICIES_AND_SETTINGS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Travel/routes/travel.routes.tsx:288"
+    }
+  ]
+}

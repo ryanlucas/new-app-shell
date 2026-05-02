@@ -1,0 +1,242 @@
+{
+  "appId": "device-management",
+  "appLabel": "Devices",
+  "appPath": "/it/hardware",
+  "appProductGate": "HARDWARE",
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "Several tabs (Policies/Configurations, Software, Threats, Updates, Scripts) are gated by 'full device management tier' (DEVICE_MANAGEMENT_TIERS.FULL). Render with lock icon if tier not satisfied; clicking opens upsell modal.",
+      "Software tab has nested children: My Software, Software Library.",
+      "EE-only view (/it/hardware/employee) shows just Devices and Orders.",
+      "Tabs Activity, Settings always shown for admins."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/it/hardware/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:128"
+    },
+    {
+      "id": "devices",
+      "label": "Devices",
+      "icon": "Laptop",
+      "path": "/it/hardware/devices",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "ee": { "path": "/it/hardware/employee/devices" }
+      },
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:132"
+    },
+    {
+      "id": "people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/it/hardware/people",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:136"
+    },
+    {
+      "id": "orders",
+      "label": "Orders",
+      "icon": "ShoppingBag",
+      "path": "/it/hardware/orders",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "ee"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "ee": { "path": "/it/hardware/employee/orders" }
+      },
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:140"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "icon": "ShieldCheck",
+      "path": "/it/hardware/configurations",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:144"
+    },
+    {
+      "id": "software",
+      "label": "Software",
+      "icon": "AppWindow",
+      "path": "/it/hardware/software",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:150"
+    },
+    {
+      "id": "software-deployed",
+      "label": "My Software",
+      "icon": "Package",
+      "path": "/it/hardware/software/deployed",
+      "parent": "software",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:156"
+    },
+    {
+      "id": "software-library",
+      "label": "Software Library",
+      "icon": "Library",
+      "path": "/it/hardware/software/library",
+      "parent": "software",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:162"
+    },
+    {
+      "id": "threats",
+      "label": "Threats",
+      "icon": "AlertTriangle",
+      "path": "/it/hardware/threats",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:170"
+    },
+    {
+      "id": "updates",
+      "label": "Updates",
+      "icon": "RefreshCw",
+      "path": "/it/hardware/updates",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:176"
+    },
+    {
+      "id": "scripts",
+      "label": "Scripts",
+      "icon": "Terminal",
+      "path": "/it/hardware/scripts",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": ["fullDeviceManagementTier"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:181"
+    },
+    {
+      "id": "activity",
+      "label": "Activity",
+      "icon": "ScrollText",
+      "path": "/it/hardware/activity",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:186"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/it/hardware/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["hardware_admin"],
+        "productGate": "HARDWARE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:190"
+    }
+  ]
+}

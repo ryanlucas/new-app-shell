@@ -1,0 +1,100 @@
+{
+  "appId": "bill-pay",
+  "appLabel": "Bill Pay",
+  "appPath": "/spend-management/dashboard/bills",
+  "appProductGate": "BILL_PAY",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Bill Pay surfaces inside Spend Management with bills, vendors, and 1099 sub-tabs. Bill detail/edit flows live under /spend-management/bill/:billId and /spend-management/bill_editor.",
+      "The Bill Pay package itself (BillPay/) only exposes pages, with route mounting in SpendManagement."
+    ]
+  },
+  "nav": [
+    {
+      "id": "bills",
+      "label": "Bills",
+      "icon": "FileText",
+      "path": "/spend-management/dashboard/bills",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "BILL_PAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
+    },
+    {
+      "id": "vendors",
+      "label": "Vendors",
+      "icon": "Building2",
+      "path": "/spend-management/dashboard/vendors",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "BILL_PAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:142"
+    },
+    {
+      "id": "1099-vendors",
+      "label": "1099 Vendors",
+      "icon": "FileSpreadsheet",
+      "path": "/spend-management/dashboard/vendors/1099",
+      "parent": "vendors",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "BILL_PAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:158"
+    },
+    {
+      "id": "bill-policies",
+      "label": "Bill Policies",
+      "icon": "Shield",
+      "path": "/spend-management/dashboard/policies/bill-policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "BILL_PAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:238"
+    },
+    {
+      "id": "bill-pay-settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/spend-management/settings/bill-pay",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["spend"],
+        "productGate": "BILL_PAY",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1557"
+    }
+  ]
+}

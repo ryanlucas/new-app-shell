@@ -1,0 +1,320 @@
+{
+  "appId": "compensation-bands",
+  "appLabel": "Compensation Bands",
+  "appPath": "/compensation",
+  "appProductGate": "COMPENSATION_MANAGEMENT_APP",
+  "_meta": {
+    "generatedBy": "phase-2A",
+    "uncertainties": [
+      "Partial-access users see a 'Shared' top-level instead of 'People'/'Plans' (mutually exclusive nav)."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/compensation/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:144"
+    },
+    {
+      "id": "people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/compensation/people",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:85"
+    },
+    {
+      "id": "people-explore",
+      "label": "Explore",
+      "icon": "Search",
+      "path": "/compensation/people/explore",
+      "parent": "people",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:89"
+    },
+    {
+      "id": "people-details",
+      "label": "Full Details",
+      "icon": "Table",
+      "path": "/compensation/people/details",
+      "parent": "people",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:93"
+    },
+    {
+      "id": "people-total-compensation",
+      "label": "Total Compensation",
+      "icon": "Wallet",
+      "path": "/compensation/people/total-compensation",
+      "parent": "people",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": "APP_VIEWER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:44"
+    },
+    {
+      "id": "plans",
+      "label": "Compensation Plans",
+      "icon": "FileSpreadsheet",
+      "path": "/compensation/plans",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:103"
+    },
+    {
+      "id": "plans-active",
+      "label": "Active",
+      "icon": "CheckCircle",
+      "path": "/compensation/plans/enabled",
+      "parent": "plans",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:109"
+    },
+    {
+      "id": "plans-drafts",
+      "label": "Drafts",
+      "icon": "FilePen",
+      "path": "/compensation/plans/draft",
+      "parent": "plans",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:115"
+    },
+    {
+      "id": "plans-disabled",
+      "label": "Disabled",
+      "icon": "FileX",
+      "path": "/compensation/plans/disabled",
+      "parent": "plans",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:120"
+    },
+    {
+      "id": "benchmarking",
+      "label": "Benchmarking",
+      "icon": "ChartBar",
+      "path": "/compensation/benchmarking",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:131"
+    },
+    {
+      "id": "compensation-calculator",
+      "label": "Compensation Calculator",
+      "icon": "Calculator",
+      "path": "/compensation/compensation-calculator",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:39"
+    },
+    {
+      "id": "location-factors",
+      "label": "Pay Differentials",
+      "icon": "Globe",
+      "path": "/compensation/location-factors",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:35"
+    },
+    {
+      "id": "job-families",
+      "label": "Job Families",
+      "icon": "FolderTree",
+      "path": "/compensation/job-families",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:49"
+    },
+    {
+      "id": "job-families-items",
+      "label": "Job Families",
+      "icon": "Folder",
+      "path": "/compensation/job-families/job-family-items",
+      "parent": "job-families",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:54"
+    },
+    {
+      "id": "job-families-function",
+      "label": "Job Function",
+      "icon": "Briefcase",
+      "path": "/compensation/job-families/job-function",
+      "parent": "job-families",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["JOB_FUNCTION_GROUP"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:60"
+    },
+    {
+      "id": "job-families-people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/compensation/job-families/job-family-people",
+      "parent": "job-families",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:66"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/compensation/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:149"
+    },
+    {
+      "id": "shared",
+      "label": "Shared",
+      "icon": "Share2",
+      "path": "/compensation/shared",
+      "parent": null,
+      "visibility": {
+        "personas": ["partial"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": "APP_PARTIAL_ACCESS",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Compensation/components/CompensationAppNavigation.tsx:154"
+    }
+  ]
+}

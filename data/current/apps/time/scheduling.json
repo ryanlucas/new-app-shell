@@ -1,0 +1,203 @@
+{
+  "appId": "scheduling",
+  "appLabel": "Scheduling",
+  "appPath": "/scheduling/dashboard",
+  "appProductGate": "SCHEDULING",
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "Scheduling continues to expose its legacy /scheduling/dashboard nav alongside Unified Time Products. We model the legacy MainPage tabs since these are still rendered when capabilities indicate scheduling-specific roles.",
+      "Capabilities (isAdmin/isScheduler/isObserver) come from runtime API and not URL — modelling as personas + scopes.",
+      "'demo_scenarios' link only appears for demo companies — omitted (Rippling-internal-staff-only-ish)."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/scheduling/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin", "scheduler"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isScheduler"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:62"
+    },
+    {
+      "id": "my-time",
+      "label": "My Time",
+      "icon": "User",
+      "path": "/scheduling/dashboard/my_time",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee", "manager", "full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:hasSchedule", "feature_flag:!schedulingTimeclockEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:70"
+    },
+    {
+      "id": "schedule",
+      "label": "Schedule",
+      "icon": "Calendar",
+      "path": "/scheduling/dashboard/editor",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin", "scheduler", "scheduling_observer"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isScheduler||isAdmin||isObserver"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:78"
+    },
+    {
+      "id": "forecast-and-labor",
+      "label": "Forecast & Labor",
+      "icon": "TrendingUp",
+      "path": "/scheduling/dashboard/forecast_and_labor",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin", "scheduler", "scheduling_observer"],
+        "productGate": "FORECASTING",
+        "permissionGate": null,
+        "conditions": ["capability:hasForecasting"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:83"
+    },
+    {
+      "id": "approvals",
+      "label": "Approvals",
+      "icon": "CheckSquare",
+      "path": "/scheduling/dashboard/approvals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin", "scheduler"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isScheduler||isAdmin"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:90"
+    },
+    {
+      "id": "attendance",
+      "label": "Attendance",
+      "icon": "ClipboardCheck",
+      "path": "/scheduling/dashboard/attendance",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isAdmin", "capability:canViewAttendance"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:103"
+    },
+    {
+      "id": "policies",
+      "label": "Policies",
+      "icon": "FileText",
+      "path": "/scheduling/dashboard/policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isAdmin"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:110"
+    },
+    {
+      "id": "bulk-settings",
+      "label": "Bulk Settings",
+      "icon": "Settings",
+      "path": "/scheduling/dashboard/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isAdmin"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:115"
+    },
+    {
+      "id": "access-rules",
+      "label": "Access Rules",
+      "icon": "Lock",
+      "path": "/scheduling/dashboard/access_rules",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isAdmin"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:120"
+    },
+    {
+      "id": "data-sources",
+      "label": "Data Sources",
+      "icon": "Database",
+      "path": "/scheduling/dashboard/data_sources",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isAdmin", "capability:canViewDataSources"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/containers/MainPage/MainPage.tsx:124"
+    },
+    {
+      "id": "manage-schedules",
+      "label": "Manage Schedules",
+      "icon": "ListChecks",
+      "path": "/scheduling/manage_schedules",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["scheduling_admin"],
+        "productGate": "SCHEDULING",
+        "permissionGate": null,
+        "conditions": ["capability:isAdmin"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Scheduling/routes/scheduling.routes.tsx:539"
+    }
+  ]
+}

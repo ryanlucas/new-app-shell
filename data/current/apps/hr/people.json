@@ -1,0 +1,65 @@
+{
+  "appId": "people",
+  "appLabel": "People",
+  "appPath": "/employee-list",
+  "appProductGate": null,
+  "_meta": {
+    "generatedBy": "phase-2A",
+    "uncertainties": [
+      "Settings tab visibility is full-admin only; persona mapping inferred."
+    ]
+  },
+  "nav": [
+    {
+      "id": "list",
+      "label": "List",
+      "icon": "Users",
+      "path": "/employee-list/list",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Emp/projects/employeeListV2/people.routes.tsx:13"
+    },
+    {
+      "id": "onboarding-tracker",
+      "label": "Onboarding Tracker",
+      "icon": "ClipboardCheck",
+      "path": "/employee-list/onboarding-tracker",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Emp/projects/employeeListV2/people.routes.tsx:17"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/employee-list/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": "full-admin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Emp/projects/employeeListV2/people.routes.tsx:21"
+    }
+  ]
+}

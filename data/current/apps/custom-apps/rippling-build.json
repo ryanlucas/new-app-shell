@@ -1,0 +1,57 @@
+{
+  "appId": "rippling-build",
+  "appLabel": "Rippling Build",
+  "appPath": "/developer",
+  "appProductGate": "RIPPLING_BUILD",
+  "_meta": {
+    "generatedBy": "phase-2J",
+    "uncertainties": [
+      "Rippling Build maps to the Developer app (DEVELOPER_BASE_ROUTE = 'developer'). appPath corrected from skeleton's /build to /developer.",
+      "Top-level nav composed via developer.routes.tsx aggregating FUNCTIONS / SETTINGS / WEBHOOKS / API_TOKENS / PACKAGES navbars; each is gated by SKU/feature flags (useFunctionsSkuEnabled, useDeveloperAPITokensEnabled, etc.).",
+      "Expected items from brief (My Apps / Templates / Versions / Marketplace / Settings) only partly map; Marketplace and Templates are not present in this app — likely surfaces of AppManager (custom-apps) instead.",
+      "Personas inferred (full = developer/admin only). No EE surface."
+    ]
+  },
+  "nav": [
+    {
+      "id": "functions",
+      "label": "Functions",
+      "path": "/developer/functions",
+      "icon": "Code2",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/Developer/modules/functions/routes/navbar.routes.tsx:9-39"
+    },
+    {
+      "id": "packages",
+      "label": "Packages",
+      "path": "/developer/packages",
+      "icon": "Package",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/Developer/modules/packages/constants/routes.ts:1"
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhooks",
+      "path": "/developer/webhooks",
+      "icon": "Webhook",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/Developer/modules/webhooks/constants/routes.ts"
+    },
+    {
+      "id": "api-tokens",
+      "label": "API Tokens",
+      "path": "/developer/api-tokens",
+      "icon": "KeyRound",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/APItokens.constants.ts"
+    },
+    {
+      "id": "settings-manager",
+      "label": "Settings Manager",
+      "path": "/developer/settings",
+      "icon": "Settings",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/Developer/modules/settingsManager/constants/routes.ts"
+    }
+  ]
+}

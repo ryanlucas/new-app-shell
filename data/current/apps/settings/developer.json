@@ -1,0 +1,102 @@
+{
+  "appId": "developer",
+  "appLabel": "Developer",
+  "appPath": "/developer",
+  "appProductGate": "DEVELOPER",
+  "_meta": {
+    "generatedBy": "phase-2L",
+    "uncertainties": [
+      "Developer is admin-only and the visible nav set is computed dynamically from feature/SKU flags (useFunctionsSkuEnabled returns isFunctionsEnabled / isSettingsManagerEnabled / isWebhooksEnabled; usePackageBuilderEnabled / usePackageInstallationEnabled; useDeveloperAPITokensEnabled). The index route redirects to whichever the company has access to.",
+      "API Tokens is also exposed as a standalone app (api-tokens.json); within Developer it appears as a sub-tab when isDeveloperAPITokensEnabled is on.",
+      "Each module's BASE_ROUTE is just its segment (functions, webhooks, settings, api-tokens, packages) and the developer app is mounted at /developer/*. We use /developer/<segment> for paths.",
+      "Spec asked for API Browser/Webhooks/Logs/Documentation — Documentation is not a routed tab (it's an external link via DOCUMENTATION_LINK in the nav 'support' slot); 'Logs' and 'API Browser' do not exist as their own nodes here. The actual nav nodes are Functions / Settings manager / Webhooks / API Tokens / Packages."
+    ]
+  },
+  "nav": [
+    {
+      "id": "functions",
+      "label": "Functions",
+      "icon": "Code",
+      "path": "/developer/functions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["developer"],
+        "productGate": "DEVELOPER",
+        "permissionGate": null,
+        "conditions": ["isFunctionsEnabled (SKU)"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/Developer/modules/functions/routes/navbar.routes.tsx:8"
+    },
+    {
+      "id": "settings",
+      "label": "Settings manager",
+      "icon": "Settings",
+      "path": "/developer/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["developer"],
+        "productGate": "DEVELOPER",
+        "permissionGate": null,
+        "conditions": ["isSettingsManagerEnabled (SKU)"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/Developer/modules/settingsManager/routes/navbar.routes.tsx:9"
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhooks",
+      "icon": "Webhook",
+      "path": "/developer/webhooks",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["developer"],
+        "productGate": "DEVELOPER",
+        "permissionGate": null,
+        "conditions": ["isWebhooksEnabled (SKU)"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/Developer/modules/webhooks/routes/navbar.route.tsx:9"
+    },
+    {
+      "id": "api-tokens",
+      "label": "API tokens",
+      "icon": "KeyRound",
+      "path": "/developer/api-tokens",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["api_tokens_full_admin"],
+        "productGate": "DEVELOPER",
+        "permissionGate": null,
+        "conditions": ["isDeveloperAPITokensEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/routes/developerApiTokensNavbar.routes.tsx:7"
+    },
+    {
+      "id": "packages",
+      "label": "Packages",
+      "icon": "Package",
+      "path": "/developer/packages",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["developer"],
+        "productGate": "DEVELOPER",
+        "permissionGate": null,
+        "conditions": ["isPackageBuilderEnabled || isPackageInstallationEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/platform/Developer/modules/packages/routes/navbar.routes.tsx:5"
+    }
+  ]
+}

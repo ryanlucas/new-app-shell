@@ -1,0 +1,117 @@
+{
+  "appId": "banking-overview",
+  "appLabel": "Banking",
+  "appPath": "/banking/accounts",
+  "appProductGate": "BANKING",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Banking uses route factories (rbkRouteFactory) — top-level pages are accounts, transactions, deposit, transfers, tax-documents.",
+      "Deposit/transfer/verify-ein/authorize-vendor are flow routes (not nav items). Settings live under /spend-management/settings/banking."
+    ]
+  },
+  "nav": [
+    {
+      "id": "accounts",
+      "label": "Accounts",
+      "icon": "Landmark",
+      "path": "/banking/accounts",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["banking"],
+        "productGate": "BANKING",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Banking/routes/route-urls.ts:75"
+    },
+    {
+      "id": "transactions",
+      "label": "Transactions",
+      "icon": "ArrowLeftRight",
+      "path": "/banking/transactions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["banking"],
+        "productGate": "BANKING",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Banking/routes/route-urls.ts:81"
+    },
+    {
+      "id": "deposit",
+      "label": "Deposit",
+      "icon": "ArrowDownToLine",
+      "path": "/banking/deposit",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["banking"],
+        "productGate": "BANKING",
+        "permissionGate": "banking:OPERATOR",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Banking/routes/route-urls.ts:121"
+    },
+    {
+      "id": "new-transfer",
+      "label": "Send Transfer",
+      "icon": "Send",
+      "path": "/banking/new-transfer",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["banking"],
+        "productGate": "BANKING",
+        "permissionGate": "banking:OPERATOR",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Banking/routes/route-urls.ts:123"
+    },
+    {
+      "id": "tax-documents",
+      "label": "Tax Documents",
+      "icon": "FileText",
+      "path": "/banking/tax-documents",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["banking"],
+        "productGate": "BANKING",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Banking/routes/route-urls.ts:100"
+    },
+    {
+      "id": "banking-settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/spend-management/settings/banking",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["banking"],
+        "productGate": "BANKING",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/Banking/routes/route-urls.ts:107"
+    }
+  ]
+}

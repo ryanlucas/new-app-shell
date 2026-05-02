@@ -1,0 +1,306 @@
+{
+  "appId": "flex-benefits",
+  "appLabel": "FSA / HSA / Commuter",
+  "appPath": "/fsa-benefits/dashboard",
+  "appProductGate": "HSA",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Three sibling URL roots — /fsa-benefits, /hsa-benefits, /commuter-benefits — share the same dashboard panel structure (overview/plans/enrollments/transactions/settings).",
+      "Modeled here as one app rooted at /fsa-benefits/dashboard with sibling links to HSA/Commuter dashboards. Real users may see whichever subset is enabled.",
+      "Plan sub-tabs (current/upcoming/past/setup) are query-string driven — modeled as plans children.",
+      "Settings sub-tabs (bank-account/documents/eligibility) are panel paths."
+    ]
+  },
+  "nav": [
+    {
+      "id": "fsa-overview",
+      "label": "FSA Overview",
+      "icon": "LayoutDashboard",
+      "path": "/fsa-benefits/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:60"
+    },
+    {
+      "id": "fsa-plans",
+      "label": "FSA Plans",
+      "icon": "ClipboardList",
+      "path": "/fsa-benefits/dashboard/plans",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/base/dashboard/multiEIN/plans/navLinks.ts:7"
+    },
+    {
+      "id": "fsa-plans-current",
+      "label": "Current",
+      "icon": "CheckCircle",
+      "path": "/fsa-benefits/dashboard/plans/current",
+      "parent": "fsa-plans",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/base/dashboard/multiEIN/plans/navLinks.ts:11"
+    },
+    {
+      "id": "fsa-plans-upcoming",
+      "label": "Upcoming",
+      "icon": "CalendarClock",
+      "path": "/fsa-benefits/dashboard/plans/upcoming",
+      "parent": "fsa-plans",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/base/dashboard/multiEIN/plans/navLinks.ts:15"
+    },
+    {
+      "id": "fsa-plans-past",
+      "label": "Past",
+      "icon": "History",
+      "path": "/fsa-benefits/dashboard/plans/past",
+      "parent": "fsa-plans",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/base/dashboard/multiEIN/plans/navLinks.ts:19"
+    },
+    {
+      "id": "fsa-enrollments",
+      "label": "FSA Enrollments",
+      "icon": "Users",
+      "path": "/fsa-benefits/dashboard/enrollments",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:69"
+    },
+    {
+      "id": "fsa-transactions",
+      "label": "Transactions",
+      "icon": "Receipt",
+      "path": "/fsa-benefits/dashboard/transactions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:65"
+    },
+    {
+      "id": "fsa-documents",
+      "label": "Documents",
+      "icon": "FileText",
+      "path": "/fsa-benefits/dashboard/documents",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:71"
+    },
+    {
+      "id": "fsa-settings",
+      "label": "FSA Settings",
+      "icon": "Settings",
+      "path": "/fsa-benefits/dashboard/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:61"
+    },
+    {
+      "id": "fsa-settings-bank",
+      "label": "Bank Account",
+      "icon": "Landmark",
+      "path": "/fsa-benefits/dashboard/settings/bank-account",
+      "parent": "fsa-settings",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:62"
+    },
+    {
+      "id": "fsa-settings-eligibility",
+      "label": "Eligibility",
+      "icon": "ShieldCheck",
+      "path": "/fsa-benefits/dashboard/settings/eligibility",
+      "parent": "fsa-settings",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/FSABenefits/routes-v6/fsaBenefits.routes.constants.external.ts:64"
+    },
+    {
+      "id": "hsa-dashboard",
+      "label": "HSA Dashboard",
+      "icon": "PiggyBank",
+      "path": "/hsa-benefits/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/HSABenefits/routes-v6/hsaBenefits.routes.constants.external.ts:6"
+    },
+    {
+      "id": "hsa-plans",
+      "label": "HSA Plans",
+      "icon": "ClipboardList",
+      "path": "/hsa-benefits/dashboard/plans",
+      "parent": "hsa-dashboard",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/HSA/dashboard/multiEIN/plans"
+    },
+    {
+      "id": "hsa-enrollments",
+      "label": "HSA Enrollments",
+      "icon": "Users",
+      "path": "/hsa-benefits/dashboard/enrollments",
+      "parent": "hsa-dashboard",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/HSA/dashboard/MultiEINHSAEnrollmentsPage"
+    },
+    {
+      "id": "commuter-dashboard",
+      "label": "Commuter Dashboard",
+      "icon": "Bus",
+      "path": "/commuter-benefits/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/modules/CommuterBenefits/routes-v6/commuterBenefits.routes.constants.external.ts:6"
+    },
+    {
+      "id": "commuter-plans",
+      "label": "Commuter Plans",
+      "icon": "ClipboardList",
+      "path": "/commuter-benefits/dashboard/plans",
+      "parent": "commuter-dashboard",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/Commuter/dashboard/multiEIN/plans"
+    },
+    {
+      "id": "commuter-enrollments",
+      "label": "Commuter Enrollments",
+      "icon": "Users",
+      "path": "/commuter-benefits/dashboard/enrollments",
+      "parent": "commuter-dashboard",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["benefits"],
+        "productGate": "HSA",
+        "permissionGate": "APP_OWNER",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Benefits/Benefits-Flex/pages/Commuter/dashboard/MultiEINCommuterEnrollmentsPage"
+    }
+  ]
+}

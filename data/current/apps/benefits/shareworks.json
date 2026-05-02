@@ -1,0 +1,15 @@
+{
+  "appId": "shareworks",
+  "appLabel": "Shareworks (Equity)",
+  "appPath": "/apps/shareworks/overview",
+  "appProductGate": "SHAREWORKS",
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Shareworks is a third-party equity provider integrated as a Rippling app spoke. Once installed, it surfaces an Overview/equity-page with grants and vesting; deeper actions (issuing, modeling) happen in Shareworks' own portal.",
+      "Setup uses /apps/shareworks/* setup steps; post-setup the app overlays EquityManagement Overview at /apps/{appName}/overview.",
+      "Modeled as a single overview page (no nav)."
+    ]
+  },
+  "nav": []
+}

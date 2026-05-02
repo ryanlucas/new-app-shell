@@ -1,0 +1,82 @@
+{
+  "appId": "third-party-integrations",
+  "appLabel": "Apps (Third-Party Integrations)",
+  "appPath": "/it/integrations",
+  "appProductGate": "INTEGRATIONS",
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "This is the umbrella catalog/list-of-apps view. Each provisioning integration (Slack, GitHub, Salesforce, Okta, etc. — 70+ apps) renders the same per-app AppNavBar described in _integration.json. Do NOT generate per-app files for each integration; render against _integration.json with the appName from the catalog."
+    ]
+  },
+  "nav": [
+    {
+      "id": "all",
+      "label": "All Integrations",
+      "icon": "Layers",
+      "path": "/it/integrations/overview?tab=all",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:97"
+    },
+    {
+      "id": "connected",
+      "label": "Connected",
+      "icon": "PlugZap",
+      "path": "/it/integrations/overview?tab=connected",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:109"
+    },
+    {
+      "id": "partial-install",
+      "label": "Partial Install",
+      "icon": "Hourglass",
+      "path": "/it/integrations/overview?tab=partial",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:121"
+    },
+    {
+      "id": "disconnected",
+      "label": "Disconnected",
+      "icon": "Unplug",
+      "path": "/it/integrations/overview?tab=disconnected",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:133"
+    }
+  ]
+}

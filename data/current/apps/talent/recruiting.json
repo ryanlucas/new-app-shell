@@ -1,0 +1,680 @@
+{
+  "appId": "recruiting",
+  "appLabel": "Recruiting",
+  "appPath": "/ats",
+  "appProductGate": "ATS2",
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "ATS2 (Recruiting) and RipplingATS (rippling-ats) share the exact same /ats/* UI; they are differentiated by spoke handle (ATS2 vs RipplingATS) and minor permission gates. Treating them as identical nav structures.",
+      "EE-only surfaces (employee/my-interviews, my-referrals, internal-job-board) are gated by permissions and feature flags, not pure persona. Modeled here as ee/manager visibility.",
+      "Approval policies tab uses APPROVAL_POLICY_TYPES_VALUES; sub-tabs depend on company settings.",
+      "Lucide icons are best-effort heuristics."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/ats/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:177-221"
+    },
+    {
+      "id": "overview-new-applications",
+      "label": "New applications",
+      "icon": "Inbox",
+      "path": "/ats/overview/new-applications",
+      "parent": "overview",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:181-187"
+    },
+    {
+      "id": "overview-to-be-scheduled",
+      "label": "To be scheduled",
+      "icon": "CalendarClock",
+      "path": "/ats/overview/to-be-scheduled",
+      "parent": "overview",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:188-195"
+    },
+    {
+      "id": "overview-scheduled",
+      "label": "Scheduled interviews",
+      "icon": "CalendarCheck",
+      "path": "/ats/overview/scheduled",
+      "parent": "overview",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:196-203"
+    },
+    {
+      "id": "overview-decision-needed",
+      "label": "Decision needed",
+      "icon": "AlertCircle",
+      "path": "/ats/overview/decision-needed",
+      "parent": "overview",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:204-211"
+    },
+    {
+      "id": "overview-in-offer",
+      "label": "In offer stage",
+      "icon": "FileSignature",
+      "path": "/ats/overview/in-offer",
+      "parent": "overview",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:212-219"
+    },
+    {
+      "id": "my-interviews",
+      "label": "My interviews",
+      "icon": "Users",
+      "path": "/ats/employee",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:222-241"
+    },
+    {
+      "id": "my-interviews-current",
+      "label": "Current & upcoming",
+      "icon": "Calendar",
+      "path": "/ats/employee/my-interviews",
+      "parent": "my-interviews",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:228-231"
+    },
+    {
+      "id": "my-interviews-past",
+      "label": "Past",
+      "icon": "History",
+      "path": "/ats/employee/my-past-interviews",
+      "parent": "my-interviews",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:232-235"
+    },
+    {
+      "id": "my-interviews-feedback-quality",
+      "label": "Feedback quality",
+      "icon": "BadgeCheck",
+      "path": "/ats/employee/my-feedback-quality",
+      "parent": "my-interviews",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:236-239"
+    },
+    {
+      "id": "recordings",
+      "label": "Recordings",
+      "icon": "Video",
+      "path": "/ats/recordings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": ["shouldShowRecordings"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:243-246"
+    },
+    {
+      "id": "job-requisitions",
+      "label": "Job requisitions",
+      "icon": "Briefcase",
+      "path": "/ats/job-requisitions",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:247-269"
+    },
+    {
+      "id": "job-requisitions-open",
+      "label": "Open",
+      "icon": "DoorOpen",
+      "path": "/ats/job-requisitions/open",
+      "parent": "job-requisitions",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:88-94"
+    },
+    {
+      "id": "job-requisitions-pending-approval",
+      "label": "Pending approval",
+      "icon": "ClockAlert",
+      "path": "/ats/job-requisitions/pending-approval",
+      "parent": "job-requisitions",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:95-101"
+    },
+    {
+      "id": "job-requisitions-draft",
+      "label": "Draft",
+      "icon": "FileEdit",
+      "path": "/ats/job-requisitions/draft",
+      "parent": "job-requisitions",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:102-108"
+    },
+    {
+      "id": "job-requisitions-closed",
+      "label": "Closed",
+      "icon": "Archive",
+      "path": "/ats/job-requisitions/closed",
+      "parent": "job-requisitions",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:109-115"
+    },
+    {
+      "id": "open-headcount",
+      "label": "Open headcount",
+      "icon": "Users",
+      "path": "/ats/open-headcount",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges",
+        "conditions": ["shouldShowHeadcountPlanning", "!isMobile"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:270-274"
+    },
+    {
+      "id": "candidates",
+      "label": "Candidates",
+      "icon": "UserSearch",
+      "path": "/ats/candidates",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:275-289"
+    },
+    {
+      "id": "candidates-overview",
+      "label": "Candidates",
+      "icon": "Users",
+      "path": "/ats/candidates/overview",
+      "parent": "candidates",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:144-153"
+    },
+    {
+      "id": "candidates-applications",
+      "label": "Applications",
+      "icon": "FileText",
+      "path": "/ats/candidates/applications",
+      "parent": "candidates",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:154-161"
+    },
+    {
+      "id": "applications",
+      "label": "Applications",
+      "icon": "FileText",
+      "path": "/ats/applications",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAdminPrivileges AND !canViewCandidatesTab",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:290-294"
+    },
+    {
+      "id": "requests",
+      "label": "Requests",
+      "icon": "ClipboardList",
+      "path": "/ats/requests",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:295-317"
+    },
+    {
+      "id": "requests-my",
+      "label": "My requests",
+      "icon": "User",
+      "path": "/ats/requests/my-requests",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:240-246"
+    },
+    {
+      "id": "requests-needs-review",
+      "label": "Needs my review",
+      "icon": "Eye",
+      "path": "/ats/requests/needs-my-review",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:247-255"
+    },
+    {
+      "id": "requests-reviewed",
+      "label": "Reviewed",
+      "icon": "CheckCircle",
+      "path": "/ats/requests/reviewed",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:256-262"
+    },
+    {
+      "id": "requests-all",
+      "label": "All requests",
+      "icon": "List",
+      "path": "/ats/requests/all-requests",
+      "parent": "requests",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:263-272"
+    },
+    {
+      "id": "approval-policies",
+      "label": "Approval policies",
+      "icon": "ShieldCheck",
+      "path": "/ats/approval-policies",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:318-375"
+    },
+    {
+      "id": "approval-policies-offer-letter",
+      "label": "Offer letter",
+      "icon": "FileSignature",
+      "path": "/ats/approval-policies/offer-letter",
+      "parent": "approval-policies",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:323-326"
+    },
+    {
+      "id": "approval-policies-jr-create",
+      "label": "Job requisition create",
+      "icon": "FilePlus",
+      "path": "/ats/approval-policies/job-requisition-create",
+      "parent": "approval-policies",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:327-339"
+    },
+    {
+      "id": "approval-policies-jr-edit",
+      "label": "Job requisition edit",
+      "icon": "FileEdit",
+      "path": "/ats/approval-policies/job-requisition-edit",
+      "parent": "approval-policies",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:340-352"
+    },
+    {
+      "id": "approval-policies-decision-to-hire",
+      "label": "Decision to hire",
+      "icon": "Gavel",
+      "path": "/ats/approval-policies/decision-to-offer",
+      "parent": "approval-policies",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:353-364"
+    },
+    {
+      "id": "my-referrals",
+      "label": "My referrals",
+      "icon": "UserPlus",
+      "path": "/ats/employee/referrals",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": ["shouldShowReferrals"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:376-380"
+    },
+    {
+      "id": "internal-job-board",
+      "label": "Internal job board",
+      "icon": "ClipboardList",
+      "path": "/ats/internal-job-board",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": ["shouldShowInternalJobBoard"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:381-385"
+    },
+    {
+      "id": "candidate-surveys",
+      "label": "Candidate surveys",
+      "icon": "MessageSquare",
+      "path": "/ats/candidate-surveys",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": ["shouldShowCandidateSurvey", "!isMobile"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:386-405"
+    },
+    {
+      "id": "candidate-surveys-active",
+      "label": "Active",
+      "icon": "Play",
+      "path": "/ats/candidate-surveys/active",
+      "parent": "candidate-surveys",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:181-186"
+    },
+    {
+      "id": "candidate-surveys-archived",
+      "label": "Archived",
+      "icon": "Archive",
+      "path": "/ats/candidate-surveys/archived",
+      "parent": "candidate-surveys",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:187-193"
+    },
+    {
+      "id": "candidate-surveys-draft",
+      "label": "Draft",
+      "icon": "FileEdit",
+      "path": "/ats/candidate-surveys/draft",
+      "parent": "candidate-surveys",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "ats.hasAppAdminPermissions",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:194-200"
+    },
+    {
+      "id": "templates",
+      "label": "Templates & defaults",
+      "icon": "LayoutTemplate",
+      "path": "/ats/templates",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "appSettings.edit_settings OR edit_feedback_forms",
+        "conditions": ["!isMobile"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:406-410"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/ats/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["recruiting"],
+        "productGate": "ATS2",
+        "permissionGate": "appSettings.edit_settings",
+        "conditions": ["!isMobile"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:411-415"
+    }
+  ]
+}

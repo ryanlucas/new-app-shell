@@ -1,0 +1,100 @@
+{
+  "appId": "contractor-of-record",
+  "appLabel": "Contractor of Record",
+  "appPath": "/global-contractors-standalone",
+  "appProductGate": "GLOBAL_CONTRACTOR",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Contractor of Record (Global Contractors Standalone) shows different left-nav categories based on user privileges. Modeled is the new-experience set: dashboard, my-money, my-invoices, my-time, clients.",
+      "Some categories (MY_TIME, CLIENTS) are gated by per-user backend visibility flags from getLeftNavCategories."
+    ]
+  },
+  "nav": [
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "icon": "LayoutDashboard",
+      "path": "/global-contractors-standalone/dashboard",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee", "partial"],
+        "scopeForPartial": ["contractors"],
+        "productGate": "GLOBAL_CONTRACTOR",
+        "permissionGate": null,
+        "conditions": ["categoriesData.DASHBOARD.visible"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/GlobalContractors/routes/globalContractorsStandalone.children.routes.tsx:104"
+    },
+    {
+      "id": "my-money",
+      "label": "My Money",
+      "icon": "Wallet",
+      "path": "/global-contractors-standalone/my-money",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "GLOBAL_CONTRACTOR",
+        "permissionGate": null,
+        "conditions": ["categoriesData.MY_MONEY.visible"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/GlobalContractors/routes/globalContractorsStandalone.children.routes.tsx:130"
+    },
+    {
+      "id": "my-invoices",
+      "label": "My Invoices",
+      "icon": "FileText",
+      "path": "/global-contractors-standalone/my-invoices",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "GLOBAL_CONTRACTOR",
+        "permissionGate": null,
+        "conditions": ["categoriesData.INVOICES.visible"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/GlobalContractors/routes/globalContractorsStandalone.children.routes.tsx:134"
+    },
+    {
+      "id": "my-time",
+      "label": "My Time",
+      "icon": "Clock",
+      "path": "/global-contractors-standalone/my-time",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "GLOBAL_CONTRACTOR",
+        "permissionGate": null,
+        "conditions": ["categoriesData.MY_TIME.visible"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/GlobalContractors/routes/globalContractorsStandalone.children.routes.tsx:153"
+    },
+    {
+      "id": "clients",
+      "label": "Clients",
+      "icon": "Users",
+      "path": "/global-contractors-standalone/clients",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "GLOBAL_CONTRACTOR",
+        "permissionGate": null,
+        "conditions": ["categoriesData.CLIENTS.visible"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/GlobalContractors/routes/globalContractorsStandalone.children.routes.tsx:169"
+    }
+  ]
+}

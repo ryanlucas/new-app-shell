@@ -1,0 +1,55 @@
+{
+  "plans": [
+    {
+      "id": "full",
+      "label": "Full Suite",
+      "description": "All Rippling products purchased",
+      "ownedSuites": [
+        "hr",
+        "talent",
+        "payroll",
+        "spend",
+        "time",
+        "benefits",
+        "it",
+        "identity",
+        "data",
+        "banking",
+        "global",
+        "peo",
+        "custom-apps",
+        "tools",
+        "partner",
+        "settings"
+      ]
+    },
+    {
+      "id": "hris-only",
+      "label": "HRIS only",
+      "description": "Standalone HRIS customer — HR + reporting + integrations",
+      "ownedSuites": ["hr", "custom-apps", "data", "settings"]
+    },
+    {
+      "id": "spend-only",
+      "label": "Spend Management only (standalone)",
+      "description": "Standalone Spend customer — no HR/Payroll. Spend pillar plus banking and integrations.",
+      "ownedSuites": ["spend", "custom-apps", "banking", "settings"]
+    },
+    {
+      "id": "it-only",
+      "label": "IT only (standalone)",
+      "description": "Standalone IT customer — devices, identity, and integrations only.",
+      "ownedSuites": ["it", "identity", "custom-apps", "settings"]
+    },
+    {
+      "id": "hr-payroll-benefits",
+      "label": "HR + Payroll + Benefits",
+      "description": "Typical SMB bundle — HR, Payroll, Time, Benefits, plus reporting and integrations.",
+      "ownedSuites": ["hr", "payroll", "benefits", "time", "custom-apps", "data", "settings"]
+    }
+  ],
+  "_meta": {
+    "generatedBy": "phase-1C",
+    "note": "Plans are prototype-defined fixtures, not pulled from code. ownedSuites references suite ids defined in shell-suites.json (sibling phase-1B output). Settings is included in all plans as it covers core platform features (Permissions, Approvals, Audit Log) every company needs."
+  }
+}

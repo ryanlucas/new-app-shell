@@ -1,0 +1,16 @@
+{
+  "appId": "forecasting",
+  "appLabel": "Forecasting",
+  "appPath": "/forecasting",
+  "appProductGate": "FORECASTING",
+  "_meta": {
+    "generatedBy": "phase-2J",
+    "uncertainties": [
+      "Forecasting is a single-page home (ForecastingHome) — no persistent left/top nav; the rest of /forecasting/* paths are flow steps (setup, labor_plan_connect, objects/create, objects/upload).",
+      "Expected items (Models / Forecasts / Datasets) are not present as discrete routes; the brief noted Forecasting is newer and minimal — confirmed.",
+      "App lives under /forecasting (not /data/forecasting); skeleton appPath corrected.",
+      "Personas inferred as full only (admin/forecasting-installer)."
+    ]
+  },
+  "nav": []
+}

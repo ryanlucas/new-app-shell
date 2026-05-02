@@ -1,0 +1,100 @@
+{
+  "appId": "accounting-integrations",
+  "appLabel": "Accounting",
+  "appPath": "/accounting-integrations",
+  "appProductGate": "ACCOUNTING_INTEGRATIONS",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Accounting Integrations app dashboard mounts at /accounting-integrations/dashboard/:appName/:entityId/:entityType and exposes per-integration tabs (overview, mappings, spend-management, payroll, rippling-apps).",
+      "Display label may vary depending on the active accounting connector."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "LayoutDashboard",
+      "path": "/accounting-integrations/dashboard/overview",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["accounting"],
+        "productGate": "ACCOUNTING_INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:13"
+    },
+    {
+      "id": "mappings",
+      "label": "Mappings",
+      "icon": "GitBranch",
+      "path": "/accounting-integrations/dashboard/mappings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["accounting"],
+        "productGate": "ACCOUNTING_INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:17"
+    },
+    {
+      "id": "spend-management",
+      "label": "Spend",
+      "icon": "CreditCard",
+      "path": "/accounting-integrations/dashboard/spend-management",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["accounting"],
+        "productGate": "ACCOUNTING_INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:27"
+    },
+    {
+      "id": "payroll",
+      "label": "Payroll",
+      "icon": "Banknote",
+      "path": "/accounting-integrations/dashboard/payroll",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["accounting"],
+        "productGate": "ACCOUNTING_INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:42"
+    },
+    {
+      "id": "rippling-apps",
+      "label": "Rippling Apps",
+      "icon": "AppWindow",
+      "path": "/accounting-integrations/dashboard/rippling-apps",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["accounting"],
+        "productGate": "ACCOUNTING_INTEGRATIONS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:53"
+    }
+  ]
+}

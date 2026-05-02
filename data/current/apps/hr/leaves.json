@@ -1,0 +1,84 @@
+{
+  "appId": "leaves",
+  "appLabel": "Leaves",
+  "appPath": "/pto/leaves",
+  "appProductGate": "LEAVES",
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "The 'Leaves' app surface is a single page rendered inside PTO at /pto/leaves (also exposed via /time-products/time-off/leaves). It has no top-level app navigation — only in-page tabs (On Leave / Upcoming / Past) and a Rippling-Managed vs Tilt-Managed split when Tilt is installed.",
+      "Visibility: gated by isAdmin || isManager in PTO employee container; persona-wise this maps to full+partial+manager",
+      "The LEAVES product gate is a per-feature flag inside UnifiedTimeProducts (TIME_OFF_FEATURE_KEYS_LEAVES via canViewLeaves)"
+    ]
+  },
+  "nav": [
+    {
+      "id": "leaves",
+      "label": "Leaves",
+      "icon": "CalendarOff",
+      "path": "/pto/leaves",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["pto", "leaves"],
+        "productGate": "LEAVES",
+        "permissionGate": null,
+        "conditions": ["isAdmin || isManager", "canViewLeaves (TIME_OFF_FEATURE_KEYS_LEAVES)"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:12"
+    },
+    {
+      "id": "leaves.on-leave",
+      "label": "On Leave",
+      "icon": "UserMinus",
+      "path": "/pto/leaves#on-leave",
+      "parent": "leaves",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["pto", "leaves"],
+        "productGate": "LEAVES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:23"
+    },
+    {
+      "id": "leaves.upcoming",
+      "label": "Upcoming Leaves",
+      "icon": "CalendarPlus",
+      "path": "/pto/leaves#upcoming",
+      "parent": "leaves",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["pto", "leaves"],
+        "productGate": "LEAVES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:30"
+    },
+    {
+      "id": "leaves.past",
+      "label": "Past Leaves",
+      "icon": "History",
+      "path": "/pto/leaves#past",
+      "parent": "leaves",
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["pto", "leaves"],
+        "productGate": "LEAVES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:37"
+    }
+  ]
+}

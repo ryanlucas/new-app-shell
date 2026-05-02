@@ -1,0 +1,1110 @@
+{
+  "sidebar": {
+    "firstSection": [
+      {
+        "id": "implementation-plan",
+        "logicalId": "my-implementation",
+        "label": "My Implementation",
+        "icon": "CircleCheck",
+        "path": "/company-onboarding",
+        "parent": null,
+        "visibility": {
+          "personas": ["full"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": [
+            "hasOnboardingImplementationPlan",
+            "!isContractWaiting || creationSource==PAYROLL_FASTTRACK || creationSource==SPEND_FASTTRACK",
+            "!isTimeSelfServe"
+          ],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:158"
+      },
+      {
+        "id": "implementation-plan-peo",
+        "logicalId": "my-implementation",
+        "label": "My Implementation",
+        "icon": "CircleCheck",
+        "path": "/peo/onboarding",
+        "parent": null,
+        "visibility": {
+          "personas": ["full"],
+          "scopeForPartial": [],
+          "productGate": "peo",
+          "permissionGate": null,
+          "conditions": [
+            "company.hasPeoInvitation",
+            "!company.isContractWaiting",
+            "peoOnboardingPlan.status!=COMPLETED"
+          ],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:189"
+      },
+      {
+        "id": "home",
+        "label": "Home",
+        "icon": "Home",
+        "path": "/dashboard",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial", "manager", "ee"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": ["isLoggedIn", "!hideIconsForFastTrack"],
+          "whenUnowned": null
+        },
+        "personaVariants": {
+          "ee": { "path": "/dashboard" }
+        },
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:301"
+      },
+      {
+        "id": "hire",
+        "logicalId": "add-person",
+        "label": "Hire",
+        "icon": "UserPlus",
+        "path": "/navigate-role-hire",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": ["canRequestHire"],
+          "productGate": null,
+          "permissionGate": "canRequestHire",
+          "conditions": ["!isEmployeeView", "!isStandaloneCompany"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:117"
+      },
+      {
+        "id": "offboard",
+        "logicalId": "remove-person",
+        "label": "Offboard",
+        "icon": "UserMinus",
+        "path": "/role-terminate/complete/select",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": ["canRequestTerminate"],
+          "productGate": null,
+          "permissionGate": "canRequestTerminate",
+          "conditions": ["!isEmployeeView", "!isStandaloneCompany"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:126"
+      },
+      {
+        "id": "add-people",
+        "logicalId": "add-person",
+        "label": "Add People",
+        "icon": "UserPlus",
+        "path": "/add-people",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": ["canRequestHire"],
+          "productGate": null,
+          "permissionGate": "canRequestHire",
+          "conditions": ["!isEmployeeView", "isStandaloneCompany"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:93"
+      },
+      {
+        "id": "remove-people",
+        "logicalId": "remove-person",
+        "label": "Remove People",
+        "icon": "UserMinus",
+        "path": "/remove-people",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": ["canRequestTerminate"],
+          "productGate": null,
+          "permissionGate": "canRequestTerminate",
+          "conditions": ["!isEmployeeView", "isStandaloneCompany"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:104"
+      },
+      {
+        "id": "org-chart",
+        "label": "Org Chart",
+        "icon": "Network",
+        "path": "/org-chart",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial", "manager", "ee"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": ["isOrgChartVisible"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:321"
+      },
+      {
+        "id": "reports",
+        "label": "Reports",
+        "icon": "BarChart3",
+        "path": "/reports",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial"],
+          "scopeForPartial": ["reports_admin"],
+          "productGate": null,
+          "permissionGate": "reports.view",
+          "conditions": ["sideBarData.Reports.isTopLevelApp"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:338"
+      }
+    ],
+    "thirdSection": [
+      {
+        "id": "global-workforce",
+        "label": "Global Workforce",
+        "icon": "Globe",
+        "path": "/country-page",
+        "parent": null,
+        "visibility": {
+          "personas": ["full"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": ["!isEmployeeView", "!isITTrialCompany"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:64"
+      },
+      {
+        "id": "app-shop",
+        "label": "App Shop",
+        "icon": "LayoutGrid",
+        "path": "/app-shop",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial", "manager", "ee"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/core/components/navigation/config.ts:3"
+      },
+      {
+        "id": "help",
+        "label": "Help",
+        "icon": "CircleHelp",
+        "path": "/help",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial", "manager", "ee"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": ["!isITTrialCompany", "!isSelfServeCompanyWithoutContractSigned"],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:38"
+      },
+      {
+        "id": "referral",
+        "label": "Referral",
+        "icon": "Handshake",
+        "path": "/referral",
+        "parent": null,
+        "visibility": {
+          "personas": ["full", "partial", "manager", "ee"],
+          "scopeForPartial": [],
+          "productGate": null,
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": null
+        },
+        "personaVariants": {},
+        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:46"
+      }
+    ]
+  },
+  "topBar": [
+    {
+      "id": "rippling-logo",
+      "label": "Rippling",
+      "icon": "Sparkles",
+      "path": "/dashboard",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "ee": { "path": "/dashboard" }
+      },
+      "source": "app/appShell/components/navigation/Navigation.tsx:718"
+    },
+    {
+      "id": "app-launcher-trigger",
+      "label": "App Launcher",
+      "icon": "Menu",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isLoggedIn", "!isDashboardPage || isSmallScreen"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:735"
+    },
+    {
+      "id": "labs-branding",
+      "label": "Labs",
+      "icon": "FlaskConical",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isLabsEnabled"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:743"
+    },
+    {
+      "id": "it-trial-countdown",
+      "label": "IT Trial Countdown",
+      "icon": "Clock",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "it_trial",
+        "permissionGate": null,
+        "conditions": [
+          "isITTrial",
+          "!isSmallScreen",
+          "!isEmployeeView",
+          "!ff:hardware-revamp-it-trial"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:809"
+    },
+    {
+      "id": "search-bar",
+      "label": "Search",
+      "icon": "Search",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isSearchVisible", "!hideSectionsForFastTrack"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:819"
+    },
+    {
+      "id": "remaining-days-countdown",
+      "label": "Trial Days Remaining",
+      "icon": "CalendarClock",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [
+          "isTrialCompany",
+          "!isSmallScreen",
+          "!partnerCompanyIdAccessingClient"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:524"
+    },
+    {
+      "id": "support",
+      "label": "Support",
+      "icon": "CircleHelp",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [
+          "!isPartnerDashBoard",
+          "!hideSectionsForFastTrack",
+          "!isITTrial",
+          "!isSelfServeCompanyWithoutContractSigned"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "ee": { "label": "Support" }
+      },
+      "source": "app/appShell/components/navigation/Navigation.tsx:534"
+    },
+    {
+      "id": "accessibility-widget",
+      "label": "Accessibility",
+      "icon": "Accessibility",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["ff:webapp-audioeye-integration", "!hideSectionsForFastTrack"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:540"
+    },
+    {
+      "id": "translation-tools",
+      "label": "Translation Tools",
+      "icon": "Languages",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["canShowScreenshotTools"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:548"
+    },
+    {
+      "id": "chat-widget",
+      "label": "Chat",
+      "icon": "MessageSquare",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "rippling_chat",
+        "permissionGate": null,
+        "conditions": ["hasChatAppInstall"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:555"
+    },
+    {
+      "id": "tasks-widget",
+      "label": "Tasks",
+      "icon": "ListChecks",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [
+          "showNotificationWidgets",
+          "!isNonDRWPCPartnerCompany",
+          "!hideSectionsForFastTrack",
+          "!isSelfServeCompanyWithoutContractSigned"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:570"
+    },
+    {
+      "id": "bell-widget",
+      "label": "Notifications",
+      "icon": "Bell",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [
+          "showNotificationWidgets",
+          "!isNonDRWPCPartnerCompany",
+          "!hideSectionsForFastTrack",
+          "!isSelfServeCompanyWithoutContractSigned"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:581"
+    },
+    {
+      "id": "ai-assistant-trigger",
+      "label": "AI Assistant",
+      "icon": "Sparkles",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [
+          "ff:proj-unity-search-ai-chat-assistant",
+          "canUseChat",
+          "!isNonDRWPCPartnerCompany",
+          "!hideSectionsForFastTrack",
+          "!isSelfServeCompanyWithoutContractSigned"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:594"
+    },
+    {
+      "id": "feedback-widget",
+      "label": "Feedback",
+      "icon": "MessageCircle",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["ff:feedback-widget"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:919"
+    },
+    {
+      "id": "migration-info-bar",
+      "label": "Migration Info",
+      "icon": "Info",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isLoggedIn", "hasMigrationContext"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:907"
+    },
+    {
+      "id": "sandbox-environment-bar",
+      "label": "Sandbox Environment",
+      "icon": "TestTube",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isSandboxPreviewEnvironment || isLoggedInAs"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:696"
+    },
+    {
+      "id": "company-info-bar",
+      "label": "Company Info Bar",
+      "icon": "Building2",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isSpoofed || partnerCompanyIdAccessingClient"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:695"
+    },
+    {
+      "id": "language-switcher",
+      "label": "Language",
+      "icon": "Globe",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["shouldCompact"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:770"
+    },
+    {
+      "id": "user-menu-trigger",
+      "label": "Account Menu",
+      "icon": "CircleUser",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isLoggedIn"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:883"
+    },
+    {
+      "id": "company-logo-pip",
+      "label": "Company Logo",
+      "icon": "Building2",
+      "path": null,
+      "parent": "user-menu-trigger",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isUnitySearchEnabled", "isCompanyLogoAvailable"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/index.tsx:223"
+    },
+    {
+      "id": "company-name-display",
+      "label": "Company Name",
+      "icon": "Building2",
+      "path": null,
+      "parent": "user-menu-trigger",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isUnitySearchEnabled", "!isSmallScreen"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/index.tsx:201"
+    },
+    {
+      "id": "sign-out-compact",
+      "label": "Sign Out",
+      "icon": "LogOut",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["shouldCompact"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/Navigation.tsx:805"
+    }
+  ],
+  "userMenu": [
+    {
+      "id": "user-name-header",
+      "label": "User Name",
+      "icon": "User",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:274"
+    },
+    {
+      "id": "profile",
+      "label": "Profile",
+      "icon": "User",
+      "path": "/profile",
+      "parent": "user-name-header",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isNonDRWPCPartnerCompany", "!partnerCompanyIdAccessingClient"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:78"
+    },
+    {
+      "id": "referral-user-menu",
+      "label": "Referral",
+      "icon": "Handshake",
+      "path": "/referral",
+      "parent": "user-name-header",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [
+          "!isNonDRWPCPartnerCompany",
+          "!partnerCompanyIdAccessingClient",
+          "!hideSectionsForFastTrack"
+        ],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:82"
+    },
+    {
+      "id": "account-settings",
+      "label": "Account Settings",
+      "icon": "Settings",
+      "path": "/account-settings",
+      "parent": "user-name-header",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:86"
+    },
+    {
+      "id": "my-partner-profile",
+      "label": "My Partner Profile",
+      "icon": "Briefcase",
+      "path": "/partner/profile",
+      "parent": "user-name-header",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["isNonDRWPCPartnerCompany || partnerCompanyIdAccessingClient"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:50"
+    },
+    {
+      "id": "sign-out",
+      "label": "Sign Out",
+      "icon": "LogOut",
+      "path": null,
+      "parent": "user-name-header",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:42"
+    },
+    {
+      "id": "previous-profiles",
+      "label": "Previous Profiles",
+      "icon": "History",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["hasTerminatedProfilesInSameCompany"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/data.ts:267"
+    },
+    {
+      "id": "account-switcher",
+      "label": "Account Switcher",
+      "icon": "Users",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["accounts.length > 0", "!isPartnerAccessingClient"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/data.ts:437"
+    },
+    {
+      "id": "role-switcher-admin",
+      "label": "Admin",
+      "icon": "ShieldUser",
+      "path": null,
+      "parent": "account-switcher",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["role.isAdmin || role.isPartialAdmin"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/data.ts:53"
+    },
+    {
+      "id": "role-switcher-employee",
+      "label": "Employee",
+      "icon": "User",
+      "path": null,
+      "parent": "account-switcher",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["role.isEmployee", "role.roleState!=INIT"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/data.ts:57"
+    },
+    {
+      "id": "role-switcher-contractor",
+      "label": "Contractor",
+      "icon": "FileSignature",
+      "path": null,
+      "parent": "account-switcher",
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["role.companyEmploymentType.isContractor"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/data.ts:61"
+    },
+    {
+      "id": "legal",
+      "label": "Legal",
+      "icon": "Scale",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isITTrialCompany"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:100"
+    },
+    {
+      "id": "legal-licensing",
+      "label": "Licensing",
+      "icon": "FileText",
+      "path": "/licensing",
+      "parent": "legal",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isITTrialCompany"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:106"
+    },
+    {
+      "id": "legal-terms-of-service",
+      "label": "Terms of Service",
+      "icon": "FileText",
+      "path": "/legal",
+      "parent": "legal",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isITTrialCompany"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:111"
+    },
+    {
+      "id": "legal-accessibility-statement",
+      "label": "Accessibility Statement",
+      "icon": "Accessibility",
+      "path": "/accessibility-statement",
+      "parent": "legal",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isITTrialCompany"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/userMenu/helpers.ts:116"
+    }
+  ],
+  "appLauncher": [
+    {
+      "id": "app-launcher-first-section",
+      "label": "First Section (Mirrors Sidebar)",
+      "icon": "Menu",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/globalNavigation/index.tsx:303"
+    },
+    {
+      "id": "app-launcher-favorites",
+      "label": "Favorites",
+      "icon": "Star",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isPartnerDashBoard"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/globalNavigation/index.tsx:333"
+    },
+    {
+      "id": "app-launcher-favorites-placeholder",
+      "label": "Add Favorites",
+      "icon": "StarOff",
+      "path": null,
+      "parent": "app-launcher-favorites",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!hasFavorites", "!isSmallScreen", "!isPartnerDashBoard"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/globalNavigation/index.tsx:364"
+    },
+    {
+      "id": "app-launcher-products",
+      "label": "Products",
+      "icon": "Package",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/globalNavigation/index.tsx:323"
+    },
+    {
+      "id": "app-launcher-platform",
+      "label": "Platform",
+      "icon": "LayoutGrid",
+      "path": null,
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isPartnerDashBoard"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/globalNavigation/index.tsx:406"
+    },
+    {
+      "id": "app-launcher-custom-apps",
+      "label": "Custom Apps",
+      "icon": "PackagePlus",
+      "path": null,
+      "parent": "app-launcher-platform",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["custom_apps_admin"],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:220"
+    },
+    {
+      "id": "app-launcher-app-shop",
+      "label": "App Shop",
+      "icon": "LayoutGrid",
+      "path": "/app-shop",
+      "parent": "app-launcher-platform",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/core/components/navigation/config.ts:3"
+    },
+    {
+      "id": "app-launcher-help",
+      "label": "Help",
+      "icon": "CircleHelp",
+      "path": "/help",
+      "parent": "app-launcher-platform",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isITTrialCompany", "!isSelfServeCompanyWithoutContractSigned"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:38"
+    },
+    {
+      "id": "app-launcher-global-workforce",
+      "label": "Global Workforce",
+      "icon": "Globe",
+      "path": "/country-page",
+      "parent": "app-launcher-platform",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["!isEmployeeView", "!isITTrialCompany"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:64"
+    },
+    {
+      "id": "app-launcher-referral",
+      "label": "Referral",
+      "icon": "Handshake",
+      "path": "/referral",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/appShell/components/navigation/globalNavigation/index.tsx:458"
+    }
+  ],
+  "_meta": {
+    "generatedBy": "phase-1A",
+    "uncertainties": [
+      "Reports node: confirmed in firstSection by getSideNavConfig.ts:338 only when sideBarData entry has name 'Reports' and isTopLevelApp; the actual permissionGate / partial-admin scope is determined by the backend-driven sideBarData payload, not the frontend file. 'reports_admin' is a best-guess scopeForPartial.",
+      "Implementation Plan visibility uses admin.isSuperAdmin() || admin.isFullAdmin(); we have intentionally omitted super (Rippling-internal) from personas per instructions. Partial admins are not shown.",
+      "Hire/Offboard rely on admin.canRequestHire() / canRequestTerminate() (adminPrivileges.ts:377, 390) — partial admins with the relevant ACL grant will see them. The exact partial-admin scope name in production is the privilege string canRequestHire/canRequestTerminate; mapped to scopeForPartial values.",
+      "Add People / Remove People paths come from redirectToBaseAddPeopleFlow() / redirectToBaseRemovePeopleFlow() in app/core/utils/addOrRemovePeopleFlows; resolved paths can vary. Used '/add-people' and '/remove-people' as approximations.",
+      "Org Chart visibility (isOrgChartVisible) is determined by sideNavInfo[2] from backend; could be gated on company setting + role visibility.",
+      "Top bar widgets BELL/TASKS/CHAT/AI_ASSISTANT_TRIGGER are produced via interactiveWidgets registry (app/core/registries.ts) — actual sources are wired by separate registration modules in product code; we cite the consumer in Navigation.tsx.",
+      "Translation Tools widget visibility depends on canShowScreenshotTools state set inside TranslationTools.tsx; not a feature flag in the conventional sense.",
+      "Migration info bar is the MIGRATION_INFO_CONTAINER widget; visibility logic lives in the registered product module, not in Navigation.tsx.",
+      "Sandbox env bar combines isSandboxPreviewEnvironment() and isLoggedInAs() — actual SandboxEnvironmentNavigationBar may have additional internal conditions in its product module.",
+      "User menu Profile / Account Settings / Referral / Sign Out are universal across all 4 personas. Some persona-specific labels (admin vs employee captions) are rendered in role caption text, not as separate menu items.",
+      "Account switcher subtree (Admin/Employee/Contractor) is dynamically generated per role; entries shown depend on getAllowedAccessLevelsForRole() filtering. Treated as representative role variants.",
+      "App Launcher 'Custom Apps' subcategory is sourced from sideBarData with key 'custom_apps' and is visible to whoever is granted the custom apps category in backend ACL; scopeForPartial 'custom_apps_admin' is best-guess.",
+      "Lucide icon names are best-guess mappings of Pebble Icon.TYPES (e.g. NOTIFICATION_OUTLINE -> Bell, RIPPLING_AI_FILLED -> Sparkles, HOME_OUTLINE -> Home, GLOBE_OUTLINE -> Globe, HANDSHAKE_OUTLINE -> Handshake, PROVISION_USERS_ONBOARD_OUTLINE -> UserPlus).",
+      "RemainingDaysCountDown trial banner: source line approximated; full conditions also depend on isTrialCompany derived from companyDetails or demoExpirationData.",
+      "Labs branding visibility (isLabsEnabled) — exact condition lives inside LabsBranding component (app/appShell/components/navigation/components/LabsBranding.tsx), not verified line-by-line.",
+      "We did not include Rippling-internal Spoof/Proxy controls (CompanyInfo.tsx is_spoofed branch) or super-admin-only entries per the constraints.",
+      "Help is hidden for IT trial / self-serve no-contract companies in the third sidebar section but the Help app launcher entry mirrors the same condition; some consumers may still allow Help via /help directly."
+    ]
+  }
+}

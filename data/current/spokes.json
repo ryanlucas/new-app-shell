@@ -1,0 +1,1294 @@
+{
+  "spokes": [
+    {
+      "handle": "CUSTOMINFO",
+      "label": "Custom Info",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:705"
+    },
+    {
+      "handle": "RPASS",
+      "label": "Rippling Password Manager (RPass)",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:706"
+    },
+    {
+      "handle": "GMAIL",
+      "label": "Gmail",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:707"
+    },
+    {
+      "handle": "EXAPP",
+      "label": "External App",
+      "category": "apps",
+      "sidenavCategory": "SidenavCustomApps",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:708"
+    },
+    {
+      "handle": "SWAGUP",
+      "label": "SwagUp",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:709"
+    },
+    {
+      "handle": "CHECKLISTAPP",
+      "label": "Checklist App",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:710"
+    },
+    {
+      "handle": "PTO",
+      "label": "Time Off (PTO)",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:711"
+    },
+    {
+      "handle": "HSA",
+      "label": "HSA",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:712"
+    },
+    {
+      "handle": "EMPLOYEEHOME",
+      "label": "Employee Home",
+      "category": "platform",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:713"
+    },
+    {
+      "handle": "TEAMFEED",
+      "label": "Team Feed",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:714"
+    },
+    {
+      "handle": "PAYROLL",
+      "label": "Payroll",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:715"
+    },
+    {
+      "handle": "HARDWARE",
+      "label": "Hardware",
+      "category": "it",
+      "sidenavCategory": "SidenavITManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:716"
+    },
+    {
+      "handle": "OFFICE365",
+      "label": "Office 365",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:717"
+    },
+    {
+      "handle": "AZUREAD",
+      "label": "Azure AD",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:718"
+    },
+    {
+      "handle": "AZUREGOVCLOUD",
+      "label": "Azure Gov Cloud",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:719"
+    },
+    {
+      "handle": "BITBUCKET",
+      "label": "Bitbucket",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:720"
+    },
+    {
+      "handle": "GITLAB",
+      "label": "GitLab",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:721"
+    },
+    {
+      "handle": "GITHUB",
+      "label": "GitHub",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:722"
+    },
+    {
+      "handle": "GITHUBDATAIMPORT",
+      "label": "GitHub Data Import",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:723"
+    },
+    {
+      "handle": "HR360",
+      "label": "HR360",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:724"
+    },
+    {
+      "handle": "GOODHIRE",
+      "label": "GoodHire (Background Checks)",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:725"
+    },
+    {
+      "handle": "TIMEWORKS",
+      "label": "Timeworks",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:726"
+    },
+    {
+      "handle": "API",
+      "label": "API",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:727"
+    },
+    {
+      "handle": "INSURANCE",
+      "label": "Insurance / Benefits Administration",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:728"
+    },
+    {
+      "handle": "INTERNATIONAL_PAYROLL",
+      "label": "International Payroll",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "GLOBAL_PAYROLL",
+      "source": "rippling-main/app/hub/spoke_models.py:729"
+    },
+    {
+      "handle": "BLUEMARBLE",
+      "label": "Blue Marble (Global Payroll Partner)",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "GLOBAL_PAYROLL",
+      "source": "rippling-main/app/hub/spoke_models.py:730"
+    },
+    {
+      "handle": "GUIDELINE",
+      "label": "Guideline 401(k)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:731"
+    },
+    {
+      "handle": "CAPTAIN401",
+      "label": "Captain401 (Human Interest)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:732"
+    },
+    {
+      "handle": "SSH",
+      "label": "SSH Keys",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:733"
+    },
+    {
+      "handle": "CUSTOMSAMLSERVICE",
+      "label": "Custom SAML Service",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:734"
+    },
+    {
+      "handle": "SALESFORCE",
+      "label": "Salesforce",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:735"
+    },
+    {
+      "handle": "SALESFORCEV2",
+      "label": "Salesforce v2",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:736"
+    },
+    {
+      "handle": "BREX",
+      "label": "Brex",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:737"
+    },
+    {
+      "handle": "BREXV2",
+      "label": "Brex v2",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:738"
+    },
+    {
+      "handle": "API_TOKENS",
+      "label": "API Tokens",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:740"
+    },
+    {
+      "handle": "AWS",
+      "label": "AWS",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:741"
+    },
+    {
+      "handle": "AWS2",
+      "label": "AWS v2",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:742"
+    },
+    {
+      "handle": "AUTHENTICATIONSETTINGS",
+      "label": "Authentication Settings",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:743"
+    },
+    {
+      "handle": "NETSUITE",
+      "label": "NetSuite",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:744"
+    },
+    {
+      "handle": "VANGUARD",
+      "label": "Vanguard 401(k)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:745"
+    },
+    {
+      "handle": "ZOOMUSV2",
+      "label": "Zoom",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:746"
+    },
+    {
+      "handle": "HOMEBASEV2",
+      "label": "Homebase",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:747"
+    },
+    {
+      "handle": "PAI",
+      "label": "PAI (Professional Administrators)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:748"
+    },
+    {
+      "handle": "ALIGHT",
+      "label": "Alight",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:749"
+    },
+    {
+      "handle": "DUO",
+      "label": "Duo",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:751"
+    },
+    {
+      "handle": "FIFTEENFIVE",
+      "label": "15Five",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:752"
+    },
+    {
+      "handle": "RIPPLINGATS",
+      "label": "Rippling ATS (Recruiting)",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:753"
+    },
+    {
+      "handle": "RIPPLINGLMS",
+      "label": "Rippling LMS (Learning Management)",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:754"
+    },
+    {
+      "handle": "ATS2",
+      "label": "ATS v2",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:755"
+    },
+    {
+      "handle": "RIPPLING",
+      "label": "Rippling Core",
+      "category": "platform",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:756"
+    },
+    {
+      "handle": "ADOBE",
+      "label": "Adobe",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:757"
+    },
+    {
+      "handle": "AUTHENTICATION_SETTINGS",
+      "label": "Authentication Settings (alt)",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:758"
+    },
+    {
+      "handle": "FORMS",
+      "label": "Forms",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:759"
+    },
+    {
+      "handle": "SPENDMANAGEMENT",
+      "label": "Spend Management",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:760"
+    },
+    {
+      "handle": "SPENDMANAGEMENT_LITE_FOR_EOR",
+      "label": "Spend Management Lite (for EOR)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:761"
+    },
+    {
+      "handle": "EXPENSES",
+      "label": "Expenses",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:762"
+    },
+    {
+      "handle": "CORPORATE_CARDS",
+      "label": "Corporate Cards",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:763"
+    },
+    {
+      "handle": "CORPORATE_CARDS_US",
+      "label": "Corporate Cards (US)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:764"
+    },
+    {
+      "handle": "CORPORATE_CARDS_CA",
+      "label": "Corporate Cards (CA)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:765"
+    },
+    {
+      "handle": "CORPORATE_CARDS_IE",
+      "label": "Corporate Cards (IE)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:766"
+    },
+    {
+      "handle": "CORPORATE_CARDS_GB",
+      "label": "Corporate Cards (GB)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:767"
+    },
+    {
+      "handle": "CORPORATE_CARDS_BE",
+      "label": "Corporate Cards (BE)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:768"
+    },
+    {
+      "handle": "CORPORATE_CARDS_DK",
+      "label": "Corporate Cards (DK)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:769"
+    },
+    {
+      "handle": "CORPORATE_CARDS_ES",
+      "label": "Corporate Cards (ES)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:770"
+    },
+    {
+      "handle": "CORPORATE_CARDS_FI",
+      "label": "Corporate Cards (FI)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:771"
+    },
+    {
+      "handle": "CORPORATE_CARDS_LT",
+      "label": "Corporate Cards (LT)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:772"
+    },
+    {
+      "handle": "CORPORATE_CARDS_LV",
+      "label": "Corporate Cards (LV)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:773"
+    },
+    {
+      "handle": "CORPORATE_CARDS_NL",
+      "label": "Corporate Cards (NL)",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:774"
+    },
+    {
+      "handle": "BILL_PAY",
+      "label": "Bill Pay",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:775"
+    },
+    {
+      "handle": "BILL_PAY_PAYMENT_METHOD_FEE",
+      "label": "Bill Pay Payment Method Fee",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:776"
+    },
+    {
+      "handle": "TIMEATTENDANCE",
+      "label": "Time & Attendance",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:777"
+    },
+    {
+      "handle": "THINKHR",
+      "label": "ThinkHR",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:778"
+    },
+    {
+      "handle": "HRHELPDESKTHINKHR",
+      "label": "HR Help Desk (ThinkHR)",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:779"
+    },
+    {
+      "handle": "ADSYNC",
+      "label": "AD Sync",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:780"
+    },
+    {
+      "handle": "ALERTS",
+      "label": "Alerts",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:781"
+    },
+    {
+      "handle": "WORKFLOWS_UTIL",
+      "label": "Workflows",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:782"
+    },
+    {
+      "handle": "CONDITIONAL_APPROVALS",
+      "label": "Conditional Approvals",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:783"
+    },
+    {
+      "handle": "CONDITIONAL_APPROVALS_UTIL",
+      "label": "Conditional Approvals Util",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:784"
+    },
+    {
+      "handle": "REPORTS",
+      "label": "Reports",
+      "category": "data",
+      "sidenavCategory": "SidenavData",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:785"
+    },
+    {
+      "handle": "DROPBOX",
+      "label": "Dropbox",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:786"
+    },
+    {
+      "handle": "DOORDASH",
+      "label": "DoorDash",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:787"
+    },
+    {
+      "handle": "YUBIKEY",
+      "label": "YubiKey",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:788"
+    },
+    {
+      "handle": "VLDAP",
+      "label": "Virtual LDAP",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:790"
+    },
+    {
+      "handle": "RAMP",
+      "label": "Ramp",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:792"
+    },
+    {
+      "handle": "STATUSPAGE",
+      "label": "Statuspage",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:794"
+    },
+    {
+      "handle": "CARTAV2",
+      "label": "Carta",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:795"
+    },
+    {
+      "handle": "PULSE",
+      "label": "Pulse (Surveys)",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:796"
+    },
+    {
+      "handle": "GLOBAL_PAYROLL",
+      "label": "Global Payroll",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "GLOBAL_PAYROLL",
+      "source": "rippling-main/app/hub/spoke_models.py:797"
+    },
+    {
+      "handle": "PENSIONMANAGEMENT",
+      "label": "Pension Management",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:798"
+    },
+    {
+      "handle": "DATAMANAGER",
+      "label": "Data Manager",
+      "category": "data",
+      "sidenavCategory": "SidenavData",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:799"
+    },
+    {
+      "handle": "RECIPES",
+      "label": "Recipes",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:800"
+    },
+    {
+      "handle": "REVIEW_CYCLES",
+      "label": "Review Cycles (Performance)",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:801"
+    },
+    {
+      "handle": "GOALS",
+      "label": "Goals",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:802"
+    },
+    {
+      "handle": "ONE_ON_ONES",
+      "label": "1-on-1s",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:803"
+    },
+    {
+      "handle": "FEEDBACK",
+      "label": "Feedback",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:804"
+    },
+    {
+      "handle": "JOHNHANCOCK",
+      "label": "John Hancock 401(k)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:805"
+    },
+    {
+      "handle": "AUTOMATED_COMPLIANCE",
+      "label": "Automated Compliance",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:806"
+    },
+    {
+      "handle": "OKTA",
+      "label": "Okta",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:807"
+    },
+    {
+      "handle": "ACTIVITY_LOG",
+      "label": "Activity Log",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:808"
+    },
+    {
+      "handle": "ACCESS_REVIEWS",
+      "label": "Access Reviews",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:809"
+    },
+    {
+      "handle": "IT_MANAGEMENT",
+      "label": "IT Management",
+      "category": "it",
+      "sidenavCategory": "SidenavITManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:810"
+    },
+    {
+      "handle": "INTEGRATIONS",
+      "label": "Integrations",
+      "category": "apps",
+      "sidenavCategory": "SidenavCustomApps",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:811"
+    },
+    {
+      "handle": "ACCOUNTING_INTEGRATIONS",
+      "label": "Accounting Integrations",
+      "category": "finance",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:812"
+    },
+    {
+      "handle": "LEAVES",
+      "label": "Leaves",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:813"
+    },
+    {
+      "handle": "TILT",
+      "label": "Tilt (Leave of Absence)",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:814"
+    },
+    {
+      "handle": "TRAVEL",
+      "label": "Travel",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:815"
+    },
+    {
+      "handle": "PROCUREMENT",
+      "label": "Procurement",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:816"
+    },
+    {
+      "handle": "SCHEDULING",
+      "label": "Scheduling",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:817"
+    },
+    {
+      "handle": "VARIABLE_COMPENSATION",
+      "label": "Variable Compensation",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:819"
+    },
+    {
+      "handle": "APP_MANAGER",
+      "label": "App Manager",
+      "category": "it",
+      "sidenavCategory": "SidenavITManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:820"
+    },
+    {
+      "handle": "ELEVATE",
+      "label": "Elevate (HSA)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:822"
+    },
+    {
+      "handle": "SNOWFLAKE",
+      "label": "Snowflake (Data Warehouse Sync)",
+      "category": "data",
+      "sidenavCategory": "SidenavData",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:823"
+    },
+    {
+      "handle": "MYPAY",
+      "label": "MyPay (On-Demand Pay)",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:824"
+    },
+    {
+      "handle": "HEADCOUNT",
+      "label": "Headcount Planning",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:825"
+    },
+    {
+      "handle": "GLOBAL_CONTRACTOR",
+      "label": "Global Contractor",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "GLOBAL_PAYROLL",
+      "source": "rippling-main/app/hub/spoke_models.py:826"
+    },
+    {
+      "handle": "HIRING_AND_TERMINATION",
+      "label": "Hiring and Termination",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:828"
+    },
+    {
+      "handle": "MANUAL_USER_MANAGEMENT",
+      "label": "Manual User Management",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:829"
+    },
+    {
+      "handle": "GROUP_MANAGER",
+      "label": "Group Manager",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:830"
+    },
+    {
+      "handle": "SECURITY_MONITORING",
+      "label": "Security Monitoring",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:831"
+    },
+    {
+      "handle": "TUNE",
+      "label": "Tune",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:832"
+    },
+    {
+      "handle": "MICROSOFTACTIVEDIRECTORY",
+      "label": "Microsoft Active Directory",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:833"
+    },
+    {
+      "handle": "DERIVED_OBJECTS",
+      "label": "Derived Objects",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:834"
+    },
+    {
+      "handle": "BANKING",
+      "label": "Banking",
+      "category": "finance",
+      "sidenavCategory": "SidenavBanking",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:835"
+    },
+    {
+      "handle": "DATA_PIPELINES",
+      "label": "Data Pipelines",
+      "category": "data",
+      "sidenavCategory": "SidenavData",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:836"
+    },
+    {
+      "handle": "NOTIFICATION_CENTER",
+      "label": "Notification Center",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:837"
+    },
+    {
+      "handle": "COMPENSATION_MANAGEMENT_APP",
+      "label": "Compensation Management",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:838"
+    },
+    {
+      "handle": "MEETINGS",
+      "label": "Meetings",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:843"
+    },
+    {
+      "handle": "UNIVERSAL_SEARCH",
+      "label": "Universal Search",
+      "category": "platform",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:844"
+    },
+    {
+      "handle": "INBOX",
+      "label": "Inbox",
+      "category": "platform",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:845"
+    },
+    {
+      "handle": "DEVELOPER",
+      "label": "Developer",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:846"
+    },
+    {
+      "handle": "UNLIMITED_CUSTOM_APPS",
+      "label": "Unlimited Custom Apps",
+      "category": "apps",
+      "sidenavCategory": "SidenavCustomApps",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:847"
+    },
+    {
+      "handle": "UNLIMITED_CUSTOM_OBJECTS",
+      "label": "Unlimited Custom Objects",
+      "category": "platform",
+      "sidenavCategory": "SidenavCustomApps",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:848"
+    },
+    {
+      "handle": "RIPPLING_BUILD",
+      "label": "Rippling Build / App Studio",
+      "category": "platform",
+      "sidenavCategory": "SidenavCustomApps",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:850"
+    },
+    {
+      "handle": "RIPPLING_SOLUTION",
+      "label": "Rippling Solution",
+      "category": "platform",
+      "sidenavCategory": "SidenavCustomApps",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:851"
+    },
+    {
+      "handle": "KUDOS",
+      "label": "Kudos",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:853"
+    },
+    {
+      "handle": "SUCCESSION_PLANNING",
+      "label": "Succession Planning",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:854"
+    },
+    {
+      "handle": "PERFORMANCE_IMPROVEMENT_PLANS",
+      "label": "Performance Improvement Plans",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:855"
+    },
+    {
+      "handle": "OSHA_INCIDENT_TRACKER",
+      "label": "OSHA Incident Tracker",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:856"
+    },
+    {
+      "handle": "WORKPLACE_INCIDENT_MANAGEMENT",
+      "label": "Workplace Incident Management",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:857"
+    },
+    {
+      "handle": "TICKET_DESK",
+      "label": "Ticket Desk",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:858"
+    },
+    {
+      "handle": "SHAREWORKS",
+      "label": "Shareworks (Equity)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:859"
+    },
+    {
+      "handle": "CHAT",
+      "label": "Chat",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:860"
+    },
+    {
+      "handle": "MICROSOFTACTIVEDIRECTORYGOV",
+      "label": "Microsoft Active Directory (Gov)",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:861"
+    },
+    {
+      "handle": "FORECASTING",
+      "label": "Forecasting",
+      "category": "data",
+      "sidenavCategory": "SidenavData",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:862"
+    },
+    {
+      "handle": "CUSTOM_TRANSLATION",
+      "label": "Custom Translations",
+      "category": "platform",
+      "sidenavCategory": "SidenavSettings",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:863"
+    },
+    {
+      "handle": "TIME_PLATFORM",
+      "label": "Time Platform",
+      "category": "time",
+      "sidenavCategory": "SidenavTime",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:865"
+    },
+    {
+      "handle": "QUEUES",
+      "label": "Queues",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:866"
+    },
+    {
+      "handle": "VENDORS",
+      "label": "Vendors",
+      "category": "finance",
+      "sidenavCategory": "SidenavSpendManagement",
+      "crossSellCategory": "FINANCE",
+      "source": "rippling-main/app/hub/spoke_models.py:867"
+    },
+    {
+      "handle": "SLACK",
+      "label": "Slack",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:868"
+    },
+    {
+      "handle": "REMOTE_ACCESS_TEAMVIEWER",
+      "label": "Remote Access (TeamViewer)",
+      "category": "it",
+      "sidenavCategory": "SidenavITManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:869"
+    },
+    {
+      "handle": "REMOTE_ACCESS_SPLASHTOP",
+      "label": "Remote Access (Splashtop)",
+      "category": "it",
+      "sidenavCategory": "SidenavITManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:870"
+    },
+    {
+      "handle": "HRIS_ORG_MANAGEMENT",
+      "label": "HRIS Org Management",
+      "category": "hr",
+      "sidenavCategory": "SidenavHrManagement",
+      "crossSellCategory": "HR",
+      "source": "rippling-main/app/hub/spoke_models.py:871"
+    },
+    {
+      "handle": "STANDARD_GP",
+      "label": "Standard Global Payroll",
+      "category": "payroll",
+      "sidenavCategory": "SidenavFinance",
+      "crossSellCategory": "GLOBAL_PAYROLL",
+      "source": "rippling-main/app/hub/spoke_models.py:872"
+    },
+    {
+      "handle": "BOOKING",
+      "label": "Booking",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:873"
+    },
+    {
+      "handle": "ETRADE",
+      "label": "E*TRADE (Equity)",
+      "category": "benefits",
+      "sidenavCategory": "SidenavInsuranceAndBenefits",
+      "crossSellCategory": "BENEFITS",
+      "source": "rippling-main/app/hub/spoke_models.py:874"
+    },
+    {
+      "handle": "IT_AUTOMATIONS",
+      "label": "IT Automations",
+      "category": "it",
+      "sidenavCategory": "SidenavITManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:876"
+    },
+    {
+      "handle": "GREENHOUSE",
+      "label": "Greenhouse",
+      "category": "talent",
+      "sidenavCategory": "SidenavTalent",
+      "crossSellCategory": "TALENT",
+      "source": "rippling-main/app/hub/spoke_models.py:877"
+    },
+    {
+      "handle": "JIRA",
+      "label": "Jira",
+      "category": "apps",
+      "sidenavCategory": null,
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:878"
+    },
+    {
+      "handle": "RIPPLING_INTELLIGENCE",
+      "label": "Rippling Intelligence (AI)",
+      "category": "platform",
+      "sidenavCategory": "SidenavTools",
+      "crossSellCategory": null,
+      "source": "rippling-main/app/hub/spoke_models.py:879"
+    },
+    {
+      "handle": "USER_MANAGEMENT",
+      "label": "User Management",
+      "category": "identity",
+      "sidenavCategory": "SidenavIdentityManagement",
+      "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
+      "source": "rippling-main/app/hub/spoke_models.py:880"
+    }
+  ],
+  "_meta": {
+    "generatedBy": "phase-1C",
+    "uncertainties": [
+      "Some categorizations are inferred from handle name semantics — the spoke_models.py enum itself does not declare sidenav/cross-sell category. Sidenav categories are sourced from rippling-webapp/app/products/webPlatform/SuperUser/components/CrossSell/V2/Modules/CampaignContent/components/CampaignFormFields/InProductFields/InProductFields.app.constants.ts:11-25.",
+      "Cross-sell category constants come from rippling-main/app/cross_sell/constants.py:152-158 (CampaignProductTypeChoices: HR, BENEFITS, TALENT, FINANCE, GLOBAL_PAYROLL, IT_APPLICATION_AND_DEVICE_MANAGEMENT).",
+      "Skipped Rippling-internal-staff-only spoke handles: SENSITIVE_STAFF_USERS (line 789), EXTENDED_ACCESS (line 791), SPOOF_ACCESS_MANAGEMENT (line 793), IMPLEMENTATION (line 750), BUSINESS_PARTNER (line 739), CUSTOMER_SANDBOX (line 818), PARTNER (line 821), DUMMY_UNITY_ADMIN (line 827), DUMMY_FUNCTIONS (line 840), DUMMY_SETTINGS_MANAGER (line 841), DUMMY_WEBHOOK (line 842), LOG_IN_AS (line 839), TIME_PRODUCTS (line 864, marked deprecated), IT_HELPDESK (line 875, marked deprecated).",
+      "EMPLOYEEHOME, RIPPLING, INBOX, UNIVERSAL_SEARCH are platform-wide (no specific sidenav category).",
+      "Apps-style integrations (Salesforce, Slack, Office365, AWS, GitHub, etc.) live in the Apps catalog rather than a sidenav — set sidenavCategory and crossSellCategory to null."
+    ]
+  }
+}

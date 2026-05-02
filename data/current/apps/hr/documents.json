@@ -1,0 +1,153 @@
+{
+  "appId": "documents",
+  "appLabel": "Documents",
+  "appPath": "/documents",
+  "appProductGate": null,
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "Documents has no spoke product gate; tab visibility is permission/feature-flag driven via getEnabledTabs()",
+      "EE_DOCUMENT_DASHBOARD is the index/entry point and visible to everyone (even EEs)",
+      "Workplace Posters tab only visible if isPeoClient || isAsoClient AND has admin privileges",
+      "Several admin tabs require ADMIN_PERMISSION_FOR_DOCUMENTS_DASHBOARD or DOCUMENT_OPERATOR_PERMISSION"
+    ]
+  },
+  "nav": [
+    {
+      "id": "people",
+      "label": "People",
+      "icon": "Users",
+      "path": "/documents/ee-document-dashboard",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["entry point — visible to all"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:88"
+    },
+    {
+      "id": "templates",
+      "label": "Templates",
+      "icon": "FileText",
+      "path": "/documents/document-dashboard",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": "ADMIN_PERMISSION_FOR_DOCUMENTS_DASHBOARD || READ_PERMISSION_FOR_DOCUMENTS_DASHBOARD",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:94"
+    },
+    {
+      "id": "profile-folders",
+      "label": "Profile Folders",
+      "icon": "FolderOpen",
+      "path": "/documents/profile-folders/list",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["tabVisibility.PROFILE_FOLDERS"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:99"
+    },
+    {
+      "id": "workflows",
+      "label": "Rules",
+      "icon": "Workflow",
+      "path": "/documents/workflows",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": "ADMIN_PERMISSION_FOR_DOCUMENTS_DASHBOARD",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:104"
+    },
+    {
+      "id": "workplace-posters",
+      "label": "Workplace Posters",
+      "icon": "FileImage",
+      "path": "/documents/workplace-posters",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": "admin.hasAdminPrivileges",
+        "conditions": ["isPeoClient || isAsoClient"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:112"
+    },
+    {
+      "id": "bulk-document-upload",
+      "label": "Bulk Upload",
+      "icon": "Upload",
+      "path": "/documents/bulk-document-upload",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": "DOCUMENT_OPERATOR_PERMISSION_FOR_DOCUMENTS_DASHBOARD",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:119"
+    },
+    {
+      "id": "export-dashboard",
+      "label": "Export",
+      "icon": "Download",
+      "path": "/documents/export-dashboard",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": "DOCUMENT_OPERATOR_PERMISSION_FOR_DOCUMENTS_DASHBOARD",
+        "conditions": ["isDocumentExportEnabled (company churning, within 30d after churn)"],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:83"
+    },
+    {
+      "id": "company-document-settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/documents/company-document-settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["documents"],
+        "productGate": null,
+        "permissionGate": "ADMIN_PERMISSION_FOR_DOCUMENTS_DASHBOARD",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "rippling-webapp/app/products/hr/Hris/Documents/utils/documentRouteUtils.ts:124"
+    }
+  ]
+}

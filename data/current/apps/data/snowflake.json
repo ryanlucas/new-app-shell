@@ -1,0 +1,16 @@
+{
+  "appId": "snowflake",
+  "appLabel": "Snowflake Sync",
+  "appPath": "/data/snowflake",
+  "appProductGate": "SNOWFLAKE",
+  "_meta": {
+    "generatedBy": "phase-2J",
+    "uncertainties": [
+      "Snowflake Sync is not a standalone app surface in webapp — it's a managed-connector destination (MANAGED_CONNECTOR.SNOWFLAKE) and pipeline source/destination type within DataConnectors.",
+      "There is no /data/snowflake route or dedicated container; Snowflake settings are configured per-pipeline via the pipeline editor flow.",
+      "Expected items (Connections / Sync Status / Settings / Logs) are not present as distinct routes — falling back to the parent Pipelines grid where Snowflake pipelines are visible.",
+      "Returning nav: [] given the absence of a discrete app shell."
+    ]
+  },
+  "nav": []
+}

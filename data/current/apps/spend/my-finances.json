@@ -1,0 +1,83 @@
+{
+  "appId": "my-finances",
+  "appLabel": "My Finances",
+  "appPath": "/spend-management/dashboard/my-finances",
+  "appProductGate": "SPENDMANAGEMENT",
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "My Finances is the EE-facing view inside Spend Management. Sections (overview, my expenses, my cards, my reimbursements) are rendered as a single page rather than separate routes, surfaced via the SECTION query param.",
+      "Modeling each EE-facing section as a sub-nav node keyed by section query param."
+    ]
+  },
+  "nav": [
+    {
+      "id": "overview",
+      "label": "My Spend",
+      "icon": "LayoutDashboard",
+      "path": "/spend-management/dashboard/my-finances",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "SPENDMANAGEMENT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
+    },
+    {
+      "id": "my-cards",
+      "label": "My Cards",
+      "icon": "CreditCard",
+      "path": "/spend-management/dashboard/my-finances?section=cards",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "CORPORATE_CARDS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/containers/dashboard/my-finances/MyOverview.tsx:1"
+    },
+    {
+      "id": "my-expenses",
+      "label": "My Expenses",
+      "icon": "Receipt",
+      "path": "/spend-management/dashboard/my-finances?section=expenses",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "EXPENSES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/containers/dashboard/my-finances/MyOverview.tsx:1"
+    },
+    {
+      "id": "my-reports",
+      "label": "My Reports",
+      "icon": "FileText",
+      "path": "/spend-management/dashboard/my-finances?section=my+reports",
+      "parent": null,
+      "visibility": {
+        "personas": ["ee"],
+        "scopeForPartial": [],
+        "productGate": "EXPENSES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:358"
+    }
+  ]
+}

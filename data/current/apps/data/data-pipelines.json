@@ -1,0 +1,40 @@
+{
+  "appId": "data-pipelines",
+  "appLabel": "Pipelines",
+  "appPath": "/data/pipelines",
+  "appProductGate": "DATA_PIPELINES",
+  "_meta": {
+    "generatedBy": "phase-2J",
+    "uncertainties": [
+      "Pipelines is rendered as a single grid (PipelinesGrid) without distinct internal sub-tabs in the current UI; expected items like Templates/Runs/Logs/Settings are not present as routes.",
+      "Pipelines lives under the Data Catalog route shell (/data/pipelines) and shares chrome with the catalog.",
+      "Personas inferred (admin/full only). No EE-facing pipelines surface."
+    ]
+  },
+  "nav": [
+    {
+      "id": "active-pipelines",
+      "label": "Active Pipelines",
+      "path": "/data/pipelines",
+      "icon": "Workflow",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DataConnectors/routes-v6/pipelines.routes.tsx:5-10"
+    },
+    {
+      "id": "external-connections",
+      "label": "External Connections",
+      "path": "/data/external-connections",
+      "icon": "Plug",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DataCatalog/route/index.tsx:57-64"
+    },
+    {
+      "id": "catalog",
+      "label": "Catalog",
+      "path": "/data/catalog",
+      "icon": "BookOpen",
+      "personas": ["full"],
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DataCatalog/route/index.tsx:23-34"
+    }
+  ]
+}

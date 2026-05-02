@@ -1,0 +1,15 @@
+{
+  "appId": "audit-log",
+  "appLabel": "Audit Log",
+  "appPath": "/company-settings/audit-logs",
+  "appProductGate": "ACTIVITY_LOG",
+  "_meta": {
+    "generatedBy": "phase-2L",
+    "uncertainties": [
+      "Audit Log has no dedicated app shell — it is a single-page form mounted at /company-settings/audit-logs that submits an async export request (date range, users, entity types). There is no internal nav (no Recent activity / Filters / Saved Views / Exports tabs in the current implementation).",
+      "Visibility is gated by useShowAuditLogs hook + auditLogPermissionsQueryOptions; partial admins need the audit_log_admin scope. We model this as a single-page app with nav: [].",
+      "The standalone /audit-log path used in the prototype skeleton is not a real route in the webapp — the canonical landing URL is /company-settings/audit-logs."
+    ]
+  },
+  "nav": []
+}

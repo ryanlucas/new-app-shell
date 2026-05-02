@@ -1,0 +1,73 @@
+{
+  "appId": "performance-reviews",
+  "appLabel": "Performance Reviews",
+  "appPath": "/review-cycles",
+  "appProductGate": "REVIEW_CYCLES",
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Base path is /review-cycles (legacy /performance-management still mounted but redirects).",
+      "Top-level navbar exposes Cycles, Question Sets, Settings under /review-cycles/dashboard.",
+      "Question Sets visible to non-admins only when at least one set exists.",
+      "Calibration / Compensation / Templates exist as per-cycle setup flows under /review-cycles/cycle/:cycleId/* — these are flows not standalone tabs.",
+      "EE-as-reviewee surface: each EE sees their reviews via /review-cycles/cycle/:cycleId — modeled implicitly as the dashboard cycles tab is available to ee with non-admin scope."
+    ]
+  },
+  "nav": [
+    {
+      "id": "cycles",
+      "label": "Cycles",
+      "icon": "RefreshCw",
+      "path": "/review-cycles/dashboard",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "REVIEW_CYCLES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {
+        "ee": {
+          "label": "My reviews"
+        }
+      },
+      "source": "app/products/hr/ReviewCycles/containers/DashboardWrapper.tsx:21-24"
+    },
+    {
+      "id": "question-sets",
+      "label": "Question sets",
+      "icon": "ListChecks",
+      "path": "/review-cycles/dashboard/question-sets",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial", "manager"],
+        "scopeForPartial": ["performance"],
+        "productGate": "REVIEW_CYCLES",
+        "permissionGate": "rc.isAppAdmin OR hasQuestionSets",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/ReviewCycles/containers/DashboardWrapper.tsx:26-34"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Settings",
+      "path": "/review-cycles/dashboard/settings",
+      "parent": null,
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["performance"],
+        "productGate": "REVIEW_CYCLES",
+        "permissionGate": "rc.isAppAdmin",
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "personaVariants": {},
+      "source": "app/products/hr/ReviewCycles/containers/DashboardWrapper.tsx:36-41"
+    }
+  ]
+}
