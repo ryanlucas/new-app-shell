@@ -76,6 +76,35 @@
         "data",
         "settings"
       ]
+    },
+    {
+      "id": "payroll-only",
+      "label": "Payroll only (standalone)",
+      "description": "Standalone Payroll customer. Pay employees and contractors without owning the rest of the HR stack.",
+      "ownedSuites": [
+        "payroll",
+        "custom-apps",
+        "data",
+        "settings"
+      ],
+      "conditions": [
+        "isStandaloneCompany"
+      ]
+    },
+    {
+      "id": "hr-payroll-benefits-spend",
+      "label": "HR + Payroll + Benefits + Spend",
+      "description": "SMB bundle that adds Spend Management on top of the HR/Payroll/Benefits/Time stack.",
+      "ownedSuites": [
+        "hr",
+        "payroll",
+        "benefits",
+        "time",
+        "finance",
+        "custom-apps",
+        "data",
+        "settings"
+      ]
     }
   ]
 }
