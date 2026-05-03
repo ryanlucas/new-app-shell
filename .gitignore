@@ -23,5 +23,8 @@ npm-debug.log*
 # Tauri (Phase 4.5+)
 src-tauri/target/
 
+# TS build info
+*.tsbuildinfo
+
 # Local Claude settings
 .claude/settings.local.json

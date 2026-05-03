@@ -5,7 +5,7 @@
 import { readFileSync, mkdirSync, renameSync, existsSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import type { ShellSuites } from './lib/types.ts'
+import type { ShellSuites } from '../src/lib/types.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const data = (p: string) => join(root, 'data', p)

@@ -5,9 +5,9 @@
 //   node scripts/render-nav-md.ts --proposal=ryan-v1 # → docs/proposals/ryan-v1/
 
 import { readFileSync, writeFileSync, readdirSync, statSync, rmSync, mkdirSync } from 'node:fs'
-import { join, dirname, basename } from 'node:path'
+import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { compose } from './lib/compose.ts'
+import { compose } from '../src/lib/compose.ts'
 import type {
   NavNode,
   PersonasFile,
@@ -18,7 +18,7 @@ import type {
   SpokesFile,
   Suite,
   Visibility,
-} from './lib/types.ts'
+} from '../src/lib/types.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const currentDir = join(root, 'data', 'current')

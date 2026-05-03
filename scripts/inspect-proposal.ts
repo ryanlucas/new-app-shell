@@ -2,8 +2,8 @@
 import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { compose } from './lib/compose.ts'
-import type { PlansFile, Proposal, ShellFrame, ShellSuites } from './lib/types.ts'
+import { compose } from '../src/lib/compose.ts'
+import type { PlansFile, Proposal, ShellFrame, ShellSuites } from '../src/lib/types.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const read = <T>(p: string): T => JSON.parse(readFileSync(join(root, p), 'utf8')) as T
