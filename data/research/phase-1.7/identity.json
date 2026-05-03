@@ -1,0 +1,24 @@
+{
+  "suite": "identity",
+  "_research_quality": "verified — Identity is a backend subcategory of IT but EMPTY of apps in live nav",
+  "apps": [],
+  "newEntries": [],
+  "droppedEntries": [
+    "Single Sign-On (RPass) — actually mapped to IT Management subcategory, not Identity",
+    "Custom SAML — module exists in webapp but no L2 nav exposure",
+    "Duo MFA — feature code only, no nav entry",
+    "YubiKey — module exists but no L2 nav entry",
+    "User Management — actually mapped to Settings subcategory",
+    "Manual Users — no separate L2 entry",
+    "Groups — no top-level nav entry",
+    "Extended Access — no top-level nav entry",
+    "Virtual LDAP — feature code only"
+  ],
+  "notes": [
+    "Identity is defined as IT subcategory (`navigation_bar_subcategory.identity_management`) at app_navigation_categories_data.py:257-263 but has zero apps assigned.",
+    "RPass is in `IT_MANAGEMENT` subcategory per rpass/rpk/app.py:60",
+    "User Management is in Settings",
+    "Per IT agent, Identity products are scattered — recommendation matches ryan-v1 proposal which already merges Identity → IT",
+    "Phase 1B catalog's Identity suite is aspirational, not current."
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "suite": "global",
+  "_research_quality": "verified — Global is defined as L1 category in backend but no L2 apps are mapped to it",
+  "apps": [],
+  "newEntries": [],
+  "droppedEntries": [
+    "Global Workforce — does not exist as an L2 in live nav. Global Payroll is registered under Finance/Payroll suite (primaryTarget includes GLOBAL_PAYROLL).",
+    "Global Contractors — appears as standalone navigation component, but not in Global L1 sidebar."
+  ],
+  "notes": [
+    "Global is defined at app_navigation_categories_data.py:206-213 with subcategory at :313-317.",
+    "Currently EMPTY — no L2 apps actively mapped to it.",
+    "Global products are scattered: Global Payroll → Finance, Global Benefits → Benefits, EOR is accessible but not L2.",
+    "Recommendation: either drop the Global suite from the catalog, OR keep it as an empty placeholder, OR proposal-level (ryan-v1) consolidates global products into it."
+  ]
+}

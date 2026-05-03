@@ -32,6 +32,16 @@
       "toSuite": "platform"
     },
     {
+      "op": "moveApp",
+      "appId": "pto",
+      "toSuite": "time"
+    },
+    {
+      "op": "moveApp",
+      "appId": "leaves",
+      "toSuite": "time"
+    },
+    {
       "op": "overrideNode",
       "id": "user-management",
       "patch": {

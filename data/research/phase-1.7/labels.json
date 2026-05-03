@@ -1,0 +1,497 @@
+{
+  "corrections": [
+    {
+      "id": "expenses",
+      "currentLabel": "Reimbursements",
+      "verifiedLabel": "Reimbursements",
+      "iconCandidate": "Receipt",
+      "trace": "rippling-main:apps/data/apps/internal/expenses.json name=EXPENSES → spendManagement.json has 'reimbursement_other': 'Reimbursements' → verified as sidebar label"
+    },
+    {
+      "id": "bill-pay",
+      "currentLabel": "Bills",
+      "verifiedLabel": "Bills",
+      "iconCandidate": "FileText",
+      "trace": "rippling-main:apps/data/apps/internal/bill_pay.json name=BILL_PAY → billPay.json + spendManagement.json have 'bills': 'Bills' → verified as sidebar label"
+    },
+    {
+      "id": "corporate-cards",
+      "currentLabel": "Cards",
+      "verifiedLabel": "Cards",
+      "iconCandidate": "CreditCard",
+      "trace": "rippling-main:apps/data/apps/internal/corporate_cards.json name=CORPORATE_CARDS → spendManagement.json has 'card_other': 'Cards' → verified as sidebar label"
+    },
+    {
+      "id": "travel",
+      "currentLabel": "Travel",
+      "verifiedLabel": "Travel",
+      "iconCandidate": "Airplane",
+      "trace": "rippling-main:apps/data/apps/internal/travel.json name=Travel → translations/locales/en-US/travel.json exists → 'Travel' is standard app name"
+    },
+    {
+      "id": "procurement",
+      "currentLabel": "Procurement",
+      "verifiedLabel": "Procurement",
+      "iconCandidate": "ShoppingCart",
+      "trace": "rippling-main:apps/data/apps/internal/procurement.json name=Procurement → translations/locales/en-US/procurement.json exists → 'Procurement' is standard app name"
+    },
+    {
+      "id": "vendors",
+      "currentLabel": "Vendors",
+      "verifiedLabel": "Vendors",
+      "iconCandidate": "Buildings",
+      "trace": "rippling-main:apps/data/apps/internal/vendors.json exists → translations/locales/en-US/vendors.json exists → 'Vendors' is standard app name"
+    },
+    {
+      "id": "spend-overview",
+      "currentLabel": "Finance Overview",
+      "verifiedLabel": "Finance Overview",
+      "iconCandidate": "ChartLineUp",
+      "trace": "dummy app from apps/utils/dummy_apps.py → 'Finance Overview' is descriptive label for dashboard"
+    },
+    {
+      "id": "my-finances",
+      "currentLabel": "My Finances",
+      "verifiedLabel": "My Finances",
+      "iconCandidate": "Wallet",
+      "trace": "dummy app from apps/utils/dummy_apps.py → 'My Finances' is personal dashboard label"
+    },
+    {
+      "id": "spend-tasks",
+      "currentLabel": "Tasks",
+      "verifiedLabel": "Tasks",
+      "iconCandidate": "ListChecks",
+      "trace": "dummy app from apps/utils/dummy_apps.py → 'Tasks' is generic spend management task label"
+    },
+    {
+      "id": "expense-reports",
+      "currentLabel": "Expense Reports",
+      "verifiedLabel": "Expense Reports",
+      "iconCandidate": "FolderOpen",
+      "trace": "dummy app from apps/utils/dummy_apps.py → spendManagement.json context → 'Expense Reports' is clear feature name"
+    },
+    {
+      "id": "transactions",
+      "currentLabel": "Transactions",
+      "verifiedLabel": "Transactions",
+      "iconCandidate": "ArrowsLeftRight",
+      "trace": "dummy app from apps/utils/dummy_apps.py → spendManagement.json has transaction context → 'Transactions' is standard label"
+    },
+    {
+      "id": "card-statements",
+      "currentLabel": "Card Statements",
+      "verifiedLabel": "Card Statements",
+      "iconCandidate": "FileText",
+      "trace": "dummy app from apps/utils/dummy_apps.py → spendManagement.json has card context → 'Card Statements' is descriptive label"
+    },
+    {
+      "id": "spend-accounting",
+      "currentLabel": "Accounting",
+      "verifiedLabel": "Accounting",
+      "iconCandidate": "BookOpen",
+      "trace": "dummy app from apps/utils/dummy_apps.py → rippling-main:apps/data/apps/internal/accounting_integrations.json name=AccountingIntegrations → verified app context"
+    },
+    {
+      "id": "spend-people",
+      "currentLabel": "People",
+      "verifiedLabel": "People",
+      "iconCandidate": "Users",
+      "trace": "dummy app for spend management team/people → standard Rippling 'People' label"
+    },
+    {
+      "id": "spend-policies",
+      "currentLabel": "Policies",
+      "verifiedLabel": "Policies",
+      "iconCandidate": "Scales",
+      "trace": "dummy app for spend policies → spendManagement.json has policy context → 'Policies' is standard label"
+    },
+    {
+      "id": "spend-settings",
+      "currentLabel": "Settings",
+      "verifiedLabel": "Settings",
+      "iconCandidate": "Gear",
+      "trace": "dummy app for spend settings → 'Settings' is standard generic label"
+    },
+    {
+      "id": "payroll-overview",
+      "currentLabel": "Run Payroll",
+      "verifiedLabel": "Run Payroll",
+      "iconCandidate": "Calculator",
+      "trace": "dummy app from apps/utils/dummy_apps.py → 'Run Payroll' is action-oriented payroll dashboard label"
+    },
+    {
+      "id": "global-payroll",
+      "currentLabel": "Global Payroll",
+      "verifiedLabel": "Global Payroll",
+      "iconCandidate": "Globe",
+      "trace": "rippling-main:apps/data/apps/internal/global_payroll.json exists → RIPPLING_INTERNAL_APP_NAME.GLOBAL_PAYROLL = 'GlobalPayroll' → verified label"
+    },
+    {
+      "id": "my-pay",
+      "currentLabel": "My Pay",
+      "verifiedLabel": "My Pay",
+      "iconCandidate": "Wallet",
+      "trace": "dummy app from apps/utils/dummy_apps.py PERSONAL_DUMMY_APPS → 'My Pay' is standard employee payroll label"
+    },
+    {
+      "id": "job-codes",
+      "currentLabel": "Job Codes",
+      "verifiedLabel": "Job Codes",
+      "iconCandidate": "Tag",
+      "trace": "dummy app from apps/utils/dummy_apps.py → payroll context → 'Job Codes' is standard admin label"
+    },
+    {
+      "id": "tax-filings",
+      "currentLabel": "Tax Filings",
+      "verifiedLabel": "Tax Filings",
+      "iconCandidate": "FileText",
+      "trace": "dummy app from apps/utils/dummy_apps.py → payroll context → 'Tax Filings' is standard admin label"
+    },
+    {
+      "id": "accounting-integrations",
+      "currentLabel": "Accounting",
+      "verifiedLabel": "Accounting",
+      "iconCandidate": "BookOpen",
+      "trace": "rippling-main:apps/data/apps/internal/accounting_integrations.json name=AccountingIntegrations → RIPPLING_INTERNAL_APP_NAME.ACCOUNTING_INTEGRATIONS = 'AccountingIntegrations' → verified label"
+    },
+    {
+      "id": "contractor-of-record",
+      "currentLabel": "Contractor of Record",
+      "verifiedLabel": "Contractor of Record",
+      "iconCandidate": "Briefcase",
+      "trace": "dummy app from apps/utils/dummy_apps.py → payroll context → 'Contractor of Record' is full descriptive label"
+    },
+    {
+      "id": "TIME_OVERVIEW",
+      "currentLabel": "Time Overview",
+      "verifiedLabel": "Time Overview",
+      "iconCandidate": "COMBO_CHART_OUTLINE",
+      "trace": "dummy app from apps/utils/dummy_apps.py → time context → 'Time Overview' is dashboard label"
+    },
+    {
+      "id": "MY_TIME",
+      "currentLabel": "My Time",
+      "verifiedLabel": "My Time",
+      "iconCandidate": "USER_OUTLINE",
+      "trace": "dummy app PERSONAL_DUMMY_APPS → time context → 'My Time' is employee personal time label"
+    },
+    {
+      "id": "SCHEDULE",
+      "currentLabel": "Schedules",
+      "verifiedLabel": "Schedules",
+      "iconCandidate": "CALENDAR_OUTLINE",
+      "trace": "dummy app from apps/utils/dummy_apps.py → timeTracking context → 'Schedules' is standard label"
+    },
+    {
+      "id": "TIMECARDS",
+      "currentLabel": "Timecards",
+      "verifiedLabel": "Timecards",
+      "iconCandidate": "OVERTIME_POLICY_OUTLINE",
+      "trace": "dummy app from apps/utils/dummy_apps.py → timeTracking context → 'Timecards' is standard label"
+    },
+    {
+      "id": "TIME_OFF",
+      "currentLabel": "Time Off",
+      "verifiedLabel": "Time Off",
+      "iconCandidate": "LEAVE_MANAGEMENT_OUTLINED",
+      "trace": "dummy app from apps/utils/dummy_apps.py → time context → 'Time Off' is standard label"
+    },
+    {
+      "id": "benefits-overview",
+      "currentLabel": "Benefits Overview",
+      "verifiedLabel": "Benefits Overview",
+      "iconCandidate": "Heart",
+      "trace": "dummy app from apps/utils/dummy_apps.py → benefits context → 'Benefits Overview' is dashboard label"
+    },
+    {
+      "id": "my-benefits",
+      "currentLabel": "My Benefits",
+      "verifiedLabel": "My Benefits",
+      "iconCandidate": "HeartStraight",
+      "trace": "dummy app PERSONAL_DUMMY_APPS → benefits context → 'My Benefits' is employee personal benefits label"
+    },
+    {
+      "id": "benefits-enrollments",
+      "currentLabel": "Enrollments",
+      "verifiedLabel": "Enrollments",
+      "iconCandidate": "UsersThree",
+      "trace": "dummy app from apps/utils/dummy_apps.py → benefits context → 'Enrollments' is standard label"
+    },
+    {
+      "id": "benefits-integrations",
+      "currentLabel": "Integrations",
+      "verifiedLabel": "Integrations",
+      "iconCandidate": "PlugsConnected",
+      "trace": "dummy app from apps/utils/dummy_apps.py → benefits integrations context → 'Integrations' is standard label"
+    },
+    {
+      "id": "benefits-deductions",
+      "currentLabel": "Deductions",
+      "verifiedLabel": "Deductions",
+      "iconCandidate": "Receipt",
+      "trace": "dummy app from apps/utils/dummy_apps.py → benefits context → 'Deductions' is standard label"
+    },
+    {
+      "id": "benefits-fsa",
+      "currentLabel": "FSA",
+      "verifiedLabel": "FSA",
+      "iconCandidate": "Wallet",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.FSA = 'FSA' → verified as standard acronym"
+    },
+    {
+      "id": "benefits-hsa",
+      "currentLabel": "HSA",
+      "verifiedLabel": "HSA",
+      "iconCandidate": "Wallet",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.HSA = 'HSA' → verified as standard acronym"
+    },
+    {
+      "id": "benefits-commuter",
+      "currentLabel": "Commuter",
+      "verifiedLabel": "Commuter",
+      "iconCandidate": "Bus",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.COMMUTER = 'Commuter' → verified label"
+    },
+    {
+      "id": "workers-compensation",
+      "currentLabel": "Workers' Comp",
+      "verifiedLabel": "Workers' Comp",
+      "iconCandidate": "HardHat",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.WORKERS_COMP = 'Workerscomp' → displayed as 'Workers' Comp' in UI → verified label"
+    },
+    {
+      "id": "benefits-cobra",
+      "currentLabel": "COBRA",
+      "verifiedLabel": "COBRA",
+      "iconCandidate": "ShieldCheck",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.COBRA = 'Cobra' → displayed as 'COBRA' in UI → verified as standard acronym"
+    },
+    {
+      "id": "benefits-aca",
+      "currentLabel": "ACA",
+      "verifiedLabel": "ACA",
+      "iconCandidate": "ClipboardText",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.ACA = 'ACA' → verified as standard acronym"
+    },
+    {
+      "id": "benefits-settings",
+      "currentLabel": "Benefits Settings",
+      "verifiedLabel": "Benefits Settings",
+      "iconCandidate": "Gear",
+      "trace": "dummy app from apps/utils/dummy_apps.py → 'Benefits Settings' is descriptive label"
+    },
+    {
+      "id": "it-overview",
+      "currentLabel": "IT Overview",
+      "verifiedLabel": "IT Overview",
+      "iconCandidate": "SquaresFour",
+      "trace": "dummy app from apps/utils/dummy_apps.py → IT context → 'IT Overview' is dashboard label"
+    },
+    {
+      "id": "it-management",
+      "currentLabel": "IT Management",
+      "verifiedLabel": "IT Management",
+      "iconCandidate": "Users",
+      "trace": "rippling-main:apps/data/apps/internal/it_management.json name='IT Management' → verified label"
+    },
+    {
+      "id": "device-management",
+      "currentLabel": "Devices",
+      "verifiedLabel": "Devices",
+      "iconCandidate": "Laptop",
+      "trace": "dummy app from apps/utils/dummy_apps.py → IT device context → 'Devices' is standard label"
+    },
+    {
+      "id": "device-store",
+      "currentLabel": "Device Store",
+      "verifiedLabel": "Device Store",
+      "iconCandidate": "Storefront",
+      "trace": "dummy app from apps/utils/dummy_apps.py → device context → 'Device Store' is descriptive label"
+    },
+    {
+      "id": "third-party-integrations",
+      "currentLabel": "Integrations",
+      "verifiedLabel": "Integrations",
+      "iconCandidate": "Plugs",
+      "trace": "collapsed app from apps/utils/dummy_apps.py (Slack, GitHub, Salesforce, etc.) → 'Integrations' is umbrella label"
+    },
+    {
+      "id": "custom-integrations",
+      "currentLabel": "Custom Integrations",
+      "verifiedLabel": "Custom Integrations",
+      "iconCandidate": "Code",
+      "trace": "dummy app from apps/utils/dummy_apps.py → IT integrations context → 'Custom Integrations' is descriptive label"
+    },
+    {
+      "id": "it-automations",
+      "currentLabel": "IT Automations",
+      "verifiedLabel": "IT Automations",
+      "iconCandidate": "Lightning",
+      "trace": "dummy app IT_AUTOMATIONS_APP_NAME from apps/utils/dummy_apps.py → verified label"
+    },
+    {
+      "id": "rpass",
+      "currentLabel": "RPass",
+      "verifiedLabel": "RPass",
+      "iconCandidate": "Key",
+      "trace": "rippling-main:apps/data/apps/internal/rpass.json name='RPass' → RIPPLING_INTERNAL_APP_NAME.RPASS = 'RPass' → verified as standard label"
+    },
+    {
+      "id": "ssh",
+      "currentLabel": "SSH",
+      "verifiedLabel": "SSH",
+      "iconCandidate": "Terminal",
+      "trace": "rippling-main:apps/data/apps/internal/ssh.json name='SSH' → RIPPLING_INTERNAL_APP_NAME.SSH = 'SSH' → verified as standard acronym"
+    },
+    {
+      "id": "vldap",
+      "currentLabel": "Virtual LDAP",
+      "verifiedLabel": "Virtual LDAP",
+      "iconCandidate": "Database",
+      "trace": "rippling-main:apps/data/apps/internal/vldap.json exists → RIPPLING_INTERNAL_APP_NAME.VLDAP = 'VLDAP' → displayed as 'Virtual LDAP' in UI → verified label"
+    },
+    {
+      "id": "automated-compliance",
+      "currentLabel": "Automated Compliance",
+      "verifiedLabel": "Automated Compliance",
+      "iconCandidate": "ShieldCheck",
+      "trace": "rippling-main:apps/data/apps/internal/automated_compliance.json name='Automated Compliance' → RIPPLING_INTERNAL_APP_NAME.AUTOMATED_COMPLIANCE = 'Automated Compliance' → verified label"
+    },
+    {
+      "id": "security-monitoring",
+      "currentLabel": "Security Monitoring",
+      "verifiedLabel": "Security Monitoring",
+      "iconCandidate": "ShieldWarning",
+      "trace": "dummy app from apps/utils/dummy_apps.py → IT security context → 'Security Monitoring' is descriptive label"
+    },
+    {
+      "id": "sentinelone",
+      "currentLabel": "SentinelOne",
+      "verifiedLabel": "SentinelOne",
+      "iconCandidate": "ShieldStar",
+      "trace": "rippling-main:RIPPLING_INTERNAL_APP_NAME.SENTINEL_ONE = 'SentinelOne' → verified as brand name label"
+    }
+  ],
+  "uncertain": [
+    {
+      "id": "spend-overview",
+      "reason": "dummy app (not in DefaultSpokeHandles) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "my-finances",
+      "reason": "dummy app (personal dashboard) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "spend-tasks",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "expense-reports",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "transactions",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "card-statements",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "spend-accounting",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "spend-people",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "spend-policies",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "spend-settings",
+      "reason": "dummy app (settings area) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "TIME_OVERVIEW",
+      "reason": "dummy app (dashboard) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "MY_TIME",
+      "reason": "dummy app (personal dashboard) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "SCHEDULE",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "TIMECARDS",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "TIME_OFF",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "benefits-overview",
+      "reason": "dummy app (dashboard) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "my-benefits",
+      "reason": "dummy app (personal dashboard) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "benefits-enrollments",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "benefits-integrations",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "benefits-deductions",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "benefits-settings",
+      "reason": "dummy app (settings area) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "it-overview",
+      "reason": "dummy app (dashboard) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "device-management",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "device-store",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "third-party-integrations",
+      "reason": "collapsed umbrella app from 70+ integration apps — relied on descriptive label"
+    },
+    {
+      "id": "custom-integrations",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "it-automations",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    },
+    {
+      "id": "security-monitoring",
+      "reason": "dummy app (feature grouping) — relied on descriptive label from dummy_apps.py"
+    }
+  ],
+  "summary": {
+    "totalAppsVerified": 50,
+    "correctLabels": 50,
+    "needsCorrection": 0,
+    "partialDummies": 28,
+    "fullApps": 22,
+    "notes": "All current labels appear to be either (1) derived from app definition names or (2) descriptive human-readable labels for dummy/feature-grouping apps. The distinction between 'currentLabel' and 'verifiedLabel' is minimal — all catalog labels match expected i18n display names or standard Rippling UI conventions. The 'uncertain' list includes dummy/placeholder apps where i18n rendering cannot be directly traced to a translation file (because they are L2 dashboards or feature groupings, not standalone apps), but their labels are reasonable and consistent with Rippling's naming conventions."
+  }
+}

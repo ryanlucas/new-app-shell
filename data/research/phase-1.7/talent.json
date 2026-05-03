@@ -1,0 +1,189 @@
+{
+  "suite": "talent",
+  "apps": [
+    {
+      "id": "talent-overview",
+      "label": "Talent Overview",
+      "icon": "Briefcase",
+      "path": "/talent/overview",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full"],
+        "scopeForPartial": [],
+        "productGate": null,
+        "permissionGate": null,
+        "conditions": ["multiple_talent_apps_installed"],
+        "whenUnowned": null
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/components/TalentNavBar.tsx:11-48; app/apps/utils/navigation_bar.py:1268-1284"
+    },
+    {
+      "id": "recruiting",
+      "label": "Recruiting",
+      "icon": "UsersThree",
+      "path": "/ats",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "ATS2",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": "upsell"
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:13-22; rippling-main/app/apps/scripts/app_navigation_categories_data.py:75-85 (primaryTarget)"
+    },
+    {
+      "id": "learning-management",
+      "label": "Learning",
+      "icon": "Books",
+      "path": "/lms",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "RIPPLINGLMS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": "upsell"
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:19; rippling-webapp/app/products/hr/LMS"
+    },
+    {
+      "id": "performance-reviews",
+      "label": "Review Cycles",
+      "icon": "CheckCircle",
+      "path": "/review-cycles",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "REVIEW_CYCLES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:17; rippling-webapp/app/products/hr/ReviewCycles"
+    },
+    {
+      "id": "goals",
+      "label": "Goals",
+      "icon": "Target",
+      "path": "/goals",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "GOALS",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:18; rippling-main/app/goals/rpk/app.py; rippling-webapp/app/products/hr/Goals"
+    },
+    {
+      "id": "feedback",
+      "label": "Feedback",
+      "icon": "ChatCircleDots",
+      "path": "/feedback",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "FEEDBACK",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:22; rippling-webapp/app/products/hr/Feedback"
+    },
+    {
+      "id": "surveys",
+      "label": "Surveys",
+      "icon": "SmileyXEyes",
+      "path": "/surveys",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "PULSE",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": "upsell"
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:20 (PULSE); rippling-main/app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:349-363; rippling-webapp/app/products/hr/Pulse"
+    },
+    {
+      "id": "headcount-planning",
+      "label": "Headcount Planning",
+      "icon": "FolderPlus",
+      "path": "/headcount-planning",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": [],
+        "productGate": "HEADCOUNT",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": "upsell"
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:15 (HEADCOUNT); rippling-main/app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:365-380; rippling-main/app/headcount_planning/rpk/app.py"
+    },
+    {
+      "id": "one-on-ones",
+      "label": "My 1:1s",
+      "icon": "UsersThree",
+      "path": "/one-on-ones",
+      "parent": "talent",
+      "visibility": {
+        "personas": ["full", "partial", "manager", "ee"],
+        "scopeForPartial": [],
+        "productGate": "ONE_ON_ONES",
+        "permissionGate": null,
+        "conditions": [],
+        "whenUnowned": null
+      },
+      "source": "rippling-webapp/app/products/hr/TalentOverview/config.tsx:16; rippling-webapp/app/products/hr/OneOnOnes; rippling-main/app/apps/utils/navigation_bar.py:1-50 (ONE_ON_ONES spoke handling)"
+    }
+  ],
+  "newEntries": [
+    {
+      "id": "performance-management",
+      "label": "Performance Management",
+      "type": "upsell",
+      "note": "Feature-gated unpurchased SKU config; RPK-based from COMPENSATION_MANAGEMENT_APP spoke. Visible only when feature flag CrossSellFeatureFlags.performance_management_unpurchased_sku_pages is enabled.",
+      "source": "rippling-main/app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:424-439"
+    }
+  ],
+  "droppedEntries": [
+    {
+      "id": "kudos",
+      "label": "Kudos",
+      "reason": "Not found in current Talent Overview config or unpurchased SKU listings. May have been deprecated or moved out of Talent suite.",
+      "previousSource": "Phase 1B catalog"
+    },
+    {
+      "id": "succession-planning",
+      "label": "Succession Planning",
+      "reason": "Not found in current Talent Overview config or unpurchased SKU listings. May be a future roadmap item.",
+      "previousSource": "Phase 1B catalog"
+    },
+    {
+      "id": "performance-improvement-plans",
+      "label": "Performance Improvement Plans (PIP)",
+      "reason": "Not found in current Talent Overview config or unpurchased SKU listings. May be part of Performance Management or deprecated.",
+      "previousSource": "Phase 1B catalog"
+    }
+  ],
+  "notes": [
+    "Recruiting is uniquely exposed via ATS2 spoke handle; it is both a tab in Talent Overview AND a top-level L2 nav entry (primaryTarget: ['Talent Overview', 'ATS2']).",
+    "Talent Overview itself is a container/dashboard that auto-shows when multiple talent apps are installed (see add_talent_overview_to_accessible_apps logic in navigation_bar.py).",
+    "Frontend spoke handles differ slightly from backend: RIPPLINGLMS (backend) maps to RIPPLINGLMS key in frontend; PULSE (backend) maps to PULSE key; REVIEW_CYCLES is an internal name in frontend config.",
+    "Unpurchased SKUs are cross-sell upsell entries injected by add_unpurchased_skus_if_needed_to_accessible_apps when app is not installed. Currently: ATS2, HEADCOUNT, PULSE, PERFORMANCE_MANAGEMENT (feature-gated).",
+    "Talent category's primaryTarget field ['Talent Overview', 'ATS2'] determines which app link is shown as the main category navigation link in sidebar.",
+    "No current evidence of 'Compensation' or 'Compensation Management' as a standalone L2 nav entry under Talent; Performance Management is feature-gated and accessible via cross-sell.",
+    "All routes use /talent prefix or product-specific prefixes (/ats, /lms, /goals, etc.) as defined in TalentOverview config KEY_TO_URL_MAP.",
+    "One-on-Ones is accessible to multiple personas (manager, ee) and shows different content based on role/persona.",
+    "The RIPPLINGATS spoke handle (legacy ATS) exists but is superseded by ATS2; ATS2 is the live spoke in navigation."
+  ]
+}
