@@ -7,6 +7,8 @@ import { AiChatPanel } from './AiChatPanel.tsx'
 import { DevHud } from './DevHud.tsx'
 import { EverythingBar } from './EverythingBar/EverythingBar.tsx'
 import { useEverythingBar } from './EverythingBar/useEverythingBar.ts'
+import { CommandBar } from './CommandBar/CommandBar.tsx'
+import { useCommandBar } from './CommandBar/useCommandBar.ts'
 
 export function AppShell() {
   const hud = useHud()
@@ -14,6 +16,7 @@ export function AppShell() {
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null)
   const [chatOpen, setChatOpen] = useState(false)
   const bar = useEverythingBar()
+  const cmd = useCommandBar()
 
   const handleNavigate = useCallback((appId: string) => {
     setSelectedAppId(appId)
@@ -43,6 +46,7 @@ export function AppShell() {
           onOpenMenu={() => bar.setOpen(true)}
           onToggleChat={toggleChat}
           chatOpen={chatOpen}
+          onOpenSearch={() => cmd.setOpen(true)}
           onOpenInbox={() => handleNavigate('inbox')}
           onGoHome={() => setSelectedAppId(null)}
         />
@@ -57,6 +61,13 @@ export function AppShell() {
         onClose={() => bar.setOpen(false)}
         catalog={catalog}
         onNavigate={handleNavigate}
+      />
+      <CommandBar
+        open={cmd.open}
+        onClose={() => cmd.setOpen(false)}
+        catalog={catalog}
+        onNavigate={handleNavigate}
+        onToggleChat={toggleChat}
       />
       <DevHud catalog={catalog} />
     </div>

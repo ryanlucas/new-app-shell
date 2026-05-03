@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 
-/** EverythingBar (mega menu) state. ⌘K is reserved for the command bar —
- *  only Esc closes the menu via keyboard. */
-export function useEverythingBar() {
+/** Hook for the command bar — open/close state + ⌘K toggle. */
+export function useCommandBar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setOpen((o) => (o ? false : o))
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((v) => !v)
       }
     }
     window.addEventListener('keydown', onKey)
