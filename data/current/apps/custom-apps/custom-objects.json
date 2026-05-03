@@ -20,8 +20,13 @@
       "path": "/data-manager/objects",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["custom-objects"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "custom-objects"
+        ],
         "productGate": "UNLIMITED_CUSTOM_OBJECTS",
         "permissionGate": null,
         "conditions": [],
@@ -37,11 +42,18 @@
       "path": "/data-manager/data-permissions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["custom-objects"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "custom-objects"
+        ],
         "productGate": "UNLIMITED_CUSTOM_OBJECTS",
         "permissionGate": "isPermissionsTabAccessible",
-        "conditions": ["canSeePermissionsTab"],
+        "conditions": [
+          "canSeePermissionsTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -54,11 +66,18 @@
       "path": "/data-manager/external-connections",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["custom-objects"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "custom-objects"
+        ],
         "productGate": "UNLIMITED_CUSTOM_OBJECTS",
         "permissionGate": null,
-        "conditions": ["FF:DATA_PIPELINES_APP"],
+        "conditions": [
+          "FF:DATA_PIPELINES_APP"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -67,15 +86,23 @@
     {
       "id": "pipelines",
       "label": "Pipelines",
-      "icon": "Workflow",
+      "icon": "FlowArrow",
       "path": "/data-manager/pipelines",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["custom-objects"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "custom-objects"
+        ],
         "productGate": "UNLIMITED_CUSTOM_OBJECTS",
         "permissionGate": null,
-        "conditions": ["FF:DATA_PIPELINES_APP", "FF:EXTERNAL_OBJECTS_PIPELINES"],
+        "conditions": [
+          "FF:DATA_PIPELINES_APP",
+          "FF:EXTERNAL_OBJECTS_PIPELINES"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

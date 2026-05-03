@@ -13,11 +13,14 @@
     {
       "id": "company-details",
       "label": "Company Details",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": "/company-details",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
+        "personas": [
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -34,7 +37,9 @@
       "path": "/company-details/information",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -47,15 +52,19 @@
     {
       "id": "company-details-work-emails",
       "label": "Work Emails",
-      "icon": "Mail",
+      "icon": "Envelope",
       "path": "/company-details/work-emails",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["WORK_EMAIL_POLICY_HIRING_FLOW"],
+        "conditions": [
+          "WORK_EMAIL_POLICY_HIRING_FLOW"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -68,7 +77,9 @@
       "path": "/company-details/work-locations",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -81,11 +92,13 @@
     {
       "id": "company-details-departments",
       "label": "Departments",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/company-details/departments",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -98,11 +111,13 @@
     {
       "id": "company-details-teams",
       "label": "Teams",
-      "icon": "Users2",
+      "icon": "UsersThree",
       "path": "/company-details/teams",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -115,15 +130,19 @@
     {
       "id": "company-details-entities",
       "label": "Entities",
-      "icon": "Network",
+      "icon": "TreeStructure",
       "path": "/company-details/entities",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["EOR_CA_FLOW"],
+        "conditions": [
+          "EOR_CA_FLOW"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -132,11 +151,13 @@
     {
       "id": "company-details-levels",
       "label": "Levels",
-      "icon": "BarChart3",
+      "icon": "ChartBar",
       "path": "/company-details/levels",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -149,11 +170,13 @@
     {
       "id": "company-details-titles",
       "label": "Titles",
-      "icon": "BadgeCheck",
+      "icon": "SealCheck",
       "path": "/company-details/titles",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -166,11 +189,13 @@
     {
       "id": "company-details-job-dimensions",
       "label": "Custom Org Attributes",
-      "icon": "Tags",
+      "icon": "Tag",
       "path": "/company-details/job-dimensions",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -187,11 +212,15 @@
       "path": "/company-details/business-structure",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["BUSINESS_STRUCTURE_FLAG"],
+        "conditions": [
+          "BUSINESS_STRUCTURE_FLAG"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -200,11 +229,13 @@
     {
       "id": "company-details-job-templates",
       "label": "Job Templates",
-      "icon": "FileBadge",
+      "icon": "FileText",
       "path": "/company-details/job-templates",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -217,15 +248,19 @@
     {
       "id": "company-details-pay-rates",
       "label": "Pay Rates",
-      "icon": "DollarSign",
+      "icon": "CurrencyDollar",
       "path": "/company-details/pay-rates",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["PAY_RATES_AND_PIECE_RATES"],
+        "conditions": [
+          "PAY_RATES_AND_PIECE_RATES"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -234,15 +269,19 @@
     {
       "id": "company-details-piece-rates",
       "label": "Piece Rates",
-      "icon": "DollarSign",
+      "icon": "CurrencyDollar",
       "path": "/company-details/piece-rates",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["PAY_RATES_AND_PIECE_RATES"],
+        "conditions": [
+          "PAY_RATES_AND_PIECE_RATES"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -255,11 +294,15 @@
       "path": "/company-details/business-partner",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["BUSINESS_PARTNERS"],
+        "conditions": [
+          "BUSINESS_PARTNERS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -268,11 +311,13 @@
     {
       "id": "company-details-employment-types",
       "label": "Employment Types",
-      "icon": "FileType",
+      "icon": "FileText",
       "path": "/company-details/company-employment-types",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -289,7 +334,9 @@
       "path": "/company-details/work-pattern",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -306,7 +353,9 @@
       "path": "/company-details/termination-reasons",
       "parent": "company-details",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -323,7 +372,12 @@
       "path": "/org-chart",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -336,11 +390,16 @@
     {
       "id": "org-chart-diagram",
       "label": "Diagram",
-      "icon": "Workflow",
+      "icon": "FlowArrow",
       "path": "/org-chart/diagram",
       "parent": "org-chart",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -353,11 +412,16 @@
     {
       "id": "org-chart-chart",
       "label": "Chart",
-      "icon": "ChartNetwork",
+      "icon": "TreeStructure",
       "path": "/org-chart/chart",
       "parent": "org-chart",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -370,11 +434,13 @@
     {
       "id": "org-chart-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/org-chart/settings",
       "parent": "org-chart",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -387,11 +453,13 @@
     {
       "id": "tracks",
       "label": "Tracks",
-      "icon": "Route",
+      "icon": "Path",
       "path": "/tracks",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -404,15 +472,19 @@
     {
       "id": "organizational-details",
       "label": "Organizational Details",
-      "icon": "Building",
+      "icon": "Buildings",
       "path": "/organizational-details",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["HRIS_OM_CUSTOM_ORG_DATA"],
+        "conditions": [
+          "HRIS_OM_CUSTOM_ORG_DATA"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

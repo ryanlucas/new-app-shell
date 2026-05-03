@@ -14,12 +14,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/global-payroll/admin/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "INTERNATIONAL_PAYROLL",
         "permissionGate": null,
         "conditions": [],
@@ -35,8 +40,13 @@
       "path": "/global-payroll/admin/run-management",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "INTERNATIONAL_PAYROLL",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +62,13 @@
       "path": "/global-payroll/admin/filings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "INTERNATIONAL_PAYROLL",
         "permissionGate": null,
         "conditions": [],
@@ -65,12 +80,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/global-payroll/admin/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "INTERNATIONAL_PAYROLL",
         "permissionGate": null,
         "conditions": [],

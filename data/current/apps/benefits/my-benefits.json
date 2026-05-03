@@ -15,11 +15,13 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/insurance/employee/US/overview/home",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": null,
@@ -32,11 +34,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/insurance/employee/US/overview/settings",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": null,
@@ -53,7 +57,9 @@
       "path": "/insurance/employee/US/overview/settings?section=dependents",
       "parent": "settings",
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": null,
@@ -66,15 +72,19 @@
     {
       "id": "settings-beneficiaries",
       "label": "Life Insurance Beneficiaries",
-      "icon": "HeartHandshake",
+      "icon": "Handshake",
       "path": "/insurance/employee/US/overview/settings?section=beneficiaries",
       "parent": "settings",
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": null,
-        "conditions": ["isLifeLinePresent"],
+        "conditions": [
+          "isLifeLinePresent"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -87,7 +97,9 @@
       "path": "/insurance/employee/US/overview/forms",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": null,
@@ -104,7 +116,9 @@
       "path": "/insurance/employee/US/overview/materials",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": null,

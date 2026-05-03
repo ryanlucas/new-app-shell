@@ -14,12 +14,17 @@
     {
       "id": "accounting-overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/spend-management/dashboard/accounting",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "accounting-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings/accounting",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],

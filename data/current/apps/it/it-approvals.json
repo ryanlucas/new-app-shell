@@ -13,12 +13,20 @@
     {
       "id": "needs-review",
       "label": "Needs Review",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/it/approvals/needs-review",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -34,7 +42,12 @@
       "path": "/it/approvals/my-requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
@@ -51,8 +64,16 @@
       "path": "/it/approvals/reviewed",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -64,12 +85,17 @@
     {
       "id": "all-requests",
       "label": "All Requests",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/it/approvals/all-requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],

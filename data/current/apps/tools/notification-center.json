@@ -19,7 +19,12 @@
       "path": "/notification-center/dashboard/alerts",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "NOTIFICATION_CENTER",
         "permissionGate": null,

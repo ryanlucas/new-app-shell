@@ -13,12 +13,17 @@
     {
       "id": "all",
       "label": "All Integrations",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/it/integrations/overview?tab=all",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -30,12 +35,17 @@
     {
       "id": "connected",
       "label": "Connected",
-      "icon": "PlugZap",
+      "icon": "Lightning",
       "path": "/it/integrations/overview?tab=connected",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -51,8 +61,13 @@
       "path": "/it/integrations/overview?tab=partial",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -64,12 +79,17 @@
     {
       "id": "disconnected",
       "label": "Disconnected",
-      "icon": "Unplug",
+      "icon": "Plugs",
       "path": "/it/integrations/overview?tab=disconnected",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],

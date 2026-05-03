@@ -5,11 +5,13 @@
         "id": "implementation-plan",
         "logicalId": "my-implementation",
         "label": "My Implementation",
-        "icon": "CircleCheck",
+        "icon": "CheckCircle",
         "path": "/company-onboarding",
         "parent": null,
         "visibility": {
-          "personas": ["full"],
+          "personas": [
+            "full"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
@@ -27,11 +29,13 @@
         "id": "implementation-plan-peo",
         "logicalId": "my-implementation",
         "label": "My Implementation",
-        "icon": "CircleCheck",
+        "icon": "CheckCircle",
         "path": "/peo/onboarding",
         "parent": null,
         "visibility": {
-          "personas": ["full"],
+          "personas": [
+            "full"
+          ],
           "scopeForPartial": [],
           "productGate": "peo",
           "permissionGate": null,
@@ -48,19 +52,29 @@
       {
         "id": "home",
         "label": "Home",
-        "icon": "Home",
+        "icon": "House",
         "path": "/dashboard",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial", "manager", "ee"],
+          "personas": [
+            "full",
+            "partial",
+            "manager",
+            "ee"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
-          "conditions": ["isLoggedIn", "!hideIconsForFastTrack"],
+          "conditions": [
+            "isLoggedIn",
+            "!hideIconsForFastTrack"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {
-          "ee": { "path": "/dashboard" }
+          "ee": {
+            "path": "/dashboard"
+          }
         },
         "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:301"
       },
@@ -72,11 +86,19 @@
         "path": "/navigate-role-hire",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial"],
-          "scopeForPartial": ["canRequestHire"],
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "canRequestHire"
+          ],
           "productGate": null,
           "permissionGate": "canRequestHire",
-          "conditions": ["!isEmployeeView", "!isStandaloneCompany"],
+          "conditions": [
+            "!isEmployeeView",
+            "!isStandaloneCompany"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -90,11 +112,19 @@
         "path": "/role-terminate/complete/select",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial"],
-          "scopeForPartial": ["canRequestTerminate"],
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "canRequestTerminate"
+          ],
           "productGate": null,
           "permissionGate": "canRequestTerminate",
-          "conditions": ["!isEmployeeView", "!isStandaloneCompany"],
+          "conditions": [
+            "!isEmployeeView",
+            "!isStandaloneCompany"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -108,11 +138,19 @@
         "path": "/add-people",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial"],
-          "scopeForPartial": ["canRequestHire"],
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "canRequestHire"
+          ],
           "productGate": null,
           "permissionGate": "canRequestHire",
-          "conditions": ["!isEmployeeView", "isStandaloneCompany"],
+          "conditions": [
+            "!isEmployeeView",
+            "isStandaloneCompany"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -126,11 +164,19 @@
         "path": "/remove-people",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial"],
-          "scopeForPartial": ["canRequestTerminate"],
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "canRequestTerminate"
+          ],
           "productGate": null,
           "permissionGate": "canRequestTerminate",
-          "conditions": ["!isEmployeeView", "isStandaloneCompany"],
+          "conditions": [
+            "!isEmployeeView",
+            "isStandaloneCompany"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -139,15 +185,22 @@
       {
         "id": "org-chart",
         "label": "Org Chart",
-        "icon": "Network",
+        "icon": "TreeStructure",
         "path": "/org-chart",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial", "manager", "ee"],
+          "personas": [
+            "full",
+            "partial",
+            "manager",
+            "ee"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
-          "conditions": ["isOrgChartVisible"],
+          "conditions": [
+            "isOrgChartVisible"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -156,15 +209,22 @@
       {
         "id": "reports",
         "label": "Reports",
-        "icon": "BarChart3",
+        "icon": "ChartBar",
         "path": "/reports",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial"],
-          "scopeForPartial": ["reports_admin"],
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "reports_admin"
+          ],
           "productGate": null,
           "permissionGate": "reports.view",
-          "conditions": ["sideBarData.Reports.isTopLevelApp"],
+          "conditions": [
+            "sideBarData.Reports.isTopLevelApp"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -179,11 +239,16 @@
         "path": "/country-page",
         "parent": null,
         "visibility": {
-          "personas": ["full"],
+          "personas": [
+            "full"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
-          "conditions": ["!isEmployeeView", "!isITTrialCompany"],
+          "conditions": [
+            "!isEmployeeView",
+            "!isITTrialCompany"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -192,11 +257,16 @@
       {
         "id": "app-shop",
         "label": "App Shop",
-        "icon": "LayoutGrid",
+        "icon": "SquaresFour",
         "path": "/app-shop",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial", "manager", "ee"],
+          "personas": [
+            "full",
+            "partial",
+            "manager",
+            "ee"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
@@ -209,15 +279,23 @@
       {
         "id": "help",
         "label": "Help",
-        "icon": "CircleHelp",
+        "icon": "Question",
         "path": "/help",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial", "manager", "ee"],
+          "personas": [
+            "full",
+            "partial",
+            "manager",
+            "ee"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
-          "conditions": ["!isITTrialCompany", "!isSelfServeCompanyWithoutContractSigned"],
+          "conditions": [
+            "!isITTrialCompany",
+            "!isSelfServeCompanyWithoutContractSigned"
+          ],
           "whenUnowned": null
         },
         "personaVariants": {},
@@ -230,7 +308,12 @@
         "path": "/referral",
         "parent": null,
         "visibility": {
-          "personas": ["full", "partial", "manager", "ee"],
+          "personas": [
+            "full",
+            "partial",
+            "manager",
+            "ee"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
@@ -246,11 +329,16 @@
     {
       "id": "rippling-logo",
       "label": "Rippling",
-      "icon": "Sparkles",
+      "icon": "Sparkle",
       "path": "/dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -258,22 +346,32 @@
         "whenUnowned": null
       },
       "personaVariants": {
-        "ee": { "path": "/dashboard" }
+        "ee": {
+          "path": "/dashboard"
+        }
       },
       "source": "app/appShell/components/navigation/Navigation.tsx:718"
     },
     {
       "id": "app-launcher-trigger",
       "label": "App Launcher",
-      "icon": "Menu",
+      "icon": "List",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isLoggedIn", "!isDashboardPage || isSmallScreen"],
+        "conditions": [
+          "isLoggedIn",
+          "!isDashboardPage || isSmallScreen"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -282,15 +380,22 @@
     {
       "id": "labs-branding",
       "label": "Labs",
-      "icon": "FlaskConical",
+      "icon": "TestTube",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isLabsEnabled"],
+        "conditions": [
+          "isLabsEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -303,7 +408,10 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
+        "personas": [
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": "it_trial",
         "permissionGate": null,
@@ -321,15 +429,23 @@
     {
       "id": "search-bar",
       "label": "Search",
-      "icon": "Search",
+      "icon": "MagnifyingGlass",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isSearchVisible", "!hideSectionsForFastTrack"],
+        "conditions": [
+          "isSearchVisible",
+          "!hideSectionsForFastTrack"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -338,11 +454,16 @@
     {
       "id": "remaining-days-countdown",
       "label": "Trial Days Remaining",
-      "icon": "CalendarClock",
+      "icon": "CalendarCheck",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -359,11 +480,16 @@
     {
       "id": "support",
       "label": "Support",
-      "icon": "CircleHelp",
+      "icon": "Question",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -376,7 +502,9 @@
         "whenUnowned": null
       },
       "personaVariants": {
-        "ee": { "label": "Support" }
+        "ee": {
+          "label": "Support"
+        }
       },
       "source": "app/appShell/components/navigation/Navigation.tsx:534"
     },
@@ -387,11 +515,19 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["ff:webapp-audioeye-integration", "!hideSectionsForFastTrack"],
+        "conditions": [
+          "ff:webapp-audioeye-integration",
+          "!hideSectionsForFastTrack"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -400,15 +536,22 @@
     {
       "id": "translation-tools",
       "label": "Translation Tools",
-      "icon": "Languages",
+      "icon": "Translate",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["canShowScreenshotTools"],
+        "conditions": [
+          "canShowScreenshotTools"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -417,15 +560,22 @@
     {
       "id": "chat-widget",
       "label": "Chat",
-      "icon": "MessageSquare",
+      "icon": "ChatCircle",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "rippling_chat",
         "permissionGate": null,
-        "conditions": ["hasChatAppInstall"],
+        "conditions": [
+          "hasChatAppInstall"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -438,7 +588,12 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -460,7 +615,12 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -478,11 +638,16 @@
     {
       "id": "ai-assistant-trigger",
       "label": "AI Assistant",
-      "icon": "Sparkles",
+      "icon": "Sparkle",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -501,15 +666,22 @@
     {
       "id": "feedback-widget",
       "label": "Feedback",
-      "icon": "MessageCircle",
+      "icon": "ChatCircle",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["ff:feedback-widget"],
+        "conditions": [
+          "ff:feedback-widget"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -522,11 +694,19 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isLoggedIn", "hasMigrationContext"],
+        "conditions": [
+          "isLoggedIn",
+          "hasMigrationContext"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -539,11 +719,18 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isSandboxPreviewEnvironment || isLoggedInAs"],
+        "conditions": [
+          "isSandboxPreviewEnvironment || isLoggedInAs"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -552,15 +739,22 @@
     {
       "id": "company-info-bar",
       "label": "Company Info Bar",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isSpoofed || partnerCompanyIdAccessingClient"],
+        "conditions": [
+          "isSpoofed || partnerCompanyIdAccessingClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -573,11 +767,18 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["shouldCompact"],
+        "conditions": [
+          "shouldCompact"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -586,15 +787,22 @@
     {
       "id": "user-menu-trigger",
       "label": "Account Menu",
-      "icon": "CircleUser",
+      "icon": "UserCircle",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isLoggedIn"],
+        "conditions": [
+          "isLoggedIn"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -603,15 +811,23 @@
     {
       "id": "company-logo-pip",
       "label": "Company Logo",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": null,
       "parent": "user-menu-trigger",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isUnitySearchEnabled", "isCompanyLogoAvailable"],
+        "conditions": [
+          "isUnitySearchEnabled",
+          "isCompanyLogoAvailable"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -620,15 +836,23 @@
     {
       "id": "company-name-display",
       "label": "Company Name",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": null,
       "parent": "user-menu-trigger",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isUnitySearchEnabled", "!isSmallScreen"],
+        "conditions": [
+          "isUnitySearchEnabled",
+          "!isSmallScreen"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -637,15 +861,22 @@
     {
       "id": "sign-out-compact",
       "label": "Sign Out",
-      "icon": "LogOut",
+      "icon": "SignOut",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["shouldCompact"],
+        "conditions": [
+          "shouldCompact"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -660,7 +891,12 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -677,11 +913,19 @@
       "path": "/profile",
       "parent": "user-name-header",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isNonDRWPCPartnerCompany", "!partnerCompanyIdAccessingClient"],
+        "conditions": [
+          "!isNonDRWPCPartnerCompany",
+          "!partnerCompanyIdAccessingClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -694,7 +938,12 @@
       "path": "/referral",
       "parent": "user-name-header",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -711,11 +960,16 @@
     {
       "id": "account-settings",
       "label": "Account Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/account-settings",
       "parent": "user-name-header",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -732,11 +986,18 @@
       "path": "/partner/profile",
       "parent": "user-name-header",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isNonDRWPCPartnerCompany || partnerCompanyIdAccessingClient"],
+        "conditions": [
+          "isNonDRWPCPartnerCompany || partnerCompanyIdAccessingClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -745,11 +1006,16 @@
     {
       "id": "sign-out",
       "label": "Sign Out",
-      "icon": "LogOut",
+      "icon": "SignOut",
       "path": null,
       "parent": "user-name-header",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -762,15 +1028,19 @@
     {
       "id": "previous-profiles",
       "label": "Previous Profiles",
-      "icon": "History",
+      "icon": "ClockCounterClockwise",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["hasTerminatedProfilesInSameCompany"],
+        "conditions": [
+          "hasTerminatedProfilesInSameCompany"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -783,11 +1053,19 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["accounts.length > 0", "!isPartnerAccessingClient"],
+        "conditions": [
+          "accounts.length > 0",
+          "!isPartnerAccessingClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -796,15 +1074,20 @@
     {
       "id": "role-switcher-admin",
       "label": "Admin",
-      "icon": "ShieldUser",
+      "icon": "ShieldCheck",
       "path": null,
       "parent": "account-switcher",
       "visibility": {
-        "personas": ["full", "partial"],
+        "personas": [
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["role.isAdmin || role.isPartialAdmin"],
+        "conditions": [
+          "role.isAdmin || role.isPartialAdmin"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -817,11 +1100,19 @@
       "path": null,
       "parent": "account-switcher",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["role.isEmployee", "role.roleState!=INIT"],
+        "conditions": [
+          "role.isEmployee",
+          "role.roleState!=INIT"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -830,15 +1121,19 @@
     {
       "id": "role-switcher-contractor",
       "label": "Contractor",
-      "icon": "FileSignature",
+      "icon": "Stamp",
       "path": null,
       "parent": "account-switcher",
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["role.companyEmploymentType.isContractor"],
+        "conditions": [
+          "role.companyEmploymentType.isContractor"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -847,15 +1142,22 @@
     {
       "id": "legal",
       "label": "Legal",
-      "icon": "Scale",
+      "icon": "Scales",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isITTrialCompany"],
+        "conditions": [
+          "!isITTrialCompany"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -868,11 +1170,18 @@
       "path": "/licensing",
       "parent": "legal",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isITTrialCompany"],
+        "conditions": [
+          "!isITTrialCompany"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -885,11 +1194,18 @@
       "path": "/legal",
       "parent": "legal",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isITTrialCompany"],
+        "conditions": [
+          "!isITTrialCompany"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -902,11 +1218,18 @@
       "path": "/accessibility-statement",
       "parent": "legal",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isITTrialCompany"],
+        "conditions": [
+          "!isITTrialCompany"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -917,11 +1240,16 @@
     {
       "id": "app-launcher-first-section",
       "label": "First Section (Mirrors Sidebar)",
-      "icon": "Menu",
+      "icon": "List",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -938,11 +1266,18 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isPartnerDashBoard"],
+        "conditions": [
+          "!isPartnerDashBoard"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -951,15 +1286,24 @@
     {
       "id": "app-launcher-favorites-placeholder",
       "label": "Add Favorites",
-      "icon": "StarOff",
+      "icon": "StarHalf",
       "path": null,
       "parent": "app-launcher-favorites",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!hasFavorites", "!isSmallScreen", "!isPartnerDashBoard"],
+        "conditions": [
+          "!hasFavorites",
+          "!isSmallScreen",
+          "!isPartnerDashBoard"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -972,7 +1316,12 @@
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -985,15 +1334,22 @@
     {
       "id": "app-launcher-platform",
       "label": "Platform",
-      "icon": "LayoutGrid",
+      "icon": "SquaresFour",
       "path": null,
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isPartnerDashBoard"],
+        "conditions": [
+          "!isPartnerDashBoard"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -1002,12 +1358,17 @@
     {
       "id": "app-launcher-custom-apps",
       "label": "Custom Apps",
-      "icon": "PackagePlus",
+      "icon": "Package",
       "path": null,
       "parent": "app-launcher-platform",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["custom_apps_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "custom_apps_admin"
+        ],
         "productGate": null,
         "permissionGate": null,
         "conditions": [],
@@ -1019,11 +1380,16 @@
     {
       "id": "app-launcher-app-shop",
       "label": "App Shop",
-      "icon": "LayoutGrid",
+      "icon": "SquaresFour",
       "path": "/app-shop",
       "parent": "app-launcher-platform",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -1036,15 +1402,23 @@
     {
       "id": "app-launcher-help",
       "label": "Help",
-      "icon": "CircleHelp",
+      "icon": "Question",
       "path": "/help",
       "parent": "app-launcher-platform",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isITTrialCompany", "!isSelfServeCompanyWithoutContractSigned"],
+        "conditions": [
+          "!isITTrialCompany",
+          "!isSelfServeCompanyWithoutContractSigned"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -1057,11 +1431,16 @@
       "path": "/country-page",
       "parent": "app-launcher-platform",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isEmployeeView", "!isITTrialCompany"],
+        "conditions": [
+          "!isEmployeeView",
+          "!isITTrialCompany"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -1074,7 +1453,12 @@
       "path": "/referral",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,

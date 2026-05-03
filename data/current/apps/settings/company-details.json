@@ -16,11 +16,13 @@
     {
       "id": "information",
       "label": "Information",
-      "icon": "Building",
+      "icon": "Buildings",
       "path": "/company-details/information",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "INFORMATION",
@@ -33,15 +35,19 @@
     {
       "id": "work-emails",
       "label": "Work emails",
-      "icon": "Mail",
+      "icon": "Envelope",
       "path": "/company-details/work-emails",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "WORK_EMAIL_DOMAINS",
-        "conditions": ["isWorkEmailPolicyHiringFlowEnabled"],
+        "conditions": [
+          "isWorkEmailPolicyHiringFlowEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -54,11 +60,15 @@
       "path": "/company-details/work-emails/domains",
       "parent": "work-emails",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "WORK_EMAIL_DOMAINS",
-        "conditions": ["isWorkEmailPolicyHiringFlowEnabled"],
+        "conditions": [
+          "isWorkEmailPolicyHiringFlowEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -71,11 +81,15 @@
       "path": "/company-details/work-emails/policies",
       "parent": "work-emails",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "WORK_EMAIL_POLICIES",
-        "conditions": ["isWorkEmailPolicyHiringFlowEnabled"],
+        "conditions": [
+          "isWorkEmailPolicyHiringFlowEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -88,7 +102,9 @@
       "path": "/company-details/work-locations",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "WORK_LOCATION",
@@ -105,7 +121,9 @@
       "path": "/company-details/departments",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "DEPARTMENTS",
@@ -122,7 +140,9 @@
       "path": "/company-details/teams",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "TEAMS",
@@ -135,15 +155,19 @@
     {
       "id": "entities",
       "label": "Entities",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": "/company-details/entities",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "ENTITIES",
-        "conditions": ["isEorCaFlowEnabled"],
+        "conditions": [
+          "isEorCaFlowEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -152,11 +176,13 @@
     {
       "id": "levels",
       "label": "Levels",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/company-details/levels",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "LEVELS",
@@ -173,7 +199,9 @@
       "path": "/company-details/titles",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "TITLES",
@@ -190,7 +218,9 @@
       "path": "/company-details/job-dimensions",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "JOBS",
@@ -203,15 +233,19 @@
     {
       "id": "business-structure",
       "label": "Business structure",
-      "icon": "Network",
+      "icon": "TreeStructure",
       "path": "/company-details/business-structure",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "BUSINESS_STRUCTURE",
-        "conditions": ["isBusinessStructureFlagEnabled"],
+        "conditions": [
+          "isBusinessStructureFlagEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -224,7 +258,9 @@
       "path": "/company-details/job-templates",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "JOB_TEMPLATES",
@@ -237,15 +273,22 @@
     {
       "id": "pay-rates",
       "label": "Pay rates",
-      "icon": "DollarSign",
+      "icon": "CurrencyDollar",
       "path": "/company-details/pay-rates",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pay_rates"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pay_rates"
+        ],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isPayRatesAndPieceRatesEnabled"],
+        "conditions": [
+          "isPayRatesAndPieceRatesEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -258,11 +301,18 @@
       "path": "/company-details/business-partner",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["business_partner"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "business_partner"
+        ],
         "productGate": null,
         "permissionGate": "BUSINESS_PARTNER",
-        "conditions": ["isBusinessPartnersEnabled"],
+        "conditions": [
+          "isBusinessPartnersEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -271,11 +321,13 @@
     {
       "id": "company-employment-types",
       "label": "Employment types",
-      "icon": "BadgeCheck",
+      "icon": "SealCheck",
       "path": "/company-details/company-employment-types",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "EMPLOYMENT_TYPES",
@@ -292,7 +344,9 @@
       "path": "/company-details/termination-reasons",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "TERMINATION_REASON",

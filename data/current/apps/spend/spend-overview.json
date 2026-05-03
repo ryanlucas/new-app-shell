@@ -14,12 +14,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/spend-management/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -35,8 +40,14 @@
       "path": "/spend-management/dashboard/approvals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +63,13 @@
       "path": "/spend-management/dashboard/people",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -65,12 +81,17 @@
     {
       "id": "vendors",
       "label": "Vendors",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -86,8 +107,13 @@
       "path": "/spend-management/dashboard/policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -103,8 +129,13 @@
       "path": "/spend-management/dashboard/accounting",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -116,12 +147,17 @@
     {
       "id": "forms",
       "label": "Forms",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/spend-management/dashboard/forms",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -133,12 +169,17 @@
     {
       "id": "reports",
       "label": "Reports",
-      "icon": "BarChart3",
+      "icon": "ChartBar",
       "path": "/spend-management/dashboard/reports",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -150,12 +191,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],

@@ -17,8 +17,13 @@
       "path": "/it/device-store/approved",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -30,12 +35,17 @@
     {
       "id": "catalog",
       "label": "Catalog",
-      "icon": "Grid",
+      "icon": "SquaresFour",
       "path": "/it/device-store/catalog",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -47,15 +57,22 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/it/device-store/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["isGlobalExpansionEnabled"],
+        "conditions": [
+          "isGlobalExpansionEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

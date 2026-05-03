@@ -16,12 +16,19 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "AlertTriangle",
+      "icon": "Warning",
       "path": "/custom-workflows/dashboard/legacy/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["alerts"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "alerts"
+        ],
         "productGate": "ALERTS",
         "permissionGate": null,
         "conditions": [],
@@ -33,12 +40,17 @@
     {
       "id": "events",
       "label": "Events",
-      "icon": "Activity",
+      "icon": "Pulse",
       "path": "/custom-workflows/dashboard/legacy/events",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["alerts"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "alerts"
+        ],
         "productGate": "ALERTS",
         "permissionGate": "isFullAdmin || isPartialAdmin || isPartner",
         "conditions": [],
@@ -50,12 +62,17 @@
     {
       "id": "actions",
       "label": "Actions",
-      "icon": "Zap",
+      "icon": "Lightning",
       "path": "/custom-workflows/dashboard/legacy/actions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["alerts"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "alerts"
+        ],
         "productGate": "ALERTS",
         "permissionGate": "isFullAdmin || isPartialAdmin || isPartner",
         "conditions": [],
@@ -71,11 +88,18 @@
       "path": "/custom-workflows/dashboard/legacy/tags",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["alerts"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "alerts"
+        ],
         "productGate": "ALERTS",
         "permissionGate": null,
-        "conditions": ["isTagsEnabled"],
+        "conditions": [
+          "isTagsEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

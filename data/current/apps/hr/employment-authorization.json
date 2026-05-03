@@ -16,12 +16,17 @@
     {
       "id": "i9-dashboard",
       "label": "I-9",
-      "icon": "FileBadge",
+      "icon": "FileText",
       "path": "/employment-authorization/i9-dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9 in ALLOWED",
         "conditions": [],
@@ -37,8 +42,13 @@
       "path": "/employment-authorization/i9-dashboard/employee-action-pending",
       "parent": "i9-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
         "conditions": [],
@@ -50,15 +60,22 @@
     {
       "id": "i9-dashboard.employer-verification-pending",
       "label": "Employer Verification Pending",
-      "icon": "ShieldQuestion",
+      "icon": "Shield",
       "path": "/employment-authorization/i9-dashboard/employer-verification-pending",
       "parent": "i9-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
-        "conditions": ["!isEmployerFlowComplete"],
+        "conditions": [
+          "!isEmployerFlowComplete"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -67,15 +84,22 @@
     {
       "id": "i9-dashboard.physical-doc-inspection-pending",
       "label": "Physical Doc Inspection Pending",
-      "icon": "ScanSearch",
+      "icon": "MagnifyingGlass",
       "path": "/employment-authorization/i9-dashboard/physical-document-inspection-pending",
       "parent": "i9-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
-        "conditions": ["isEmployerFlowComplete"],
+        "conditions": [
+          "isEmployerFlowComplete"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -88,8 +112,13 @@
       "path": "/employment-authorization/i9-dashboard/completed",
       "parent": "i9-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
         "conditions": [],
@@ -101,12 +130,17 @@
     {
       "id": "i9-dashboard.others",
       "label": "Others",
-      "icon": "MoreHorizontal",
+      "icon": "DotsThree",
       "path": "/employment-authorization/i9-dashboard/others",
       "parent": "i9-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
         "conditions": [],
@@ -122,8 +156,13 @@
       "path": "/employment-authorization/everify-dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
         "conditions": [],
@@ -135,12 +174,17 @@
     {
       "id": "everify-dashboard.pending-submission",
       "label": "Pending Submission",
-      "icon": "Send",
+      "icon": "PaperPlaneRight",
       "path": "/employment-authorization/everify-dashboard/pending-submission",
       "parent": "everify-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
         "conditions": [],
@@ -152,12 +196,17 @@
     {
       "id": "everify-dashboard.action-required",
       "label": "Action Required",
-      "icon": "AlertTriangle",
+      "icon": "Warning",
       "path": "/employment-authorization/everify-dashboard/action-required",
       "parent": "everify-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
         "conditions": [],
@@ -173,8 +222,13 @@
       "path": "/employment-authorization/everify-dashboard/completed",
       "parent": "everify-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
         "conditions": [],
@@ -190,11 +244,18 @@
       "path": "/employment-authorization/international-employment-authorization",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "canReviewWorkAuthRequests",
-        "conditions": ["isCAFlowEnabled (EOR flow)"],
+        "conditions": [
+          "isCAFlowEnabled (EOR flow)"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -203,12 +264,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/employment-authorization/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["employmentAuthorization"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "employmentAuthorization"
+        ],
         "productGate": null,
         "permissionGate": "accessLevel.settings in [READ_WRITE, READ_ONLY] || canViewOrEditGlobalWorkAuthSettings",
         "conditions": [],

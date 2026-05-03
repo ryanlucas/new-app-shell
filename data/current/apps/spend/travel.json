@@ -14,12 +14,19 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/travel/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +38,19 @@
     {
       "id": "trips",
       "label": "Trips",
-      "icon": "Plane",
+      "icon": "Airplane",
       "path": "/travel/dashboard/trips",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +66,15 @@
       "path": "/travel/dashboard/book",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": null,
         "conditions": [],
@@ -69,8 +90,14 @@
       "path": "/travel/dashboard/approvals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": null,
         "conditions": [],
@@ -86,8 +113,14 @@
       "path": "/travel/dashboard/bookings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": "travel:CAN_VIEW_TRIP_INFORMATION",
         "conditions": [],
@@ -103,8 +136,13 @@
       "path": "/travel/dashboard/policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": "travel:CAN_MODIFY_POLICIES_AND_SETTINGS",
         "conditions": [],
@@ -120,8 +158,15 @@
       "path": "/travel/dashboard/profile",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": null,
         "conditions": [],
@@ -133,12 +178,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/travel/dashboard/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["travel"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "travel"
+        ],
         "productGate": "TRAVEL",
         "permissionGate": "travel:CAN_MODIFY_POLICIES_AND_SETTINGS",
         "conditions": [],

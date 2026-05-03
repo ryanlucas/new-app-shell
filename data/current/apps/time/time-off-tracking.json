@@ -14,15 +14,23 @@
     {
       "id": "summary",
       "label": "Summary",
-      "icon": "BarChart",
+      "icon": "ChartBar",
       "path": "/time-products/dashboard/time-off/summary",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_SUMMARY"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_SUMMARY"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -35,11 +43,19 @@
       "path": "/time-products/dashboard/time-off/calendar",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_CALENDAR"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_CALENDAR"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -48,15 +64,23 @@
     {
       "id": "time-off",
       "label": "Time Off",
-      "icon": "PalmTree",
+      "icon": "TreePalm",
       "path": "/time-products/dashboard/time-off/time-off-schedule",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_TIME_OFF"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_TIME_OFF"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -69,11 +93,19 @@
       "path": "/time-products/dashboard/time-off/leaves",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_LEAVES"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_LEAVES"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -82,15 +114,23 @@
     {
       "id": "balances",
       "label": "Balances",
-      "icon": "Scale",
+      "icon": "Scales",
       "path": "/time-products/dashboard/time-off/balances",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_BALANCES"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_BALANCES"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -99,12 +139,19 @@
     {
       "id": "time-off-requests",
       "label": "Requests",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/time-products/dashboard/time-off/requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -120,8 +167,14 @@
       "path": "/time-products/dashboard/policies/time-off",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -137,8 +190,14 @@
       "path": "/time-products/dashboard/settings/leave-types",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -154,8 +213,14 @@
       "path": "/time-products/dashboard/settings/holidays",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -167,12 +232,18 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/time-products/dashboard/settings/time-off",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto_admin", "time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto_admin",
+          "time_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],

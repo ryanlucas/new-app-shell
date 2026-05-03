@@ -18,8 +18,13 @@
       "path": "/spend-management/dashboard/expenses",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "EXPENSES",
         "permissionGate": null,
         "conditions": [],
@@ -35,8 +40,13 @@
       "path": "/spend-management/dashboard/expense_reports",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "EXPENSES",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +62,13 @@
       "path": "/spend-management/dashboard/policies/transaction-and-reimbursement-policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "EXPENSES",
         "permissionGate": null,
         "conditions": [],
@@ -65,12 +80,17 @@
     {
       "id": "reimbursement-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings/reimbursements",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "EXPENSES",
         "permissionGate": null,
         "conditions": [],

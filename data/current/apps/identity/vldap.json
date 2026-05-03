@@ -13,12 +13,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/ldap/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "VLDAP",
         "permissionGate": null,
         "conditions": [],
@@ -34,8 +39,13 @@
       "path": "/ldap/groups",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "VLDAP",
         "permissionGate": null,
         "conditions": [],
@@ -51,8 +61,13 @@
       "path": "/ldap/provisioning",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "VLDAP",
         "permissionGate": null,
         "conditions": [],
@@ -68,8 +83,13 @@
       "path": "/ldap/connection",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "VLDAP",
         "permissionGate": null,
         "conditions": [],
@@ -81,12 +101,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/ldap/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "VLDAP",
         "permissionGate": null,
         "conditions": [],

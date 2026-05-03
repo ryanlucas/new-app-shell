@@ -18,8 +18,13 @@
       "path": "/data-manager/field-selector",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["data_manager_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "data_manager_admin"
+        ],
         "productGate": "DATAMANAGER",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "data-collected",
       "label": "Data Collected",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/data-manager/data-collected",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["data_manager_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "data_manager_admin"
+        ],
         "productGate": "DATAMANAGER",
         "permissionGate": null,
         "conditions": [],

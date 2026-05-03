@@ -20,11 +20,18 @@
       "path": "/developer/functions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["developer"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "developer"
+        ],
         "productGate": "DEVELOPER",
         "permissionGate": null,
-        "conditions": ["isFunctionsEnabled (SKU)"],
+        "conditions": [
+          "isFunctionsEnabled (SKU)"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -33,15 +40,22 @@
     {
       "id": "settings",
       "label": "Settings manager",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/developer/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["developer"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "developer"
+        ],
         "productGate": "DEVELOPER",
         "permissionGate": null,
-        "conditions": ["isSettingsManagerEnabled (SKU)"],
+        "conditions": [
+          "isSettingsManagerEnabled (SKU)"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -54,11 +68,18 @@
       "path": "/developer/webhooks",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["developer"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "developer"
+        ],
         "productGate": "DEVELOPER",
         "permissionGate": null,
-        "conditions": ["isWebhooksEnabled (SKU)"],
+        "conditions": [
+          "isWebhooksEnabled (SKU)"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -67,15 +88,22 @@
     {
       "id": "api-tokens",
       "label": "API tokens",
-      "icon": "KeyRound",
+      "icon": "Key",
       "path": "/developer/api-tokens",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["api_tokens_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "api_tokens_full_admin"
+        ],
         "productGate": "DEVELOPER",
         "permissionGate": null,
-        "conditions": ["isDeveloperAPITokensEnabled"],
+        "conditions": [
+          "isDeveloperAPITokensEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -88,11 +116,18 @@
       "path": "/developer/packages",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["developer"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "developer"
+        ],
         "productGate": "DEVELOPER",
         "permissionGate": null,
-        "conditions": ["isPackageBuilderEnabled || isPackageInstallationEnabled"],
+        "conditions": [
+          "isPackageBuilderEnabled || isPackageInstallationEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

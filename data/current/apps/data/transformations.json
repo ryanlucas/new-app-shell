@@ -17,7 +17,9 @@
       "label": "Overview",
       "path": "/data/transformations/overview",
       "icon": "Database",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DerivedObjects/routes-v6/derivedObjects.routes.tsx:31-37"
     },
     {
@@ -25,7 +27,9 @@
       "label": "Schedules",
       "path": "/data/transformations/schedules",
       "icon": "Clock",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DerivedObjects/routes-v6/derivedObjects.routes.tsx:38-44"
     }
   ]

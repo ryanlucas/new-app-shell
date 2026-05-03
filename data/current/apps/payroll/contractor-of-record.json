@@ -14,15 +14,22 @@
     {
       "id": "dashboard",
       "label": "Dashboard",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/global-contractors-standalone/dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["ee", "partial"],
-        "scopeForPartial": ["contractors"],
+        "personas": [
+          "ee",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "contractors"
+        ],
         "productGate": "GLOBAL_CONTRACTOR",
         "permissionGate": null,
-        "conditions": ["categoriesData.DASHBOARD.visible"],
+        "conditions": [
+          "categoriesData.DASHBOARD.visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -35,11 +42,15 @@
       "path": "/global-contractors-standalone/my-money",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "GLOBAL_CONTRACTOR",
         "permissionGate": null,
-        "conditions": ["categoriesData.MY_MONEY.visible"],
+        "conditions": [
+          "categoriesData.MY_MONEY.visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -52,11 +63,15 @@
       "path": "/global-contractors-standalone/my-invoices",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "GLOBAL_CONTRACTOR",
         "permissionGate": null,
-        "conditions": ["categoriesData.INVOICES.visible"],
+        "conditions": [
+          "categoriesData.INVOICES.visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -69,11 +84,15 @@
       "path": "/global-contractors-standalone/my-time",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "GLOBAL_CONTRACTOR",
         "permissionGate": null,
-        "conditions": ["categoriesData.MY_TIME.visible"],
+        "conditions": [
+          "categoriesData.MY_TIME.visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -86,11 +105,15 @@
       "path": "/global-contractors-standalone/clients",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "GLOBAL_CONTRACTOR",
         "permissionGate": null,
-        "conditions": ["categoriesData.CLIENTS.visible"],
+        "conditions": [
+          "categoriesData.CLIENTS.visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

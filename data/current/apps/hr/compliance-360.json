@@ -19,8 +19,13 @@
       "path": "/compliance/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["compliance"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "compliance"
+        ],
         "productGate": "AUTOMATED_COMPLIANCE",
         "permissionGate": "compliance_admin",
         "conditions": [],
@@ -32,12 +37,17 @@
     {
       "id": "historical-issues",
       "label": "Historical Issues",
-      "icon": "History",
+      "icon": "ClockCounterClockwise",
       "path": "/compliance/historical-issues",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["compliance"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "compliance"
+        ],
         "productGate": "AUTOMATED_COMPLIANCE",
         "permissionGate": "compliance_admin",
         "conditions": [],
@@ -49,15 +59,22 @@
     {
       "id": "tax-accounts",
       "label": "Tax Accounts",
-      "icon": "Landmark",
+      "icon": "Bank",
       "path": "/compliance/tax-accounts",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["compliance"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "compliance"
+        ],
         "productGate": "AUTOMATED_COMPLIANCE",
         "permissionGate": "compliance_admin",
-        "conditions": ["clientType (PEO) set"],
+        "conditions": [
+          "clientType (PEO) set"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -70,11 +87,19 @@
       "path": "/compliance/peo-offboarding",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["compliance"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "compliance"
+        ],
         "productGate": "AUTOMATED_COMPLIANCE",
         "permissionGate": "compliance_admin",
-        "conditions": ["clientType set", "PEO terminationDate within last 90 days"],
+        "conditions": [
+          "clientType set",
+          "PEO terminationDate within last 90 days"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

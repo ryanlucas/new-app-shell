@@ -14,11 +14,13 @@
     {
       "id": "overview",
       "label": "My Spend",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/spend-management/dashboard/my-finances",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
@@ -35,7 +37,9 @@
       "path": "/spend-management/dashboard/my-finances?section=cards",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "CORPORATE_CARDS",
         "permissionGate": null,
@@ -52,7 +56,9 @@
       "path": "/spend-management/dashboard/my-finances?section=expenses",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "EXPENSES",
         "permissionGate": null,
@@ -69,7 +75,9 @@
       "path": "/spend-management/dashboard/my-finances?section=my+reports",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "EXPENSES",
         "permissionGate": null,

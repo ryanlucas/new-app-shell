@@ -14,12 +14,18 @@
     {
       "id": "manage-integrations",
       "label": "Manage Integrations",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/apps/custom-integrations/manage-integrations",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin", "identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "identity_admin"
+        ],
         "productGate": "CUSTOMSAMLSERVICE",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +37,18 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/apps/custom-integrations/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin", "identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin",
+          "identity_admin"
+        ],
         "productGate": "CUSTOMSAMLSERVICE",
         "permissionGate": null,
         "conditions": [],

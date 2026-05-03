@@ -20,7 +20,10 @@
       "path": "/headcount-planning/my-team",
       "parent": null,
       "visibility": {
-        "personas": ["manager", "full"],
+        "personas": [
+          "manager",
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_MY_TEAM_ACCESS",
@@ -37,7 +40,10 @@
       "path": "/headcount-planning/my-team/current",
       "parent": "my-team",
       "visibility": {
-        "personas": ["manager", "full"],
+        "personas": [
+          "manager",
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_MY_TEAM_ACCESS",
@@ -54,7 +60,10 @@
       "path": "/headcount-planning/my-team/analytics",
       "parent": "my-team",
       "visibility": {
-        "personas": ["manager", "full"],
+        "personas": [
+          "manager",
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_MY_TEAM_ACCESS",
@@ -67,12 +76,17 @@
     {
       "id": "plans",
       "label": "Plan",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/headcount-planning/plans",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
         "conditions": [],
@@ -84,12 +98,17 @@
     {
       "id": "plans-overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/headcount-planning/plans?section=overview",
       "parent": "plans",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
         "conditions": [],
@@ -105,8 +124,13 @@
       "path": "/headcount-planning/plans?section=position",
       "parent": "plans",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
         "conditions": [],
@@ -118,12 +142,17 @@
     {
       "id": "plans-reporting",
       "label": "Reporting",
-      "icon": "BarChart3",
+      "icon": "ChartBar",
       "path": "/headcount-planning/plans?section=reporting",
       "parent": "plans",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_HEADCOUNT_APP_VIEWER",
         "conditions": [],
@@ -139,11 +168,15 @@
       "path": "/headcount-planning/budget-planning",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_BUDGET_APP_VIEWER",
-        "conditions": ["isHCBudgetingEnabled"],
+        "conditions": [
+          "isHCBudgetingEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -156,7 +189,9 @@
       "path": "/headcount-planning/budget-planning/active",
       "parent": "budget-planning",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_ACTIVE_BUDGET_PLAN_VIEWER",
@@ -169,11 +204,13 @@
     {
       "id": "budget-drafts",
       "label": "Drafts",
-      "icon": "FilePen",
+      "icon": "NotePencil",
       "path": "/headcount-planning/budget-planning/drafts",
       "parent": "budget-planning",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_BUDGET_APP_OWNER",
@@ -190,8 +227,13 @@
       "path": "/headcount-planning/scenarios",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUEST_DESK_ACCESS",
         "conditions": [],
@@ -203,12 +245,17 @@
     {
       "id": "requests",
       "label": "Approval Requests",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/headcount-planning/requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUEST_DESK_ACCESS",
         "conditions": [],
@@ -224,8 +271,13 @@
       "path": "/headcount-planning/requests/my-requests",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUEST_DESK_ACCESS",
         "conditions": [],
@@ -237,12 +289,17 @@
     {
       "id": "requests-need-review",
       "label": "Need My Review",
-      "icon": "ClipboardCheck",
+      "icon": "ClipboardText",
       "path": "/headcount-planning/requests/need-my-review",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUEST_DESK_ACCESS",
         "conditions": [],
@@ -254,12 +311,17 @@
     {
       "id": "requests-reviewed",
       "label": "Reviewed",
-      "icon": "CheckCheck",
+      "icon": "Checks",
       "path": "/headcount-planning/requests/reviewed",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUEST_DESK_ACCESS",
         "conditions": [],
@@ -275,8 +337,13 @@
       "path": "/headcount-planning/requests/all-requests",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["headcount"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "headcount"
+        ],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUEST_DESK_ACCESS",
         "conditions": [],
@@ -288,11 +355,13 @@
     {
       "id": "shared-scenarios",
       "label": "Shared with Me",
-      "icon": "Share2",
+      "icon": "ShareNetwork",
       "path": "/headcount-planning/shared-scenarios",
       "parent": null,
       "visibility": {
-        "personas": ["partial"],
+        "personas": [
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "HAS_REQUESTS_COLLABORATOR_ACCESS",
@@ -309,7 +378,9 @@
       "path": "/headcount-planning/approval-policies",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_APPROVAL_POLICY_OWNER",
@@ -322,11 +393,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/headcount-planning/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HEADCOUNT",
         "permissionGate": "IS_HEADCOUNT_APP_OWNER",

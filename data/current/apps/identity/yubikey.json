@@ -14,12 +14,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/yubikey/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "YUBIKEY",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "ordering-policies",
       "label": "Ordering Policies",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/yubikey/ordering-policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "YUBIKEY",
         "permissionGate": null,
         "conditions": [],
@@ -48,12 +58,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/yubikey/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "YUBIKEY",
         "permissionGate": null,
         "conditions": [],
@@ -69,7 +84,12 @@
       "path": "/yubikey/employee/overview",
       "parent": null,
       "visibility": {
-        "personas": ["ee", "manager", "full", "partial"],
+        "personas": [
+          "ee",
+          "manager",
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": "YUBIKEY",
         "permissionGate": null,

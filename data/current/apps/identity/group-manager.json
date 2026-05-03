@@ -19,8 +19,13 @@
       "path": "/group-manager/dashboard/saved-groups",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "GROUP_MANAGER",
         "permissionGate": null,
         "conditions": [],
@@ -32,12 +37,17 @@
     {
       "id": "recommendations",
       "label": "Recommendations",
-      "icon": "Sparkles",
+      "icon": "Sparkle",
       "path": "/group-manager/dashboard/recommendations",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "GROUP_MANAGER",
         "permissionGate": "has_create_permission",
         "conditions": [

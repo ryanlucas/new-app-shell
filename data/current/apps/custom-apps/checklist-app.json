@@ -19,11 +19,19 @@
       "path": "/checklist/:appName/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["checklist"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "checklist"
+        ],
         "productGate": "CHECKLISTAPP",
         "permissionGate": "canViewChecklistTabs",
-        "conditions": ["isAdmin", "isChecklistEnabledForRole"],
+        "conditions": [
+          "isAdmin",
+          "isChecklistEnabledForRole"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

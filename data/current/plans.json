@@ -27,27 +27,54 @@
       "id": "hris-only",
       "label": "HRIS only",
       "description": "Standalone HRIS customer — HR + reporting + integrations",
-      "ownedSuites": ["hr", "custom-apps", "data", "settings"]
+      "ownedSuites": [
+        "hr",
+        "custom-apps",
+        "data",
+        "settings"
+      ]
     },
     {
       "id": "spend-only",
       "label": "Spend Management only (standalone)",
       "description": "Standalone Spend customer — no HR/Payroll. Spend pillar plus banking and integrations.",
-      "ownedSuites": ["spend", "custom-apps", "banking", "settings"],
-      "conditions": ["isStandaloneCompany"]
+      "ownedSuites": [
+        "spend",
+        "custom-apps",
+        "banking",
+        "settings"
+      ],
+      "conditions": [
+        "isStandaloneCompany"
+      ]
     },
     {
       "id": "it-only",
       "label": "IT only (standalone)",
       "description": "Standalone IT customer — devices, identity, and integrations only.",
-      "ownedSuites": ["it", "identity", "custom-apps", "settings"],
-      "conditions": ["isStandaloneCompany"]
+      "ownedSuites": [
+        "it",
+        "identity",
+        "custom-apps",
+        "settings"
+      ],
+      "conditions": [
+        "isStandaloneCompany"
+      ]
     },
     {
       "id": "hr-payroll-benefits",
       "label": "HR + Payroll + Benefits",
       "description": "Typical SMB bundle — HR, Payroll, Time, Benefits, plus reporting and integrations.",
-      "ownedSuites": ["hr", "payroll", "benefits", "time", "custom-apps", "data", "settings"]
+      "ownedSuites": [
+        "hr",
+        "payroll",
+        "benefits",
+        "time",
+        "custom-apps",
+        "data",
+        "settings"
+      ]
     }
   ],
   "_meta": {

@@ -20,11 +20,15 @@
       "path": "/partner/clients",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["partner_company.usecase_config.allowed_links includes DASHBOARD"],
+        "conditions": [
+          "partner_company.usecase_config.allowed_links includes DASHBOARD"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -37,11 +41,15 @@
       "path": "/partner/tasks",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes TASKS"],
+        "conditions": [
+          "allowed_links includes TASKS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -54,11 +62,15 @@
       "path": "/partner/events",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes EVENTS"],
+        "conditions": [
+          "allowed_links includes EVENTS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -71,11 +83,15 @@
       "path": "/partner/documents",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes DOCUMENTS"],
+        "conditions": [
+          "allowed_links includes DOCUMENTS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -84,15 +100,19 @@
     {
       "id": "reports",
       "label": "Reports",
-      "icon": "BarChart3",
+      "icon": "ChartBar",
       "path": "/partner/reports/dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes REPORTS"],
+        "conditions": [
+          "allowed_links includes REPORTS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -101,15 +121,19 @@
     {
       "id": "workflows",
       "label": "Workflows",
-      "icon": "Workflow",
+      "icon": "FlowArrow",
       "path": "/partner/custom-workflows/dashboard/legacy/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes WORKFLOWS"],
+        "conditions": [
+          "allowed_links includes WORKFLOWS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -122,11 +146,15 @@
       "path": "/partner/audits",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes AUDITS"],
+        "conditions": [
+          "allowed_links includes AUDITS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -139,11 +167,15 @@
       "path": "/partner/insurance",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes INSURANCE"],
+        "conditions": [
+          "allowed_links includes INSURANCE"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -156,11 +188,15 @@
       "path": "/partner/billing",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes BILLING"],
+        "conditions": [
+          "allowed_links includes BILLING"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -169,15 +205,19 @@
     {
       "id": "revshare",
       "label": "Revenue share",
-      "icon": "DollarSign",
+      "icon": "CurrencyDollar",
       "path": "/partner/revshare",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes REV_SHARE"],
+        "conditions": [
+          "allowed_links includes REV_SHARE"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -190,11 +230,15 @@
       "path": "/partner/referrals",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes PARTNER_REFERRALS"],
+        "conditions": [
+          "allowed_links includes PARTNER_REFERRALS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -207,11 +251,15 @@
       "path": "/partner/partner-recipes",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes PARTNER_RECIPES"],
+        "conditions": [
+          "allowed_links includes PARTNER_RECIPES"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -220,15 +268,19 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/partner/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PARTNER",
         "permissionGate": null,
-        "conditions": ["allowed_links includes SETTINGS"],
+        "conditions": [
+          "allowed_links includes SETTINGS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

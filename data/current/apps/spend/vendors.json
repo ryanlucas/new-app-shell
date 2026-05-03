@@ -14,12 +14,17 @@
     {
       "id": "all-vendors",
       "label": "All Vendors",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "VENDORS",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "1099-vendors",
       "label": "1099 Vendors",
-      "icon": "FileSpreadsheet",
+      "icon": "Table",
       "path": "/spend-management/dashboard/vendors/1099",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "VENDORS",
         "permissionGate": null,
         "conditions": [],

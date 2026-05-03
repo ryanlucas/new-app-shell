@@ -14,12 +14,17 @@
     {
       "id": "tax-payments",
       "label": "Tax Payments",
-      "icon": "Banknote",
+      "icon": "Money",
       "path": "/payroll/dashboard/taxPayments",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "PAYROLL",
         "permissionGate": "payroll:taxPayments",
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "expected-notices",
       "label": "Expected Notices",
-      "icon": "AlertTriangle",
+      "icon": "Warning",
       "path": "/payroll/dashboard/expectedTaxNotices",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "PAYROLL",
         "permissionGate": "payroll:expectedTaxNotices",
         "conditions": [],
@@ -52,8 +62,13 @@
       "path": "/payroll/dashboard/taxExemptions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "PAYROLL",
         "permissionGate": "payroll:taxExemptions",
         "conditions": [],
@@ -65,12 +80,17 @@
     {
       "id": "amendments",
       "label": "Amendments",
-      "icon": "FileEdit",
+      "icon": "NotePencil",
       "path": "/payroll/dashboard/amendments",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "PAYROLL",
         "permissionGate": "payroll:amendments",
         "conditions": [],
@@ -86,8 +106,13 @@
       "path": "/payroll/dashboard/documents",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["payroll"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "payroll"
+        ],
         "productGate": "PAYROLL",
         "permissionGate": "payroll:documents",
         "conditions": [],

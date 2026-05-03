@@ -16,12 +16,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/it/hardware/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -37,15 +42,23 @@
       "path": "/it/hardware/devices",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
         "whenUnowned": null
       },
       "personaVariants": {
-        "ee": { "path": "/it/hardware/employee/devices" }
+        "ee": {
+          "path": "/it/hardware/employee/devices"
+        }
       },
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:132"
     },
@@ -56,8 +69,13 @@
       "path": "/it/hardware/people",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -73,15 +91,23 @@
       "path": "/it/hardware/orders",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
         "whenUnowned": null
       },
       "personaVariants": {
-        "ee": { "path": "/it/hardware/employee/orders" }
+        "ee": {
+          "path": "/it/hardware/employee/orders"
+        }
       },
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:140"
     },
@@ -92,11 +118,18 @@
       "path": "/it/hardware/configurations",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -109,11 +142,18 @@
       "path": "/it/hardware/software",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -126,11 +166,18 @@
       "path": "/it/hardware/software/deployed",
       "parent": "software",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -139,15 +186,22 @@
     {
       "id": "software-library",
       "label": "Software Library",
-      "icon": "Library",
+      "icon": "Books",
       "path": "/it/hardware/software/library",
       "parent": "software",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -156,15 +210,22 @@
     {
       "id": "threats",
       "label": "Threats",
-      "icon": "AlertTriangle",
+      "icon": "Warning",
       "path": "/it/hardware/threats",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -173,15 +234,22 @@
     {
       "id": "updates",
       "label": "Updates",
-      "icon": "RefreshCw",
+      "icon": "ArrowsClockwise",
       "path": "/it/hardware/updates",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -194,11 +262,18 @@
       "path": "/it/hardware/scripts",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
-        "conditions": ["fullDeviceManagementTier"],
+        "conditions": [
+          "fullDeviceManagementTier"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -207,12 +282,17 @@
     {
       "id": "activity",
       "label": "Activity",
-      "icon": "ScrollText",
+      "icon": "Scroll",
       "path": "/it/hardware/activity",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -224,12 +304,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/it/hardware/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],

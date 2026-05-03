@@ -13,12 +13,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/it-management/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -34,8 +39,15 @@
       "path": "/it-management/people",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -47,12 +59,19 @@
     {
       "id": "requests",
       "label": "Requests",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/it-management/requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -68,11 +87,19 @@
       "path": "/it-management/tasks",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
-        "conditions": ["isITHomeFullAdmin || isITHomeDeviceManager"],
+        "conditions": [
+          "isITHomeFullAdmin || isITHomeDeviceManager"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -81,12 +108,19 @@
     {
       "id": "activity-logs",
       "label": "Activity Logs",
-      "icon": "ScrollText",
+      "icon": "Scroll",
       "path": "/it-management/activity-logs",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -102,8 +136,13 @@
       "path": "/it-management/policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],

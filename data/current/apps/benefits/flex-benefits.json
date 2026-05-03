@@ -16,12 +16,17 @@
     {
       "id": "fsa-overview",
       "label": "FSA Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/fsa-benefits/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -33,12 +38,17 @@
     {
       "id": "fsa-plans",
       "label": "FSA Plans",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/fsa-benefits/dashboard/plans",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -54,8 +64,13 @@
       "path": "/fsa-benefits/dashboard/plans/current",
       "parent": "fsa-plans",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -67,12 +82,17 @@
     {
       "id": "fsa-plans-upcoming",
       "label": "Upcoming",
-      "icon": "CalendarClock",
+      "icon": "CalendarCheck",
       "path": "/fsa-benefits/dashboard/plans/upcoming",
       "parent": "fsa-plans",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -84,12 +104,17 @@
     {
       "id": "fsa-plans-past",
       "label": "Past",
-      "icon": "History",
+      "icon": "ClockCounterClockwise",
       "path": "/fsa-benefits/dashboard/plans/past",
       "parent": "fsa-plans",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -105,8 +130,13 @@
       "path": "/fsa-benefits/dashboard/enrollments",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -122,8 +152,13 @@
       "path": "/fsa-benefits/dashboard/transactions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -139,8 +174,13 @@
       "path": "/fsa-benefits/dashboard/documents",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -152,11 +192,13 @@
     {
       "id": "fsa-settings",
       "label": "FSA Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/fsa-benefits/dashboard/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
@@ -169,11 +211,13 @@
     {
       "id": "fsa-settings-bank",
       "label": "Bank Account",
-      "icon": "Landmark",
+      "icon": "Bank",
       "path": "/fsa-benefits/dashboard/settings/bank-account",
       "parent": "fsa-settings",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
@@ -190,7 +234,9 @@
       "path": "/fsa-benefits/dashboard/settings/eligibility",
       "parent": "fsa-settings",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
@@ -207,8 +253,13 @@
       "path": "/hsa-benefits/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -220,12 +271,17 @@
     {
       "id": "hsa-plans",
       "label": "HSA Plans",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/hsa-benefits/dashboard/plans",
       "parent": "hsa-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -241,8 +297,13 @@
       "path": "/hsa-benefits/dashboard/enrollments",
       "parent": "hsa-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -258,8 +319,13 @@
       "path": "/commuter-benefits/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -271,12 +337,17 @@
     {
       "id": "commuter-plans",
       "label": "Commuter Plans",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/commuter-benefits/dashboard/plans",
       "parent": "commuter-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -292,8 +363,13 @@
       "path": "/commuter-benefits/dashboard/enrollments",
       "parent": "commuter-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "HSA",
         "permissionGate": "APP_OWNER",
         "conditions": [],

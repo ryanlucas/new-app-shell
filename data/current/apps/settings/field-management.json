@@ -19,8 +19,13 @@
       "path": "/data-manager/field-selector",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["data_manager"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "data_manager"
+        ],
         "productGate": null,
         "permissionGate": "DataManagerPermission",
         "conditions": [],
@@ -36,8 +41,13 @@
       "path": "/data-manager/data-collected",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["data_manager"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "data_manager"
+        ],
         "productGate": null,
         "permissionGate": "DataManagerPermission",
         "conditions": [],

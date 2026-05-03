@@ -18,8 +18,13 @@
       "path": "/spend-management/dashboard/bills",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "BILL_PAY",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "vendors",
       "label": "Vendors",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "BILL_PAY",
         "permissionGate": null,
         "conditions": [],
@@ -48,12 +58,17 @@
     {
       "id": "1099-vendors",
       "label": "1099 Vendors",
-      "icon": "FileSpreadsheet",
+      "icon": "Table",
       "path": "/spend-management/dashboard/vendors/1099",
       "parent": "vendors",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "BILL_PAY",
         "permissionGate": null,
         "conditions": [],
@@ -69,8 +84,13 @@
       "path": "/spend-management/dashboard/policies/bill-policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "BILL_PAY",
         "permissionGate": null,
         "conditions": [],
@@ -82,12 +102,17 @@
     {
       "id": "bill-pay-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings/bill-pay",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "BILL_PAY",
         "permissionGate": null,
         "conditions": [],

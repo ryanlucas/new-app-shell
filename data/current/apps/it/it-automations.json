@@ -15,8 +15,13 @@
       "path": "/it/automations/policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin"
+        ],
         "productGate": "IT_AUTOMATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -28,12 +33,17 @@
     {
       "id": "form-fields",
       "label": "Form Fields",
-      "icon": "FormInput",
+      "icon": "TextT",
       "path": "/it/automations/form-fields",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin"
+        ],
         "productGate": "IT_AUTOMATIONS",
         "permissionGate": null,
         "conditions": [],

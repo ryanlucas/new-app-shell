@@ -15,11 +15,16 @@
     {
       "id": "pending",
       "label": "Pending",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/inbox/dashboard/tasks/pending",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INBOX",
         "permissionGate": null,
@@ -32,11 +37,16 @@
     {
       "id": "resolved",
       "label": "Resolved",
-      "icon": "CheckCircle2",
+      "icon": "CheckCircle",
       "path": "/inbox/dashboard/tasks/resolved",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "INBOX",
         "permissionGate": null,

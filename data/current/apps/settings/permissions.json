@@ -20,8 +20,13 @@
       "path": "/permissions/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["permissions"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
         "productGate": null,
         "permissionGate": "can_view_permission_profiles",
         "conditions": [],
@@ -37,8 +42,13 @@
       "path": "/permissions/feature-access",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["permissions"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
         "productGate": null,
         "permissionGate": "can_view_default_feature_access",
         "conditions": [],
@@ -54,8 +64,13 @@
       "path": "/permissions/user-dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["permissions"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
         "productGate": null,
         "permissionGate": "can_view_user_permission_profiles",
         "conditions": [],
@@ -67,11 +82,13 @@
     {
       "id": "admins-to-migrate",
       "label": "Admins to migrate",
-      "icon": "UserCog",
+      "icon": "UserGear",
       "path": "/permissions/admins-to-migrate",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "can_view_admins_to_migrate",

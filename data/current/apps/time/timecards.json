@@ -14,15 +14,23 @@
     {
       "id": "clocked-in",
       "label": "Currently Clocked In",
-      "icon": "Activity",
+      "icon": "Pulse",
       "path": "/time-products/dashboard/timecards/clocked-in",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin", "time_approver"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin",
+          "time_approver"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
-        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_CLOCKED_IN"],
+        "conditions": [
+          "feature:TIME_TRACKING_FEATURE_KEYS_CLOCKED_IN"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -35,11 +43,19 @@
       "path": "/time-products/dashboard/timecards/timecards",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin", "time_approver"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin",
+          "time_approver"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
-        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_TIMECARDS"],
+        "conditions": [
+          "feature:TIME_TRACKING_FEATURE_KEYS_TIMECARDS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {
@@ -56,8 +72,15 @@
       "path": "/time-products/dashboard/approvals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["time_admin", "time_approver"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "time_admin",
+          "time_approver"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
         "conditions": [],
@@ -69,12 +92,17 @@
     {
       "id": "attendance-events",
       "label": "Attendance Events",
-      "icon": "AlertCircle",
+      "icon": "WarningCircle",
       "path": "/time-products/dashboard/attendance/attendance-events",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
         "conditions": [],
@@ -90,8 +118,13 @@
       "path": "/time-products/dashboard/people/time-attendance",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
         "conditions": [],
@@ -107,8 +140,13 @@
       "path": "/time-products/dashboard/policies/time-tracking",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
         "conditions": [],
@@ -120,12 +158,17 @@
     {
       "id": "kiosks",
       "label": "Kiosks",
-      "icon": "Tablet",
+      "icon": "DeviceTablet",
       "path": "/time-products/dashboard/kiosk-management",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
         "conditions": [],
@@ -137,12 +180,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/time-products/dashboard/settings/time-attendance",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
         "conditions": [],

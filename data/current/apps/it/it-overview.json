@@ -14,12 +14,19 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/it/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -35,8 +42,15 @@
       "path": "/it/it-people",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +66,13 @@
       "path": "/it/integrations",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -69,8 +88,13 @@
       "path": "/it/third-party-access",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -86,8 +110,13 @@
       "path": "/it/hardware",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -99,12 +128,17 @@
     {
       "id": "rpass",
       "label": "RPass",
-      "icon": "KeyRound",
+      "icon": "Key",
       "path": "/it/rpass",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -120,8 +154,13 @@
       "path": "/it/device-store",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["hardware_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "hardware_admin"
+        ],
         "productGate": "HARDWARE",
         "permissionGate": null,
         "conditions": [],
@@ -137,8 +176,15 @@
       "path": "/it/approvals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin", "hardware_admin", "app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin",
+          "hardware_admin",
+          "app_admin"
+        ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,
         "conditions": [],
@@ -150,12 +196,17 @@
     {
       "id": "automations",
       "label": "Automations",
-      "icon": "Workflow",
+      "icon": "FlowArrow",
       "path": "/it/automations",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["it_home_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "it_home_full_admin"
+        ],
         "productGate": "IT_AUTOMATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -171,7 +222,11 @@
       "path": "/it/my-it",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,

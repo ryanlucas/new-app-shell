@@ -17,7 +17,11 @@
       "path": "/employee-list/list",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -30,11 +34,14 @@
     {
       "id": "onboarding-tracker",
       "label": "Onboarding Tracker",
-      "icon": "ClipboardCheck",
+      "icon": "ClipboardText",
       "path": "/employee-list/onboarding-tracker",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
+        "personas": [
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -47,11 +54,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/employee-list/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "full-admin",

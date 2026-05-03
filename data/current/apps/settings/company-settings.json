@@ -16,15 +16,19 @@
     {
       "id": "info-collected",
       "label": "Info collected",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/company-settings/info-collected",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["!isStandaloneCompany && !flowConfigurationAppVisible"],
+        "conditions": [
+          "!isStandaloneCompany && !flowConfigurationAppVisible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -37,8 +41,13 @@
       "path": "/company-settings/notifications",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["company_notification_settings_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "company_notification_settings_admin"
+        ],
         "productGate": null,
         "permissionGate": null,
         "conditions": [],
@@ -54,8 +63,13 @@
       "path": "/company-settings/billing",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["billing_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "billing_admin"
+        ],
         "productGate": null,
         "permissionGate": null,
         "conditions": [],
@@ -67,12 +81,17 @@
     {
       "id": "audit-logs",
       "label": "Audit logs",
-      "icon": "ScrollText",
+      "icon": "Scroll",
       "path": "/company-settings/audit-logs",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["audit_log_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "audit_log_admin"
+        ],
         "productGate": null,
         "permissionGate": "canAccessAuditLogs",
         "conditions": [],
@@ -88,7 +107,9 @@
       "path": "/company-settings/branding",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "hasCustomCompanyLogoAccess",
@@ -105,7 +126,9 @@
       "path": "/company-settings/security",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -118,11 +141,13 @@
     {
       "id": "api-access",
       "label": "API access",
-      "icon": "KeyRound",
+      "icon": "Key",
       "path": "/company-settings/api-access",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "manage_api_keys",
@@ -139,8 +164,13 @@
       "path": "/company-settings/payment-methods",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["billing_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "billing_admin"
+        ],
         "productGate": null,
         "permissionGate": null,
         "conditions": [],
@@ -152,11 +182,13 @@
     {
       "id": "risk-verification",
       "label": "Risk verification",
-      "icon": "AlertTriangle",
+      "icon": "Warning",
       "path": "/company-settings/risk-verification",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -169,11 +201,13 @@
     {
       "id": "app-shop",
       "label": "App shop",
-      "icon": "Store",
+      "icon": "Storefront",
       "path": "/company-settings/app-shop",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -190,11 +224,15 @@
       "path": "/company-settings/employee-census-resume",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["showPeopleCensus"],
+        "conditions": [
+          "showPeopleCensus"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

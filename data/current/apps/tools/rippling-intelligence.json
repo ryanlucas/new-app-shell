@@ -20,8 +20,13 @@
       "path": "/ai/settings/policy-hub",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["rippling_intelligence_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "rippling_intelligence_admin"
+        ],
         "productGate": "RIPPLING_INTELLIGENCE",
         "permissionGate": null,
         "conditions": [],
@@ -37,8 +42,13 @@
       "path": "/ai/settings/permissions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["rippling_intelligence_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "rippling_intelligence_admin"
+        ],
         "productGate": "RIPPLING_INTELLIGENCE",
         "permissionGate": null,
         "conditions": [],
@@ -50,12 +60,17 @@
     {
       "id": "usage",
       "label": "Usage",
-      "icon": "BarChart3",
+      "icon": "ChartBar",
       "path": "/ai/settings/usage/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["rippling_intelligence_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "rippling_intelligence_admin"
+        ],
         "productGate": "RIPPLING_INTELLIGENCE",
         "permissionGate": null,
         "conditions": [],

@@ -17,16 +17,22 @@
       "id": "all-apps",
       "label": "All Apps",
       "path": "/app-studio/dashboard/all-apps",
-      "icon": "LayoutGrid",
-      "personas": ["full", "partial"],
+      "icon": "SquaresFour",
+      "personas": [
+        "full",
+        "partial"
+      ],
       "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:14-39"
     },
     {
       "id": "app-templates",
       "label": "App Templates",
       "path": "/app-studio/app-templates",
-      "icon": "BookTemplate",
-      "personas": ["full", "partial"],
+      "icon": "BookOpen",
+      "personas": [
+        "full",
+        "partial"
+      ],
       "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:37-45"
     },
     {
@@ -34,23 +40,29 @@
       "label": "Create App",
       "path": "/app-studio/create-app",
       "icon": "Plus",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:46-55"
     },
     {
       "id": "create-quick-app",
       "label": "Quick App",
       "path": "/app-studio/create-quick-app",
-      "icon": "Zap",
-      "personas": ["full"],
+      "icon": "Lightning",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:27-35"
     },
     {
       "id": "composition-manager",
       "label": "Composition Manager",
       "path": "/app-studio/composition-manager",
-      "icon": "Component",
-      "personas": ["full"],
+      "icon": "SquaresFour",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:38"
     }
   ]

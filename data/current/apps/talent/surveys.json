@@ -16,12 +16,18 @@
     {
       "id": "surveys",
       "label": "Surveys",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/surveys/dashboard/surveys",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
         "conditions": [],
@@ -37,8 +43,14 @@
       "path": "/surveys/dashboard/surveys/active",
       "parent": "surveys",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
         "conditions": [],
@@ -54,8 +66,14 @@
       "path": "/surveys/dashboard/surveys/archived",
       "parent": "surveys",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
         "conditions": [],
@@ -67,12 +85,18 @@
     {
       "id": "surveys-draft",
       "label": "Draft",
-      "icon": "FileEdit",
+      "icon": "NotePencil",
       "path": "/surveys/dashboard/surveys/draft",
       "parent": "surveys",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
         "conditions": [],
@@ -88,7 +112,12 @@
       "path": "/surveys/dashboard/my-responses",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "PULSE",
         "permissionGate": null,
@@ -101,11 +130,16 @@
     {
       "id": "my-responses-invited",
       "label": "Invited",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/surveys/dashboard/my-responses/invited",
       "parent": "my-responses",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "PULSE",
         "permissionGate": null,
@@ -122,7 +156,12 @@
       "path": "/surveys/dashboard/my-responses/completed",
       "parent": "my-responses",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "PULSE",
         "permissionGate": null,
@@ -135,12 +174,17 @@
     {
       "id": "templates",
       "label": "Templates",
-      "icon": "LayoutTemplate",
+      "icon": "SquaresFour",
       "path": "/surveys/dashboard/templates",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
         "conditions": [],
@@ -156,8 +200,13 @@
       "path": "/surveys/dashboard/question-bank",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
         "conditions": [],
@@ -169,12 +218,17 @@
     {
       "id": "question-bank-questions",
       "label": "Questions",
-      "icon": "HelpCircle",
+      "icon": "Question",
       "path": "/surveys/dashboard/question-bank/questions",
       "parent": "question-bank",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
         "conditions": [],
@@ -190,8 +244,13 @@
       "path": "/surveys/dashboard/question-bank/topics",
       "parent": "question-bank",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
         "conditions": [],
@@ -203,12 +262,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/surveys/dashboard/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["surveys"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "surveys"
+        ],
         "productGate": "PULSE",
         "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
         "conditions": [],

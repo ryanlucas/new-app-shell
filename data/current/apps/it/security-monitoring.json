@@ -14,15 +14,19 @@
     {
       "id": "review",
       "label": "Review",
-      "icon": "ClipboardCheck",
+      "icon": "ClipboardText",
       "path": "/security/review",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["hasCompanyId"],
+        "conditions": [
+          "hasCompanyId"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -35,11 +39,15 @@
       "path": "/security/authentication-settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["hasCompanyId"],
+        "conditions": [
+          "hasCompanyId"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -52,11 +60,15 @@
       "path": "/security/identity-providers",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["showIdentityProviderTab"],
+        "conditions": [
+          "showIdentityProviderTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -65,15 +77,19 @@
     {
       "id": "certificates",
       "label": "Certificates",
-      "icon": "FileBadge",
+      "icon": "FileText",
       "path": "/security/certificates",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["showDeviceCertificateTab"],
+        "conditions": [
+          "showDeviceCertificateTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -82,15 +98,19 @@
     {
       "id": "duo-authentication-api-keys",
       "label": "Duo Authentication",
-      "icon": "KeyRound",
+      "icon": "Key",
       "path": "/security/duo-authentication-api-keys",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["hasCompanyId"],
+        "conditions": [
+          "hasCompanyId"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -99,15 +119,19 @@
     {
       "id": "behaviour-detection",
       "label": "Behavior Detection",
-      "icon": "Activity",
+      "icon": "Pulse",
       "path": "/security/behaviour-detection",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["hasCompanyId"],
+        "conditions": [
+          "hasCompanyId"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -120,11 +144,15 @@
       "path": "/security/authentication-method",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["partnerOnly"],
+        "conditions": [
+          "partnerOnly"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -133,15 +161,19 @@
     {
       "id": "activity",
       "label": "Activity Log",
-      "icon": "ScrollText",
+      "icon": "Scroll",
       "path": "/security/activity",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,
-        "conditions": ["showActivityLogTab"],
+        "conditions": [
+          "showActivityLogTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -150,11 +182,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/security/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
         "permissionGate": null,

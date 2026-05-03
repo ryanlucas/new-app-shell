@@ -17,11 +17,17 @@
       "path": "/it/integrations/access-reviews/my-reviews",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
         "scopeForPartial": [],
         "productGate": "ACCESS_REVIEWS",
         "permissionGate": null,
-        "conditions": ["accessReviewTabVisibility.my_reviews_sub_tab_visible"],
+        "conditions": [
+          "accessReviewTabVisibility.my_reviews_sub_tab_visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -30,15 +36,22 @@
     {
       "id": "all-reviews",
       "label": "All Reviews",
-      "icon": "Layers",
+      "icon": "Stack",
       "path": "/it/integrations/access-reviews/all-reviews",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["app_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "app_admin"
+        ],
         "productGate": "ACCESS_REVIEWS",
         "permissionGate": null,
-        "conditions": ["accessReviewTabVisibility.campaigns_sub_tab_visible"],
+        "conditions": [
+          "accessReviewTabVisibility.campaigns_sub_tab_visible"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

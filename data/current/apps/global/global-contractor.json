@@ -17,8 +17,10 @@
       "id": "admin-overview",
       "label": "Overview",
       "path": "/contractors/admin/overview",
-      "icon": "LayoutDashboard",
-      "personas": ["full"],
+      "icon": "SquaresFour",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/admin/routes/adminAppForUnifiedApp.routes.tsx:128-133"
     },
     {
@@ -26,15 +28,19 @@
       "label": "Contractors",
       "path": "/contractors/admin/contractors/all",
       "icon": "Users",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/admin/routes/adminAppForUnifiedApp.routes.tsx:138-145"
     },
     {
       "id": "admin-contracts",
       "label": "Contracts",
       "path": "/contractors/admin/contracts",
-      "icon": "FileSignature",
-      "personas": ["full"],
+      "icon": "Stamp",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/admin/routes/adminAppForUnifiedApp.routes.tsx:150-157"
     },
     {
@@ -42,31 +48,39 @@
       "label": "Policies",
       "path": "/contractors/admin/policies",
       "icon": "ShieldCheck",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/admin/routes/adminAppForUnifiedApp.routes.tsx:159-189"
     },
     {
       "id": "admin-kyc",
       "label": "KYC Statuses",
       "path": "/contractors/admin/contractors/kyc-statuses",
-      "icon": "BadgeCheck",
-      "personas": ["full"],
+      "icon": "SealCheck",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/admin/routes/adminAppForUnifiedApp.routes.tsx:146-149"
     },
     {
       "id": "admin-settings",
       "label": "Settings",
       "path": "/contractors/admin/settings",
-      "icon": "Settings",
-      "personas": ["full"],
+      "icon": "Gear",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/admin/routes/adminAppForUnifiedApp.routes.tsx:190-200"
     },
     {
       "id": "ee-overview",
       "label": "Overview",
       "path": "/contractors/invoicing/overview",
-      "icon": "Home",
-      "personas": ["ee"],
+      "icon": "House",
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/contractor/constants/routeConstants.ts:5"
     },
     {
@@ -74,15 +88,19 @@
       "label": "Invoices",
       "path": "/contractors/invoicing/invoices",
       "icon": "FileText",
-      "personas": ["ee"],
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/contractor/constants/routeConstants.ts:9"
     },
     {
       "id": "ee-contracts",
       "label": "Contracts",
       "path": "/contractors/invoicing/contracts",
-      "icon": "FileSignature",
-      "personas": ["ee"],
+      "icon": "Stamp",
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/contractor/constants/routeConstants.ts:6"
     },
     {
@@ -90,23 +108,29 @@
       "label": "Wallet",
       "path": "/contractors/invoicing/wallet",
       "icon": "Wallet",
-      "personas": ["ee"],
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/contractor/constants/routeConstants.ts:10"
     },
     {
       "id": "ee-clients",
       "label": "Clients",
       "path": "/contractors/invoicing/clients",
-      "icon": "Building2",
-      "personas": ["ee"],
+      "icon": "Buildings",
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/contractor/constants/routeConstants.ts:7"
     },
     {
       "id": "ee-settings",
       "label": "Settings",
       "path": "/contractors/invoicing/settings",
-      "icon": "Settings",
-      "personas": ["ee"],
+      "icon": "Gear",
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/hr/GlobalContractors/modules/contractor/constants/routeConstants.ts:8"
     }
   ]

@@ -15,15 +15,25 @@
     {
       "id": "leaves",
       "label": "Leaves",
-      "icon": "CalendarOff",
+      "icon": "CalendarX",
       "path": "/pto/leaves",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto", "leaves"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto",
+          "leaves"
+        ],
         "productGate": "LEAVES",
         "permissionGate": null,
-        "conditions": ["isAdmin || isManager", "canViewLeaves (TIME_OFF_FEATURE_KEYS_LEAVES)"],
+        "conditions": [
+          "isAdmin || isManager",
+          "canViewLeaves (TIME_OFF_FEATURE_KEYS_LEAVES)"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -36,8 +46,15 @@
       "path": "/pto/leaves#on-leave",
       "parent": "leaves",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto", "leaves"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto",
+          "leaves"
+        ],
         "productGate": "LEAVES",
         "permissionGate": null,
         "conditions": [],
@@ -53,8 +70,15 @@
       "path": "/pto/leaves#upcoming",
       "parent": "leaves",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto", "leaves"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto",
+          "leaves"
+        ],
         "productGate": "LEAVES",
         "permissionGate": null,
         "conditions": [],
@@ -66,12 +90,19 @@
     {
       "id": "leaves.past",
       "label": "Past Leaves",
-      "icon": "History",
+      "icon": "ClockCounterClockwise",
       "path": "/pto/leaves#past",
       "parent": "leaves",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto", "leaves"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto",
+          "leaves"
+        ],
         "productGate": "LEAVES",
         "permissionGate": null,
         "conditions": [],

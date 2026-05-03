@@ -15,12 +15,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/it/rpass/usageOverview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -36,11 +41,18 @@
       "path": "/it/rpass/info",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
-        "conditions": ["featureFlag:NEW_RPASS_ADMIN_PAGES not in ['all','overview']"],
+        "conditions": [
+          "featureFlag:NEW_RPASS_ADMIN_PAGES not in ['all','overview']"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -49,15 +61,22 @@
     {
       "id": "passwords",
       "label": "Passwords",
-      "icon": "KeyRound",
+      "icon": "Key",
       "path": "/it/rpass/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
-        "conditions": ["featureFlag:NEW_RPASS_ADMIN_PAGES != 'vault' && != 'all'"],
+        "conditions": [
+          "featureFlag:NEW_RPASS_ADMIN_PAGES != 'vault' && != 'all'"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -70,8 +89,13 @@
       "path": "/it/rpass/overview?section=allPasswords",
       "parent": "passwords",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -83,12 +107,17 @@
     {
       "id": "passwords-failed-policy",
       "label": "Failed Policy",
-      "icon": "ShieldAlert",
+      "icon": "ShieldWarning",
       "path": "/it/rpass/overview?section=failedPolicyPasswords",
       "parent": "passwords",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -104,8 +133,13 @@
       "path": "/it/rpass/overview?section=duplicatePasswords",
       "parent": "passwords",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -117,12 +151,17 @@
     {
       "id": "passwords-weak",
       "label": "Weak Passwords",
-      "icon": "AlertTriangle",
+      "icon": "Warning",
       "path": "/it/rpass/overview?section=weakPasswords",
       "parent": "passwords",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -138,11 +177,18 @@
       "path": "/it/rpass/vault",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
-        "conditions": ["featureFlag:NEW_RPASS_ADMIN_PAGES in ['vault','all']"],
+        "conditions": [
+          "featureFlag:NEW_RPASS_ADMIN_PAGES in ['vault','all']"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -155,8 +201,13 @@
       "path": "/it/rpass/provisioning",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -168,12 +219,17 @@
     {
       "id": "activity",
       "label": "Activity",
-      "icon": "Activity",
+      "icon": "Pulse",
       "path": "/it/rpass/activity",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],
@@ -185,12 +241,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/it/rpass/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["identity_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "identity_admin"
+        ],
         "productGate": "RPASS",
         "permissionGate": null,
         "conditions": [],

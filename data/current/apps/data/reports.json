@@ -19,8 +19,15 @@
       "path": "/reports/dashboard?tab=recent",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee", "manager"],
-        "scopeForPartial": ["reports_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "ee",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "reports_admin"
+        ],
         "productGate": "REPORTS",
         "permissionGate": null,
         "conditions": [],
@@ -36,8 +43,15 @@
       "path": "/reports/dashboard?tab=built-in",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee", "manager"],
-        "scopeForPartial": ["reports_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "ee",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "reports_admin"
+        ],
         "productGate": "REPORTS",
         "permissionGate": null,
         "conditions": [],
@@ -53,8 +67,15 @@
       "path": "/reports/dashboard?tab=created-by-me",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee", "manager"],
-        "scopeForPartial": ["reports_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "ee",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "reports_admin"
+        ],
         "productGate": "REPORTS",
         "permissionGate": null,
         "conditions": [],
@@ -66,12 +87,19 @@
     {
       "id": "shared-with-me",
       "label": "Shared with me",
-      "icon": "Share2",
+      "icon": "ShareNetwork",
       "path": "/reports/dashboard?tab=shared-with-me",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "ee", "manager"],
-        "scopeForPartial": ["reports_admin"],
+        "personas": [
+          "full",
+          "partial",
+          "ee",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "reports_admin"
+        ],
         "productGate": "REPORTS",
         "permissionGate": null,
         "conditions": [],
@@ -87,8 +115,13 @@
       "path": "/reports/dashboard?tab=report-permissions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["reports_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "reports_admin"
+        ],
         "productGate": "REPORTS",
         "permissionGate": "report_permissions",
         "conditions": [],

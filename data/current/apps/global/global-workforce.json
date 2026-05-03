@@ -18,8 +18,10 @@
       "id": "admin-overview",
       "label": "Overview",
       "path": "/global-payroll/admin",
-      "icon": "LayoutDashboard",
-      "personas": ["full"],
+      "icon": "SquaresFour",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:727-748"
     },
     {
@@ -27,7 +29,9 @@
       "label": "Run Management",
       "path": "/global-payroll/admin/run-management",
       "icon": "Play",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:61"
     },
     {
@@ -35,15 +39,19 @@
       "label": "Filings",
       "path": "/global-payroll/admin/filings",
       "icon": "FileText",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:62"
     },
     {
       "id": "settings",
       "label": "Settings",
       "path": "/global-payroll/admin/settings",
-      "icon": "Settings",
-      "personas": ["full"],
+      "icon": "Gear",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:63"
     },
     {
@@ -51,7 +59,9 @@
       "label": "Documents",
       "path": "/global-payroll/admin/documents-processing",
       "icon": "FolderOpen",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:64"
     },
     {
@@ -59,7 +69,9 @@
       "label": "Onboarding",
       "path": "/global-payroll/admin/onboarding",
       "icon": "UserPlus",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:65,637-658"
     },
     {
@@ -67,7 +79,9 @@
       "label": "EOR Admin",
       "path": "/global-payroll/eor-admin",
       "icon": "Globe",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:103-114"
     },
     {
@@ -75,15 +89,19 @@
       "label": "Bulk Import",
       "path": "/global-payroll/admin/bulk-import",
       "icon": "Upload",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:67-78"
     },
     {
       "id": "transaction-reports",
       "label": "Transaction Reports",
       "path": "/global-payroll/admin/reports/transactions",
-      "icon": "BarChart3",
-      "personas": ["full"],
+      "icon": "ChartBar",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:680-701"
     },
     {
@@ -91,7 +109,9 @@
       "label": "Journal Reports",
       "path": "/global-payroll/admin/reports/journal",
       "icon": "BookOpen",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:702-725"
     },
     {
@@ -99,7 +119,9 @@
       "label": "My Pay",
       "path": "/global-payroll/employee",
       "icon": "User",
-      "personas": ["ee"],
+      "personas": [
+        "ee"
+      ],
       "source": "rippling-webapp/app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:34-45"
     }
   ]

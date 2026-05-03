@@ -17,7 +17,12 @@
       "path": "/it/my-it/third-party-apps",
       "parent": null,
       "visibility": {
-        "personas": ["ee", "manager", "full", "partial"],
+        "personas": [
+          "ee",
+          "manager",
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": null,

@@ -20,11 +20,19 @@
       "path": "/documents/workplace-posters",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["documents", "peo"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "documents",
+          "peo"
+        ],
         "productGate": null,
         "permissionGate": "admin.hasAdminPrivileges",
-        "conditions": ["isPeoClient || isAsoClient"],
+        "conditions": [
+          "isPeoClient || isAsoClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

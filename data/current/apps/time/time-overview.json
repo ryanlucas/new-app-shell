@@ -19,11 +19,19 @@
       "path": "/time-products/dashboard/overview/schedule",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin", "scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin",
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["feature:SCHEDULING_FEATURE_KEYS_SCHEDULE_OVERVIEW"],
+        "conditions": [
+          "feature:SCHEDULING_FEATURE_KEYS_SCHEDULE_OVERVIEW"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -36,11 +44,18 @@
       "path": "/time-products/dashboard/overview/time-tracking",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin"
+        ],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
-        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_TIME_TRACKING_OVERVIEW"],
+        "conditions": [
+          "feature:TIME_TRACKING_FEATURE_KEYS_TIME_TRACKING_OVERVIEW"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -49,15 +64,23 @@
     {
       "id": "time-off-overview",
       "label": "Time Off",
-      "icon": "PalmTree",
+      "icon": "TreePalm",
       "path": "/time-products/dashboard/overview/time-off",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["time_admin", "pto_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "time_admin",
+          "pto_admin"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_TIME_OFF_OVERVIEW"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_TIME_OFF_OVERVIEW"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

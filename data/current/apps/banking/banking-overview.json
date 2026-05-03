@@ -14,12 +14,17 @@
     {
       "id": "accounts",
       "label": "Accounts",
-      "icon": "Landmark",
+      "icon": "Bank",
       "path": "/banking/accounts",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["banking"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "banking"
+        ],
         "productGate": "BANKING",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "transactions",
       "label": "Transactions",
-      "icon": "ArrowLeftRight",
+      "icon": "ArrowsLeftRight",
       "path": "/banking/transactions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["banking"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "banking"
+        ],
         "productGate": "BANKING",
         "permissionGate": null,
         "conditions": [],
@@ -48,12 +58,17 @@
     {
       "id": "deposit",
       "label": "Deposit",
-      "icon": "ArrowDownToLine",
+      "icon": "ArrowLineDown",
       "path": "/banking/deposit",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["banking"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "banking"
+        ],
         "productGate": "BANKING",
         "permissionGate": "banking:OPERATOR",
         "conditions": [],
@@ -65,12 +80,17 @@
     {
       "id": "new-transfer",
       "label": "Send Transfer",
-      "icon": "Send",
+      "icon": "PaperPlaneRight",
       "path": "/banking/new-transfer",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["banking"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "banking"
+        ],
         "productGate": "BANKING",
         "permissionGate": "banking:OPERATOR",
         "conditions": [],
@@ -86,8 +106,13 @@
       "path": "/banking/tax-documents",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["banking"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "banking"
+        ],
         "productGate": "BANKING",
         "permissionGate": null,
         "conditions": [],
@@ -99,12 +124,17 @@
     {
       "id": "banking-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings/banking",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["banking"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "banking"
+        ],
         "productGate": "BANKING",
         "permissionGate": null,
         "conditions": [],

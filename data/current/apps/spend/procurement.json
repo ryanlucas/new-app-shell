@@ -18,8 +18,13 @@
       "path": "/spend-management/dashboard/procurement",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "PROCUREMENT",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "vendors",
       "label": "Vendors",
-      "icon": "Building2",
+      "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "PROCUREMENT",
         "permissionGate": null,
         "conditions": [],
@@ -48,12 +58,17 @@
     {
       "id": "procurement-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings/procurement",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "PROCUREMENT",
         "permissionGate": null,
         "conditions": [],

@@ -15,12 +15,17 @@
     {
       "id": "overview",
       "label": "Benefits",
-      "icon": "ShieldHeart",
+      "icon": "Shield",
       "path": "/insurance/admin/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -36,7 +41,9 @@
       "path": "/insurance/admin/overview/materials",
       "parent": "overview",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
@@ -53,8 +60,13 @@
       "path": "/insurance/admin/employees",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -66,12 +78,17 @@
     {
       "id": "employees-change-report",
       "label": "Enrollment History",
-      "icon": "History",
+      "icon": "ClockCounterClockwise",
       "path": "/insurance/admin/employees/change-report",
       "parent": "employees",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -83,15 +100,22 @@
     {
       "id": "employees-upcoming-events",
       "label": "Upcoming Events",
-      "icon": "CalendarClock",
+      "icon": "CalendarCheck",
       "path": "/insurance/admin/employees/upcoming-events",
       "parent": "employees",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowUpcomingEvents"],
+        "conditions": [
+          "shouldShowUpcomingEvents"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -100,15 +124,22 @@
     {
       "id": "employees-qle",
       "label": "Qualifying Life Events",
-      "icon": "HeartPulse",
+      "icon": "Heartbeat",
       "path": "/insurance/admin/employees/qualifying-life-events",
       "parent": "employees",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowQualifyingLifeEventsTab"],
+        "conditions": [
+          "shouldShowQualifyingLifeEventsTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -121,11 +152,18 @@
       "path": "/insurance/admin/employees/evidence-of-insurability",
       "parent": "employees",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowEoiTab"],
+        "conditions": [
+          "shouldShowEoiTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -138,8 +176,13 @@
       "path": "/insurance/admin/deductions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -155,11 +198,15 @@
       "path": "/insurance/admin/carrier-transmission",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowFormContact"],
+        "conditions": [
+          "shouldShowFormContact"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -168,15 +215,19 @@
     {
       "id": "carrier-transmission-account-structure",
       "label": "Account Structure",
-      "icon": "Network",
+      "icon": "TreeStructure",
       "path": "/insurance/admin/carrier-transmission/account-structure",
       "parent": "carrier-transmission",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowFormContact"],
+        "conditions": [
+          "shouldShowFormContact"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -185,15 +236,19 @@
     {
       "id": "carrier-transmission-sequoia",
       "label": "Sequoia Census File",
-      "icon": "FileSpreadsheet",
+      "icon": "Table",
       "path": "/insurance/admin/carrier-transmission/sequoia",
       "parent": "carrier-transmission",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowSequoiaTab"],
+        "conditions": [
+          "shouldShowSequoiaTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -202,15 +257,19 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/insurance/admin/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowAdvanceSettings"],
+        "conditions": [
+          "shouldShowAdvanceSettings"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -219,11 +278,13 @@
     {
       "id": "settings-details",
       "label": "Company Details",
-      "icon": "Building",
+      "icon": "Buildings",
       "path": "/insurance/admin/settings/details",
       "parent": "settings",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",

@@ -15,11 +15,16 @@
     {
       "id": "recordings",
       "label": "Recordings",
-      "icon": "Video",
+      "icon": "VideoCamera",
       "path": "/meetings/recordings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MEETINGS",
         "permissionGate": null,

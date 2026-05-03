@@ -14,7 +14,7 @@
     {
       "id": "integration-overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": null,
       "parent": null,
       "visibility": {
@@ -37,7 +37,7 @@
     {
       "id": "integration-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": null,
       "parent": null,
       "visibility": {
@@ -60,7 +60,7 @@
     {
       "id": "integration-sync-logs",
       "label": "Sync Logs",
-      "icon": "History",
+      "icon": "ClockCounterClockwise",
       "path": null,
       "parent": null,
       "visibility": {

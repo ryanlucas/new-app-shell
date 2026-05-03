@@ -13,12 +13,17 @@
     {
       "id": "transactions",
       "label": "All Transactions",
-      "icon": "ArrowLeftRight",
+      "icon": "ArrowsLeftRight",
       "path": "/spend-management/dashboard/transactions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "SPENDMANAGEMENT",
         "permissionGate": null,
         "conditions": [],

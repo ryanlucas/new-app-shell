@@ -16,8 +16,10 @@
       "id": "active-pipelines",
       "label": "Active Pipelines",
       "path": "/data/pipelines",
-      "icon": "Workflow",
-      "personas": ["full"],
+      "icon": "FlowArrow",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DataConnectors/routes-v6/pipelines.routes.tsx:5-10"
     },
     {
@@ -25,7 +27,9 @@
       "label": "External Connections",
       "path": "/data/external-connections",
       "icon": "Plug",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DataCatalog/route/index.tsx:57-64"
     },
     {
@@ -33,7 +37,9 @@
       "label": "Catalog",
       "path": "/data/catalog",
       "icon": "BookOpen",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DataCatalog/route/index.tsx:23-34"
     }
   ]

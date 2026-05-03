@@ -19,11 +19,15 @@
       "path": "/time-products/dashboard/my-time/timeclock",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
-        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_TIMECLOCK"],
+        "conditions": [
+          "feature:TIME_TRACKING_FEATURE_KEYS_TIMECLOCK"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -32,15 +36,19 @@
     {
       "id": "my-requests",
       "label": "Requests",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/time-products/dashboard/my-time/requests",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["feature:CORE_FEATURE_KEYS_MY_REQUESTS"],
+        "conditions": [
+          "feature:CORE_FEATURE_KEYS_MY_REQUESTS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -53,11 +61,15 @@
       "path": "/time-products/dashboard/my-time/schedule",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["feature:SCHEDULING_FEATURE_KEYS_MY_SCHEDULE"],
+        "conditions": [
+          "feature:SCHEDULING_FEATURE_KEYS_MY_SCHEDULE"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -70,11 +82,15 @@
       "path": "/time-products/dashboard/my-time/timecards",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "TIMEATTENDANCE",
         "permissionGate": null,
-        "conditions": ["feature:TIME_TRACKING_FEATURE_KEYS_MY_TIMECARDS"],
+        "conditions": [
+          "feature:TIME_TRACKING_FEATURE_KEYS_MY_TIMECARDS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -83,15 +99,19 @@
     {
       "id": "my-attendance",
       "label": "My Attendance",
-      "icon": "ClipboardCheck",
+      "icon": "ClipboardText",
       "path": "/time-products/dashboard/my-time/attendance",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["feature:SCHEDULING_FEATURE_KEYS_MY_ATTENDANCE"],
+        "conditions": [
+          "feature:SCHEDULING_FEATURE_KEYS_MY_ATTENDANCE"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -100,15 +120,19 @@
     {
       "id": "my-time-off",
       "label": "My Time Off",
-      "icon": "PalmTree",
+      "icon": "TreePalm",
       "path": "/time-products/dashboard/my-time/time-off",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["feature:TIME_OFF_FEATURE_KEYS_MY_TIME_OFF"],
+        "conditions": [
+          "feature:TIME_OFF_FEATURE_KEYS_MY_TIME_OFF"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -117,15 +141,19 @@
     {
       "id": "my-settings",
       "label": "My Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/time-products/dashboard/my-time/settings",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["feature:CORE_FEATURE_KEYS_MY_SETTINGS"],
+        "conditions": [
+          "feature:CORE_FEATURE_KEYS_MY_SETTINGS"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

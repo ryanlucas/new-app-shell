@@ -20,8 +20,13 @@
       "path": "/pension-management/dashboard/US/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "PENSIONMANAGEMENT",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -37,11 +42,19 @@
       "path": "/pension-management/dashboard/US/annual-limits",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "PENSIONMANAGEMENT",
         "permissionGate": "APP_OWNER",
-        "conditions": ["isUSRetirementsInstalled", "is-us-retirements-enabled"],
+        "conditions": [
+          "isUSRetirementsInstalled",
+          "is-us-retirements-enabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -50,15 +63,23 @@
     {
       "id": "plans",
       "label": "Plans",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/pension-management/dashboard/US/plans",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "PENSIONMANAGEMENT",
         "permissionGate": "APP_OWNER",
-        "conditions": ["isUSRetirementsInstalled", "is-us-retirements-enabled"],
+        "conditions": [
+          "isUSRetirementsInstalled",
+          "is-us-retirements-enabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -67,12 +88,17 @@
     {
       "id": "pension-schemes",
       "label": "Pension Schemes",
-      "icon": "FileSpreadsheet",
+      "icon": "Table",
       "path": "/pension-management/dashboard/US/pension-schemes",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["benefits"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
         "productGate": "PENSIONMANAGEMENT",
         "permissionGate": "APP_OWNER",
         "conditions": [],
@@ -84,15 +110,19 @@
     {
       "id": "bank-accounts",
       "label": "Bank Accounts",
-      "icon": "Landmark",
+      "icon": "Bank",
       "path": "/pension-management/dashboard/US/bank-accounts",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "PENSIONMANAGEMENT",
         "permissionGate": "APP_OWNER",
-        "conditions": ["shouldShowBankAccountTab"],
+        "conditions": [
+          "shouldShowBankAccountTab"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

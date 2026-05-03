@@ -20,7 +20,12 @@
       "path": "/apps/RipplingLMS/my-courses",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "RIPPLINGLMS",
         "permissionGate": null,
@@ -37,7 +42,12 @@
       "path": "/apps/RipplingLMS/my-courses/enrolled",
       "parent": "my-learning",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "RIPPLINGLMS",
         "permissionGate": null,
@@ -50,11 +60,16 @@
     {
       "id": "my-learning-upcoming",
       "label": "Upcoming",
-      "icon": "CalendarClock",
+      "icon": "CalendarCheck",
       "path": "/apps/RipplingLMS/my-courses/upcoming",
       "parent": "my-learning",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "RIPPLINGLMS",
         "permissionGate": null,
@@ -71,7 +86,12 @@
       "path": "/apps/RipplingLMS/my-courses/completed",
       "parent": "my-learning",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "RIPPLINGLMS",
         "permissionGate": null,
@@ -88,11 +108,18 @@
       "path": "/apps/RipplingLMS/explore",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "RIPPLINGLMS",
         "permissionGate": null,
-        "conditions": ["hasSelfEnrollCourses OR hasSelfEnrollLearningPaths"],
+        "conditions": [
+          "hasSelfEnrollCourses OR hasSelfEnrollLearningPaths"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -101,12 +128,17 @@
     {
       "id": "manage-learning",
       "label": "Manage learning",
-      "icon": "BookMarked",
+      "icon": "BookmarkSimple",
       "path": "/apps/RipplingLMS/manage-learning",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["lms"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "lms"
+        ],
         "productGate": "RIPPLINGLMS",
         "permissionGate": "lms.canViewManageCourses",
         "conditions": [],
@@ -122,8 +154,13 @@
       "path": "/apps/RipplingLMS/manage-learning/courses",
       "parent": "manage-learning",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["lms"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "lms"
+        ],
         "productGate": "RIPPLINGLMS",
         "permissionGate": "lms.canViewManageCourses",
         "conditions": [],
@@ -135,12 +172,17 @@
     {
       "id": "manage-learning-learning-paths",
       "label": "Learning paths",
-      "icon": "Route",
+      "icon": "Path",
       "path": "/apps/RipplingLMS/manage-learning/learning-paths",
       "parent": "manage-learning",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["lms"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "lms"
+        ],
         "productGate": "RIPPLINGLMS",
         "permissionGate": "lms.canAddLearningPath",
         "conditions": [],
@@ -156,8 +198,13 @@
       "path": "/apps/RipplingLMS/manage-learning/employees",
       "parent": "manage-learning",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["lms"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "lms"
+        ],
         "productGate": "RIPPLINGLMS",
         "permissionGate": "lms.canViewManageCourses",
         "conditions": [],
@@ -169,12 +216,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/apps/RipplingLMS/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["lms"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "lms"
+        ],
         "productGate": "RIPPLINGLMS",
         "permissionGate": "lms.canViewSettings",
         "conditions": [],

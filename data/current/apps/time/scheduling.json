@@ -15,15 +15,23 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/scheduling/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin", "scheduler"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin",
+          "scheduler"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isScheduler"],
+        "conditions": [
+          "capability:isScheduler"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -36,11 +44,19 @@
       "path": "/scheduling/dashboard/my_time",
       "parent": null,
       "visibility": {
-        "personas": ["ee", "manager", "full", "partial"],
+        "personas": [
+          "ee",
+          "manager",
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:hasSchedule", "feature_flag:!schedulingTimeclockEnabled"],
+        "conditions": [
+          "capability:hasSchedule",
+          "feature_flag:!schedulingTimeclockEnabled"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -53,11 +69,20 @@
       "path": "/scheduling/dashboard/editor",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin", "scheduler", "scheduling_observer"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin",
+          "scheduler",
+          "scheduling_observer"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isScheduler||isAdmin||isObserver"],
+        "conditions": [
+          "capability:isScheduler||isAdmin||isObserver"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -66,15 +91,24 @@
     {
       "id": "forecast-and-labor",
       "label": "Forecast & Labor",
-      "icon": "TrendingUp",
+      "icon": "TrendUp",
       "path": "/scheduling/dashboard/forecast_and_labor",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin", "scheduler", "scheduling_observer"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin",
+          "scheduler",
+          "scheduling_observer"
+        ],
         "productGate": "FORECASTING",
         "permissionGate": null,
-        "conditions": ["capability:hasForecasting"],
+        "conditions": [
+          "capability:hasForecasting"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -87,11 +121,19 @@
       "path": "/scheduling/dashboard/approvals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin", "scheduler"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin",
+          "scheduler"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isScheduler||isAdmin"],
+        "conditions": [
+          "capability:isScheduler||isAdmin"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -100,15 +142,23 @@
     {
       "id": "attendance",
       "label": "Attendance",
-      "icon": "ClipboardCheck",
+      "icon": "ClipboardText",
       "path": "/scheduling/dashboard/attendance",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isAdmin", "capability:canViewAttendance"],
+        "conditions": [
+          "capability:isAdmin",
+          "capability:canViewAttendance"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -121,11 +171,18 @@
       "path": "/scheduling/dashboard/policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isAdmin"],
+        "conditions": [
+          "capability:isAdmin"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -134,15 +191,22 @@
     {
       "id": "bulk-settings",
       "label": "Bulk Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/scheduling/dashboard/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isAdmin"],
+        "conditions": [
+          "capability:isAdmin"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -155,11 +219,18 @@
       "path": "/scheduling/dashboard/access_rules",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isAdmin"],
+        "conditions": [
+          "capability:isAdmin"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -172,11 +243,19 @@
       "path": "/scheduling/dashboard/data_sources",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isAdmin", "capability:canViewDataSources"],
+        "conditions": [
+          "capability:isAdmin",
+          "capability:canViewDataSources"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -189,11 +268,18 @@
       "path": "/scheduling/manage_schedules",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["scheduling_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "scheduling_admin"
+        ],
         "productGate": "SCHEDULING",
         "permissionGate": null,
-        "conditions": ["capability:isAdmin"],
+        "conditions": [
+          "capability:isAdmin"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

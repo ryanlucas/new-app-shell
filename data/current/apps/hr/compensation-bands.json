@@ -13,11 +13,13 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/compensation/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "APP_OWNER",
@@ -34,7 +36,9 @@
       "path": "/compensation/people",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -47,11 +51,13 @@
     {
       "id": "people-explore",
       "label": "Explore",
-      "icon": "Search",
+      "icon": "MagnifyingGlass",
       "path": "/compensation/people/explore",
       "parent": "people",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -68,7 +74,9 @@
       "path": "/compensation/people/details",
       "parent": "people",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -85,7 +93,9 @@
       "path": "/compensation/people/total-compensation",
       "parent": "people",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "APP_VIEWER",
@@ -98,11 +108,13 @@
     {
       "id": "plans",
       "label": "Compensation Plans",
-      "icon": "FileSpreadsheet",
+      "icon": "Table",
       "path": "/compensation/plans",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -119,7 +131,9 @@
       "path": "/compensation/plans/enabled",
       "parent": "plans",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -132,11 +146,13 @@
     {
       "id": "plans-drafts",
       "label": "Drafts",
-      "icon": "FilePen",
+      "icon": "NotePencil",
       "path": "/compensation/plans/draft",
       "parent": "plans",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -153,7 +169,9 @@
       "path": "/compensation/plans/disabled",
       "parent": "plans",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -170,7 +188,9 @@
       "path": "/compensation/benchmarking",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "APP_OWNER",
@@ -187,7 +207,10 @@
       "path": "/compensation/compensation-calculator",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
+        "personas": [
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -204,7 +227,10 @@
       "path": "/compensation/location-factors",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
+        "personas": [
+          "full",
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -217,11 +243,13 @@
     {
       "id": "job-families",
       "label": "Job Families",
-      "icon": "FolderTree",
+      "icon": "TreeStructure",
       "path": "/compensation/job-families",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -238,7 +266,9 @@
       "path": "/compensation/job-families/job-family-items",
       "parent": "job-families",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -255,11 +285,15 @@
       "path": "/compensation/job-families/job-function",
       "parent": "job-families",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["JOB_FUNCTION_GROUP"],
+        "conditions": [
+          "JOB_FUNCTION_GROUP"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -272,7 +306,9 @@
       "path": "/compensation/job-families/job-family-people",
       "parent": "job-families",
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": null,
@@ -285,11 +321,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/compensation/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "APP_OWNER",
@@ -302,11 +340,13 @@
     {
       "id": "shared",
       "label": "Shared",
-      "icon": "Share2",
+      "icon": "ShareNetwork",
       "path": "/compensation/shared",
       "parent": null,
       "visibility": {
-        "personas": ["partial"],
+        "personas": [
+          "partial"
+        ],
         "scopeForPartial": [],
         "productGate": null,
         "permissionGate": "APP_PARTIAL_ACCESS",

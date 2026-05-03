@@ -17,7 +17,9 @@
       "path": "/my-pay/pay",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MYPAY",
         "permissionGate": null,
@@ -34,7 +36,9 @@
       "path": "/my-pay/taxes",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MYPAY",
         "permissionGate": null,
@@ -51,7 +55,9 @@
       "path": "/my-pay/exemptions",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MYPAY",
         "permissionGate": null,
@@ -64,11 +70,13 @@
     {
       "id": "bank-account",
       "label": "Bank Account",
-      "icon": "Landmark",
+      "icon": "Bank",
       "path": "/my-pay/bankaccount",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MYPAY",
         "permissionGate": null,
@@ -85,7 +93,9 @@
       "path": "/my-pay/tasks",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MYPAY",
         "permissionGate": null,
@@ -98,11 +108,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/my-pay/settings",
       "parent": null,
       "visibility": {
-        "personas": ["ee"],
+        "personas": [
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "MYPAY",
         "permissionGate": null,

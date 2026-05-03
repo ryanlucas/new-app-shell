@@ -20,7 +20,12 @@
       "path": "/feedback/dashboard/feed",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "FEEDBACK",
         "permissionGate": null,
@@ -33,11 +38,16 @@
     {
       "id": "requests",
       "label": "Requests",
-      "icon": "ClipboardList",
+      "icon": "ClipboardText",
       "path": "/feedback/dashboard/requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "FEEDBACK",
         "permissionGate": null,
@@ -50,11 +60,16 @@
     {
       "id": "requests-assigned-to-me",
       "label": "Assigned to me",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/feedback/dashboard/requests/assigned-to-me",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "FEEDBACK",
         "permissionGate": null,
@@ -71,7 +86,11 @@
       "path": "/feedback/dashboard/requests/assigned-to-team",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial", "manager"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
         "scopeForPartial": [],
         "productGate": "FEEDBACK",
         "permissionGate": "canViewAssignedToTeamRequests",
@@ -88,7 +107,12 @@
       "path": "/feedback/dashboard/requests/my-requests",
       "parent": "requests",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "FEEDBACK",
         "permissionGate": null,
@@ -101,11 +125,16 @@
     {
       "id": "analytics",
       "label": "Analytics",
-      "icon": "BarChart3",
+      "icon": "ChartBar",
       "path": "/feedback/dashboard/analytics",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "FEEDBACK",
         "permissionGate": null,
@@ -118,12 +147,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/feedback/dashboard/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["feedback"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "feedback"
+        ],
         "productGate": "FEEDBACK",
         "permissionGate": "canViewSettings",
         "conditions": [],

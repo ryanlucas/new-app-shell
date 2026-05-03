@@ -17,8 +17,10 @@
       "id": "functions",
       "label": "Functions",
       "path": "/developer/functions",
-      "icon": "Code2",
-      "personas": ["full"],
+      "icon": "CodeBlock",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/Developer/modules/functions/routes/navbar.routes.tsx:9-39"
     },
     {
@@ -26,7 +28,9 @@
       "label": "Packages",
       "path": "/developer/packages",
       "icon": "Package",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/Developer/modules/packages/constants/routes.ts:1"
     },
     {
@@ -34,23 +38,29 @@
       "label": "Webhooks",
       "path": "/developer/webhooks",
       "icon": "Webhook",
-      "personas": ["full"],
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/Developer/modules/webhooks/constants/routes.ts"
     },
     {
       "id": "api-tokens",
       "label": "API Tokens",
       "path": "/developer/api-tokens",
-      "icon": "KeyRound",
-      "personas": ["full"],
+      "icon": "Key",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/APItokens.constants.ts"
     },
     {
       "id": "settings-manager",
       "label": "Settings Manager",
       "path": "/developer/settings",
-      "icon": "Settings",
-      "personas": ["full"],
+      "icon": "Gear",
+      "personas": [
+        "full"
+      ],
       "source": "rippling-webapp/app/products/platform/Developer/modules/settingsManager/constants/routes.ts"
     }
   ]

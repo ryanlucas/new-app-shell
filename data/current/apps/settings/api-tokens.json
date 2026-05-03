@@ -15,12 +15,17 @@
     {
       "id": "tokens",
       "label": "API tokens",
-      "icon": "KeyRound",
+      "icon": "Key",
       "path": "/api-tokens/tokens",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["api_tokens_full_admin"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "api_tokens_full_admin"
+        ],
         "productGate": "API_TOKENS",
         "permissionGate": "api_tokens_full_admin (READ)",
         "conditions": [],
@@ -32,11 +37,13 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/api-tokens/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "API_TOKENS",
         "permissionGate": "is_full_admin",

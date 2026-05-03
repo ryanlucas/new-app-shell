@@ -16,15 +16,23 @@
     {
       "id": "state-tax-accounts",
       "label": "State Tax Accounts",
-      "icon": "Landmark",
+      "icon": "Bank",
       "path": "/compliance/tax-accounts",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["compliance", "peo"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "compliance",
+          "peo"
+        ],
         "productGate": null,
         "permissionGate": "compliance_admin",
-        "conditions": ["clientType (PEO or ASO) is set"],
+        "conditions": [
+          "clientType (PEO or ASO) is set"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

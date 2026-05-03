@@ -15,11 +15,16 @@
     {
       "id": "need-my-review",
       "label": "Needs my review",
-      "icon": "Inbox",
+      "icon": "Tray",
       "path": "/approvals/dashboard/need-my-review",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "CONDITIONAL_APPROVALS",
         "permissionGate": null,
@@ -36,7 +41,12 @@
       "path": "/approvals/dashboard/my-requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "CONDITIONAL_APPROVALS",
         "permissionGate": null,
@@ -53,7 +63,12 @@
       "path": "/approvals/dashboard/reviewed",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "CONDITIONAL_APPROVALS",
         "permissionGate": null,
@@ -70,7 +85,11 @@
       "path": "/approvals/dashboard/all-requests",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
         "scopeForPartial": [],
         "productGate": "CONDITIONAL_APPROVALS",
         "permissionGate": null,
@@ -83,15 +102,22 @@
     {
       "id": "policies",
       "label": "Approval policies",
-      "icon": "Workflow",
+      "icon": "FlowArrow",
       "path": "/approvals/dashboard/policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["permissions"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
         "productGate": "CONDITIONAL_APPROVALS",
         "permissionGate": null,
-        "conditions": ["company has at least one approval policy (shouldShowPoliciesTab)"],
+        "conditions": [
+          "company has at least one approval policy (shouldShowPoliciesTab)"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -104,11 +130,15 @@
       "path": "/approvals/templates/select",
       "parent": null,
       "visibility": {
-        "personas": ["full"],
+        "personas": [
+          "full"
+        ],
         "scopeForPartial": [],
         "productGate": "CONDITIONAL_APPROVALS",
         "permissionGate": null,
-        "conditions": ["withSuperAdmin guard"],
+        "conditions": [
+          "withSuperAdmin guard"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},

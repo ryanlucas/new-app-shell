@@ -17,11 +17,16 @@
     {
       "id": "cycles",
       "label": "Cycles",
-      "icon": "RefreshCw",
+      "icon": "ArrowsClockwise",
       "path": "/review-cycles/dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "REVIEW_CYCLES",
         "permissionGate": null,
@@ -42,8 +47,14 @@
       "path": "/review-cycles/dashboard/question-sets",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["performance"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "performance"
+        ],
         "productGate": "REVIEW_CYCLES",
         "permissionGate": "rc.isAppAdmin OR hasQuestionSets",
         "conditions": [],
@@ -55,12 +66,17 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/review-cycles/dashboard/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["performance"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "performance"
+        ],
         "productGate": "REVIEW_CYCLES",
         "permissionGate": "rc.isAppAdmin",
         "conditions": [],

@@ -14,12 +14,17 @@
     {
       "id": "overview",
       "label": "Overview",
-      "icon": "LayoutDashboard",
+      "icon": "SquaresFour",
       "path": "/accounting-integrations/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["accounting"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "accounting"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -35,8 +40,13 @@
       "path": "/accounting-integrations/dashboard/mappings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["accounting"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "accounting"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +62,13 @@
       "path": "/accounting-integrations/dashboard/spend-management",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["accounting"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "accounting"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -65,12 +80,17 @@
     {
       "id": "payroll",
       "label": "Payroll",
-      "icon": "Banknote",
+      "icon": "Money",
       "path": "/accounting-integrations/dashboard/payroll",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["accounting"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "accounting"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],
@@ -86,8 +106,13 @@
       "path": "/accounting-integrations/dashboard/rippling-apps",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["accounting"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "accounting"
+        ],
         "productGate": "ACCOUNTING_INTEGRATIONS",
         "permissionGate": null,
         "conditions": [],

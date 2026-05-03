@@ -20,7 +20,12 @@
       "path": "/goals/dashboard/my-goals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "GOALS",
         "permissionGate": null,
@@ -37,7 +42,12 @@
       "path": "/goals/dashboard/all-goals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
         "scopeForPartial": [],
         "productGate": "GOALS",
         "permissionGate": null,
@@ -54,7 +64,11 @@
       "path": "/goals/dashboard/team-goals",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
         "scopeForPartial": [],
         "productGate": "GOALS",
         "permissionGate": "currentRole.isManager",
@@ -67,12 +81,17 @@
     {
       "id": "goal-cycles",
       "label": "Goal cycles",
-      "icon": "RefreshCw",
+      "icon": "ArrowsClockwise",
       "path": "/goals/dashboard/goal-cycles",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["goals"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "goals"
+        ],
         "productGate": "GOALS",
         "permissionGate": "isGoalsAdmin OR isGoalsCycleCreator OR isGoalConfigOwner",
         "conditions": [],

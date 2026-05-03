@@ -18,8 +18,13 @@
       "path": "/spend-management/dashboard/cards",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "CORPORATE_CARDS",
         "permissionGate": null,
         "conditions": [],
@@ -31,12 +36,17 @@
     {
       "id": "transactions",
       "label": "Transactions",
-      "icon": "ArrowLeftRight",
+      "icon": "ArrowsLeftRight",
       "path": "/spend-management/dashboard/transactions",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "CORPORATE_CARDS",
         "permissionGate": null,
         "conditions": [],
@@ -52,8 +62,13 @@
       "path": "/spend-management/dashboard/statements",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "CORPORATE_CARDS",
         "permissionGate": null,
         "conditions": [],
@@ -69,8 +84,13 @@
       "path": "/spend-management/dashboard/policies/transaction-and-reimbursement-policies",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "CORPORATE_CARDS",
         "permissionGate": null,
         "conditions": [],
@@ -82,12 +102,17 @@
     {
       "id": "card-settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/spend-management/settings/cards",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["spend"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "spend"
+        ],
         "productGate": "CORPORATE_CARDS",
         "permissionGate": null,
         "conditions": [],

@@ -19,11 +19,19 @@
       "path": "/pto/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["isAdmin || isManager"],
+        "conditions": [
+          "isAdmin || isManager"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -36,8 +44,15 @@
       "path": "/pto/employee-overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -53,8 +68,15 @@
       "path": "/pto/calendar",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -66,12 +88,19 @@
     {
       "id": "approvals-dashboard",
       "label": "Approvals",
-      "icon": "CheckCheck",
+      "icon": "Checks",
       "path": "/pto/approvals-dashboard",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],
@@ -83,15 +112,23 @@
     {
       "id": "leaves",
       "label": "Leaves",
-      "icon": "CalendarOff",
+      "icon": "CalendarX",
       "path": "/pto/leaves",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["isAdmin || isManager"],
+        "conditions": [
+          "isAdmin || isManager"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -100,15 +137,22 @@
     {
       "id": "balances",
       "label": "Balances",
-      "icon": "Scale",
+      "icon": "Scales",
       "path": "/pto/balances",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
-        "conditions": ["isAdmin && hasCompanyLeaveTypes"],
+        "conditions": [
+          "isAdmin && hasCompanyLeaveTypes"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -121,8 +165,13 @@
       "path": "/pto/policy-list",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": "canManagePtoSettings",
         "conditions": [],
@@ -134,12 +183,19 @@
     {
       "id": "settings",
       "label": "Settings",
-      "icon": "Settings",
+      "icon": "Gear",
       "path": "/pto/settings",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": ["pto"],
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ],
+        "scopeForPartial": [
+          "pto"
+        ],
         "productGate": "PTO",
         "permissionGate": null,
         "conditions": [],

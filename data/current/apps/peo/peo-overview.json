@@ -20,11 +20,18 @@
       "path": "/peo/notices",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["peo"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "peo"
+        ],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isPeoClient"],
+        "conditions": [
+          "isPeoClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -33,15 +40,22 @@
     {
       "id": "workers-comp-dashboard",
       "label": "Workers Comp",
-      "icon": "HardHat",
+      "icon": "HardHats",
       "path": "/peo/workers-comp/dashboard/overview",
       "parent": null,
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["peo"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "peo"
+        ],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isPeoClient"],
+        "conditions": [
+          "isPeoClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
@@ -50,15 +64,22 @@
     {
       "id": "workers-comp-class-codes",
       "label": "Class Codes",
-      "icon": "Tags",
+      "icon": "Tag",
       "path": "/peo/workers-comp/dashboard/class-codes",
       "parent": "workers-comp-dashboard",
       "visibility": {
-        "personas": ["full", "partial"],
-        "scopeForPartial": ["peo"],
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "peo"
+        ],
         "productGate": null,
         "permissionGate": null,
-        "conditions": ["isPeoClient"],
+        "conditions": [
+          "isPeoClient"
+        ],
         "whenUnowned": null
       },
       "personaVariants": {},
