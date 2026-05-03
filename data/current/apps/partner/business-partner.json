@@ -3,6 +3,7 @@
   "appLabel": "Business Partner",
   "appPath": "/company-details/business-partner",
   "appProductGate": "BUSINESS_PARTNER",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2L",
     "uncertainties": [
@@ -11,6 +12,5 @@
       "This is NOT the same as Partner Admin (/partner) — that is the customer-side admin app for accountant/COR/EOR partners. Business Partner here is an HR feature for assigning manager-like relationships.",
       "Setup flow lives at /company-details/business-partner/setup (a wizard, not a nav node)."
     ]
-  },
-  "nav": []
+  }
 }

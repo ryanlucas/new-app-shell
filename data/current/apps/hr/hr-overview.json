@@ -3,11 +3,11 @@
   "appLabel": "HR Overview",
   "appPath": "/employee-list/hr-products-overview",
   "appProductGate": null,
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2A",
     "uncertainties": [
       "HR Overview is a single landing page; no internal sub-routes were found."
     ]
-  },
-  "nav": []
+  }
 }

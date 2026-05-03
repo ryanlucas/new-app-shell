@@ -3,22 +3,12 @@
   "appLabel": "Surveys",
   "appPath": "/surveys",
   "appProductGate": "PULSE",
-  "_meta": {
-    "generatedBy": "phase-2G",
-    "uncertainties": [
-      "Pulse base path is /surveys (visible in PulseNavigationHandler redirects).",
-      "Surveys top-tab visible if SURVEY_CREATOR capability OR any surveys exist for the user (mostly admins/managers).",
-      "Templates and Question Bank gated by EMPLOYEE_SURVEYS + APP_ADMIN capabilities (full admin only).",
-      "Settings gated by EMPLOYEE_SURVEYS + APP_ADMIN."
-    ]
-  },
   "nav": [
     {
       "id": "surveys",
       "label": "Surveys",
       "icon": "ClipboardText",
       "path": "/surveys/dashboard/surveys",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -29,11 +19,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:50-69"
     },
     {
@@ -52,11 +39,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:58"
     },
     {
@@ -75,11 +59,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:59"
     },
     {
@@ -98,11 +79,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.SURVEY_CREATOR OR hasSurveys"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:60-66"
     },
     {
@@ -110,7 +88,6 @@
       "label": "My responses",
       "icon": "FileText",
       "path": "/surveys/dashboard/my-responses",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -118,13 +95,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "PULSE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PULSE"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:71-90"
     },
     {
@@ -140,13 +112,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "PULSE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PULSE"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:87"
     },
     {
@@ -162,13 +129,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "PULSE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PULSE"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:88"
     },
     {
@@ -176,7 +138,6 @@
       "label": "Templates",
       "icon": "SquaresFour",
       "path": "/surveys/dashboard/templates",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -186,11 +147,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:92-99"
     },
     {
@@ -198,7 +156,6 @@
       "label": "Question bank",
       "icon": "BookOpen",
       "path": "/surveys/dashboard/question-bank",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -208,11 +165,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:100-107"
     },
     {
@@ -230,11 +184,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:104"
     },
     {
@@ -252,11 +203,8 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:105"
     },
     {
@@ -264,7 +212,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/surveys/dashboard/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -274,12 +221,18 @@
           "surveys"
         ],
         "productGate": "PULSE",
-        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "PulseCapability.EMPLOYEE_SURVEYS AND APP_ADMIN"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Pulse/containers/DashboardWrapper.tsx:110-118"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Pulse base path is /surveys (visible in PulseNavigationHandler redirects).",
+      "Surveys top-tab visible if SURVEY_CREATOR capability OR any surveys exist for the user (mostly admins/managers).",
+      "Templates and Question Bank gated by EMPLOYEE_SURVEYS + APP_ADMIN capabilities (full admin only).",
+      "Settings gated by EMPLOYEE_SURVEYS + APP_ADMIN."
+    ]
+  }
 }

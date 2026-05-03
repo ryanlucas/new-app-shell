@@ -3,33 +3,21 @@
   "appLabel": "Security Monitoring",
   "appPath": "/security",
   "appProductGate": "SECURITY_MONITORING",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "App is registered as RIPPLING_SECURITY (RIPPLING_SECURTY_SPOKE_HANDLE in code). Tabs sourced from Identity/modules/Security/utils/NavBarLinks.tsx and filtered in NavBar.tsx. Several tabs are conditional on subscription, feature flag, or company-vs-partner context.",
-      "When no companyId (partner login) only Authentication Method tab is shown."
-    ]
-  },
   "nav": [
     {
       "id": "review",
       "label": "Review",
       "icon": "ClipboardText",
       "path": "/security/review",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "hasCompanyId"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:16"
     },
     {
@@ -37,20 +25,15 @@
       "label": "Authentication Settings",
       "icon": "Lock",
       "path": "/security/authentication-settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "hasCompanyId"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:23"
     },
     {
@@ -58,20 +41,15 @@
       "label": "Identity Providers",
       "icon": "Fingerprint",
       "path": "/security/identity-providers",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "showIdentityProviderTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:30"
     },
     {
@@ -79,20 +57,15 @@
       "label": "Certificates",
       "icon": "FileText",
       "path": "/security/certificates",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "showDeviceCertificateTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:37"
     },
     {
@@ -100,20 +73,15 @@
       "label": "Duo Authentication",
       "icon": "Key",
       "path": "/security/duo-authentication-api-keys",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "hasCompanyId"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:44"
     },
     {
@@ -121,20 +89,15 @@
       "label": "Behavior Detection",
       "icon": "Pulse",
       "path": "/security/behaviour-detection",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "hasCompanyId"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:51"
     },
     {
@@ -142,20 +105,15 @@
       "label": "Authentication Method",
       "icon": "ShieldCheck",
       "path": "/security/authentication-method",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "partnerOnly"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:59"
     },
     {
@@ -163,20 +121,15 @@
       "label": "Activity Log",
       "icon": "Scroll",
       "path": "/security/activity",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
         "conditions": [
           "showActivityLogTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:73"
     },
     {
@@ -184,19 +137,20 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/security/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
-        "productGate": "SECURITY_MONITORING",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SECURITY_MONITORING"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Security/utils/NavBarLinks.tsx:78"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "App is registered as RIPPLING_SECURITY (RIPPLING_SECURTY_SPOKE_HANDLE in code). Tabs sourced from Identity/modules/Security/utils/NavBarLinks.tsx and filtered in NavBar.tsx. Several tabs are conditional on subscription, feature flag, or company-vs-partner context.",
+      "When no companyId (partner login) only Authentication Method tab is shown."
+    ]
+  }
 }

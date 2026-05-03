@@ -3,12 +3,12 @@
   "appLabel": "Succession Planning",
   "appPath": "/succession-planning",
   "appProductGate": "SUCCESSION_PLANNING",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
       "Succession Planning is an App Studio (catalog product family 'App Studio') product — no first-party UI in rippling-webapp.",
       "Expected internal panes (Roles / Successors / Org Charts) are surfaced by the Studio runtime; left as nav: []."
     ]
-  },
-  "nav": []
+  }
 }

@@ -3,22 +3,12 @@
   "appLabel": "Feedback",
   "appPath": "/feedback",
   "appProductGate": "FEEDBACK",
-  "_meta": {
-    "generatedBy": "phase-2G",
-    "uncertainties": [
-      "Top-level: Feed, Requests (with sub-tabs), Analytics, Settings (admin).",
-      "'Assigned to team' sub-tab requires canViewAssignedToTeamRequests (manager privilege).",
-      "Analytics is shown to all users (not gated by isAdmin in the navbar code).",
-      "Settings gated by canViewSettings."
-    ]
-  },
   "nav": [
     {
       "id": "feed",
       "label": "Feed",
       "icon": "Rss",
       "path": "/feedback/dashboard/feed",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -26,13 +16,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "FEEDBACK",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "FEEDBACK"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:144-153"
     },
     {
@@ -40,7 +25,6 @@
       "label": "Requests",
       "icon": "ClipboardText",
       "path": "/feedback/dashboard/requests",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,13 +32,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "FEEDBACK",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "FEEDBACK"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:154-183"
     },
     {
@@ -70,13 +49,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "FEEDBACK",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "FEEDBACK"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:156-163"
     },
     {
@@ -91,13 +65,9 @@
           "partial",
           "manager"
         ],
-        "scopeForPartial": [],
         "productGate": "FEEDBACK",
-        "permissionGate": "canViewAssignedToTeamRequests",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "canViewAssignedToTeamRequests"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:164-170"
     },
     {
@@ -113,13 +83,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "FEEDBACK",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "FEEDBACK"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:171-175"
     },
     {
@@ -127,7 +92,6 @@
       "label": "Analytics",
       "icon": "ChartBar",
       "path": "/feedback/dashboard/analytics",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -135,13 +99,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "FEEDBACK",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "FEEDBACK"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:184"
     },
     {
@@ -149,7 +108,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/feedback/dashboard/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -159,12 +117,18 @@
           "feedback"
         ],
         "productGate": "FEEDBACK",
-        "permissionGate": "canViewSettings",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "canViewSettings"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Feedback/containers/DashboardWrapper.tsx:185-191"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Top-level: Feed, Requests (with sub-tabs), Analytics, Settings (admin).",
+      "'Assigned to team' sub-tab requires canViewAssignedToTeamRequests (manager privilege).",
+      "Analytics is shown to all users (not gated by isAdmin in the navbar code).",
+      "Settings gated by canViewSettings."
+    ]
+  }
 }

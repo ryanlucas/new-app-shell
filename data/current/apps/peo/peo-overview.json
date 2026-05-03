@@ -3,22 +3,12 @@
   "appLabel": "PEO Overview",
   "appPath": "/peo",
   "appProductGate": null,
-  "_meta": {
-    "generatedBy": "phase-2F",
-    "uncertainties": [
-      "No dedicated 'PEO Overview' single-page route was found in rippling-webapp/app/products/hr/Peo/. The /peo/* routes are predominantly setup flows (onboarding, tax info, workers comp setup, state coverage) rather than a navigable overview/dashboard.",
-      "PEO admins reach PEO content via siblings: Compliance 360 (/compliance/* — tax accounts, peo offboarding), Notices Dashboard (PeoNoticesDashboardV2Container with All / PEO / Compliance Packets / Reports / Periodic Requirements / Form Fields tabs), Workers Comp Dashboard (/peo/workers-comp/dashboard/overview, class-codes), Workplace Posters (/documents/workplace-posters).",
-      "The 'PEO Overview' label in the catalog likely maps to the in-app dashboard widget / event timeline (app/products/hr/Peo/eventTimeline/EventTimeline.tsx) shown to isPeoClient users on the main dashboard, rather than a standalone navigable surface.",
-      "PEO is admin-only (full+partial) and gated by isPeoClient."
-    ]
-  },
   "nav": [
     {
       "id": "peo-notices",
       "label": "PEO Notices",
       "icon": "Bell",
       "path": "/peo/notices",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,14 +17,10 @@
         "scopeForPartial": [
           "peo"
         ],
-        "productGate": null,
-        "permissionGate": null,
         "conditions": [
           "isPeoClient"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Peo/routes/peo.routes.tsx:199"
     },
     {
@@ -42,7 +28,6 @@
       "label": "Workers Comp",
       "icon": "HardHats",
       "path": "/peo/workers-comp/dashboard/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -51,14 +36,10 @@
         "scopeForPartial": [
           "peo"
         ],
-        "productGate": null,
-        "permissionGate": null,
         "conditions": [
           "isPeoClient"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Peo/routes/peo.routes.tsx:279"
     },
     {
@@ -75,15 +56,20 @@
         "scopeForPartial": [
           "peo"
         ],
-        "productGate": null,
-        "permissionGate": null,
         "conditions": [
           "isPeoClient"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Peo/routes/peo.routes.tsx:293"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "No dedicated 'PEO Overview' single-page route was found in rippling-webapp/app/products/hr/Peo/. The /peo/* routes are predominantly setup flows (onboarding, tax info, workers comp setup, state coverage) rather than a navigable overview/dashboard.",
+      "PEO admins reach PEO content via siblings: Compliance 360 (/compliance/* — tax accounts, peo offboarding), Notices Dashboard (PeoNoticesDashboardV2Container with All / PEO / Compliance Packets / Reports / Periodic Requirements / Form Fields tabs), Workers Comp Dashboard (/peo/workers-comp/dashboard/overview, class-codes), Workplace Posters (/documents/workplace-posters).",
+      "The 'PEO Overview' label in the catalog likely maps to the in-app dashboard widget / event timeline (app/products/hr/Peo/eventTimeline/EventTimeline.tsx) shown to isPeoClient users on the main dashboard, rather than a standalone navigable surface.",
+      "PEO is admin-only (full+partial) and gated by isPeoClient."
+    ]
+  }
 }

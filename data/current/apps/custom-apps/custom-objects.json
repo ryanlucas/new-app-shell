@@ -3,22 +3,12 @@
   "appLabel": "Custom Objects",
   "appPath": "/custom-objects",
   "appProductGate": "UNLIMITED_CUSTOM_OBJECTS",
-  "_meta": {
-    "generatedBy": "phase-2K",
-    "uncertainties": [
-      "Actual route base in code is /data-manager (PATHS.baseV2). The canonical app entry alias /custom-objects (PATHS.base) is preserved as appPath; child paths use /data-manager prefix as that is the live mount.",
-      "Per-object detail subnav (Records, Fields, Validation Rules, Page Layouts, Field Sets, Record Trigger Flows) is dynamic per-object and not modeled as L3 dashboard nav — it lives under /data-manager/objects/:objectRQLName/*.",
-      "External Connections and Pipelines are gated by LD flags (DATA_PIPELINES_APP, EXTERNAL_OBJECTS_PIPELINES). Modeled as conditional via flag mention only — not formal `conditions` schema.",
-      "Permissions tab visibility uses isPermissionsTabAccessible() — assumed full+partial admin scope."
-    ]
-  },
   "nav": [
     {
       "id": "objects",
       "label": "Objects",
       "icon": "Database",
       "path": "/data-manager/objects",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,12 +17,8 @@
         "scopeForPartial": [
           "custom-objects"
         ],
-        "productGate": "UNLIMITED_CUSTOM_OBJECTS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "UNLIMITED_CUSTOM_OBJECTS"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomObjects/containers/objectManagerDashboard/ObjectManagerDashboard.tsx:46"
     },
     {
@@ -40,7 +26,6 @@
       "label": "Permissions",
       "icon": "ShieldCheck",
       "path": "/data-manager/data-permissions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -53,10 +38,8 @@
         "permissionGate": "isPermissionsTabAccessible",
         "conditions": [
           "canSeePermissionsTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomObjects/containers/objectManagerDashboard/ObjectManagerDashboard.tsx:52"
     },
     {
@@ -64,7 +47,6 @@
       "label": "External Connections",
       "icon": "Link",
       "path": "/data-manager/external-connections",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -74,13 +56,10 @@
           "custom-objects"
         ],
         "productGate": "UNLIMITED_CUSTOM_OBJECTS",
-        "permissionGate": null,
         "conditions": [
           "FF:DATA_PIPELINES_APP"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomObjects/containers/objectManagerDashboard/ObjectManagerDashboard.tsx:58"
     },
     {
@@ -88,7 +67,6 @@
       "label": "Pipelines",
       "icon": "FlowArrow",
       "path": "/data-manager/pipelines",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -98,15 +76,21 @@
           "custom-objects"
         ],
         "productGate": "UNLIMITED_CUSTOM_OBJECTS",
-        "permissionGate": null,
         "conditions": [
           "FF:DATA_PIPELINES_APP",
           "FF:EXTERNAL_OBJECTS_PIPELINES"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomObjects/containers/objectManagerDashboard/ObjectManagerDashboard.tsx:64"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Actual route base in code is /data-manager (PATHS.baseV2). The canonical app entry alias /custom-objects (PATHS.base) is preserved as appPath; child paths use /data-manager prefix as that is the live mount.",
+      "Per-object detail subnav (Records, Fields, Validation Rules, Page Layouts, Field Sets, Record Trigger Flows) is dynamic per-object and not modeled as L3 dashboard nav — it lives under /data-manager/objects/:objectRQLName/*.",
+      "External Connections and Pipelines are gated by LD flags (DATA_PIPELINES_APP, EXTERNAL_OBJECTS_PIPELINES). Modeled as conditional via flag mention only — not formal `conditions` schema.",
+      "Permissions tab visibility uses isPermissionsTabAccessible() — assumed full+partial admin scope."
+    ]
+  }
 }

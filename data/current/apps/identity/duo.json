@@ -3,12 +3,12 @@
   "appLabel": "Duo MFA",
   "appPath": "/it/integrations",
   "appProductGate": "DUO",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2I",
     "uncertainties": [
       "Duo is a third-party MFA provisioning integration (rippling-main: app/duo_provisioning). On the frontend it does not own a dedicated product surface. Admin management lives within the App Management IntegrationDashboard (e.g. /it/integrations/duo) and end-user device enrollment lives in account security settings (Identity/containers/accountSettings/security/components/securitySettings/Duo.tsx).",
       "Treating as a trivial app with empty nav per the Phase 2 convention for apps without dedicated internal navigation."
     ]
-  },
-  "nav": []
+  }
 }

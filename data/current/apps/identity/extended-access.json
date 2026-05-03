@@ -3,6 +3,7 @@
   "appLabel": "Extended Access",
   "appPath": "/extended-access",
   "appProductGate": "EXTENDED_ACCESS",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2I",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "No frontend route table for /extended-access exists in rippling-webapp. There is no admin product surface; emitting nav: [] reflects the actual codebase state.",
       "The expected nav (Active Grants, Templates, History) is not implemented. Possibly aspirational or owned by a separate product."
     ]
-  },
-  "nav": []
+  }
 }

@@ -3,6 +3,7 @@
   "appLabel": "Forecasting",
   "appPath": "/forecasting",
   "appProductGate": "FORECASTING",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2J",
     "uncertainties": [
@@ -11,6 +12,5 @@
       "App lives under /forecasting (not /data/forecasting); skeleton appPath corrected.",
       "Personas inferred as full only (admin/forecasting-installer)."
     ]
-  },
-  "nav": []
+  }
 }

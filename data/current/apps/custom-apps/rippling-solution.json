@@ -3,6 +3,7 @@
   "appLabel": "Solutions",
   "appPath": "/solutions",
   "appProductGate": "RIPPLING_SOLUTION",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2J",
     "uncertainties": [
@@ -11,6 +12,5 @@
       "Expected items (My Solutions / Library / Marketplace / Templates) are not present as a discrete nav — Library/Marketplace surface is App Shop (/app-shop) and per-app pages.",
       "Returning nav: [] given the absence of a discrete app shell."
     ]
-  },
-  "nav": []
+  }
 }

@@ -261,14 +261,5 @@
       "description": "Standard employee with self-service access. isEmployee defaults True; set to True when role transitions to HIRED state.",
       "source": "rippling-main/app/hris/models/role/role_with_company.py:971"
     }
-  ],
-  "_meta": {
-    "generatedBy": "phase-1C",
-    "uncertainties": [
-      "Some boolean flags on AdminPermissions (e.g. has_super_admin_with_add_edit_admins, has_any_permissions, has_permissions_privilege) are deprecated/derived rather than first-class partial-admin scopes and are excluded.",
-      "Hire/terminate (can_request_hire, etc.) and employment-data (can_read_employment_sensitive, etc.) permissions are scoped capabilities, not partial-admin product scopes; excluded from the scopes list intentionally.",
-      "is_super_admin (line 14) and is_external_admin (line 17) are core admin variants, not partial-admin product scopes; not enumerated here.",
-      "Travel sub-permissions (can_modify_travel_policies_and_settings etc., lines 85-90) and Unity creator subset (can_create_unity_app, line 103) are nested capabilities under the parent travel/unity admin scopes."
-    ]
-  }
+  ]
 }

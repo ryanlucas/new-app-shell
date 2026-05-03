@@ -3,21 +3,12 @@
   "appLabel": "Reports",
   "appPath": "/reports/dashboard",
   "appProductGate": "REPORTS",
-  "_meta": {
-    "generatedBy": "phase-2D",
-    "uncertainties": [
-      "Reports' L3 nav is implemented as in-page tabs (DASHBOARD_TABS), not URL paths — paths are query-string-based. We expose stable kebab-case ids and approximate paths.",
-      "REPORT_PERMISSIONS tab is admin-only (full/partial); RECENT/BUILT_IN/CREATED_BY_ME/SHARED_WITH_ME are reachable by EE within their data scope.",
-      "Templates / Reports Library are surfaced via the Built-in tab; we did not find separate Scheduled Reports or Library nodes at this layer (they live inside the report viewer)."
-    ]
-  },
   "nav": [
     {
       "id": "recent",
       "label": "Recent",
       "icon": "Clock",
       "path": "/reports/dashboard?tab=recent",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -28,12 +19,8 @@
         "scopeForPartial": [
           "reports_admin"
         ],
-        "productGate": "REPORTS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "REPORTS"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:17"
     },
     {
@@ -41,7 +28,6 @@
       "label": "Built-in",
       "icon": "BookOpen",
       "path": "/reports/dashboard?tab=built-in",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -52,12 +38,8 @@
         "scopeForPartial": [
           "reports_admin"
         ],
-        "productGate": "REPORTS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "REPORTS"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:24"
     },
     {
@@ -65,7 +47,6 @@
       "label": "Created by me",
       "icon": "User",
       "path": "/reports/dashboard?tab=created-by-me",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -76,12 +57,8 @@
         "scopeForPartial": [
           "reports_admin"
         ],
-        "productGate": "REPORTS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "REPORTS"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:31"
     },
     {
@@ -89,7 +66,6 @@
       "label": "Shared with me",
       "icon": "ShareNetwork",
       "path": "/reports/dashboard?tab=shared-with-me",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -100,12 +76,8 @@
         "scopeForPartial": [
           "reports_admin"
         ],
-        "productGate": "REPORTS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "REPORTS"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:38"
     },
     {
@@ -113,7 +85,6 @@
       "label": "Report Permissions",
       "icon": "Shield",
       "path": "/reports/dashboard?tab=report-permissions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -123,12 +94,17 @@
           "reports_admin"
         ],
         "productGate": "REPORTS",
-        "permissionGate": "report_permissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "report_permissions"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Reports/CoreReports/containers/reportsDashboard/ReportsDashboard.constants.ts:45"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "Reports' L3 nav is implemented as in-page tabs (DASHBOARD_TABS), not URL paths — paths are query-string-based. We expose stable kebab-case ids and approximate paths.",
+      "REPORT_PERMISSIONS tab is admin-only (full/partial); RECENT/BUILT_IN/CREATED_BY_ME/SHARED_WITH_ME are reachable by EE within their data scope.",
+      "Templates / Reports Library are surfaced via the Built-in tab; we did not find separate Scheduled Reports or Library nodes at this layer (they live inside the report viewer)."
+    ]
+  }
 }

@@ -3,19 +3,12 @@
   "appLabel": "Transactions",
   "appPath": "/spend-management/dashboard/transactions",
   "appProductGate": "SPENDMANAGEMENT",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Transactions is a unified tab inside Spend Management — not a standalone app. It exposes detail views via /spend-management/account/:accountId/transactions/:type/:id but not a deep nav."
-    ]
-  },
   "nav": [
     {
       "id": "transactions",
       "label": "All Transactions",
       "icon": "ArrowsLeftRight",
       "path": "/spend-management/dashboard/transactions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -24,13 +17,15 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Transactions is a unified tab inside Spend Management — not a standalone app. It exposes detail views via /spend-management/account/:accountId/transactions/:type/:id but not a deep nav."
+    ]
+  }
 }

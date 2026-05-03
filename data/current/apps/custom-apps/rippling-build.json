@@ -3,6 +3,43 @@
   "appLabel": "Rippling Build",
   "appPath": "/developer",
   "appProductGate": "RIPPLING_BUILD",
+  "nav": [
+    {
+      "id": "functions",
+      "label": "Functions",
+      "icon": "CodeBlock",
+      "path": "/developer/functions",
+      "source": "rippling-webapp/app/products/platform/Developer/modules/functions/routes/navbar.routes.tsx:9-39"
+    },
+    {
+      "id": "packages",
+      "label": "Packages",
+      "icon": "Package",
+      "path": "/developer/packages",
+      "source": "rippling-webapp/app/products/platform/Developer/modules/packages/constants/routes.ts:1"
+    },
+    {
+      "id": "webhooks",
+      "label": "Webhooks",
+      "icon": "Webhook",
+      "path": "/developer/webhooks",
+      "source": "rippling-webapp/app/products/platform/Developer/modules/webhooks/constants/routes.ts"
+    },
+    {
+      "id": "api-tokens",
+      "label": "API Tokens",
+      "icon": "Key",
+      "path": "/developer/api-tokens",
+      "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/APItokens.constants.ts"
+    },
+    {
+      "id": "settings-manager",
+      "label": "Settings Manager",
+      "icon": "Gear",
+      "path": "/developer/settings",
+      "source": "rippling-webapp/app/products/platform/Developer/modules/settingsManager/constants/routes.ts"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2J",
     "uncertainties": [
@@ -11,57 +48,5 @@
       "Expected items from brief (My Apps / Templates / Versions / Marketplace / Settings) only partly map; Marketplace and Templates are not present in this app — likely surfaces of AppManager (custom-apps) instead.",
       "Personas inferred (full = developer/admin only). No EE surface."
     ]
-  },
-  "nav": [
-    {
-      "id": "functions",
-      "label": "Functions",
-      "path": "/developer/functions",
-      "icon": "CodeBlock",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/Developer/modules/functions/routes/navbar.routes.tsx:9-39"
-    },
-    {
-      "id": "packages",
-      "label": "Packages",
-      "path": "/developer/packages",
-      "icon": "Package",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/Developer/modules/packages/constants/routes.ts:1"
-    },
-    {
-      "id": "webhooks",
-      "label": "Webhooks",
-      "path": "/developer/webhooks",
-      "icon": "Webhook",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/Developer/modules/webhooks/constants/routes.ts"
-    },
-    {
-      "id": "api-tokens",
-      "label": "API Tokens",
-      "path": "/developer/api-tokens",
-      "icon": "Key",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/APItokens.constants.ts"
-    },
-    {
-      "id": "settings-manager",
-      "label": "Settings Manager",
-      "path": "/developer/settings",
-      "icon": "Gear",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/Developer/modules/settingsManager/constants/routes.ts"
-    }
-  ]
+  }
 }

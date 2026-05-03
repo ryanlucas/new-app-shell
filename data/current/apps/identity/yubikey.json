@@ -3,20 +3,12 @@
   "appLabel": "YubiKey",
   "appPath": "/yubikey",
   "appProductGate": "YUBIKEY",
-  "_meta": {
-    "generatedBy": "phase-2I",
-    "uncertainties": [
-      "Yubikey has a separate admin and employee NavBar (AdminNavBar / EmployeeNavBar). EE-facing surface is /yubikey/employee/overview; admin surface is /yubikey/overview. Captured both as nav rows.",
-      "Setup, purchase, policy create/edit are flow-style routes (Flow components) — treated as actions, not L3 nav."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/yubikey/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "YUBIKEY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "YUBIKEY"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:20"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Ordering Policies",
       "icon": "ClipboardText",
       "path": "/yubikey/ordering-policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "YUBIKEY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "YUBIKEY"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:21"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/yubikey/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,12 +51,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "YUBIKEY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "YUBIKEY"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:22"
     },
     {
@@ -82,7 +60,6 @@
       "label": "My Yubikeys",
       "icon": "Key",
       "path": "/yubikey/employee/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "ee",
@@ -90,14 +67,16 @@
           "full",
           "partial"
         ],
-        "scopeForPartial": [],
-        "productGate": "YUBIKEY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "YUBIKEY"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/Yubikey/components/YubikeyNavBar.tsx:25; routes/routes.tsx:147-155"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "Yubikey has a separate admin and employee NavBar (AdminNavBar / EmployeeNavBar). EE-facing surface is /yubikey/employee/overview; admin surface is /yubikey/overview. Captured both as nav rows.",
+      "Setup, purchase, policy create/edit are flow-style routes (Flow components) — treated as actions, not L3 nav."
+    ]
+  }
 }

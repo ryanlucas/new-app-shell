@@ -3,6 +3,7 @@
   "appLabel": "Snowflake Sync",
   "appPath": "/data/snowflake",
   "appProductGate": "SNOWFLAKE",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2J",
     "uncertainties": [
@@ -11,6 +12,5 @@
       "Expected items (Connections / Sync Status / Settings / Logs) are not present as distinct routes — falling back to the parent Pipelines grid where Snowflake pipelines are visible.",
       "Returning nav: [] given the absence of a discrete app shell."
     ]
-  },
-  "nav": []
+  }
 }

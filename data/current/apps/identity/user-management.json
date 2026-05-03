@@ -3,6 +3,7 @@
   "appLabel": "User Management",
   "appPath": "/user-management",
   "appProductGate": "USER_MANAGEMENT",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2I",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "No frontend route table for /user-management was found in rippling-webapp. The dashboard surface is likely the IT People page (/it/people) or a forthcoming surface — the standalone /user-management URL appears to be a pre-launch registration with no dedicated L3 nav yet.",
       "The expected nav (Users, Groups, Provisioning, Reports, Settings) is not present in the current codebase; emitting nav: [] to reflect actual state."
     ]
-  },
-  "nav": []
+  }
 }

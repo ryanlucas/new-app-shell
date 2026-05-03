@@ -3,6 +3,7 @@
   "appLabel": "HR Help Desk",
   "appPath": "/hr-helpdesk",
   "appProductGate": "HRHELPDESKTHINKHR",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2F",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "No discoverable internal nav in rippling-webapp — it appears as an installable spoke (HR360) and routes via /app-shop/app/hr360 with single-page or external launch.",
       "objectNavigatorData mock references 'HR Help Desk' and 'HR Help Desk (Legacy)' tiers but no internal sub-pages were found in app/products/."
     ]
-  },
-  "nav": []
+  }
 }

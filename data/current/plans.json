@@ -76,9 +76,5 @@
         "settings"
       ]
     }
-  ],
-  "_meta": {
-    "generatedBy": "phase-1C",
-    "note": "Plans are prototype-defined fixtures, not pulled from code. ownedSuites references suite ids defined in shell-suites.json (sibling phase-1B output). Settings is included in all plans as it covers core platform features (Permissions, Approvals, Audit Log) every company needs."
-  }
+  ]
 }

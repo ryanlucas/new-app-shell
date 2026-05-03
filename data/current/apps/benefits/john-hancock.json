@@ -3,6 +3,7 @@
   "appLabel": "John Hancock 401(k)",
   "appPath": "/apps/401K/john-hancock/intro",
   "appProductGate": "JOHNHANCOCK",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "No first-party internal navigation surface — clicking the app launches the provider's portal. Setup uses the generic /apps/401K/{appName}/intro flow.",
       "Modeled as a single-page (no nav) app."
     ]
-  },
-  "nav": []
+  }
 }

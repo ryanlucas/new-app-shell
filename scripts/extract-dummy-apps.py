@@ -4,7 +4,7 @@ entries the backend injects into the sidebar (Spend's Tasks/Cards/Bills,
 HR's People, IT Overview, etc.). Extract via AST so we don't need to
 import from rippling-main.
 
-Outputs data/research/source-of-truth/dummy-apps-by-suite.json.
+Outputs research/source-of-truth/dummy-apps-by-suite.json.
 """
 import ast
 import json
@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 RIPPLING_MAIN = Path.home() / 'dev/code/rippling-main'
 DUMMY_APPS = RIPPLING_MAIN / 'app/apps/utils/dummy_apps.py'
-OUT = ROOT / 'data/research/source-of-truth'
+OUT = ROOT / 'research/source-of-truth'
 
 if not DUMMY_APPS.exists():
     print(f"Missing {DUMMY_APPS}", file=sys.stderr)

@@ -3,21 +3,12 @@
   "appLabel": "Rippling ATS",
   "appPath": "/ats",
   "appProductGate": "RIPPLINGATS",
-  "_meta": {
-    "generatedBy": "phase-2G",
-    "uncertainties": [
-      "Rippling ATS and Recruiting (ATS2) share the exact same /ats/* UI module. Differentiated only by spoke handle (RipplingATS vs ATS2) and minor permission/feature flag gates.",
-      "EE-only surfaces (employee/my-interviews, my-referrals, internal-job-board) are gated by permissions and feature flags.",
-      "Lucide icons are best-effort heuristics."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/ats/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -28,11 +19,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:177-221"
     },
     {
@@ -51,11 +39,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:181-187"
     },
     {
@@ -74,11 +59,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:188-195"
     },
     {
@@ -97,11 +79,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:196-203"
     },
     {
@@ -120,11 +99,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:204-211"
     },
     {
@@ -143,11 +119,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:212-219"
     },
     {
@@ -155,7 +128,6 @@
       "label": "My interviews",
       "icon": "Users",
       "path": "/ats/employee",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -163,13 +135,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGATS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGATS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:222-241"
     },
     {
@@ -185,13 +152,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGATS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGATS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:228-231"
     },
     {
@@ -207,13 +169,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGATS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGATS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:232-235"
     },
     {
@@ -229,13 +186,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGATS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGATS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:236-239"
     },
     {
@@ -243,7 +195,6 @@
       "label": "Recordings",
       "icon": "VideoCamera",
       "path": "/ats/recordings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -254,13 +205,10 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": null,
         "conditions": [
           "shouldShowRecordings"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:243-246"
     },
     {
@@ -268,7 +216,6 @@
       "label": "Job requisitions",
       "icon": "Briefcase",
       "path": "/ats/job-requisitions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -279,11 +226,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:247-269"
     },
     {
@@ -302,11 +246,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:88-94"
     },
     {
@@ -325,11 +266,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:95-101"
     },
     {
@@ -348,11 +286,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:102-108"
     },
     {
@@ -371,11 +306,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:109-115"
     },
     {
@@ -383,7 +315,6 @@
       "label": "Open headcount",
       "icon": "Users",
       "path": "/ats/open-headcount",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -398,10 +329,8 @@
         "conditions": [
           "shouldShowHeadcountPlanning",
           "!isMobile"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:270-274"
     },
     {
@@ -409,7 +338,6 @@
       "label": "Candidates",
       "icon": "UserList",
       "path": "/ats/candidates",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -420,11 +348,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:275-289"
     },
     {
@@ -443,11 +368,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:144-153"
     },
     {
@@ -466,11 +388,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "appSettingsPermission.prospect_admin OR appAdmin"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:154-161"
     },
     {
@@ -478,7 +397,6 @@
       "label": "Applications",
       "icon": "FileText",
       "path": "/ats/applications",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -489,11 +407,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAdminPrivileges AND !canViewCandidatesTab",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAdminPrivileges AND !canViewCandidatesTab"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:290-294"
     },
     {
@@ -501,7 +416,6 @@
       "label": "Requests",
       "icon": "ClipboardText",
       "path": "/ats/requests",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -512,11 +426,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:295-317"
     },
     {
@@ -535,11 +446,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:240-246"
     },
     {
@@ -558,11 +466,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:247-255"
     },
     {
@@ -581,11 +486,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:256-262"
     },
     {
@@ -604,11 +506,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:263-272"
     },
     {
@@ -616,7 +515,6 @@
       "label": "Approval policies",
       "icon": "ShieldCheck",
       "path": "/ats/approval-policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -626,11 +524,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:318-375"
     },
     {
@@ -648,11 +543,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:323-326"
     },
     {
@@ -670,11 +562,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:327-339"
     },
     {
@@ -692,11 +581,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:340-352"
     },
     {
@@ -714,11 +600,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:353-364"
     },
     {
@@ -726,7 +609,6 @@
       "label": "My referrals",
       "icon": "UserPlus",
       "path": "/ats/employee/referrals",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -734,15 +616,11 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
         "productGate": "RIPPLINGATS",
-        "permissionGate": null,
         "conditions": [
           "shouldShowReferrals"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:376-380"
     },
     {
@@ -750,7 +628,6 @@
       "label": "Internal job board",
       "icon": "ClipboardText",
       "path": "/ats/internal-job-board",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -758,15 +635,11 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
         "productGate": "RIPPLINGATS",
-        "permissionGate": null,
         "conditions": [
           "shouldShowInternalJobBoard"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:381-385"
     },
     {
@@ -774,7 +647,6 @@
       "label": "Candidate surveys",
       "icon": "ChatCircle",
       "path": "/ats/candidate-surveys",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -788,10 +660,8 @@
         "conditions": [
           "shouldShowCandidateSurvey",
           "!isMobile"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:386-405"
     },
     {
@@ -809,11 +679,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:181-186"
     },
     {
@@ -831,11 +698,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:187-193"
     },
     {
@@ -853,11 +717,8 @@
           "recruiting"
         ],
         "productGate": "RIPPLINGATS",
-        "permissionGate": "ats.hasAppAdminPermissions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "ats.hasAppAdminPermissions"
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/routes-v6/adminRoutes.tsx:194-200"
     },
     {
@@ -865,7 +726,6 @@
       "label": "Templates & defaults",
       "icon": "SquaresFour",
       "path": "/ats/templates",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -878,10 +738,8 @@
         "permissionGate": "appSettings.edit_settings OR edit_feedback_forms",
         "conditions": [
           "!isMobile"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:406-410"
     },
     {
@@ -889,7 +747,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/ats/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -902,11 +759,17 @@
         "permissionGate": "appSettings.edit_settings",
         "conditions": [
           "!isMobile"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Ats/containers/navBar/NavBarBase.tsx:411-415"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Rippling ATS and Recruiting (ATS2) share the exact same /ats/* UI module. Differentiated only by spoke handle (RipplingATS vs ATS2) and minor permission/feature flag gates.",
+      "EE-only surfaces (employee/my-interviews, my-referrals, internal-job-board) are gated by permissions and feature flags.",
+      "Lucide icons are best-effort heuristics."
+    ]
+  }
 }

@@ -3,6 +3,7 @@
   "appLabel": "HR Services",
   "appPath": "/hr-services",
   "appProductGate": "HR360",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2F",
     "uncertainties": [
@@ -11,6 +12,5 @@
       "The HR360 spoke is actually 'HR Help Desk' per objectNavigatorData mock — the gate label may be inaccurate; HR Services routing primarily uses CLIENT_TYPE.ASO and isAsoClient checks rather than a single product gate.",
       "Reference: rippling-webapp/app/products/hr/Peo/routes/aso.routes.tsx for ASO/HR Services flow routes (mostly setup flows, not navigation)."
     ]
-  },
-  "nav": []
+  }
 }

@@ -3,21 +3,12 @@
   "appLabel": "RPass",
   "appPath": "/it/rpass",
   "appProductGate": "RPASS",
-  "_meta": {
-    "generatedBy": "phase-2I",
-    "uncertainties": [
-      "RPass is mounted under /it/rpass; legacy /rpass paths redirect via RPassV2Layout. Tabs are conditionally rendered based on NEW_RPASS_ADMIN_PAGES feature flag (variations 'all', 'overview', 'vault', 'none').",
-      "Personas: Identity admin surfaces use full+partial with identity_admin scope. Personal Vault and individual password access are EE/manager surfaces (every employee with RPass access has a personal vault), but the admin pages captured here are admin-only.",
-      "'Setup' is only shown when NEW_RPASS_ADMIN_PAGES != 'all' && != 'overview'. Captured visibility as a condition for fidelity."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/it/rpass/usageOverview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -26,12 +17,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:54"
     },
     {
@@ -39,7 +26,6 @@
       "label": "Setup",
       "icon": "Wrench",
       "path": "/it/rpass/info",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -49,13 +35,10 @@
           "identity_admin"
         ],
         "productGate": "RPASS",
-        "permissionGate": null,
         "conditions": [
           "featureFlag:NEW_RPASS_ADMIN_PAGES not in ['all','overview']"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:55"
     },
     {
@@ -63,7 +46,6 @@
       "label": "Passwords",
       "icon": "Key",
       "path": "/it/rpass/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -73,13 +55,10 @@
           "identity_admin"
         ],
         "productGate": "RPASS",
-        "permissionGate": null,
         "conditions": [
           "featureFlag:NEW_RPASS_ADMIN_PAGES != 'vault' && != 'all'"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:65-99"
     },
     {
@@ -96,12 +75,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:73-77"
     },
     {
@@ -118,12 +93,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:78-83"
     },
     {
@@ -140,12 +111,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:84-88"
     },
     {
@@ -162,12 +129,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:89-93"
     },
     {
@@ -175,7 +138,6 @@
       "label": "Company Vault",
       "icon": "Vault",
       "path": "/it/rpass/vault",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -185,13 +147,10 @@
           "identity_admin"
         ],
         "productGate": "RPASS",
-        "permissionGate": null,
         "conditions": [
           "featureFlag:NEW_RPASS_ADMIN_PAGES in ['vault','all']"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:64-65"
     },
     {
@@ -199,7 +158,6 @@
       "label": "Access Rules",
       "icon": "ShieldCheck",
       "path": "/it/rpass/provisioning",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -208,12 +166,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:56-58,104-106"
     },
     {
@@ -221,7 +175,6 @@
       "label": "Activity",
       "icon": "Pulse",
       "path": "/it/rpass/activity",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -230,12 +183,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:107"
     },
     {
@@ -243,7 +192,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/it/rpass/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -252,13 +200,17 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/RPass/components/RPassV2Nav.tsx:108"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "RPass is mounted under /it/rpass; legacy /rpass paths redirect via RPassV2Layout. Tabs are conditionally rendered based on NEW_RPASS_ADMIN_PAGES feature flag (variations 'all', 'overview', 'vault', 'none').",
+      "Personas: Identity admin surfaces use full+partial with identity_admin scope. Personal Vault and individual password access are EE/manager surfaces (every employee with RPass access has a personal vault), but the admin pages captured here are admin-only.",
+      "'Setup' is only shown when NEW_RPASS_ADMIN_PAGES != 'all' && != 'overview'. Captured visibility as a condition for fidelity."
+    ]
+  }
 }

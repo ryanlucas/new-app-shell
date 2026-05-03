@@ -3,12 +3,12 @@
   "appLabel": "Kudos",
   "appPath": "/kudos",
   "appProductGate": "KUDOS",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
       "Kudos is an App Studio (catalog product family 'App Studio') product — no first-party UI in rippling-webapp. The surface is generated dynamically from a Studio app definition.",
       "Expected internal panes (Activity Feed / Send Kudos / Settings) are surfaced by the Studio runtime and not modeled in code; left as nav: []."
     ]
-  },
-  "nav": []
+  }
 }

@@ -3,20 +3,12 @@
   "appLabel": "Procurement",
   "appPath": "/spend-management/dashboard/procurement",
   "appProductGate": "PROCUREMENT",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Procurement is mounted inside Spend Management dashboard. Standalone procurement.routes.tsx exposes request, request_template, and purchase_order flow routes which are not nav items.",
-      "Internal request/PO/template management screens are accessed primarily via list filters within the Procurement tab."
-    ]
-  },
   "nav": [
     {
       "id": "procurement",
       "label": "Procurement",
       "icon": "ShoppingCart",
       "path": "/spend-management/dashboard/procurement",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "PROCUREMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PROCUREMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Vendors",
       "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "PROCUREMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PROCUREMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:142"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings/procurement",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,13 +51,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "PROCUREMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PROCUREMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1600"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Procurement is mounted inside Spend Management dashboard. Standalone procurement.routes.tsx exposes request, request_template, and purchase_order flow routes which are not nav items.",
+      "Internal request/PO/template management screens are accessed primarily via list filters within the Procurement tab."
+    ]
+  }
 }

@@ -3,20 +3,12 @@
   "appLabel": "Reimbursements",
   "appPath": "/spend-management/dashboard/expenses",
   "appProductGate": "EXPENSES",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "The 'Reimbursements' app is exposed via the Spend Management dashboard 'expenses' tab plus expense-reports, mileage_rate, and tax_rate sub-flows.",
-      "Expense report flows are not surfaced as L3 nav since they are flow routes."
-    ]
-  },
   "nav": [
     {
       "id": "expenses",
       "label": "Reimbursements",
       "icon": "Receipt",
       "path": "/spend-management/dashboard/expenses",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "EXPENSES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "EXPENSES"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Expense Reports",
       "icon": "FileText",
       "path": "/spend-management/dashboard/expense_reports",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "EXPENSES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "EXPENSES"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Policies",
       "icon": "Shield",
       "path": "/spend-management/dashboard/policies/transaction-and-reimbursement-policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,12 +51,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "EXPENSES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "EXPENSES"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:189"
     },
     {
@@ -82,7 +60,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings/reimbursements",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -91,13 +68,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "EXPENSES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "EXPENSES"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1585"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "The 'Reimbursements' app is exposed via the Spend Management dashboard 'expenses' tab plus expense-reports, mileage_rate, and tax_rate sub-flows.",
+      "Expense report flows are not surfaced as L3 nav since they are flow routes."
+    ]
+  }
 }

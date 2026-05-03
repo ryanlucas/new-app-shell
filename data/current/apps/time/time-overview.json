@@ -3,21 +3,12 @@
   "appLabel": "Time Overview",
   "appPath": "/time-products/dashboard/overview",
   "appProductGate": "TIME_PLATFORM",
-  "_meta": {
-    "generatedBy": "phase-2D",
-    "uncertainties": [
-      "The unified Time Products app at /time-products/dashboard exposes Overview as ONE of several top-level destinations. We model the 'time-overview' app's L3 nav as the per-product overview tabs visible on the Overview page (Schedule, Time Tracking, Time Off).",
-      "Visibility per overview tab is gated by featureName from the Time Platform spoke API (CoreFeatureKeys.OVERVIEW + child SchedulingFeatureKeys/TimeTrackingFeatureKeys/TimeOffFeatureKeys). We approximate via product-gate conditions.",
-      "Manager 'Team' variant for overview not modelled — Overview is admin/scheduler/observer-flavored content."
-    ]
-  },
   "nav": [
     {
       "id": "schedule-overview",
       "label": "Schedule",
       "icon": "Calendar",
       "path": "/time-products/dashboard/overview/schedule",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -28,13 +19,10 @@
           "scheduling_admin"
         ],
         "productGate": "SCHEDULING",
-        "permissionGate": null,
         "conditions": [
           "feature:SCHEDULING_FEATURE_KEYS_SCHEDULE_OVERVIEW"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useOverviewPageLinks.ts:43"
     },
     {
@@ -42,7 +30,6 @@
       "label": "Time Tracking",
       "icon": "Clock",
       "path": "/time-products/dashboard/overview/time-tracking",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -52,13 +39,10 @@
           "time_admin"
         ],
         "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
         "conditions": [
           "feature:TIME_TRACKING_FEATURE_KEYS_TIME_TRACKING_OVERVIEW"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useOverviewPageLinks.ts:47"
     },
     {
@@ -66,7 +50,6 @@
       "label": "Time Off",
       "icon": "TreePalm",
       "path": "/time-products/dashboard/overview/time-off",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -77,14 +60,19 @@
           "pto_admin"
         ],
         "productGate": "PTO",
-        "permissionGate": null,
         "conditions": [
           "feature:TIME_OFF_FEATURE_KEYS_TIME_OFF_OVERVIEW"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useOverviewPageLinks.ts:51"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "The unified Time Products app at /time-products/dashboard exposes Overview as ONE of several top-level destinations. We model the 'time-overview' app's L3 nav as the per-product overview tabs visible on the Overview page (Schedule, Time Tracking, Time Off).",
+      "Visibility per overview tab is gated by featureName from the Time Platform spoke API (CoreFeatureKeys.OVERVIEW + child SchedulingFeatureKeys/TimeTrackingFeatureKeys/TimeOffFeatureKeys). We approximate via product-gate conditions.",
+      "Manager 'Team' variant for overview not modelled — Overview is admin/scheduler/observer-flavored content."
+    ]
+  }
 }

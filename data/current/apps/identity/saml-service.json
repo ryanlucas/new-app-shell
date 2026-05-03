@@ -3,20 +3,12 @@
   "appLabel": "Custom SAML",
   "appPath": "/apps/custom-integrations",
   "appProductGate": "CUSTOMSAMLSERVICE",
-  "_meta": {
-    "generatedBy": "phase-2I",
-    "uncertainties": [
-      "Custom SAML Service does not own a standalone product surface with internal nav. The mount points are 'manage-integrations' and 'settings' (routes-v6.tsx:88-93) but the CustomSAMLServiceNavBar component redirects to /it/integrations (the App Management dashboard). Effectively no in-app L3 nav.",
-      "The 'Manage Integrations' and 'Settings' tabs live within the IntegrationDashboard (App Management); per access-reviews convention, surfacing them here as logical tabs anyway."
-    ]
-  },
   "nav": [
     {
       "id": "manage-integrations",
       "label": "Manage Integrations",
       "icon": "Stack",
       "path": "/apps/custom-integrations/manage-integrations",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -26,12 +18,8 @@
           "app_admin",
           "identity_admin"
         ],
-        "productGate": "CUSTOMSAMLSERVICE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CUSTOMSAMLSERVICE"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/routes-v6/customSamlService/routes-v6.tsx:87-89"
     },
     {
@@ -39,7 +27,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/apps/custom-integrations/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -49,13 +36,16 @@
           "app_admin",
           "identity_admin"
         ],
-        "productGate": "CUSTOMSAMLSERVICE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CUSTOMSAMLSERVICE"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/routes-v6/customSamlService/routes-v6.tsx:90-92"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "Custom SAML Service does not own a standalone product surface with internal nav. The mount points are 'manage-integrations' and 'settings' (routes-v6.tsx:88-93) but the CustomSAMLServiceNavBar component redirects to /it/integrations (the App Management dashboard). Effectively no in-app L3 nav.",
+      "The 'Manage Integrations' and 'Settings' tabs live within the IntegrationDashboard (App Management); per access-reviews convention, surfacing them here as logical tabs anyway."
+    ]
+  }
 }

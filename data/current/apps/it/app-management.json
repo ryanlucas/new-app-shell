@@ -3,20 +3,12 @@
   "appLabel": "App Management",
   "appPath": "/it/integrations",
   "appProductGate": "APP_MANAGER",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "App Management is the IntegrationDashboard at /it/integrations and /it/third-party-access. The umbrella view shows Overview + (optional) Connections + (optional) Access Reviews with sub-tabs My Reviews / All Reviews. Tabs are conditionally visible based on FLUX feature flag and access_review_tab_visible from API.",
-      "Each individual integration (Slack, GitHub, etc.) gets its own AppNavBar from app/products/it/Apps/containers/appNavBar/AppNavBar.tsx (see _integration.json template)."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/it/integrations/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "app_admin"
         ],
-        "productGate": "INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:35"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Connections",
       "icon": "LinkSimple",
       "path": "/it/integrations/connections",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,13 +35,10 @@
           "app_admin"
         ],
         "productGate": "INTEGRATIONS",
-        "permissionGate": null,
         "conditions": [
           "isFluxFFEnabled"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:48"
     },
     {
@@ -62,7 +46,6 @@
       "label": "Access Reviews",
       "icon": "ShieldCheck",
       "path": "/it/integrations/access-reviews",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -72,13 +55,10 @@
           "app_admin"
         ],
         "productGate": "ACCESS_REVIEWS",
-        "permissionGate": null,
         "conditions": [
           "accessReviewTabVisibility.access_review_tab_visible"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:51"
     },
     {
@@ -93,15 +73,11 @@
           "partial",
           "manager"
         ],
-        "scopeForPartial": [],
         "productGate": "ACCESS_REVIEWS",
-        "permissionGate": null,
         "conditions": [
           "accessReviewTabVisibility.my_reviews_sub_tab_visible"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:59"
     },
     {
@@ -119,14 +95,18 @@
           "app_admin"
         ],
         "productGate": "ACCESS_REVIEWS",
-        "permissionGate": null,
         "conditions": [
           "accessReviewTabVisibility.campaigns_sub_tab_visible"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:66"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "App Management is the IntegrationDashboard at /it/integrations and /it/third-party-access. The umbrella view shows Overview + (optional) Connections + (optional) Access Reviews with sub-tabs My Reviews / All Reviews. Tabs are conditionally visible based on FLUX feature flag and access_review_tab_visible from API.",
+      "Each individual integration (Slack, GitHub, etc.) gets its own AppNavBar from app/products/it/Apps/containers/appNavBar/AppNavBar.tsx (see _integration.json template)."
+    ]
+  }
 }

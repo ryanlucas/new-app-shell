@@ -3,20 +3,12 @@
   "appLabel": "International Payroll",
   "appPath": "/global-payroll",
   "appProductGate": "INTERNATIONAL_PAYROLL",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "International Payroll appears to share routing infrastructure with Global Payroll (same /global-payroll path tree). The product gate INTERNATIONAL_PAYROLL is a separate spoke handle but the L3 nav structure mirrors Global Payroll.",
-      "Whether International Payroll has a distinct app path or simply gates a subset of Global Payroll views is not fully verified."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/global-payroll/admin/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "payroll"
         ],
-        "productGate": "INTERNATIONAL_PAYROLL",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTERNATIONAL_PAYROLL"
       },
-      "personaVariants": {},
       "source": "app/products/finance/GlobalPayroll/routes-v6/globalPayrollChildren.routes.tsx:46"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Run Management",
       "icon": "PlayCircle",
       "path": "/global-payroll/admin/run-management",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "payroll"
         ],
-        "productGate": "INTERNATIONAL_PAYROLL",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTERNATIONAL_PAYROLL"
       },
-      "personaVariants": {},
       "source": "app/products/finance/GlobalPayroll/routes-v6/runManagement/runManagement.routes.tsx:1"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Filings",
       "icon": "FileText",
       "path": "/global-payroll/admin/filings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,12 +51,8 @@
         "scopeForPartial": [
           "payroll"
         ],
-        "productGate": "INTERNATIONAL_PAYROLL",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTERNATIONAL_PAYROLL"
       },
-      "personaVariants": {},
       "source": "app/products/finance/GlobalPayroll/filings/filings.routes.ts:1"
     },
     {
@@ -82,7 +60,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/global-payroll/admin/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -91,13 +68,16 @@
         "scopeForPartial": [
           "payroll"
         ],
-        "productGate": "INTERNATIONAL_PAYROLL",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTERNATIONAL_PAYROLL"
       },
-      "personaVariants": {},
       "source": "app/products/finance/GlobalPayroll/routes-v6/settings/settings.routes.tsx:1"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "International Payroll appears to share routing infrastructure with Global Payroll (same /global-payroll path tree). The product gate INTERNATIONAL_PAYROLL is a separate spoke handle but the L3 nav structure mirrors Global Payroll.",
+      "Whether International Payroll has a distinct app path or simply gates a subset of Global Payroll views is not fully verified."
+    ]
+  }
 }

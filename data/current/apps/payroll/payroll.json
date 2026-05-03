@@ -3,20 +3,12 @@
   "appLabel": "Run Payroll",
   "appPath": "/payroll",
   "appProductGate": "PAYROLL",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Run Payroll has multiple sub-flows (run, amendments, bank-accounts) that are flow routes, not left-rail items; only the top-level Dashboard tabs are surfaced as L3 nav.",
-      "Persona scope assumed full+partial for admin-side; partial scope likely 'payroll' but unverified."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/payroll/dashboard/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -26,11 +18,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:overview",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:overview"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:35"
     },
     {
@@ -38,7 +27,6 @@
       "label": "Pay Runs",
       "icon": "PlayCircle",
       "path": "/payroll/run",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,11 +36,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:run",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:run"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/payrollAdmin.routes.tsx:147"
     },
     {
@@ -60,7 +45,6 @@
       "label": "People",
       "icon": "Users",
       "path": "/payroll/dashboard/people",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -70,11 +54,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:people",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:people"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:47"
     },
     {
@@ -82,7 +63,6 @@
       "label": "Reimbursements",
       "icon": "Receipt",
       "path": "/payroll/dashboard/paytypes",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -92,11 +72,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:paytypes",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:paytypes"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:78"
     },
     {
@@ -104,7 +81,6 @@
       "label": "Deductions",
       "icon": "MinusCircle",
       "path": "/payroll/dashboard/deductions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -114,11 +90,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:deductions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:deductions"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:90"
     },
     {
@@ -126,7 +99,6 @@
       "label": "Garnishments",
       "icon": "Gavel",
       "path": "/payroll/dashboard/garnishments",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -136,11 +108,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:garnishments",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:garnishments"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:118"
     },
     {
@@ -148,7 +117,6 @@
       "label": "Tax Payments",
       "icon": "Money",
       "path": "/payroll/dashboard/taxPayments",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -158,11 +126,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:taxPayments",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:taxPayments"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:242"
     },
     {
@@ -170,7 +135,6 @@
       "label": "Tax Exemptions",
       "icon": "FileMinus",
       "path": "/payroll/dashboard/taxExemptions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -180,11 +144,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:taxExemptions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:taxExemptions"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:198"
     },
     {
@@ -192,7 +153,6 @@
       "label": "Expected Notices",
       "icon": "Warning",
       "path": "/payroll/dashboard/expectedTaxNotices",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -202,11 +162,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:expectedTaxNotices",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:expectedTaxNotices"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:176"
     },
     {
@@ -214,7 +171,6 @@
       "label": "Amendments",
       "icon": "NotePencil",
       "path": "/payroll/dashboard/amendments",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -224,11 +180,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:amendments",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:amendments"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:220"
     },
     {
@@ -236,7 +189,6 @@
       "label": "Accounting",
       "icon": "BookOpen",
       "path": "/payroll/dashboard/accounting",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -246,11 +198,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:accounting",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:accounting"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:130"
     },
     {
@@ -258,7 +207,6 @@
       "label": "Reports",
       "icon": "ChartBar",
       "path": "/payroll/dashboard/reports",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -268,11 +216,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:reports",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:reports"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:142"
     },
     {
@@ -280,7 +225,6 @@
       "label": "Documents",
       "icon": "Folder",
       "path": "/payroll/dashboard/documents",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -290,11 +234,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:documents",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:documents"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:154"
     },
     {
@@ -302,7 +243,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/payroll/dashboard/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -312,12 +252,16 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:settings",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:settings"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:56"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Run Payroll has multiple sub-flows (run, amendments, bank-accounts) that are flow routes, not left-rail items; only the top-level Dashboard tabs are surfaced as L3 nav.",
+      "Persona scope assumed full+partial for admin-side; partial scope likely 'payroll' but unverified."
+    ]
+  }
 }

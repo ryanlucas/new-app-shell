@@ -3,21 +3,12 @@
   "appLabel": "Notifications",
   "appPath": "/notifications",
   "appProductGate": "NOTIFICATION_CENTER",
-  "_meta": {
-    "generatedBy": "phase-2K",
-    "uncertainties": [
-      "The actual mounted base path is /notification-center (NOTIFICATION_CENTER_ROUTE.BASE). The appPath /notifications likely redirects or is an alias.",
-      "L3 nav has only one tab — Alerts (the All Notifications/alerts feed). 'Settings' is rendered inline as 'showNotificationPreferences' on the same Alerts page rather than a separate tab.",
-      "Alert detail page (/notification-center/alert/:alertId) is a deep-link, not a nav item."
-    ]
-  },
   "nav": [
     {
       "id": "alerts",
       "label": "Alerts",
       "icon": "Bell",
       "path": "/notification-center/dashboard/alerts",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,14 +16,17 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "NOTIFICATION_CENTER",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "NOTIFICATION_CENTER"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/NotificationCenter/containers/notificationCenterDashboard/NotificationCenterDashboard.tsx:18"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "The actual mounted base path is /notification-center (NOTIFICATION_CENTER_ROUTE.BASE). The appPath /notifications likely redirects or is an alias.",
+      "L3 nav has only one tab — Alerts (the All Notifications/alerts feed). 'Settings' is rendered inline as 'showNotificationPreferences' on the same Alerts page rather than a separate tab.",
+      "Alert detail page (/notification-center/alert/:alertId) is a deep-link, not a nav item."
+    ]
+  }
 }

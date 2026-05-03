@@ -3,6 +3,216 @@
   "appLabel": "Partner Admin",
   "appPath": "/partner/clients",
   "appProductGate": "PARTNER",
+  "nav": [
+    {
+      "id": "clients",
+      "label": "Clients",
+      "icon": "Users",
+      "path": "/partner/clients",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "partner_company.usecase_config.allowed_links includes DASHBOARD"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:87"
+    },
+    {
+      "id": "tasks",
+      "label": "Tasks",
+      "icon": "CheckSquare",
+      "path": "/partner/tasks",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes TASKS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:150"
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "icon": "Calendar",
+      "path": "/partner/events",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes EVENTS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:164"
+    },
+    {
+      "id": "documents",
+      "label": "Documents",
+      "icon": "FileText",
+      "path": "/partner/documents",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes DOCUMENTS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:206"
+    },
+    {
+      "id": "reports",
+      "label": "Reports",
+      "icon": "ChartBar",
+      "path": "/partner/reports/dashboard",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes REPORTS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:199"
+    },
+    {
+      "id": "workflows",
+      "label": "Workflows",
+      "icon": "FlowArrow",
+      "path": "/partner/custom-workflows/dashboard/legacy/overview",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes WORKFLOWS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:213"
+    },
+    {
+      "id": "audits",
+      "label": "Audits",
+      "icon": "ShieldCheck",
+      "path": "/partner/audits",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes AUDITS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:143"
+    },
+    {
+      "id": "insurance",
+      "label": "Insurance",
+      "icon": "Heart",
+      "path": "/partner/insurance",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes INSURANCE"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:192"
+    },
+    {
+      "id": "billing",
+      "label": "Billing",
+      "icon": "Receipt",
+      "path": "/partner/billing",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes BILLING"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:228"
+    },
+    {
+      "id": "revshare",
+      "label": "Revenue share",
+      "icon": "CurrencyDollar",
+      "path": "/partner/revshare",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes REV_SHARE"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:221"
+    },
+    {
+      "id": "referrals",
+      "label": "Referrals",
+      "icon": "UserPlus",
+      "path": "/partner/referrals",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes PARTNER_REFERRALS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:235"
+    },
+    {
+      "id": "recipes",
+      "label": "Recipes",
+      "icon": "BookOpen",
+      "path": "/partner/partner-recipes",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes PARTNER_RECIPES"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:242"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "icon": "Gear",
+      "path": "/partner/settings",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PARTNER",
+        "conditions": [
+          "allowed_links includes SETTINGS"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:263"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2L",
     "uncertainties": [
@@ -11,280 +221,5 @@
       "Nav paths use the canonical /partner/<segment> form (PartnerProtectedRouteElement strips the optional :partnerCompanyId prefix when present).",
       "Spec asked for Clients/Activity/Settings — Activity loosely maps to Events (and/or Tasks). The full surface includes Clients, Tasks, Events, Documents, Reports, Workflows, Billing, Rev Share, Referrals, Recipes, Insurance, Audits, plus type-specific dashboards."
     ]
-  },
-  "nav": [
-    {
-      "id": "clients",
-      "label": "Clients",
-      "icon": "Users",
-      "path": "/partner/clients",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "partner_company.usecase_config.allowed_links includes DASHBOARD"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:87"
-    },
-    {
-      "id": "tasks",
-      "label": "Tasks",
-      "icon": "CheckSquare",
-      "path": "/partner/tasks",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes TASKS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:150"
-    },
-    {
-      "id": "events",
-      "label": "Events",
-      "icon": "Calendar",
-      "path": "/partner/events",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes EVENTS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:164"
-    },
-    {
-      "id": "documents",
-      "label": "Documents",
-      "icon": "FileText",
-      "path": "/partner/documents",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes DOCUMENTS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:206"
-    },
-    {
-      "id": "reports",
-      "label": "Reports",
-      "icon": "ChartBar",
-      "path": "/partner/reports/dashboard",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes REPORTS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:199"
-    },
-    {
-      "id": "workflows",
-      "label": "Workflows",
-      "icon": "FlowArrow",
-      "path": "/partner/custom-workflows/dashboard/legacy/overview",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes WORKFLOWS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:213"
-    },
-    {
-      "id": "audits",
-      "label": "Audits",
-      "icon": "ShieldCheck",
-      "path": "/partner/audits",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes AUDITS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:143"
-    },
-    {
-      "id": "insurance",
-      "label": "Insurance",
-      "icon": "Heart",
-      "path": "/partner/insurance",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes INSURANCE"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:192"
-    },
-    {
-      "id": "billing",
-      "label": "Billing",
-      "icon": "Receipt",
-      "path": "/partner/billing",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes BILLING"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:228"
-    },
-    {
-      "id": "revshare",
-      "label": "Revenue share",
-      "icon": "CurrencyDollar",
-      "path": "/partner/revshare",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes REV_SHARE"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:221"
-    },
-    {
-      "id": "referrals",
-      "label": "Referrals",
-      "icon": "UserPlus",
-      "path": "/partner/referrals",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes PARTNER_REFERRALS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:235"
-    },
-    {
-      "id": "recipes",
-      "label": "Recipes",
-      "icon": "BookOpen",
-      "path": "/partner/partner-recipes",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes PARTNER_RECIPES"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:242"
-    },
-    {
-      "id": "settings",
-      "label": "Settings",
-      "icon": "Gear",
-      "path": "/partner/settings",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [
-          "allowed_links includes SETTINGS"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/Accountant/constants/sidebar.constants.ts:263"
-    }
-  ]
+  }
 }

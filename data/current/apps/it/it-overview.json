@@ -3,20 +3,12 @@
   "appLabel": "IT Overview",
   "appPath": "/it/overview",
   "appProductGate": "IT_MANAGEMENT",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "IT Overview is a single dashboard page (metrics widgets) inside the umbrella IT app's sidebar. The 'umbrella' nav lives at /it/* and uses StandAloneNavigation (left rail). The items below are the sibling items of /it/overview rendered by that StandAloneNavigation, not internal tabs on the Overview page itself. The page content has no internal tab bar.",
-      "Items like Hardware, RPass, Device Store, My IT, Approvals, Automations, Integrations are also peer apps in the catalog — captured here because IT's umbrella surfaces them in its sidebar."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/it/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,12 +19,8 @@
           "hardware_admin",
           "app_admin"
         ],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:184"
     },
     {
@@ -40,7 +28,6 @@
       "label": "People",
       "icon": "Users",
       "path": "/it/it-people",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -51,12 +38,8 @@
           "hardware_admin",
           "app_admin"
         ],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:194"
     },
     {
@@ -64,7 +47,6 @@
       "label": "Integrations",
       "icon": "Plug",
       "path": "/it/integrations",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -73,12 +55,8 @@
         "scopeForPartial": [
           "app_admin"
         ],
-        "productGate": "INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:204"
     },
     {
@@ -86,7 +64,6 @@
       "label": "Third-Party Access",
       "icon": "ShieldCheck",
       "path": "/it/third-party-access",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -95,12 +72,8 @@
         "scopeForPartial": [
           "app_admin"
         ],
-        "productGate": "INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:218"
     },
     {
@@ -108,7 +81,6 @@
       "label": "Devices",
       "icon": "Laptop",
       "path": "/it/hardware",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -117,12 +89,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:265"
     },
     {
@@ -130,7 +98,6 @@
       "label": "RPass",
       "icon": "Key",
       "path": "/it/rpass",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -139,12 +106,8 @@
         "scopeForPartial": [
           "app_admin"
         ],
-        "productGate": "RPASS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RPASS"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:371"
     },
     {
@@ -152,7 +115,6 @@
       "label": "Device Store",
       "icon": "ShoppingCart",
       "path": "/it/device-store",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -161,12 +123,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:373"
     },
     {
@@ -174,7 +132,6 @@
       "label": "Approvals",
       "icon": "CheckSquare",
       "path": "/it/approvals",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -185,12 +142,8 @@
           "hardware_admin",
           "app_admin"
         ],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:439"
     },
     {
@@ -198,7 +151,6 @@
       "label": "Automations",
       "icon": "FlowArrow",
       "path": "/it/automations",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -207,12 +159,8 @@
         "scopeForPartial": [
           "it_home_full_admin"
         ],
-        "productGate": "IT_AUTOMATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_AUTOMATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:455"
     },
     {
@@ -220,21 +168,22 @@
       "label": "My IT",
       "icon": "UserCircle",
       "path": "/it/my-it",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
           "partial",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/routes/it.routes.tsx:472"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "IT Overview is a single dashboard page (metrics widgets) inside the umbrella IT app's sidebar. The 'umbrella' nav lives at /it/* and uses StandAloneNavigation (left rail). The items below are the sibling items of /it/overview rendered by that StandAloneNavigation, not internal tabs on the Overview page itself. The page content has no internal tab bar.",
+      "Items like Hardware, RPass, Device Store, My IT, Approvals, Automations, Integrations are also peer apps in the catalog — captured here because IT's umbrella surfaces them in its sidebar."
+    ]
+  }
 }

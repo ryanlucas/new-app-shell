@@ -3,6 +3,105 @@
   "appLabel": "401(k) / Pension",
   "appPath": "/pension-management/dashboard/US/overview",
   "appProductGate": "PENSIONMANAGEMENT",
+  "nav": [
+    {
+      "id": "employee",
+      "label": "Employees",
+      "icon": "Users",
+      "path": "/pension-management/dashboard/US/overview",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
+        "productGate": "PENSIONMANAGEMENT",
+        "permissionGate": "APP_OWNER"
+      },
+      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:35"
+    },
+    {
+      "id": "annual-limits",
+      "label": "Annual Limits",
+      "icon": "Gauge",
+      "path": "/pension-management/dashboard/US/annual-limits",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
+        "productGate": "PENSIONMANAGEMENT",
+        "permissionGate": "APP_OWNER",
+        "conditions": [
+          "isUSRetirementsInstalled",
+          "is-us-retirements-enabled"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:73"
+    },
+    {
+      "id": "plans",
+      "label": "Plans",
+      "icon": "ClipboardText",
+      "path": "/pension-management/dashboard/US/plans",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
+        "productGate": "PENSIONMANAGEMENT",
+        "permissionGate": "APP_OWNER",
+        "conditions": [
+          "isUSRetirementsInstalled",
+          "is-us-retirements-enabled"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:78"
+    },
+    {
+      "id": "pension-schemes",
+      "label": "Pension Schemes",
+      "icon": "Table",
+      "path": "/pension-management/dashboard/US/pension-schemes",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "benefits"
+        ],
+        "productGate": "PENSIONMANAGEMENT",
+        "permissionGate": "APP_OWNER"
+      },
+      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:52"
+    },
+    {
+      "id": "bank-accounts",
+      "label": "Bank Accounts",
+      "icon": "Bank",
+      "path": "/pension-management/dashboard/US/bank-accounts",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "productGate": "PENSIONMANAGEMENT",
+        "permissionGate": "APP_OWNER",
+        "conditions": [
+          "shouldShowBankAccountTab"
+        ]
+      },
+      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:86"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
@@ -11,122 +110,5 @@
       "Bank Accounts tab is conditional on shouldShowBankAccountTab.",
       "GB has Active/Archived scheme sub-tabs via ?tab= query param; DE has Enrollments/Updates sub-tabs."
     ]
-  },
-  "nav": [
-    {
-      "id": "employee",
-      "label": "Employees",
-      "icon": "Users",
-      "path": "/pension-management/dashboard/US/overview",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "benefits"
-        ],
-        "productGate": "PENSIONMANAGEMENT",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:35"
-    },
-    {
-      "id": "annual-limits",
-      "label": "Annual Limits",
-      "icon": "Gauge",
-      "path": "/pension-management/dashboard/US/annual-limits",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "benefits"
-        ],
-        "productGate": "PENSIONMANAGEMENT",
-        "permissionGate": "APP_OWNER",
-        "conditions": [
-          "isUSRetirementsInstalled",
-          "is-us-retirements-enabled"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:73"
-    },
-    {
-      "id": "plans",
-      "label": "Plans",
-      "icon": "ClipboardText",
-      "path": "/pension-management/dashboard/US/plans",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "benefits"
-        ],
-        "productGate": "PENSIONMANAGEMENT",
-        "permissionGate": "APP_OWNER",
-        "conditions": [
-          "isUSRetirementsInstalled",
-          "is-us-retirements-enabled"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:78"
-    },
-    {
-      "id": "pension-schemes",
-      "label": "Pension Schemes",
-      "icon": "Table",
-      "path": "/pension-management/dashboard/US/pension-schemes",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "benefits"
-        ],
-        "productGate": "PENSIONMANAGEMENT",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:52"
-    },
-    {
-      "id": "bank-accounts",
-      "label": "Bank Accounts",
-      "icon": "Bank",
-      "path": "/pension-management/dashboard/US/bank-accounts",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": "PENSIONMANAGEMENT",
-        "permissionGate": "APP_OWNER",
-        "conditions": [
-          "shouldShowBankAccountTab"
-        ],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useAppNavBarLinks.tsx:86"
-    }
-  ]
+  }
 }

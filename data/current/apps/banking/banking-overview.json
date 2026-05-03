@@ -3,20 +3,12 @@
   "appLabel": "Banking",
   "appPath": "/banking/accounts",
   "appProductGate": "BANKING",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Banking uses route factories (rbkRouteFactory) — top-level pages are accounts, transactions, deposit, transfers, tax-documents.",
-      "Deposit/transfer/verify-ein/authorize-vendor are flow routes (not nav items). Settings live under /spend-management/settings/banking."
-    ]
-  },
   "nav": [
     {
       "id": "accounts",
       "label": "Accounts",
       "icon": "Bank",
       "path": "/banking/accounts",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "banking"
         ],
-        "productGate": "BANKING",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BANKING"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Banking/routes/route-urls.ts:75"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Transactions",
       "icon": "ArrowsLeftRight",
       "path": "/banking/transactions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "banking"
         ],
-        "productGate": "BANKING",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BANKING"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Banking/routes/route-urls.ts:81"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Deposit",
       "icon": "ArrowLineDown",
       "path": "/banking/deposit",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -70,11 +52,8 @@
           "banking"
         ],
         "productGate": "BANKING",
-        "permissionGate": "banking:OPERATOR",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "banking:OPERATOR"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Banking/routes/route-urls.ts:121"
     },
     {
@@ -82,7 +61,6 @@
       "label": "Send Transfer",
       "icon": "PaperPlaneRight",
       "path": "/banking/new-transfer",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -92,11 +70,8 @@
           "banking"
         ],
         "productGate": "BANKING",
-        "permissionGate": "banking:OPERATOR",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "banking:OPERATOR"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Banking/routes/route-urls.ts:123"
     },
     {
@@ -104,7 +79,6 @@
       "label": "Tax Documents",
       "icon": "FileText",
       "path": "/banking/tax-documents",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -113,12 +87,8 @@
         "scopeForPartial": [
           "banking"
         ],
-        "productGate": "BANKING",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BANKING"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Banking/routes/route-urls.ts:100"
     },
     {
@@ -126,7 +96,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings/banking",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -135,13 +104,16 @@
         "scopeForPartial": [
           "banking"
         ],
-        "productGate": "BANKING",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BANKING"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Banking/routes/route-urls.ts:107"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Banking uses route factories (rbkRouteFactory) — top-level pages are accounts, transactions, deposit, transfers, tax-documents.",
+      "Deposit/transfer/verify-ein/authorize-vendor are flow routes (not nav items). Settings live under /spend-management/settings/banking."
+    ]
+  }
 }

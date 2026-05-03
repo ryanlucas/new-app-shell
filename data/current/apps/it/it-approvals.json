@@ -3,19 +3,12 @@
   "appLabel": "IT Approvals",
   "appPath": "/it/approvals",
   "appProductGate": "IT_MANAGEMENT",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "ApprovalsNavBar tabs are reviewer-centric. 'My Requests' is the requester view; 'Needs Review' / 'Reviewed' / 'All Requests' are reviewer/admin views."
-    ]
-  },
   "nav": [
     {
       "id": "needs-review",
       "label": "Needs Review",
       "icon": "Tray",
       "path": "/it/approvals/needs-review",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,12 +20,8 @@
           "hardware_admin",
           "app_admin"
         ],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:88"
     },
     {
@@ -40,7 +29,6 @@
       "label": "My Requests",
       "icon": "User",
       "path": "/it/approvals/my-requests",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,13 +36,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:92"
     },
     {
@@ -62,7 +45,6 @@
       "label": "Reviewed",
       "icon": "CheckSquare",
       "path": "/it/approvals/reviewed",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -74,12 +56,8 @@
           "hardware_admin",
           "app_admin"
         ],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:96"
     },
     {
@@ -87,7 +65,6 @@
       "label": "All Requests",
       "icon": "Stack",
       "path": "/it/approvals/all-requests",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -96,13 +73,15 @@
         "scopeForPartial": [
           "it_home_full_admin"
         ],
-        "productGate": "IT_MANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_MANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:100"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "ApprovalsNavBar tabs are reviewer-centric. 'My Requests' is the requester view; 'Needs Review' / 'Reviewed' / 'All Requests' are reviewer/admin views."
+    ]
+  }
 }

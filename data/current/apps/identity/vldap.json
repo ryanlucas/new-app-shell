@@ -3,19 +3,12 @@
   "appLabel": "Virtual LDAP",
   "appPath": "/ldap",
   "appProductGate": "VLDAP",
-  "_meta": {
-    "generatedBy": "phase-2I",
-    "uncertainties": [
-      "vLDAP is mounted at /ldap (not /vldap) per vldap.base.routes.tsx:5. Internal admin nav has 5 items. Setup is a Flow (treated as installation flow, not L3 nav)."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/ldap/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -24,12 +17,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "VLDAP",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VLDAP"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/VLDAP/containers/VLDAPNavBar.tsx:26"
     },
     {
@@ -37,7 +26,6 @@
       "label": "Groups",
       "icon": "Users",
       "path": "/ldap/groups",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -46,12 +34,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "VLDAP",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VLDAP"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/VLDAP/containers/VLDAPNavBar.tsx:27"
     },
     {
@@ -59,7 +43,6 @@
       "label": "Access Rules",
       "icon": "ShieldCheck",
       "path": "/ldap/provisioning",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -68,12 +51,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "VLDAP",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VLDAP"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/VLDAP/containers/VLDAPNavBar.tsx:28"
     },
     {
@@ -81,7 +60,6 @@
       "label": "Connection",
       "icon": "Plug",
       "path": "/ldap/connection",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -90,12 +68,8 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "VLDAP",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VLDAP"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/VLDAP/containers/VLDAPNavBar.tsx:29"
     },
     {
@@ -103,7 +77,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/ldap/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -112,13 +85,15 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": "VLDAP",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VLDAP"
       },
-      "personaVariants": {},
       "source": "app/products/it/Identity/modules/VLDAP/containers/VLDAPNavBar.tsx:30"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2I",
+    "uncertainties": [
+      "vLDAP is mounted at /ldap (not /vldap) per vldap.base.routes.tsx:5. Internal admin nav has 5 items. Setup is a Flow (treated as installation flow, not L3 nav)."
+    ]
+  }
 }

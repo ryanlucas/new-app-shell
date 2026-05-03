@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const RIPPLING_MAIN = `${process.env.HOME}/dev/code/rippling-main`
 const APPS_DIR = `${RIPPLING_MAIN}/app/apps/data/apps/internal`
-const OUT_DIR = `${root}/data/research/source-of-truth`
+const OUT_DIR = `${root}/research/source-of-truth`
 
 interface InternalApp {
   id: string

@@ -3,21 +3,12 @@
   "appLabel": "Time Off",
   "appPath": "/pto",
   "appProductGate": "PTO",
-  "_meta": {
-    "generatedBy": "phase-2F",
-    "uncertainties": [
-      "Tab labels are i18n keys (tabs.*) — final user-facing strings inferred from key names",
-      "isAdmin/isManager flags mapped to full/manager personas heuristically",
-      "No EE-only variant in the legacy HR PTO experience — the EE-facing surface is the standalone /time-off app; this is the legacy /pto admin/manager surface"
-    ]
-  },
   "nav": [
     {
       "id": "team-overview",
       "label": "Team Overview",
       "icon": "Users",
       "path": "/pto/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -28,13 +19,10 @@
           "pto"
         ],
         "productGate": "PTO",
-        "permissionGate": null,
         "conditions": [
           "isAdmin || isManager"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:106"
     },
     {
@@ -42,7 +30,6 @@
       "label": "My Overview",
       "icon": "User",
       "path": "/pto/employee-overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -53,12 +40,8 @@
         "scopeForPartial": [
           "pto"
         ],
-        "productGate": "PTO",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PTO"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:111"
     },
     {
@@ -66,7 +49,6 @@
       "label": "Calendar",
       "icon": "Calendar",
       "path": "/pto/calendar",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -77,12 +59,8 @@
         "scopeForPartial": [
           "pto"
         ],
-        "productGate": "PTO",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PTO"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:121"
     },
     {
@@ -90,7 +68,6 @@
       "label": "Approvals",
       "icon": "Checks",
       "path": "/pto/approvals-dashboard",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -101,12 +78,8 @@
         "scopeForPartial": [
           "pto"
         ],
-        "productGate": "PTO",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PTO"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:124"
     },
     {
@@ -114,7 +87,6 @@
       "label": "Leaves",
       "icon": "CalendarX",
       "path": "/pto/leaves",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -125,13 +97,10 @@
           "pto"
         ],
         "productGate": "PTO",
-        "permissionGate": null,
         "conditions": [
           "isAdmin || isManager"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:135"
     },
     {
@@ -139,7 +108,6 @@
       "label": "Balances",
       "icon": "Scales",
       "path": "/pto/balances",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -149,13 +117,10 @@
           "pto"
         ],
         "productGate": "PTO",
-        "permissionGate": null,
         "conditions": [
           "isAdmin && hasCompanyLeaveTypes"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:142"
     },
     {
@@ -163,7 +128,6 @@
       "label": "Policies",
       "icon": "FileText",
       "path": "/pto/policy-list",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -173,11 +137,8 @@
           "pto"
         ],
         "productGate": "PTO",
-        "permissionGate": "canManagePtoSettings",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "canManagePtoSettings"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:146"
     },
     {
@@ -185,7 +146,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/pto/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -196,13 +156,17 @@
         "scopeForPartial": [
           "pto"
         ],
-        "productGate": "PTO",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "PTO"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/employee.tsx:149"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "Tab labels are i18n keys (tabs.*) — final user-facing strings inferred from key names",
+      "isAdmin/isManager flags mapped to full/manager personas heuristically",
+      "No EE-only variant in the legacy HR PTO experience — the EE-facing surface is the standalone /time-off app; this is the legacy /pto admin/manager surface"
+    ]
+  }
 }

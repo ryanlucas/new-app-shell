@@ -3,22 +3,12 @@
   "appLabel": "Devices",
   "appPath": "/it/hardware",
   "appProductGate": "HARDWARE",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "Several tabs (Policies/Configurations, Software, Threats, Updates, Scripts) are gated by 'full device management tier' (DEVICE_MANAGEMENT_TIERS.FULL). Render with lock icon if tier not satisfied; clicking opens upsell modal.",
-      "Software tab has nested children: My Software, Software Library.",
-      "EE-only view (/it/hardware/employee) shows just Devices and Orders.",
-      "Tabs Activity, Settings always shown for admins."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/it/hardware/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,12 +17,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:128"
     },
     {
@@ -40,7 +26,6 @@
       "label": "Devices",
       "icon": "Laptop",
       "path": "/it/hardware/devices",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -50,10 +35,7 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
       "personaVariants": {
         "ee": {
@@ -67,7 +49,6 @@
       "label": "People",
       "icon": "Users",
       "path": "/it/hardware/people",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -76,12 +57,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:136"
     },
     {
@@ -89,7 +66,6 @@
       "label": "Orders",
       "icon": "ShoppingBag",
       "path": "/it/hardware/orders",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -99,10 +75,7 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
       "personaVariants": {
         "ee": {
@@ -116,7 +89,6 @@
       "label": "Policies",
       "icon": "ShieldCheck",
       "path": "/it/hardware/configurations",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -126,13 +98,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:144"
     },
     {
@@ -140,7 +109,6 @@
       "label": "Software",
       "icon": "AppWindow",
       "path": "/it/hardware/software",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -150,13 +118,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:150"
     },
     {
@@ -174,13 +139,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:156"
     },
     {
@@ -198,13 +160,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:162"
     },
     {
@@ -212,7 +171,6 @@
       "label": "Threats",
       "icon": "Warning",
       "path": "/it/hardware/threats",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -222,13 +180,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:170"
     },
     {
@@ -236,7 +191,6 @@
       "label": "Updates",
       "icon": "ArrowsClockwise",
       "path": "/it/hardware/updates",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -246,13 +200,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:176"
     },
     {
@@ -260,7 +211,6 @@
       "label": "Scripts",
       "icon": "Terminal",
       "path": "/it/hardware/scripts",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -270,13 +220,10 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "fullDeviceManagementTier"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:181"
     },
     {
@@ -284,7 +231,6 @@
       "label": "Activity",
       "icon": "Scroll",
       "path": "/it/hardware/activity",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -293,12 +239,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:186"
     },
     {
@@ -306,7 +248,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/it/hardware/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -315,13 +256,18 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/containers/ITNavBar/DevicesNavBar.tsx:190"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "Several tabs (Policies/Configurations, Software, Threats, Updates, Scripts) are gated by 'full device management tier' (DEVICE_MANAGEMENT_TIERS.FULL). Render with lock icon if tier not satisfied; clicking opens upsell modal.",
+      "Software tab has nested children: My Software, Software Library.",
+      "EE-only view (/it/hardware/employee) shows just Devices and Orders.",
+      "Tabs Activity, Settings always shown for admins."
+    ]
+  }
 }

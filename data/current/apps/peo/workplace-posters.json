@@ -3,22 +3,12 @@
   "appLabel": "Workplace Posters",
   "appPath": "/documents/workplace-posters",
   "appProductGate": null,
-  "_meta": {
-    "generatedBy": "phase-2F",
-    "uncertainties": [
-      "Workplace Posters is a single-page grid embedded inside the Documents app at /documents/workplace-posters (also rendered via Hub container).",
-      "Visibility: (isPeoClient || isAsoClient) AND admin.hasAdminPrivileges() — see documentRouteUtils.ts:114.",
-      "PEO apps live behind isPeoClient (or isAsoClient for HR Services). No spoke product gate handle, but it is admin-only.",
-      "No internal tabs/sub-routes — the page is a single Grid component with search/filter only."
-    ]
-  },
   "nav": [
     {
       "id": "workplace-posters",
       "label": "Workplace Posters",
       "icon": "FileImage",
       "path": "/documents/workplace-posters",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -28,15 +18,21 @@
           "documents",
           "peo"
         ],
-        "productGate": null,
         "permissionGate": "admin.hasAdminPrivileges",
         "conditions": [
           "isPeoClient || isAsoClient"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/workplacePosters/WorkplacePosters.tsx:17"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "Workplace Posters is a single-page grid embedded inside the Documents app at /documents/workplace-posters (also rendered via Hub container).",
+      "Visibility: (isPeoClient || isAsoClient) AND admin.hasAdminPrivileges() — see documentRouteUtils.ts:114.",
+      "PEO apps live behind isPeoClient (or isAsoClient for HR Services). No spoke product gate handle, but it is admin-only.",
+      "No internal tabs/sub-routes — the page is a single Grid component with search/filter only."
+    ]
+  }
 }

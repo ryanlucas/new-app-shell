@@ -3,6 +3,7 @@
   "appLabel": "Guideline 401(k)",
   "appPath": "/apps/401K/guideline/intro",
   "appProductGate": "GUIDELINE",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "No first-party internal navigation surface — clicking the app launches the provider's own portal/SSO. Setup uses the generic /apps/401K/{appName}/intro flow.",
       "Modeled as a single-page (no nav) app. Users self-serve in Guideline's UI."
     ]
-  },
-  "nav": []
+  }
 }

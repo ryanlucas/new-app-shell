@@ -3,20 +3,12 @@
   "appLabel": "Data Manager",
   "appPath": "/data-manager",
   "appProductGate": "DATAMANAGER",
-  "_meta": {
-    "generatedBy": "phase-2D",
-    "uncertainties": [
-      "Data Manager (FieldsManager) exposes only two top-level destinations: All Fields and Data Collected. The richer 'Datasets / Schemas / Connections / Logs / Settings' breakdown anticipated in Phase 2 brief does not exist as L3 admin nav here — those concepts live inside the field selector's filters.",
-      "Permissions are gated behind DataManagerPermission wrapper — admin-only."
-    ]
-  },
   "nav": [
     {
       "id": "all-fields",
       "label": "All Fields",
       "icon": "Database",
       "path": "/data-manager/field-selector",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "data_manager_admin"
         ],
-        "productGate": "DATAMANAGER",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "DATAMANAGER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/FieldsManager/containers/fieldManagerDashboard/FieldManagerDashboard.helpers.ts:7"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Data Collected",
       "icon": "Stack",
       "path": "/data-manager/data-collected",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,13 +34,16 @@
         "scopeForPartial": [
           "data_manager_admin"
         ],
-        "productGate": "DATAMANAGER",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "DATAMANAGER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/platform/HubPlatform/modules/FieldsManager/containers/fieldManagerDashboard/FieldManagerDashboard.helpers.ts:11"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "Data Manager (FieldsManager) exposes only two top-level destinations: All Fields and Data Collected. The richer 'Datasets / Schemas / Connections / Logs / Settings' breakdown anticipated in Phase 2 brief does not exist as L3 admin nav here — those concepts live inside the field selector's filters.",
+      "Permissions are gated behind DataManagerPermission wrapper — admin-only."
+    ]
+  }
 }

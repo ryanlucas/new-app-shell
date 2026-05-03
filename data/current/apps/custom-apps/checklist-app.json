@@ -3,21 +3,12 @@
   "appLabel": "Checklists",
   "appPath": "/checklists",
   "appProductGate": "CHECKLISTAPP",
-  "_meta": {
-    "generatedBy": "phase-2K",
-    "uncertainties": [
-      "Live route base is /checklist/:appName (not /checklists). Each :appName is a per-app instance; the nav inside renders one tab (Overview) plus a redirect (outstanding-tasks → inbox).",
-      "L3 nav surfaces only one admin tab — Overview. Non-admins get redirected to Inbox/pending tasks rather than seeing checklist nav.",
-      "Expected nav (My Checklists, Templates, Library) does not match the live structure — the per-instance nav is minimal. Those concepts may be served by the dashboard at /checklists (plural) which is a different app or by the Inbox tasks list."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "ListChecks",
       "path": "/checklist/:appName/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -31,11 +22,17 @@
         "conditions": [
           "isAdmin",
           "isChecklistEnabledForRole"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/Hub/modules/CheckList/components/checkListNavBar.tsx:53"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Live route base is /checklist/:appName (not /checklists). Each :appName is a per-app instance; the nav inside renders one tab (Overview) plus a redirect (outstanding-tasks → inbox).",
+      "L3 nav surfaces only one admin tab — Overview. Non-admins get redirected to Inbox/pending tasks rather than seeing checklist nav.",
+      "Expected nav (My Checklists, Templates, Library) does not match the live structure — the per-instance nav is minimal. Those concepts may be served by the dashboard at /checklists (plural) which is a different app or by the Inbox tasks list."
+    ]
+  }
 }

@@ -3,22 +3,12 @@
   "appLabel": "Learning Management",
   "appPath": "/apps/RipplingLMS",
   "appProductGate": "RIPPLINGLMS",
-  "_meta": {
-    "generatedBy": "phase-2G",
-    "uncertainties": [
-      "appPath is /apps/RipplingLMS (legacy URL); newer routes also exist at /lms/* but the navbar is bound to /apps/RipplingLMS as baseURL.",
-      "Admin tabs (Manage Learning, Settings) are gated by canViewManageCourses / canViewSettings. Modeled as full/partial.",
-      "Explore tab only appears if there are self-enrollable courses or learning paths.",
-      "Learning Paths sub-tab only appears if canAddLearningPath."
-    ]
-  },
   "nav": [
     {
       "id": "my-learning",
       "label": "My learning",
       "icon": "GraduationCap",
       "path": "/apps/RipplingLMS/my-courses",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -26,13 +16,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGLMS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGLMS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:89-108"
     },
     {
@@ -48,13 +33,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGLMS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGLMS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:94-97"
     },
     {
@@ -70,13 +50,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGLMS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGLMS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:98-101"
     },
     {
@@ -92,13 +67,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "RIPPLINGLMS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "RIPPLINGLMS"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:102-105"
     },
     {
@@ -106,7 +76,6 @@
       "label": "Explore",
       "icon": "Compass",
       "path": "/apps/RipplingLMS/explore",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -114,15 +83,11 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
         "productGate": "RIPPLINGLMS",
-        "permissionGate": null,
         "conditions": [
           "hasSelfEnrollCourses OR hasSelfEnrollLearningPaths"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:110-115"
     },
     {
@@ -130,7 +95,6 @@
       "label": "Manage learning",
       "icon": "BookmarkSimple",
       "path": "/apps/RipplingLMS/manage-learning",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -140,11 +104,8 @@
           "lms"
         ],
         "productGate": "RIPPLINGLMS",
-        "permissionGate": "lms.canViewManageCourses",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "lms.canViewManageCourses"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:13-36"
     },
     {
@@ -162,11 +123,8 @@
           "lms"
         ],
         "productGate": "RIPPLINGLMS",
-        "permissionGate": "lms.canViewManageCourses",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "lms.canViewManageCourses"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:18-21"
     },
     {
@@ -184,11 +142,8 @@
           "lms"
         ],
         "productGate": "RIPPLINGLMS",
-        "permissionGate": "lms.canAddLearningPath",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "lms.canAddLearningPath"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:22-29"
     },
     {
@@ -206,11 +161,8 @@
           "lms"
         ],
         "productGate": "RIPPLINGLMS",
-        "permissionGate": "lms.canViewManageCourses",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "lms.canViewManageCourses"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:30-33"
     },
     {
@@ -218,7 +170,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/apps/RipplingLMS/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -228,12 +179,18 @@
           "lms"
         ],
         "productGate": "RIPPLINGLMS",
-        "permissionGate": "lms.canViewSettings",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "lms.canViewSettings"
       },
-      "personaVariants": {},
       "source": "app/products/hr/LMS/legacy/containers/navBar/NavBar.hooks.ts:38-45"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "appPath is /apps/RipplingLMS (legacy URL); newer routes also exist at /lms/* but the navbar is bound to /apps/RipplingLMS as baseURL.",
+      "Admin tabs (Manage Learning, Settings) are gated by canViewManageCourses / canViewSettings. Modeled as full/partial.",
+      "Explore tab only appears if there are self-enrollable courses or learning paths.",
+      "Learning Paths sub-tab only appears if canAddLearningPath."
+    ]
+  }
 }

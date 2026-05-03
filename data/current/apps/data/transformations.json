@@ -3,6 +3,22 @@
   "appLabel": "Transformations",
   "appPath": "/data/transformations",
   "appProductGate": "DERIVED_OBJECTS",
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Overview",
+      "icon": "Database",
+      "path": "/data/transformations/overview",
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DerivedObjects/routes-v6/derivedObjects.routes.tsx:31-37"
+    },
+    {
+      "id": "schedules",
+      "label": "Schedules",
+      "icon": "Clock",
+      "path": "/data/transformations/schedules",
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DerivedObjects/routes-v6/derivedObjects.routes.tsx:38-44"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2J",
     "uncertainties": [
@@ -10,27 +26,5 @@
       "Mapped Overview to 'My Transformations' and Schedules to 'Schedules' (the only other tab). Templates/Library/Logs not present as routes — omitted.",
       "Personas inferred as full only (admin/data-engineer surface)."
     ]
-  },
-  "nav": [
-    {
-      "id": "overview",
-      "label": "Overview",
-      "path": "/data/transformations/overview",
-      "icon": "Database",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DerivedObjects/routes-v6/derivedObjects.routes.tsx:31-37"
-    },
-    {
-      "id": "schedules",
-      "label": "Schedules",
-      "path": "/data/transformations/schedules",
-      "icon": "Clock",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/DerivedObjects/routes-v6/derivedObjects.routes.tsx:38-44"
-    }
-  ]
+  }
 }

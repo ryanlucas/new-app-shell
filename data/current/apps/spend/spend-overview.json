@@ -3,20 +3,12 @@
   "appLabel": "Spend",
   "appPath": "/spend-management/dashboard",
   "appProductGate": "SPENDMANAGEMENT",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Spend Overview is the umbrella admin landing for Spend Management; sub-tabs come from DashboardTabPaths and the spend.routes children.",
-      "MY_SPEND and MY_FINANCES are EE-facing and surfaced under separate apps (my-finances)."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/spend-management/dashboard/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:110"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Approvals",
       "icon": "CheckCircle",
       "path": "/spend-management/dashboard/approvals",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,12 +35,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -61,7 +44,6 @@
       "label": "People",
       "icon": "Users",
       "path": "/spend-management/dashboard/people",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -70,12 +52,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:129"
     },
     {
@@ -83,7 +61,6 @@
       "label": "Vendors",
       "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -92,12 +69,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:142"
     },
     {
@@ -105,7 +78,6 @@
       "label": "Policies",
       "icon": "Shield",
       "path": "/spend-management/dashboard/policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -114,12 +86,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:173"
     },
     {
@@ -127,7 +95,6 @@
       "label": "Accounting",
       "icon": "BookOpen",
       "path": "/spend-management/dashboard/accounting",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -136,12 +103,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:290"
     },
     {
@@ -149,7 +112,6 @@
       "label": "Forms",
       "icon": "ClipboardText",
       "path": "/spend-management/dashboard/forms",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -158,12 +120,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:298"
     },
     {
@@ -171,7 +129,6 @@
       "label": "Reports",
       "icon": "ChartBar",
       "path": "/spend-management/dashboard/reports",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -180,12 +137,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -193,7 +146,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -202,13 +154,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "SPENDMANAGEMENT"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1539"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Spend Overview is the umbrella admin landing for Spend Management; sub-tabs come from DashboardTabPaths and the spend.routes children.",
+      "MY_SPEND and MY_FINANCES are EE-facing and surfaced under separate apps (my-finances)."
+    ]
+  }
 }

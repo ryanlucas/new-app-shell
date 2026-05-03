@@ -3,6 +3,59 @@
   "appLabel": "Rippling AI",
   "appPath": "/ai/settings/policy-hub",
   "appProductGate": "RIPPLING_INTELLIGENCE",
+  "nav": [
+    {
+      "id": "policy-hub",
+      "label": "Policy hub",
+      "icon": "BookOpen",
+      "path": "/ai/settings/policy-hub",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "rippling_intelligence_admin"
+        ],
+        "productGate": "RIPPLING_INTELLIGENCE"
+      },
+      "source": "rippling-webapp/app/products/service/AIAssistant/routes/routes.tsx:94"
+    },
+    {
+      "id": "permissions",
+      "label": "Permissions",
+      "icon": "Shield",
+      "path": "/ai/settings/permissions",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "rippling_intelligence_admin"
+        ],
+        "productGate": "RIPPLING_INTELLIGENCE"
+      },
+      "source": "rippling-webapp/app/products/service/AIAssistant/routes/routes.tsx:95"
+    },
+    {
+      "id": "usage",
+      "label": "Usage",
+      "icon": "ChartBar",
+      "path": "/ai/settings/usage/overview",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "rippling_intelligence_admin"
+        ],
+        "productGate": "RIPPLING_INTELLIGENCE"
+      },
+      "source": "rippling-webapp/app/products/service/AIAssistant/routes/routes.tsx:97"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2L",
     "uncertainties": [
@@ -11,73 +64,5 @@
       "Install flow (/ai/install) is shown only when the AI assistant spoke is not yet installed — gated by RI_TAGS.INSTALL feature flag and App.isAppInstalled. Not surfaced as nav.",
       "Settings index redirects to /ai/settings/policy-hub — there is no separate '/ai/chat' route at this layer."
     ]
-  },
-  "nav": [
-    {
-      "id": "policy-hub",
-      "label": "Policy hub",
-      "icon": "BookOpen",
-      "path": "/ai/settings/policy-hub",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "rippling_intelligence_admin"
-        ],
-        "productGate": "RIPPLING_INTELLIGENCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/service/AIAssistant/routes/routes.tsx:94"
-    },
-    {
-      "id": "permissions",
-      "label": "Permissions",
-      "icon": "Shield",
-      "path": "/ai/settings/permissions",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "rippling_intelligence_admin"
-        ],
-        "productGate": "RIPPLING_INTELLIGENCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/service/AIAssistant/routes/routes.tsx:95"
-    },
-    {
-      "id": "usage",
-      "label": "Usage",
-      "icon": "ChartBar",
-      "path": "/ai/settings/usage/overview",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "rippling_intelligence_admin"
-        ],
-        "productGate": "RIPPLING_INTELLIGENCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/service/AIAssistant/routes/routes.tsx:97"
-    }
-  ]
+  }
 }

@@ -3,20 +3,12 @@
   "appLabel": "Timecards",
   "appPath": "/time-products/dashboard/timecards",
   "appProductGate": "TIMEATTENDANCE",
-  "_meta": {
-    "generatedBy": "phase-2D",
-    "uncertainties": [
-      "Timecards is the unified Time Products entry for time-attendance admins. Tabs come from useTimecardsPageLinksSuspense (CORE_FEATURE_KEYS_TIMECARDS spoke children).",
-      "Legacy TimeTracking app paths (/time-tracking/dashboard) still exist in routes-v6/routes.tsx (Pending Approval, All Timecards, Time Entries, Reports, Settings) and most redirect into the unified product — modelled the unified L3 nav here."
-    ]
-  },
   "nav": [
     {
       "id": "clocked-in",
       "label": "Currently Clocked In",
       "icon": "Pulse",
       "path": "/time-products/dashboard/timecards/clocked-in",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,13 +19,10 @@
           "time_approver"
         ],
         "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
         "conditions": [
           "feature:TIME_TRACKING_FEATURE_KEYS_CLOCKED_IN"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useTimecardsPageLinks.ts:15"
     },
     {
@@ -41,7 +30,6 @@
       "label": "Timecards",
       "icon": "Clock",
       "path": "/time-products/dashboard/timecards/timecards",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -52,11 +40,9 @@
           "time_approver"
         ],
         "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
         "conditions": [
           "feature:TIME_TRACKING_FEATURE_KEYS_TIMECARDS"
-        ],
-        "whenUnowned": null
+        ]
       },
       "personaVariants": {
         "manager": {
@@ -70,7 +56,6 @@
       "label": "Pending Approval",
       "icon": "CheckSquare",
       "path": "/time-products/dashboard/approvals",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -81,12 +66,8 @@
           "time_admin",
           "time_approver"
         ],
-        "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "TIMEATTENDANCE"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:5"
     },
     {
@@ -94,7 +75,6 @@
       "label": "Attendance Events",
       "icon": "WarningCircle",
       "path": "/time-products/dashboard/attendance/attendance-events",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -103,12 +83,8 @@
         "scopeForPartial": [
           "time_admin"
         ],
-        "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "TIMEATTENDANCE"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:31"
     },
     {
@@ -116,7 +92,6 @@
       "label": "People",
       "icon": "Users",
       "path": "/time-products/dashboard/people/time-attendance",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -125,12 +100,8 @@
         "scopeForPartial": [
           "time_admin"
         ],
-        "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "TIMEATTENDANCE"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:75"
     },
     {
@@ -138,7 +109,6 @@
       "label": "Policies",
       "icon": "FileText",
       "path": "/time-products/dashboard/policies/time-tracking",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -147,12 +117,8 @@
         "scopeForPartial": [
           "time_admin"
         ],
-        "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "TIMEATTENDANCE"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:82"
     },
     {
@@ -160,7 +126,6 @@
       "label": "Kiosks",
       "icon": "DeviceTablet",
       "path": "/time-products/dashboard/kiosk-management",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -169,12 +134,8 @@
         "scopeForPartial": [
           "time_admin"
         ],
-        "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "TIMEATTENDANCE"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:13"
     },
     {
@@ -182,7 +143,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/time-products/dashboard/settings/time-attendance",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -191,13 +151,16 @@
         "scopeForPartial": [
           "time_admin"
         ],
-        "productGate": "TIMEATTENDANCE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "TIMEATTENDANCE"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/routes/routes.constants.ts:106"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2D",
+    "uncertainties": [
+      "Timecards is the unified Time Products entry for time-attendance admins. Tabs come from useTimecardsPageLinksSuspense (CORE_FEATURE_KEYS_TIMECARDS spoke children).",
+      "Legacy TimeTracking app paths (/time-tracking/dashboard) still exist in routes-v6/routes.tsx (Pending Approval, All Timecards, Time Entries, Reports, Settings) and most redirect into the unified product — modelled the unified L3 nav here."
+    ]
+  }
 }

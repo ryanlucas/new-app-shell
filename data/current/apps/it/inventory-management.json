@@ -3,12 +3,12 @@
   "appLabel": "Inventory",
   "appPath": "/it/hardware",
   "appProductGate": "HARDWARE",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2C",
     "uncertainties": [
       "Inventory Management is not a standalone tabbed product surface — it is composed of flows (assign / unassign / archive / send-to-warehouse / orders) and contributes the People/Devices/Orders tabs to the Devices nav. Use Devices (device-management) nav for tabbed view; the routes here are the InventoryManagement-specific flow entry points.",
       "These routes are typically initiated from inside the Devices app (action menu) rather than a dedicated nav. Treat as no internal tab nav."
     ]
-  },
-  "nav": []
+  }
 }

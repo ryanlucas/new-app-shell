@@ -3,12 +3,12 @@
   "appLabel": "Job Codes",
   "appPath": "/payroll/dashboard/settings",
   "appProductGate": "PAYROLL",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2B",
     "uncertainties": [
       "Job Codes is not a top-level app — it lives as an editor (JobCodesEditor) inside Spend Management and Payroll settings flows. No dedicated left rail nav exists.",
       "Modeled with empty nav since there is no discoverable internal navigation tree."
     ]
-  },
-  "nav": []
+  }
 }

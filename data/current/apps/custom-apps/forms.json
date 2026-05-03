@@ -3,6 +3,7 @@
   "appLabel": "Forms",
   "appPath": "/forms",
   "appProductGate": "FORMS",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2K",
     "uncertainties": [
@@ -11,6 +12,5 @@
       "Returning empty L3 nav. Expected nav (My Forms, Submissions, Templates, Library, Settings) cannot be sourced from rippling-webapp — would need to inspect the legacy forms MFE or a different repo.",
       "Backend permission gate: PERM_FORMS_ADMIN at rippling-main/app/hub/forms/api.py:22; non-admin (ee) submission flow likely also exists."
     ]
-  },
-  "nav": []
+  }
 }

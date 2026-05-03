@@ -3,35 +3,20 @@
   "appLabel": "Talent Overview",
   "appPath": "/talent",
   "appProductGate": null,
-  "_meta": {
-    "generatedBy": "phase-2G",
-    "uncertainties": [
-      "Talent Overview has no explicit product gate at the app level — visibility is implied by ownership of any of the underlying talent suite spokes (ATS2, RipplingATS, REVIEW_CYCLES, GOALS, etc.).",
-      "The 'Overview' page accepts an optional :appSlug param so a per-product variant likely exists; the route uses a single component.",
-      "Tasks/Alerts pages are admin-managed but visible to most users."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/talent/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
           "partial",
           "manager",
           "ee"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/TalentOverview/talentOverviewChildren.routes.tsx:36-45"
     },
     {
@@ -39,21 +24,14 @@
       "label": "Alerts",
       "icon": "Bell",
       "path": "/talent/alerts",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
           "partial",
           "manager",
           "ee"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/TalentOverview/talentOverviewChildren.routes.tsx:46-56"
     },
     {
@@ -61,22 +39,23 @@
       "label": "Tasks",
       "icon": "ListChecks",
       "path": "/talent/tasks",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
           "partial",
           "manager",
           "ee"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/hr/TalentOverview/talentOverviewChildren.routes.tsx:57-67"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2G",
+    "uncertainties": [
+      "Talent Overview has no explicit product gate at the app level — visibility is implied by ownership of any of the underlying talent suite spokes (ATS2, RipplingATS, REVIEW_CYCLES, GOALS, etc.).",
+      "The 'Overview' page accepts an optional :appSlug param so a per-product variant likely exists; the route uses a single component.",
+      "Tasks/Alerts pages are admin-managed but visible to most users."
+    ]
+  }
 }

@@ -3,22 +3,12 @@
   "appLabel": "Alerts",
   "appPath": "/alerts",
   "appProductGate": "ALERTS",
-  "_meta": {
-    "generatedBy": "phase-2K",
-    "uncertainties": [
-      "Alerts and Workflows share the same code module — the product was renamed from 'Alerts' to 'Workflows' on 2023-03-15 (NAME_CHANGE_DATE). The webapp app is mounted at /custom-workflows; ALERTS_NAME='Alerts' is the legacy app-shop record (AlertDashboard.constants.ts:15-16).",
-      "There is no separate /alerts route in the modern app — appPath /alerts likely redirects to /custom-workflows/dashboard. Modeling the legacy nav structure (Overview, Events, Actions, Tags) below.",
-      "Active Alerts == Overview/My Workflows feed. History == Events + Actions (legacy tabs). Templates is a deep-link (templates/select/:id?) not a top-level nav item.",
-      "Events/Actions tabs are gated to admins/partial admins/partners. Tags tab is gated by isTagsEnabled (true for non-partners)."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "Warning",
       "path": "/custom-workflows/dashboard/legacy/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -29,12 +19,8 @@
         "scopeForPartial": [
           "alerts"
         ],
-        "productGate": "ALERTS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ALERTS"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:62"
     },
     {
@@ -42,7 +28,6 @@
       "label": "Events",
       "icon": "Pulse",
       "path": "/custom-workflows/dashboard/legacy/events",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -52,11 +37,8 @@
           "alerts"
         ],
         "productGate": "ALERTS",
-        "permissionGate": "isFullAdmin || isPartialAdmin || isPartner",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isFullAdmin || isPartialAdmin || isPartner"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:73"
     },
     {
@@ -64,7 +46,6 @@
       "label": "Actions",
       "icon": "Lightning",
       "path": "/custom-workflows/dashboard/legacy/actions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -74,11 +55,8 @@
           "alerts"
         ],
         "productGate": "ALERTS",
-        "permissionGate": "isFullAdmin || isPartialAdmin || isPartner",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isFullAdmin || isPartialAdmin || isPartner"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:77"
     },
     {
@@ -86,7 +64,6 @@
       "label": "Tags",
       "icon": "Tag",
       "path": "/custom-workflows/dashboard/legacy/tags",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -96,14 +73,20 @@
           "alerts"
         ],
         "productGate": "ALERTS",
-        "permissionGate": null,
         "conditions": [
           "isTagsEnabled"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/CustomAlerts/containers/alertDashboard/AlertDashboard.helpers.ts:83"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Alerts and Workflows share the same code module — the product was renamed from 'Alerts' to 'Workflows' on 2023-03-15 (NAME_CHANGE_DATE). The webapp app is mounted at /custom-workflows; ALERTS_NAME='Alerts' is the legacy app-shop record (AlertDashboard.constants.ts:15-16).",
+      "There is no separate /alerts route in the modern app — appPath /alerts likely redirects to /custom-workflows/dashboard. Modeling the legacy nav structure (Overview, Events, Actions, Tags) below.",
+      "Active Alerts == Overview/My Workflows feed. History == Events + Actions (legacy tabs). Templates is a deep-link (templates/select/:id?) not a top-level nav item.",
+      "Events/Actions tabs are gated to admins/partial admins/partners. Tags tab is gated by isTagsEnabled (true for non-partners)."
+    ]
+  }
 }

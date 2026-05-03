@@ -3,20 +3,12 @@
   "appLabel": "Accounting",
   "appPath": "/accounting-integrations",
   "appProductGate": "ACCOUNTING_INTEGRATIONS",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Accounting Integrations app dashboard mounts at /accounting-integrations/dashboard/:appName/:entityId/:entityType and exposes per-integration tabs (overview, mappings, spend-management, payroll, rippling-apps).",
-      "Display label may vary depending on the active accounting connector."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/accounting-integrations/dashboard/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "accounting"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:13"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Mappings",
       "icon": "GitBranch",
       "path": "/accounting-integrations/dashboard/mappings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "accounting"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:17"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Spend",
       "icon": "CreditCard",
       "path": "/accounting-integrations/dashboard/spend-management",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,12 +51,8 @@
         "scopeForPartial": [
           "accounting"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:27"
     },
     {
@@ -82,7 +60,6 @@
       "label": "Payroll",
       "icon": "Money",
       "path": "/accounting-integrations/dashboard/payroll",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -91,12 +68,8 @@
         "scopeForPartial": [
           "accounting"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:42"
     },
     {
@@ -104,7 +77,6 @@
       "label": "Rippling Apps",
       "icon": "AppWindow",
       "path": "/accounting-integrations/dashboard/rippling-apps",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -113,13 +85,16 @@
         "scopeForPartial": [
           "accounting"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/AccountingIntegrations/routerV6/appDashboard.routes.tsx:53"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Accounting Integrations app dashboard mounts at /accounting-integrations/dashboard/:appName/:entityId/:entityType and exposes per-integration tabs (overview, mappings, spend-management, payroll, rippling-apps).",
+      "Display label may vary depending on the active accounting connector."
+    ]
+  }
 }

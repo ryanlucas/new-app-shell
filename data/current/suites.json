@@ -1,36 +1,4 @@
 {
-  "_meta": {
-    "generatedBy": "phase-1B",
-    "description": "Verified catalog of Rippling product suites and the L2 apps within them. Mirrors the dynamic middle section of the sidebar driven by /apps/api/get_navigation_bar_data. Suite-level groupings come from the Sidenav* cross-sell categories in cross_sell/constants.py and the app_navigation_categories_data.py NAVIGATION_CATEGORY_JSON. App-level entries come from a combination of installed Apps (DefaultSpokeHandles), dummy/fake apps (apps/utils/dummy_apps.py), and unpurchased SKU placeholders (cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py).",
-    "personaVocabulary": [
-      "full",
-      "partial",
-      "manager",
-      "ee"
-    ],
-    "uncertainties": [
-      "Several benefits-related spoke handles referenced in the codebase (FSA, HSA spoke is present, but BENADMIN, COBRA, ACA, COMMUTER, FLEX, BENEFITS, MY-BENEFITS) are NOT in DefaultSpokeHandles enum (hub/spoke_models.py:704-881). They are referenced in InternalRecipientToSpokeHandleMap and FLEX_SPOKE_HANDLES (insurance/constants/common.py:4-5). For these we set productGate to INSURANCE (the umbrella spoke) when productGate would otherwise be unverifiable. Consider whether the prototype should add BENADMIN/COBRA/ACA as logical handles even though they aren't in the enum.",
-      "BANKING is in DefaultSpokeHandles (line 835) but referenced in SidenavBanking and as a Spend sub-app in the unpurchased SKU configs. Treated here as its own suite (matches NAVIGATION_CATEGORY_JSON 'Banking' category) AND duplicated as a Spend cross-sell tile. Kept as Banking suite top-level.",
-      "70+ third-party provisioning integration apps (Slack, GitHub, Salesforce, Gmail, Google Workspace, Microsoft 365, Okta, AWS, Adobe, Dropbox, Zoom, NetSuite, Greenhouse, Jira, Brex, Ramp, Carta, etc.) collapsed into a single umbrella entry 'third-party-integrations' under the IT suite. Each shares a generic provisioning template; treat them as a templated app family in Phase 2 via _integration.json.",
-      "Manager-only L2 surfaces (e.g., Team / My Team areas inside HRIS, Compensation, Performance) are not enumerated; those are L3 / sub-views and deferred to Phase 2 per spec.",
-      "Talent suite contains Recruiting (RIPPLINGATS / ATS2) \u2014 codebase uses both RIPPLINGATS and ATS2 spoke handles, with ATS2 being the newer one used by unpurchased SKU. We use ATS2 for the cross-sell-style entry and RIPPLINGATS for installed/legacy. May be worth collapsing to one in Phase 2.",
-      "PEO suite ('Rippling PEO') is rendered as its own top-level category in NAVIGATION_CATEGORY_JSON but does not have a dedicated spoke handle in DefaultSpokeHandles. productGate is null at the suite level; Join PEO / Leave PEO dummy apps from dummy_apps.py:441 are placeholders not real apps.",
-      "Settings, Tools, and Custom Apps are sidenav categories without a strong product gate. We include them as suites with null productGate. Settings contains things like Permissions, Field Management, Company Settings.",
-      "Many EE persona variants (e.g. employee /me/pay vs admin /payroll) are inferred from common Rippling URL conventions and the MyPay spoke (MYPAY in DefaultSpokeHandles) plus PERSONAL_DUMMY_APPS in dummy_apps.py:519. Where the codebase shows an explicit personal/admin split, we recorded a personaVariants block; otherwise we just list the personas in visibility.",
-      "Identity Management is a SidenavIdentityManagement category (cross_sell/constants.py:104) that lives UNDER the IT mainCategory in NAVIGATION_SUB_CATEGORY_JSON (apps/scripts/app_navigation_categories_data.py:258-263). Modeled here as its own suite to match the cross-sell sidenav category hierarchy as the spec asked for.",
-      "Lucide icon names are best guesses based on app semantics, not literal mappings from the Pebble icons used by the actual app (e.g., USERS_OUTLINE, RECRUITING_OUTLINE, etc.).",
-      "scopeForPartial values are best-effort reconstructions; codebase uses many scattered Permission flags and PrivateAppActions, and the partial-admin scope tied to a specific spoke is not always cleanly enumerated. Prototype should treat these as illustrative."
-    ],
-    "sources": [
-      "/Users/ryan/dev/code/rippling-main/app/cross_sell/constants.py:99-114 (Sidenav* category constants)",
-      "/Users/ryan/dev/code/rippling-main/app/apps/scripts/app_navigation_categories_data.py:52-318 (NAVIGATION_CATEGORY_JSON, NAVIGATION_SUB_CATEGORY_JSON)",
-      "/Users/ryan/dev/code/rippling-main/app/hub/spoke_models.py:704-881 (DefaultSpokeHandles)",
-      "/Users/ryan/dev/code/rippling-main/app/apps/utils/dummy_apps.py:85-532 (dummy/fake apps)",
-      "/Users/ryan/dev/code/rippling-main/app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:213-696 (unpurchased SKU nav placeholders)",
-      "/Users/ryan/dev/code/rippling-main/app/apps/utils/navigation_bar.py (backend nav builder)",
-      "/Users/ryan/dev/code/rippling-main/app/insurance/constants/common.py:4-29 (benefits spoke handles)"
-    ]
-  },
   "groups": [
     {
       "id": "people",
@@ -64,7 +32,6 @@
       "label": "HR",
       "icon": "Users",
       "path": "/hr-products-overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -75,9 +42,6 @@
         "scopeForPartial": [
           "hr_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -86,10 +50,9 @@
           "campaign": "SidenavHrManagement"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:64-74",
       "group": "people",
       "description": "People, org, compliance, documents",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:64-74",
       "apps": [
         {
           "id": "hr-overview",
@@ -104,16 +67,8 @@
             ],
             "scopeForPartial": [
               "hr_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:103"
         },
         {
@@ -131,16 +86,8 @@
             ],
             "scopeForPartial": [
               "hr_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:92"
         },
         {
@@ -159,8 +106,6 @@
               "compliance_admin"
             ],
             "productGate": "AUTOMATED_COMPLIANCE",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -169,7 +114,6 @@
               "campaign": "SidenavHrManagement"
             }
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:151"
         },
         {
@@ -186,16 +130,8 @@
             ],
             "scopeForPartial": [
               "hr_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:125"
         },
         {
@@ -214,21 +150,14 @@
             "scopeForPartial": [
               "documents_admin"
             ],
-            "productGate": null,
-            "permissionGate": "PERM_DOCUMENTS_APP_READ",
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "permissionGate": "PERM_DOCUMENTS_APP_READ"
           },
-          "personaVariants": {},
-          "source": "app/apps/utils/navigation_bar.py:136",
           "kind": "capability",
           "appearsIn": [
             "spend",
             "settings"
-          ]
+          ],
+          "source": "app/apps/utils/navigation_bar.py:136"
         },
         {
           "id": "leaves",
@@ -247,8 +176,6 @@
               "leaves_admin"
             ],
             "productGate": "LEAVES",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -257,12 +184,10 @@
               "campaign": "SidenavHrManagement"
             }
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:813"
         },
         {
           "id": "pto",
-          "logicalId": "time-off",
           "label": "Time Off",
           "icon": "Airplane",
           "path": "/pto",
@@ -278,7 +203,6 @@
               "pto_admin"
             ],
             "productGate": "PTO",
-            "permissionGate": null,
             "conditions": [
               "!timePlatformInstalled",
               "!isStandaloneCompany"
@@ -291,6 +215,7 @@
               "campaign": "SidenavHrManagement"
             }
           },
+          "logicalId": "time-off",
           "personaVariants": {
             "ee": {
               "label": "My Time Off",
@@ -318,8 +243,6 @@
               "hr_admin"
             ],
             "productGate": "HR360",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -328,7 +251,6 @@
               "campaign": "SidenavHrManagement"
             }
           },
-          "personaVariants": {},
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:224"
         },
         {
@@ -347,8 +269,6 @@
               "hr_admin"
             ],
             "productGate": "HRHELPDESKTHINKHR",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -357,7 +277,6 @@
               "campaign": "SidenavHrManagement"
             }
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:779"
         },
         {
@@ -370,13 +289,8 @@
             "personas": [
               "full"
             ],
-            "scopeForPartial": [],
-            "productGate": "ANNIVERSARYAPP",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "ANNIVERSARYAPP"
           },
-          "personaVariants": {},
           "source": "app/apps/data/apps/internal/anniversary_app.json"
         },
         {
@@ -389,15 +303,11 @@
             "personas": [
               "full"
             ],
-            "scopeForPartial": [],
             "productGate": "GLOBAL_CONTRACTOR",
-            "permissionGate": null,
             "conditions": [
               "request_cache_contractor_app_visibility_toggle()"
-            ],
-            "whenUnowned": null
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/data/apps/internal/global_contractor.json"
         },
         {
@@ -410,13 +320,8 @@
             "personas": [
               "full"
             ],
-            "scopeForPartial": [],
-            "productGate": "EEOC",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "EEOC"
           },
-          "personaVariants": {},
           "source": "app/apps/data/apps/internal/eeoc.json"
         },
         {
@@ -429,13 +334,8 @@
             "personas": [
               "full"
             ],
-            "scopeForPartial": [],
-            "productGate": "EMPLOYMENTVERIFICATIONS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "EMPLOYMENTVERIFICATIONS"
           },
-          "personaVariants": {},
           "source": "app/apps/data/apps/internal/employment_verifications.json"
         }
       ]
@@ -445,7 +345,6 @@
       "label": "Talent",
       "icon": "Star",
       "path": "/talent",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -456,9 +355,6 @@
         "scopeForPartial": [
           "talent_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -467,10 +363,9 @@
           "campaign": "SidenavTalent"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:75-85",
       "group": "people",
       "description": "Hiring, performance, learning, comp",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:75-85",
       "apps": [
         {
           "id": "talent-overview",
@@ -483,18 +378,8 @@
               "full",
               "partial",
               "manager"
-            ],
-            "scopeForPartial": [],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
-          },
-          "personaVariants": {},
-          "source": ""
+            ]
+          }
         },
         {
           "id": "recruiting",
@@ -512,8 +397,6 @@
               "talent_admin"
             ],
             "productGate": "ATS2",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -521,9 +404,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "headcount-planning",
@@ -541,8 +422,6 @@
               "talent_admin"
             ],
             "productGate": "HEADCOUNT",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -550,9 +429,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "review-cycles",
@@ -571,8 +448,6 @@
               "talent_admin"
             ],
             "productGate": "REVIEW_CYCLES",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -580,9 +455,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "my-1-on-1s",
@@ -601,8 +474,6 @@
               "talent_admin"
             ],
             "productGate": "ONE_ON_ONES",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -610,9 +481,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "goals",
@@ -631,8 +500,6 @@
               "talent_admin"
             ],
             "productGate": "GOALS",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -640,9 +507,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "lms",
@@ -661,8 +526,6 @@
               "talent_admin"
             ],
             "productGate": "RIPPLINGLMS",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -670,9 +533,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "surveys",
@@ -691,8 +552,6 @@
               "talent_admin"
             ],
             "productGate": "PULSE",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -700,9 +559,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "feedback",
@@ -721,8 +578,6 @@
               "talent_admin"
             ],
             "productGate": "FEEDBACK",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -730,9 +585,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         },
         {
           "id": "compensation-bands",
@@ -749,8 +602,6 @@
               "talent_admin"
             ],
             "productGate": "COMPENSATION_MANAGEMENT_APP",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -758,9 +609,7 @@
               ],
               "campaign": "SidenavTalent"
             }
-          },
-          "personaVariants": {},
-          "source": ""
+          }
         }
       ]
     },
@@ -769,7 +618,6 @@
       "label": "Payroll",
       "icon": "CurrencyDollar",
       "path": "/payroll",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -779,9 +627,6 @@
         "scopeForPartial": [
           "payroll_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -790,10 +635,9 @@
           "campaign": "SidenavFinance"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:147-157",
       "group": "finance",
       "description": "Pay, taxes, contractors",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:147-157",
       "apps": [
         {
           "id": "payroll-overview",
@@ -810,8 +654,6 @@
               "payroll_admin"
             ],
             "productGate": "PAYROLL",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -820,7 +662,6 @@
               "campaign": "SidenavPayroll"
             }
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         },
         {
@@ -838,8 +679,6 @@
               "payroll_admin"
             ],
             "productGate": "GLOBAL_PAYROLL",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -848,7 +687,6 @@
               "campaign": "SidenavPayroll"
             }
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         },
         {
@@ -863,17 +701,8 @@
               "partial",
               "manager",
               "ee"
-            ],
-            "scopeForPartial": [],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         },
         {
@@ -891,8 +720,6 @@
               "payroll_admin"
             ],
             "productGate": "PAYROLL",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -901,7 +728,6 @@
               "campaign": "SidenavPayroll"
             }
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         },
         {
@@ -919,8 +745,6 @@
               "payroll_admin"
             ],
             "productGate": "PAYROLL",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -929,7 +753,6 @@
               "campaign": "SidenavPayroll"
             }
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         },
         {
@@ -947,8 +770,6 @@
               "payroll_admin"
             ],
             "productGate": "ACCOUNTING_INTEGRATIONS",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -957,7 +778,6 @@
               "campaign": "SidenavPayroll"
             }
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         },
         {
@@ -975,8 +795,6 @@
               "payroll_admin"
             ],
             "productGate": "GLOBAL_CONTRACTOR",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -985,7 +803,6 @@
               "campaign": "SidenavPayroll"
             }
           },
-          "personaVariants": {},
           "source": "phase-1.7 research (manual cleanup)"
         }
       ]
@@ -995,7 +812,6 @@
       "label": "Spend",
       "icon": "CreditCard",
       "path": "/spend-management/dashboard",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -1007,8 +823,6 @@
           "spend_admin"
         ],
         "productGate": "SPENDMANAGEMENT",
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -1017,10 +831,9 @@
           "campaign": "SidenavSpendManagement"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:158-167",
       "group": "finance",
       "description": "Cards, bills, expenses, travel, procurement",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:158-167",
       "apps": [
         {
           "id": "spend-overview",
@@ -1036,12 +849,8 @@
             "scopeForPartial": [
               "accounting_admin"
             ],
-            "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SPENDMANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:39-59"
         },
         {
@@ -1060,13 +869,10 @@
               "spend_provisioned"
             ],
             "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
             "conditions": [
               "dropped_if_overview_present_for_full_admin"
-            ],
-            "whenUnowned": null
+            ]
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:61-84"
         },
         {
@@ -1080,13 +886,8 @@
               "full",
               "partial"
             ],
-            "scopeForPartial": [],
-            "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SPENDMANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:86-112"
         },
         {
@@ -1106,8 +907,6 @@
               "travel_admin"
             ],
             "productGate": "TRAVEL",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1116,7 +915,6 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:113-131"
         },
         {
@@ -1135,8 +933,6 @@
               "cards_customer"
             ],
             "productGate": "CORPORATE_CARDS",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1145,7 +941,6 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:270-285"
         },
         {
@@ -1165,8 +960,6 @@
               "spend_admin"
             ],
             "productGate": "EXPENSES",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1175,7 +968,6 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:359-374"
         },
         {
@@ -1189,13 +981,8 @@
               "full",
               "partial"
             ],
-            "scopeForPartial": [],
-            "productGate": "EXPENSES",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "EXPENSES"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:397-414"
         },
         {
@@ -1213,12 +1000,8 @@
               "spend_admin",
               "banking_admin"
             ],
-            "productGate": "CORPORATE_CARDS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "CORPORATE_CARDS"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:309-334"
         },
         {
@@ -1235,12 +1018,8 @@
             "scopeForPartial": [
               "cards_customer"
             ],
-            "productGate": "CORPORATE_CARDS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "CORPORATE_CARDS"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:639-658"
         },
         {
@@ -1259,8 +1038,6 @@
               "bill_pay_admin"
             ],
             "productGate": "BILL_PAY",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1269,7 +1046,6 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:438-453"
         },
         {
@@ -1287,8 +1063,6 @@
               "procurement_admin"
             ],
             "productGate": "PROCUREMENT",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1297,7 +1071,6 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:455-472"
         },
         {
@@ -1314,12 +1087,8 @@
             "scopeForPartial": [
               "accounting_admin"
             ],
-            "productGate": "ACCOUNTING_INTEGRATIONS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "ACCOUNTING_INTEGRATIONS"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:498-529"
         },
         {
@@ -1335,12 +1104,8 @@
             "scopeForPartial": [
               "spend_admin"
             ],
-            "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SPENDMANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:474-496"
         },
         {
@@ -1358,12 +1123,8 @@
               "spend_provisioned",
               "accounting_admin"
             ],
-            "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SPENDMANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:593-612"
         },
         {
@@ -1376,13 +1137,8 @@
             "personas": [
               "full"
             ],
-            "scopeForPartial": [],
-            "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SPENDMANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:531-553"
         },
         {
@@ -1395,13 +1151,8 @@
             "personas": [
               "full"
             ],
-            "scopeForPartial": [],
-            "productGate": "SPENDMANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SPENDMANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:spend_management/super_app/link_configs.py:614-637"
         }
       ]
@@ -1411,7 +1162,6 @@
       "label": "Time",
       "icon": "Clock",
       "path": "/time",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -1422,9 +1172,6 @@
         "scopeForPartial": [
           "time_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -1433,10 +1180,9 @@
           "campaign": "SidenavTime"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:177-186",
       "group": "people",
       "description": "Schedules, timecards, attendance",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:177-186",
       "apps": [
         {
           "id": "time-overview",
@@ -1450,13 +1196,9 @@
               "partial",
               "manager"
             ],
-            "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_time_overview",
-            "conditions": [],
-            "whenUnowned": null
+            "permissionGate": "can_role_access_time_overview"
           },
-          "personaVariants": {},
           "source": "rippling-main/app/time_products/types/constants.py:9-10, rippling-main/app/apps/utils/dummy_apps.py:188-198"
         },
         {
@@ -1472,13 +1214,9 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_my_time",
-            "conditions": [],
-            "whenUnowned": null
+            "permissionGate": "can_role_access_my_time"
           },
-          "personaVariants": {},
           "source": "rippling-main/app/time_products/types/constants.py:10-11, rippling-main/app/apps/utils/dummy_apps.py:199-208"
         },
         {
@@ -1493,13 +1231,9 @@
               "partial",
               "manager"
             ],
-            "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_schedules",
-            "conditions": [],
-            "whenUnowned": null
+            "permissionGate": "can_role_access_schedules"
           },
-          "personaVariants": {},
           "source": "rippling-main/app/time_products/types/constants.py:12-13, rippling-main/app/apps/utils/dummy_apps.py:209-218"
         },
         {
@@ -1515,13 +1249,9 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_timecards",
-            "conditions": [],
-            "whenUnowned": null
+            "permissionGate": "can_role_access_timecards"
           },
-          "personaVariants": {},
           "source": "rippling-main/app/time_products/types/constants.py:13-14, rippling-main/app/apps/utils/dummy_apps.py:219-228, rippling-main/app/apps/utils/navigation_bar.py:680-685"
         },
         {
@@ -1537,13 +1267,9 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_time_off",
-            "conditions": [],
-            "whenUnowned": null
+            "permissionGate": "can_role_access_time_off"
           },
-          "personaVariants": {},
           "source": "rippling-main/app/time_products/types/constants.py:16-17, rippling-main/app/apps/utils/dummy_apps.py:229-238"
         }
       ]
@@ -1553,7 +1279,6 @@
       "label": "Benefits",
       "icon": "Heart",
       "path": "/benefits",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -1564,8 +1289,6 @@
           "benefits_admin"
         ],
         "productGate": "INSURANCE",
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -1574,10 +1297,9 @@
           "campaign": "SidenavInsuranceAndBenefits"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:86-96",
       "group": "people",
       "description": "Health, retirement, equity",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:86-96",
       "apps": [
         {
           "id": "benefits-overview",
@@ -1594,8 +1316,6 @@
               "benefits_admin"
             ],
             "productGate": "INSURANCE_ADMIN",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1604,7 +1324,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1624,8 +1343,6 @@
               "benefits_admin"
             ],
             "productGate": "INSURANCE",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1634,7 +1351,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1652,8 +1368,6 @@
               "benefits_admin"
             ],
             "productGate": "INSURANCE_ADMIN",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1662,7 +1376,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1680,8 +1393,6 @@
               "benefits_admin"
             ],
             "productGate": "INSURANCE_ADMIN",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1690,7 +1401,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1708,8 +1418,6 @@
               "benefits_admin"
             ],
             "productGate": "INSURANCE_ADMIN",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1718,7 +1426,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1736,8 +1443,6 @@
               "benefits_admin"
             ],
             "productGate": "FSA",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1746,7 +1451,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1764,8 +1468,6 @@
               "benefits_admin"
             ],
             "productGate": "HSA",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1774,7 +1476,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1792,8 +1493,6 @@
               "benefits_admin"
             ],
             "productGate": "COMMUTER",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1802,7 +1501,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1820,8 +1518,6 @@
               "benefits_admin"
             ],
             "productGate": "WORKERS_COMP",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1830,7 +1526,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1848,8 +1543,6 @@
               "benefits_admin"
             ],
             "productGate": "COBRA",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1858,7 +1551,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1876,8 +1568,6 @@
               "benefits_admin"
             ],
             "productGate": "ACA",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1886,7 +1576,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         },
         {
@@ -1904,8 +1593,6 @@
               "benefits_admin"
             ],
             "productGate": "INSURANCE_ADMIN",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -1914,7 +1601,6 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "personaVariants": {},
           "source": "verified against rippling-webapp Benefits sidenav"
         }
       ]
@@ -1924,7 +1610,6 @@
       "label": "IT",
       "icon": "Laptop",
       "path": "/it/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -1936,7 +1621,6 @@
         ],
         "productGate": "IT_MANAGEMENT",
         "permissionGate": "IT_MANAGEMENT_ADMIN",
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -1945,10 +1629,9 @@
           "campaign": "SidenavITManagement"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:97-107",
       "group": "tech",
       "description": "Devices, apps, automation, security",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:97-107",
       "apps": [
         {
           "id": "it-overview",
@@ -1963,13 +1646,8 @@
             ],
             "scopeForPartial": [
               "it_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            ]
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/utils/dummy_apps.py IT_OVERVIEW_DUMMY_APP"
         },
         {
@@ -1985,13 +1663,8 @@
             ],
             "scopeForPartial": [
               "it_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            ]
           },
-          "personaVariants": {},
           "source": "rippling-webapp:app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:66-101"
         },
         {
@@ -2009,8 +1682,6 @@
               "it_admin"
             ],
             "productGate": "DEVICE_MANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2019,7 +1690,6 @@
               "campaign": "SidenavItManagement"
             }
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/hardware.json"
         },
         {
@@ -2036,12 +1706,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "DEVICE_MANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "DEVICE_MANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/utils/dummy_apps.py DEVICE_STORE_DUMMY_APP"
         },
         {
@@ -2058,12 +1724,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "APP_MANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "APP_MANAGEMENT"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/integrations.json"
         },
         {
@@ -2079,13 +1741,8 @@
             ],
             "scopeForPartial": [
               "it_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            ]
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/customSamlService.json"
         },
         {
@@ -2102,12 +1759,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "IT_AUTOMATIONS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "IT_AUTOMATIONS"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/"
         },
         {
@@ -2125,12 +1778,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "RPASS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "RPASS"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/rpass.json"
         },
         {
@@ -2147,12 +1796,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "SSH",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SSH"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/ssh.json"
         },
         {
@@ -2169,12 +1814,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "RIPPLING_LDAP",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "RIPPLING_LDAP"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/vldap.json"
         },
         {
@@ -2191,12 +1832,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "AUTOMATED_COMPLIANCE",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "AUTOMATED_COMPLIANCE"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/automated_compliance.json"
         },
         {
@@ -2213,12 +1850,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "SECURITY_MONITORING",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SECURITY_MONITORING"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/security_monitoring.json"
         },
         {
@@ -2235,12 +1868,8 @@
             "scopeForPartial": [
               "it_admin"
             ],
-            "productGate": "SENTINELONE",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": null
+            "productGate": "SENTINELONE"
           },
-          "personaVariants": {},
           "source": "rippling-main:apps/data/apps/internal/sentinelone.json"
         }
       ]
@@ -2250,7 +1879,6 @@
       "label": "Identity",
       "icon": "Key",
       "path": "/identity-management",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -2259,9 +1887,6 @@
         "scopeForPartial": [
           "identity_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -2270,10 +1895,9 @@
           "campaign": "SidenavIdentityManagement"
         }
       },
-      "personaVariants": {},
-      "source": "app/cross_sell/constants.py:104",
       "group": "tech",
       "description": "SSO, MFA, user access",
+      "source": "app/cross_sell/constants.py:104",
       "apps": [
         {
           "id": "saml-service",
@@ -2289,15 +1913,8 @@
             "scopeForPartial": [
               "identity_admin"
             ],
-            "productGate": "CUSTOMSAMLSERVICE",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "CUSTOMSAMLSERVICE"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:734"
         },
         {
@@ -2314,15 +1931,8 @@
             "scopeForPartial": [
               "identity_admin"
             ],
-            "productGate": "DUO",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "DUO"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:751"
         },
         {
@@ -2339,15 +1949,8 @@
             "scopeForPartial": [
               "identity_admin"
             ],
-            "productGate": "YUBIKEY",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "YUBIKEY"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:788"
         },
         {
@@ -2365,8 +1968,6 @@
               "identity_admin"
             ],
             "productGate": "USER_MANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2375,7 +1976,6 @@
               "campaign": "SidenavIdentityManagement"
             }
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:880"
         },
         {
@@ -2392,15 +1992,8 @@
             "scopeForPartial": [
               "identity_admin"
             ],
-            "productGate": "MANUAL_USER_MANAGEMENT",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "MANUAL_USER_MANAGEMENT"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:829"
         },
         {
@@ -2417,15 +2010,8 @@
             "scopeForPartial": [
               "identity_admin"
             ],
-            "productGate": "GROUP_MANAGER",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "GROUP_MANAGER"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:830"
         },
         {
@@ -2442,29 +2028,17 @@
             "scopeForPartial": [
               "identity_admin"
             ],
-            "productGate": "EXTENDED_ACCESS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "EXTENDED_ACCESS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:791"
         }
-      ],
-      "_meta": {
-        "aspirational": true,
-        "note": "Phase 1.7 research found identity L1 category exists in backend but has 0 actual L2 apps in live nav. Existing entries here are aspirational/Phase-1B-fabricated."
-      }
+      ]
     },
     {
       "id": "data",
       "label": "Data",
       "icon": "Database",
       "path": "/data",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -2473,9 +2047,6 @@
         "scopeForPartial": [
           "data_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -2484,10 +2055,9 @@
           "campaign": "SidenavData"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:108-118",
       "group": "platform",
       "description": "Reports, pipelines, analytics",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:108-118",
       "apps": [
         {
           "id": "reports",
@@ -2505,8 +2075,6 @@
               "reports_admin"
             ],
             "productGate": "REPORTS",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2515,7 +2083,6 @@
               "campaign": "SidenavData"
             }
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:785"
         },
         {
@@ -2533,8 +2100,6 @@
               "data_admin"
             ],
             "productGate": "DATAMANAGER",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2543,7 +2108,6 @@
               "campaign": "SidenavData"
             }
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:799"
         },
         {
@@ -2561,8 +2125,6 @@
               "data_admin"
             ],
             "productGate": "DATA_PIPELINES",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2571,7 +2133,6 @@
               "campaign": "SidenavData"
             }
           },
-          "personaVariants": {},
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:392"
         },
         {
@@ -2589,8 +2150,6 @@
               "data_admin"
             ],
             "productGate": "DERIVED_OBJECTS",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2599,7 +2158,6 @@
               "campaign": "SidenavData"
             }
           },
-          "personaVariants": {},
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:408"
         },
         {
@@ -2616,15 +2174,8 @@
             "scopeForPartial": [
               "data_admin"
             ],
-            "productGate": "SNOWFLAKE",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "SNOWFLAKE"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:823"
         },
         {
@@ -2641,15 +2192,8 @@
             "scopeForPartial": [
               "data_admin"
             ],
-            "productGate": "FORECASTING",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "FORECASTING"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:862"
         }
       ]
@@ -2659,7 +2203,6 @@
       "label": "Banking",
       "icon": "Bank",
       "path": "/banking",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -2669,8 +2212,6 @@
           "banking_admin"
         ],
         "productGate": "BANKING",
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -2679,10 +2220,9 @@
           "campaign": "SidenavBanking"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:168-176",
       "group": "finance",
       "description": "Treasury and accounts",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:168-176",
       "apps": [
         {
           "id": "banking-overview",
@@ -2699,8 +2239,6 @@
               "banking_admin"
             ],
             "productGate": "BANKING",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2709,7 +2247,6 @@
               "campaign": "SidenavBanking"
             }
           },
-          "personaVariants": {},
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:441"
         }
       ]
@@ -2719,7 +2256,6 @@
       "label": "Global",
       "icon": "Globe",
       "path": "/global",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -2728,9 +2264,6 @@
         "scopeForPartial": [
           "global_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -2739,10 +2272,9 @@
           "campaign": "SidenavGlobal"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:206-213",
       "group": "services",
       "description": "International workforce, contractors",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:206-213",
       "apps": [
         {
           "id": "global-workforce",
@@ -2759,8 +2291,6 @@
               "global_admin"
             ],
             "productGate": "GLOBAL_PAYROLL",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2769,21 +2299,15 @@
               "campaign": "SidenavGlobal"
             }
           },
-          "personaVariants": {},
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:325"
         }
-      ],
-      "_meta": {
-        "aspirational": true,
-        "note": "Phase 1.7 research found global L1 category exists in backend but has 0 actual L2 apps in live nav. Existing entries here are aspirational/Phase-1B-fabricated."
-      }
+      ]
     },
     {
       "id": "peo",
       "label": "Rippling PEO",
       "icon": "Buildings",
       "path": "/peo",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -2793,9 +2317,6 @@
         "scopeForPartial": [
           "peo_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -2804,10 +2325,9 @@
           "campaign": "SidenavRipplingPEO"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:128-135",
       "group": "services",
       "description": "PEO services, posters, state tax",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:128-135",
       "apps": [
         {
           "id": "peo-overview",
@@ -2823,9 +2343,6 @@
             "scopeForPartial": [
               "peo_admin"
             ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -2834,7 +2351,6 @@
               "campaign": "SidenavRipplingPEO"
             }
           },
-          "personaVariants": {},
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:234"
         },
         {
@@ -2850,16 +2366,8 @@
             ],
             "scopeForPartial": [
               "peo_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:443"
         },
         {
@@ -2875,16 +2383,8 @@
             ],
             "scopeForPartial": [
               "peo_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:451"
         }
       ]
@@ -2894,7 +2394,6 @@
       "label": "Custom Apps",
       "icon": "PuzzlePiece",
       "path": "/custom-apps",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -2903,9 +2402,6 @@
         "scopeForPartial": [
           "apps_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -2914,10 +2410,9 @@
           "campaign": "SidenavCustomApps"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:195-204",
       "group": "platform",
       "description": "Build apps, recipes, workflows",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:195-204",
       "apps": [
         {
           "id": "rippling-solution",
@@ -2933,15 +2428,8 @@
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "RIPPLING_SOLUTION",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "RIPPLING_SOLUTION"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:851"
         },
         {
@@ -2958,15 +2446,8 @@
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "UNLIMITED_CUSTOM_APPS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "UNLIMITED_CUSTOM_APPS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:847"
         },
         {
@@ -2983,15 +2464,8 @@
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "UNLIMITED_CUSTOM_OBJECTS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "UNLIMITED_CUSTOM_OBJECTS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:848"
         },
         {
@@ -3008,15 +2482,8 @@
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "RECIPES",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "RECIPES"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:800"
         },
         {
@@ -3034,15 +2501,8 @@
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "FORMS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "FORMS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:759"
         },
         {
@@ -3061,15 +2521,8 @@
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "CHECKLISTAPP",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "CHECKLISTAPP"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:710"
         }
       ]
@@ -3079,7 +2532,6 @@
       "label": "Tools",
       "icon": "Wrench",
       "path": "/tools",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -3087,10 +2539,6 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [
             "full",
@@ -3099,10 +2547,9 @@
           "campaign": "SidenavTools"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:53-62",
       "group": "platform",
       "description": "Inbox, AI, notifications, search",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:53-62",
       "apps": [
         {
           "id": "inbox",
@@ -3117,16 +2564,8 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
-            "productGate": "INBOX",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "INBOX"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:845"
         },
         {
@@ -3142,16 +2581,8 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
-            "productGate": "UNIVERSAL_SEARCH",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "UNIVERSAL_SEARCH"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:844"
         },
         {
@@ -3167,16 +2598,8 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
-            "productGate": "NOTIFICATION_CENTER",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "NOTIFICATION_CENTER"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:837"
         },
         {
@@ -3192,16 +2615,8 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
-            "productGate": "MEETINGS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "MEETINGS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:843"
         },
         {
@@ -3215,16 +2630,8 @@
               "full",
               "partial"
             ],
-            "scopeForPartial": [],
-            "productGate": "ALERTS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "ALERTS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:781"
         },
         {
@@ -3241,15 +2648,8 @@
             "scopeForPartial": [
               "workflows_admin"
             ],
-            "productGate": "WORKFLOWS_UTIL",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "WORKFLOWS_UTIL"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:782"
         },
         {
@@ -3264,23 +2664,15 @@
               "partial",
               "manager"
             ],
-            "scopeForPartial": [],
-            "productGate": "CONDITIONAL_APPROVALS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "CONDITIONAL_APPROVALS"
           },
-          "personaVariants": {},
-          "source": "app/hub/spoke_models.py:783",
           "kind": "capability",
           "appearsIn": [
             "hr",
             "spend",
             "it"
-          ]
+          ],
+          "source": "app/hub/spoke_models.py:783"
         },
         {
           "id": "rippling-intelligence",
@@ -3295,16 +2687,8 @@
               "manager",
               "ee"
             ],
-            "scopeForPartial": [],
-            "productGate": "RIPPLING_INTELLIGENCE",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "RIPPLING_INTELLIGENCE"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:879"
         },
         {
@@ -3323,8 +2707,6 @@
               "developer"
             ],
             "productGate": "RIPPLING_BUILD",
-            "permissionGate": null,
-            "conditions": [],
             "whenUnowned": {
               "showLockedTo": [
                 "full",
@@ -3333,7 +2715,6 @@
               "campaign": "SidenavTools"
             }
           },
-          "personaVariants": {},
           "kind": "product",
           "hiddenInSidenav": true,
           "source": "rippling-main:app/apps/data/apps/internal/developer.json + rippling-webapp:app/products/platform/Developer/routes-v6/developer.routes.tsx"
@@ -3345,7 +2726,6 @@
       "label": "Partner",
       "icon": "Handshake",
       "path": "/partner",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -3355,17 +2735,14 @@
           "partner_admin"
         ],
         "productGate": "PARTNER",
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [],
           "campaign": "SidenavPartner"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:119-127",
       "group": "platform",
       "description": "Partner administration",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:119-127",
       "apps": [
         {
           "id": "partner-admin",
@@ -3381,15 +2758,8 @@
             "scopeForPartial": [
               "partner_admin"
             ],
-            "productGate": "PARTNER",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "PARTNER"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:821"
         },
         {
@@ -3406,15 +2776,8 @@
             "scopeForPartial": [
               "partner_admin"
             ],
-            "productGate": "BUSINESS_PARTNER",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "BUSINESS_PARTNER"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:739"
         }
       ]
@@ -3424,7 +2787,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -3433,18 +2795,14 @@
         "scopeForPartial": [
           "settings_admin"
         ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
         "whenUnowned": {
           "showLockedTo": [],
           "campaign": "SidenavSettings"
         }
       },
-      "personaVariants": {},
-      "source": "app/apps/scripts/app_navigation_categories_data.py:136-146",
       "group": "platform",
       "description": "Permissions, audit log, company config",
+      "source": "app/apps/scripts/app_navigation_categories_data.py:136-146",
       "apps": [
         {
           "id": "company-settings",
@@ -3459,16 +2817,8 @@
             ],
             "scopeForPartial": [
               "settings_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:429"
         },
         {
@@ -3484,16 +2834,8 @@
             ],
             "scopeForPartial": [
               "permissions_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:165"
         },
         {
@@ -3509,16 +2851,8 @@
             ],
             "scopeForPartial": [
               "settings_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:419"
         },
         {
@@ -3534,16 +2868,8 @@
             ],
             "scopeForPartial": [
               "settings_admin"
-            ],
-            "productGate": null,
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            ]
           },
-          "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:355"
         },
         {
@@ -3560,15 +2886,8 @@
             "scopeForPartial": [
               "developer_admin"
             ],
-            "productGate": "API_TOKENS",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "API_TOKENS"
           },
-          "personaVariants": {},
           "source": "app/hub/spoke_models.py:740"
         },
         {
@@ -3585,23 +2904,24 @@
             "scopeForPartial": [
               "audit_admin"
             ],
-            "productGate": "ACTIVITY_LOG",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
+            "productGate": "ACTIVITY_LOG"
           },
-          "personaVariants": {},
-          "source": "app/hub/spoke_models.py:808",
           "kind": "capability",
           "appearsIn": [
             "it",
             "tools"
-          ]
+          ],
+          "source": "app/hub/spoke_models.py:808"
         }
       ]
     }
-  ]
+  ],
+  "_meta": {
+    "personaVocabulary": [
+      "full",
+      "partial",
+      "manager",
+      "ee"
+    ]
+  }
 }

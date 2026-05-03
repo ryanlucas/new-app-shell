@@ -3,20 +3,12 @@
   "appLabel": "Bill Pay",
   "appPath": "/spend-management/dashboard/bills",
   "appProductGate": "BILL_PAY",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Bill Pay surfaces inside Spend Management with bills, vendors, and 1099 sub-tabs. Bill detail/edit flows live under /spend-management/bill/:billId and /spend-management/bill_editor.",
-      "The Bill Pay package itself (BillPay/) only exposes pages, with route mounting in SpendManagement."
-    ]
-  },
   "nav": [
     {
       "id": "bills",
       "label": "Bills",
       "icon": "FileText",
       "path": "/spend-management/dashboard/bills",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "BILL_PAY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BILL_PAY"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Vendors",
       "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "BILL_PAY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BILL_PAY"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:142"
     },
     {
@@ -69,12 +52,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "BILL_PAY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BILL_PAY"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:158"
     },
     {
@@ -82,7 +61,6 @@
       "label": "Bill Policies",
       "icon": "Shield",
       "path": "/spend-management/dashboard/policies/bill-policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -91,12 +69,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "BILL_PAY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BILL_PAY"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:238"
     },
     {
@@ -104,7 +78,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings/bill-pay",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -113,13 +86,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "BILL_PAY",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "BILL_PAY"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1557"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Bill Pay surfaces inside Spend Management with bills, vendors, and 1099 sub-tabs. Bill detail/edit flows live under /spend-management/bill/:billId and /spend-management/bill_editor.",
+      "The Bill Pay package itself (BillPay/) only exposes pages, with route mounting in SpendManagement."
+    ]
+  }
 }

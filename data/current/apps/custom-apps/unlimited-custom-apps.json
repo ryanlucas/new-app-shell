@@ -3,6 +3,43 @@
   "appLabel": "Custom Apps",
   "appPath": "/app-studio",
   "appProductGate": "UNLIMITED_CUSTOM_APPS",
+  "nav": [
+    {
+      "id": "all-apps",
+      "label": "All Apps",
+      "icon": "SquaresFour",
+      "path": "/app-studio/dashboard/all-apps",
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:14-39"
+    },
+    {
+      "id": "app-templates",
+      "label": "App Templates",
+      "icon": "BookOpen",
+      "path": "/app-studio/app-templates",
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:37-45"
+    },
+    {
+      "id": "create-app",
+      "label": "Create App",
+      "icon": "Plus",
+      "path": "/app-studio/create-app",
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:46-55"
+    },
+    {
+      "id": "create-quick-app",
+      "label": "Quick App",
+      "icon": "Lightning",
+      "path": "/app-studio/create-quick-app",
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:27-35"
+    },
+    {
+      "id": "composition-manager",
+      "label": "Composition Manager",
+      "icon": "SquaresFour",
+      "path": "/app-studio/composition-manager",
+      "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:38"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2J",
     "uncertainties": [
@@ -11,59 +48,5 @@
       "Expected items (App Catalog / Builder / Recipes / Marketplace / Settings) only partly map: Builder = create-app/edit-app flows; App Catalog = app-templates; Marketplace and Recipes are not present in AppManager routes (Recipes lives in HubPlatform/recipeRecommendation).",
       "Custom-apps-admin and developer personas; full+partial appropriate. EE accesses installed custom apps via /custom-apps/:appAPIName but those routes are dynamic per app."
     ]
-  },
-  "nav": [
-    {
-      "id": "all-apps",
-      "label": "All Apps",
-      "path": "/app-studio/dashboard/all-apps",
-      "icon": "SquaresFour",
-      "personas": [
-        "full",
-        "partial"
-      ],
-      "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:14-39"
-    },
-    {
-      "id": "app-templates",
-      "label": "App Templates",
-      "path": "/app-studio/app-templates",
-      "icon": "BookOpen",
-      "personas": [
-        "full",
-        "partial"
-      ],
-      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:37-45"
-    },
-    {
-      "id": "create-app",
-      "label": "Create App",
-      "path": "/app-studio/create-app",
-      "icon": "Plus",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:46-55"
-    },
-    {
-      "id": "create-quick-app",
-      "label": "Quick App",
-      "path": "/app-studio/create-quick-app",
-      "icon": "Lightning",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/AppManager/routes/appManager.routes.tsx:27-35"
-    },
-    {
-      "id": "composition-manager",
-      "label": "Composition Manager",
-      "path": "/app-studio/composition-manager",
-      "icon": "SquaresFour",
-      "personas": [
-        "full"
-      ],
-      "source": "rippling-webapp/app/products/platform/AppManager/routes/dashboard.routes.tsx:38"
-    }
-  ]
+  }
 }

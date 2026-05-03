@@ -3,6 +3,7 @@
   "appLabel": "Recipes",
   "appPath": "/recipes",
   "appProductGate": "RECIPES",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2K",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "The 'expected' nav (My Recipes, Library, Marketplace, Logs, Settings) does not match the live route table — only a single dashboard route exists. Returning empty L3 nav.",
       "Access gated to admin/partial admin via WithRecipeAdmin HOC (role.isAdmin || role.isPartialAdmin) at app/products/platform/HubPlatform/modules/RecipeApp/routes.tsx:8."
     ]
-  },
-  "nav": []
+  }
 }

@@ -3,20 +3,12 @@
   "appLabel": "Cards",
   "appPath": "/spend-management/dashboard/cards",
   "appProductGate": "CORPORATE_CARDS",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Corporate Cards lives inside Spend Management's dashboard ('/cards' tab) and includes related transactions, statements, and card editor flows. No standalone /corporate-cards routes file was found.",
-      "Card-specific settings live under /spend-management/settings/cards."
-    ]
-  },
   "nav": [
     {
       "id": "cards",
       "label": "Cards",
       "icon": "CreditCard",
       "path": "/spend-management/dashboard/cards",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "CORPORATE_CARDS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CORPORATE_CARDS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Transactions",
       "icon": "ArrowsLeftRight",
       "path": "/spend-management/dashboard/transactions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,12 +34,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "CORPORATE_CARDS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CORPORATE_CARDS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -60,7 +43,6 @@
       "label": "Statements",
       "icon": "FileText",
       "path": "/spend-management/dashboard/statements",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,12 +51,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "CORPORATE_CARDS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CORPORATE_CARDS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/containers/dashboard/SpendManagementDashboard.constants.ts:1"
     },
     {
@@ -82,7 +60,6 @@
       "label": "Card Policies",
       "icon": "Shield",
       "path": "/spend-management/dashboard/policies/transaction-and-reimbursement-policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -91,12 +68,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "CORPORATE_CARDS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CORPORATE_CARDS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:189"
     },
     {
@@ -104,7 +77,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings/cards",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -113,13 +85,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "CORPORATE_CARDS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "CORPORATE_CARDS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1572"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Corporate Cards lives inside Spend Management's dashboard ('/cards' tab) and includes related transactions, statements, and card editor flows. No standalone /corporate-cards routes file was found.",
+      "Card-specific settings live under /spend-management/settings/cards."
+    ]
+  }
 }

@@ -3,19 +3,12 @@
   "appLabel": "Device Store",
   "appPath": "/it/device-store",
   "appProductGate": "HARDWARE",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "DeviceStoreV2 (gated by feature flag DEVICE_STORE_V2_FEATURE_FLAG) shows Approved Devices, Catalog and (when global expansion enabled) Settings. Legacy HardwareStore is shown otherwise."
-    ]
-  },
   "nav": [
     {
       "id": "approved",
       "label": "Approved Devices",
       "icon": "CheckCircle",
       "path": "/it/device-store/approved",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -24,12 +17,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/InventoryManagement/containers/deviceStoreV2/DeviceStoreV2.tsx:202"
     },
     {
@@ -37,7 +26,6 @@
       "label": "Catalog",
       "icon": "SquaresFour",
       "path": "/it/device-store/catalog",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -46,12 +34,8 @@
         "scopeForPartial": [
           "hardware_admin"
         ],
-        "productGate": "HARDWARE",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "HARDWARE"
       },
-      "personaVariants": {},
       "source": "app/products/it/InventoryManagement/containers/deviceStoreV2/DeviceStoreV2.tsx:206"
     },
     {
@@ -59,7 +43,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/it/device-store/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,14 +52,17 @@
           "hardware_admin"
         ],
         "productGate": "HARDWARE",
-        "permissionGate": null,
         "conditions": [
           "isGlobalExpansionEnabled"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/InventoryManagement/containers/deviceStoreV2/DeviceStoreV2.tsx:212"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "DeviceStoreV2 (gated by feature flag DEVICE_STORE_V2_FEATURE_FLAG) shows Approved Devices, Catalog and (when global expansion enabled) Settings. Legacy HardwareStore is shown otherwise."
+    ]
+  }
 }

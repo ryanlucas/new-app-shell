@@ -3,17 +3,12 @@
   "appLabel": "IT Automations",
   "appPath": "/it/automations",
   "appProductGate": "IT_AUTOMATIONS",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": []
-  },
   "nav": [
     {
       "id": "policies",
       "label": "Policies",
       "icon": "FileText",
       "path": "/it/automations/policies",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -22,12 +17,8 @@
         "scopeForPartial": [
           "it_home_full_admin"
         ],
-        "productGate": "IT_AUTOMATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_AUTOMATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:58"
     },
     {
@@ -35,7 +26,6 @@
       "label": "Form Fields",
       "icon": "TextT",
       "path": "/it/automations/form-fields",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -44,12 +34,8 @@
         "scopeForPartial": [
           "it_home_full_admin"
         ],
-        "productGate": "IT_AUTOMATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "IT_AUTOMATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:62"
     }
   ]

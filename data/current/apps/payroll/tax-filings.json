@@ -3,20 +3,12 @@
   "appLabel": "Tax Filings",
   "appPath": "/payroll/dashboard/taxPayments",
   "appProductGate": "PAYROLL",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Tax Filings is not a standalone app in the codebase; it is composed of Tax Payments + Expected Notices + Tax Exemptions tabs inside Run Payroll's dashboard, plus Global Filings module for international.",
-      "Modeled as a virtual L3 nav grouping these tax-related pages."
-    ]
-  },
   "nav": [
     {
       "id": "tax-payments",
       "label": "Tax Payments",
       "icon": "Money",
       "path": "/payroll/dashboard/taxPayments",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -26,11 +18,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:taxPayments",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:taxPayments"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:242"
     },
     {
@@ -38,7 +27,6 @@
       "label": "Expected Notices",
       "icon": "Warning",
       "path": "/payroll/dashboard/expectedTaxNotices",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,11 +36,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:expectedTaxNotices",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:expectedTaxNotices"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:176"
     },
     {
@@ -60,7 +45,6 @@
       "label": "Tax Exemptions",
       "icon": "FileMinus",
       "path": "/payroll/dashboard/taxExemptions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -70,11 +54,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:taxExemptions",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:taxExemptions"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:198"
     },
     {
@@ -82,7 +63,6 @@
       "label": "Amendments",
       "icon": "NotePencil",
       "path": "/payroll/dashboard/amendments",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -92,11 +72,8 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:amendments",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:amendments"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:220"
     },
     {
@@ -104,7 +81,6 @@
       "label": "Filing Documents",
       "icon": "Folder",
       "path": "/payroll/dashboard/documents",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -114,12 +90,16 @@
           "payroll"
         ],
         "productGate": "PAYROLL",
-        "permissionGate": "payroll:documents",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "payroll:documents"
       },
-      "personaVariants": {},
       "source": "app/products/finance/Payroll/routes-v6/authRoutes/admin/dashboard.routes.tsx:154"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Tax Filings is not a standalone app in the codebase; it is composed of Tax Payments + Expected Notices + Tax Exemptions tabs inside Run Payroll's dashboard, plus Global Filings module for international.",
+      "Modeled as a virtual L3 nav grouping these tax-related pages."
+    ]
+  }
 }

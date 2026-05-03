@@ -3,35 +3,20 @@
   "appLabel": "Company Settings",
   "appPath": "/company-settings",
   "appProductGate": null,
-  "_meta": {
-    "generatedBy": "phase-2L",
-    "uncertainties": [
-      "Company Settings is admin-only and the visible tab set varies a lot by privileges (full admin sees everything; partial admins see a subset whose default landing depends on which scopes they hold). We model the union of tabs reachable to admins and tag scopes per tab.",
-      "Tabs surfaced here exclude internal/legacy redirect-only routes (templates, bank-account/* sign flows, employee-census subroutes, billing/add-payment-method) and the deeply-nested 'billing' subtabs which are dynamic via getBillingPageSubTabs.",
-      "Some labels in the source are dynamic (e.g. 'Info collected' switches to 'Flow configuration' when isInfoConfigurableTerminationReasonsEnabled). We use the more common 'Info collected'.",
-      "The expected nav set in the spec (General/Branding/Locations/Calendars/Holidays/Departments) does not match this URL surface — Locations / Departments / Calendars / Holidays live under /organizational-data (the company-details app). Company Settings here is the admin-tools home (notifications, billing, API access, branding, security, audit logs, etc.)."
-    ]
-  },
   "nav": [
     {
       "id": "info-collected",
       "label": "Info collected",
       "icon": "ClipboardText",
       "path": "/company-settings/info-collected",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
         "conditions": [
           "!isStandaloneCompany && !flowConfigurationAppVisible"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:45"
     },
     {
@@ -39,7 +24,6 @@
       "label": "Notifications",
       "icon": "Bell",
       "path": "/company-settings/notifications",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,13 +31,8 @@
         ],
         "scopeForPartial": [
           "company_notification_settings_admin"
-        ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:55"
     },
     {
@@ -61,7 +40,6 @@
       "label": "Billing",
       "icon": "Receipt",
       "path": "/company-settings/billing",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -69,13 +47,8 @@
         ],
         "scopeForPartial": [
           "billing_admin"
-        ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:60"
     },
     {
@@ -83,7 +56,6 @@
       "label": "Audit logs",
       "icon": "Scroll",
       "path": "/company-settings/audit-logs",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -92,12 +64,8 @@
         "scopeForPartial": [
           "audit_log_admin"
         ],
-        "productGate": null,
-        "permissionGate": "canAccessAuditLogs",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "canAccessAuditLogs"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:64"
     },
     {
@@ -105,18 +73,12 @@
       "label": "Branding",
       "icon": "Palette",
       "path": "/company-settings/branding",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": "hasCustomCompanyLogoAccess",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "hasCustomCompanyLogoAccess"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:72"
     },
     {
@@ -124,18 +86,11 @@
       "label": "Security",
       "icon": "Shield",
       "path": "/company-settings/security",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:80"
     },
     {
@@ -143,18 +98,12 @@
       "label": "API access",
       "icon": "Key",
       "path": "/company-settings/api-access",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": "manage_api_keys",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "manage_api_keys"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:84"
     },
     {
@@ -162,7 +111,6 @@
       "label": "Payment methods",
       "icon": "CreditCard",
       "path": "/company-settings/payment-methods",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -170,13 +118,8 @@
         ],
         "scopeForPartial": [
           "billing_admin"
-        ],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:92"
     },
     {
@@ -184,18 +127,11 @@
       "label": "Risk verification",
       "icon": "Warning",
       "path": "/company-settings/risk-verification",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:96"
     },
     {
@@ -203,18 +139,11 @@
       "label": "App shop",
       "icon": "Storefront",
       "path": "/company-settings/app-shop",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:100"
     },
     {
@@ -222,21 +151,24 @@
       "label": "Data import",
       "icon": "Upload",
       "path": "/company-settings/employee-census-resume",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
         "conditions": [
           "showPeopleCensus"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Hub/containers/companySettings/CompanySettings.hooks.ts:136"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2L",
+    "uncertainties": [
+      "Company Settings is admin-only and the visible tab set varies a lot by privileges (full admin sees everything; partial admins see a subset whose default landing depends on which scopes they hold). We model the union of tabs reachable to admins and tag scopes per tab.",
+      "Tabs surfaced here exclude internal/legacy redirect-only routes (templates, bank-account/* sign flows, employee-census subroutes, billing/add-payment-method) and the deeply-nested 'billing' subtabs which are dynamic via getBillingPageSubTabs.",
+      "Some labels in the source are dynamic (e.g. 'Info collected' switches to 'Flow configuration' when isInfoConfigurableTerminationReasonsEnabled). We use the more common 'Info collected'.",
+      "The expected nav set in the spec (General/Branding/Locations/Calendars/Holidays/Departments) does not match this URL surface — Locations / Departments / Calendars / Holidays live under /organizational-data (the company-details app). Company Settings here is the admin-tools home (notifications, billing, API access, branding, security, audit logs, etc.)."
+    ]
+  }
 }

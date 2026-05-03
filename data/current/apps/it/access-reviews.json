@@ -3,34 +3,23 @@
   "appLabel": "Access Reviews",
   "appPath": "/it/integrations/access-reviews",
   "appProductGate": "ACCESS_REVIEWS",
-  "_meta": {
-    "generatedBy": "phase-2C",
-    "uncertainties": [
-      "Access Reviews is rendered as a sub-nav under the IntegrationDashboard (App Management) — there is no standalone /access-reviews route. Captured here as a logical app per the catalog. The campaign creation/edit flow lives at /it/access-reviews-flow/:reviewId/*."
-    ]
-  },
   "nav": [
     {
       "id": "my-reviews",
       "label": "My Reviews",
       "icon": "User",
       "path": "/it/integrations/access-reviews/my-reviews",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
           "partial",
           "manager"
         ],
-        "scopeForPartial": [],
         "productGate": "ACCESS_REVIEWS",
-        "permissionGate": null,
         "conditions": [
           "accessReviewTabVisibility.my_reviews_sub_tab_visible"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:59"
     },
     {
@@ -38,7 +27,6 @@
       "label": "All Reviews",
       "icon": "Stack",
       "path": "/it/integrations/access-reviews/all-reviews",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -48,14 +36,17 @@
           "app_admin"
         ],
         "productGate": "ACCESS_REVIEWS",
-        "permissionGate": null,
         "conditions": [
           "accessReviewTabVisibility.campaigns_sub_tab_visible"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:66"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2C",
+    "uncertainties": [
+      "Access Reviews is rendered as a sub-nav under the IntegrationDashboard (App Management) — there is no standalone /access-reviews route. Captured here as a logical app per the catalog. The campaign creation/edit flow lives at /it/access-reviews-flow/:reviewId/*."
+    ]
+  }
 }

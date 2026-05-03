@@ -3,21 +3,12 @@
   "appLabel": "Health Insurance",
   "appPath": "/insurance",
   "appProductGate": "INSURANCE",
-  "_meta": {
-    "generatedBy": "phase-2H",
-    "uncertainties": [
-      "Admin nav uses STANDALONE_SECTIONS to filter visible links by current section; flattened representation here.",
-      "Country-prefixed routes (e.g. /insurance/admin/{country}/...) are not modeled — assumes US default.",
-      "EE-facing 'My Benefits' is owned by the my-benefits app entry and is not duplicated here."
-    ]
-  },
   "nav": [
     {
       "id": "overview",
       "label": "Benefits",
       "icon": "Shield",
       "path": "/insurance/admin/overview",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,11 +18,8 @@
           "benefits"
         ],
         "productGate": "INSURANCE",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "APP_OWNER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:25"
     },
     {
@@ -44,13 +32,9 @@
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "INSURANCE",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "APP_OWNER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:102"
     },
     {
@@ -58,7 +42,6 @@
       "label": "Employee Details",
       "icon": "Users",
       "path": "/insurance/admin/employees",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -68,11 +51,8 @@
           "benefits"
         ],
         "productGate": "INSURANCE",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "APP_OWNER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:39"
     },
     {
@@ -90,11 +70,8 @@
           "benefits"
         ],
         "productGate": "INSURANCE",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "APP_OWNER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:76"
     },
     {
@@ -115,10 +92,8 @@
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowUpcomingEvents"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:92"
     },
     {
@@ -139,10 +114,8 @@
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowQualifyingLifeEventsTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:141"
     },
     {
@@ -163,10 +136,8 @@
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowEoiTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:151"
     },
     {
@@ -174,7 +145,6 @@
       "label": "Deductions",
       "icon": "Receipt",
       "path": "/insurance/admin/deductions",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -184,11 +154,8 @@
           "benefits"
         ],
         "productGate": "INSURANCE",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "APP_OWNER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:84"
     },
     {
@@ -196,20 +163,16 @@
       "label": "Carrier Connections",
       "icon": "Plug",
       "path": "/insurance/admin/carrier-transmission",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowFormContact"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:110"
     },
     {
@@ -222,15 +185,12 @@
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowFormContact"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:121"
     },
     {
@@ -243,15 +203,12 @@
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowSequoiaTab"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:131"
     },
     {
@@ -259,20 +216,16 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/insurance/admin/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "INSURANCE",
         "permissionGate": "APP_OWNER",
         "conditions": [
           "shouldShowAdvanceSettings"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:161"
     },
     {
@@ -285,14 +238,18 @@
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "INSURANCE",
-        "permissionGate": "APP_OWNER",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "APP_OWNER"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:171"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2H",
+    "uncertainties": [
+      "Admin nav uses STANDALONE_SECTIONS to filter visible links by current section; flattened representation here.",
+      "Country-prefixed routes (e.g. /insurance/admin/{country}/...) are not modeled — assumes US default.",
+      "EE-facing 'My Benefits' is owned by the my-benefits app entry and is not duplicated here."
+    ]
+  }
 }

@@ -3,20 +3,12 @@
   "appLabel": "Vendors",
   "appPath": "/spend-management/dashboard/vendors",
   "appProductGate": "VENDORS",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "The Vendors package contains primarily components/queries; routing is handled inside SpendManagement at /spend-management/dashboard/vendors with a 1099 sub-tab.",
-      "VENDORS gate may be a virtual gate aggregating vendor permissions across BILL_PAY, PROCUREMENT, etc."
-    ]
-  },
   "nav": [
     {
       "id": "all-vendors",
       "label": "All Vendors",
       "icon": "Buildings",
       "path": "/spend-management/dashboard/vendors",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "VENDORS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VENDORS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:142"
     },
     {
@@ -38,7 +26,6 @@
       "label": "1099 Vendors",
       "icon": "Table",
       "path": "/spend-management/dashboard/vendors/1099",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,13 +34,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "VENDORS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "VENDORS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:158"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "The Vendors package contains primarily components/queries; routing is handled inside SpendManagement at /spend-management/dashboard/vendors with a 1099 sub-tab.",
+      "VENDORS gate may be a virtual gate aggregating vendor permissions across BILL_PAY, PROCUREMENT, etc."
+    ]
+  }
 }

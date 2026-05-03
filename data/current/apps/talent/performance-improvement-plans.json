@@ -3,12 +3,12 @@
   "appLabel": "Performance Improvement Plans",
   "appPath": "/performance-improvement-plans",
   "appProductGate": "PERFORMANCE_IMPROVEMENT_PLANS",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
       "PIPs is an App Studio (catalog product family 'App Studio') product — no first-party UI in rippling-webapp.",
       "Expected internal panes (Active Plans / Templates / History) are surfaced by the Studio runtime; left as nav: []."
     ]
-  },
-  "nav": []
+  }
 }

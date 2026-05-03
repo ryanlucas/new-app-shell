@@ -3,20 +3,12 @@
   "appLabel": "Accounting",
   "appPath": "/spend-management/dashboard/accounting",
   "appProductGate": "ACCOUNTING_INTEGRATIONS",
-  "_meta": {
-    "generatedBy": "phase-2B",
-    "uncertainties": [
-      "Spend-side Accounting is rendered inside Spend Management's dashboard 'accounting' tab and uses AccountingDashboardRoutes from spendAccountingSetupRoutes for child tabs.",
-      "Sub-tabs (mappings, settings, etc.) come from AccountingDashboardRoutes and may overlap with the Accounting Integrations app dashboard."
-    ]
-  },
   "nav": [
     {
       "id": "accounting-overview",
       "label": "Overview",
       "icon": "SquaresFour",
       "path": "/spend-management/dashboard/accounting",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,12 +17,8 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:290"
     },
     {
@@ -38,7 +26,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/spend-management/settings/accounting",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,13 +34,16 @@
         "scopeForPartial": [
           "spend"
         ],
-        "productGate": "ACCOUNTING_INTEGRATIONS",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "ACCOUNTING_INTEGRATIONS"
       },
-      "personaVariants": {},
       "source": "app/products/finance/SpendManagement/routes-v6/spend.routes.tsx:1542"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2B",
+    "uncertainties": [
+      "Spend-side Accounting is rendered inside Spend Management's dashboard 'accounting' tab and uses AccountingDashboardRoutes from spendAccountingSetupRoutes for child tabs.",
+      "Sub-tabs (mappings, settings, etc.) come from AccountingDashboardRoutes and may overlap with the Accounting Integrations app dashboard."
+    ]
+  }
 }

@@ -3,21 +3,12 @@
   "appLabel": "Leaves",
   "appPath": "/pto/leaves",
   "appProductGate": "LEAVES",
-  "_meta": {
-    "generatedBy": "phase-2F",
-    "uncertainties": [
-      "The 'Leaves' app surface is a single page rendered inside PTO at /pto/leaves (also exposed via /time-products/time-off/leaves). It has no top-level app navigation — only in-page tabs (On Leave / Upcoming / Past) and a Rippling-Managed vs Tilt-Managed split when Tilt is installed.",
-      "Visibility: gated by isAdmin || isManager in PTO employee container; persona-wise this maps to full+partial+manager",
-      "The LEAVES product gate is a per-feature flag inside UnifiedTimeProducts (TIME_OFF_FEATURE_KEYS_LEAVES via canViewLeaves)"
-    ]
-  },
   "nav": [
     {
       "id": "leaves",
       "label": "Leaves",
       "icon": "CalendarX",
       "path": "/pto/leaves",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -29,14 +20,11 @@
           "leaves"
         ],
         "productGate": "LEAVES",
-        "permissionGate": null,
         "conditions": [
           "isAdmin || isManager",
           "canViewLeaves (TIME_OFF_FEATURE_KEYS_LEAVES)"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:12"
     },
     {
@@ -55,12 +43,8 @@
           "pto",
           "leaves"
         ],
-        "productGate": "LEAVES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "LEAVES"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:23"
     },
     {
@@ -79,12 +63,8 @@
           "pto",
           "leaves"
         ],
-        "productGate": "LEAVES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "LEAVES"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:30"
     },
     {
@@ -103,13 +83,17 @@
           "pto",
           "leaves"
         ],
-        "productGate": "LEAVES",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "LEAVES"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/Pto/containers/leaves/Leaves.tsx:37"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "The 'Leaves' app surface is a single page rendered inside PTO at /pto/leaves (also exposed via /time-products/time-off/leaves). It has no top-level app navigation — only in-page tabs (On Leave / Upcoming / Past) and a Rippling-Managed vs Tilt-Managed split when Tilt is installed.",
+      "Visibility: gated by isAdmin || isManager in PTO employee container; persona-wise this maps to full+partial+manager",
+      "The LEAVES product gate is a per-feature flag inside UnifiedTimeProducts (TIME_OFF_FEATURE_KEYS_LEAVES via canViewLeaves)"
+    ]
+  }
 }

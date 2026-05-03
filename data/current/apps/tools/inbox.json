@@ -3,21 +3,12 @@
   "appLabel": "Inbox",
   "appPath": "/inbox",
   "appProductGate": "INBOX",
-  "_meta": {
-    "generatedBy": "phase-2K",
-    "uncertainties": [
-      "Inbox is universal (all personas). The two top-level tabs are Pending and Resolved task lists. There is no By App / Filters / Settings sub-nav at the L3 level — those are in-page filter chips/dropdowns, not URL routes.",
-      "Task detail (/inbox/task/:id) is a deep-link, not a nav item.",
-      "An EmployeeSelector dropdown is rendered as titleContent for admins viewing on behalf of others — modeled as a control, not a nav item."
-    ]
-  },
   "nav": [
     {
       "id": "pending",
       "label": "Pending",
       "icon": "Tray",
       "path": "/inbox/dashboard/tasks/pending",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -25,13 +16,8 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "INBOX",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INBOX"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/Inbox/containers/inboxDashboard/InboxDashboard.tsx:20"
     },
     {
@@ -39,7 +25,6 @@
       "label": "Resolved",
       "icon": "CheckCircle",
       "path": "/inbox/dashboard/tasks/resolved",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -47,14 +32,17 @@
           "manager",
           "ee"
         ],
-        "scopeForPartial": [],
-        "productGate": "INBOX",
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
+        "productGate": "INBOX"
       },
-      "personaVariants": {},
       "source": "app/products/platform/HubPlatform/modules/Inbox/containers/inboxDashboard/InboxDashboard.tsx:24"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2K",
+    "uncertainties": [
+      "Inbox is universal (all personas). The two top-level tabs are Pending and Resolved task lists. There is no By App / Filters / Settings sub-nav at the L3 level — those are in-page filter chips/dropdowns, not URL routes.",
+      "Task detail (/inbox/task/:id) is a deep-link, not a nav item.",
+      "An EmployeeSelector dropdown is rendered as titleContent for admins viewing on behalf of others — modeled as a control, not a nav item."
+    ]
+  }
 }

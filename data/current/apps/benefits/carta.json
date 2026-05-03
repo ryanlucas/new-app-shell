@@ -3,6 +3,7 @@
   "appLabel": "Carta (Equity)",
   "appPath": "/apps/carta-equity-management/overview",
   "appProductGate": "CARTAV2",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "Post-install the app overlays the generic EquityManagement Overview page; deeper equity actions (modeling, issuing) live in Carta's own portal.",
       "Modeled as a single overview page (no nav)."
     ]
-  },
-  "nav": []
+  }
 }

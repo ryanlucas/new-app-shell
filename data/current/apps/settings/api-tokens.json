@@ -3,21 +3,12 @@
   "appLabel": "API Tokens",
   "appPath": "/api-tokens/tokens",
   "appProductGate": "API_TOKENS",
-  "_meta": {
-    "generatedBy": "phase-2L",
-    "uncertainties": [
-      "API Tokens (standalone /api-tokens app) exposes only two nav nodes: Tokens (visible to anyone with api_tokens_full_admin READ) and Settings (full admin only). There is no separate 'Permissions' or 'Audit' tab — token-level permissions are configured per-token within the create/edit flows.",
-      "API Tokens is also surfaced as a sub-tab under /developer when isDeveloperAPITokensEnabled is on (see developer.json). The standalone /api-tokens entry remains the canonical home.",
-      "Visibility is gated by admin.hasApiTokensFullAdminPrivilege(true, READ) — we model this as full+partial with the api_tokens_full_admin scope."
-    ]
-  },
   "nav": [
     {
       "id": "tokens",
       "label": "API tokens",
       "icon": "Key",
       "path": "/api-tokens/tokens",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,11 +18,8 @@
           "api_tokens_full_admin"
         ],
         "productGate": "API_TOKENS",
-        "permissionGate": "api_tokens_full_admin (READ)",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "api_tokens_full_admin (READ)"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/components/APITokensAppNavBar/APITokensAppNavBar.constants.ts:11"
     },
     {
@@ -39,19 +27,22 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/api-tokens/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full"
         ],
-        "scopeForPartial": [],
         "productGate": "API_TOKENS",
-        "permissionGate": "is_full_admin",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "is_full_admin"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/it/Apps/modules/ApiTokens/components/APITokensAppNavBar/APITokensAppNavBar.constants.ts:12"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2L",
+    "uncertainties": [
+      "API Tokens (standalone /api-tokens app) exposes only two nav nodes: Tokens (visible to anyone with api_tokens_full_admin READ) and Settings (full admin only). There is no separate 'Permissions' or 'Audit' tab — token-level permissions are configured per-token within the create/edit flows.",
+      "API Tokens is also surfaced as a sub-tab under /developer when isDeveloperAPITokensEnabled is on (see developer.json). The standalone /api-tokens entry remains the canonical home.",
+      "Visibility is gated by admin.hasApiTokensFullAdminPrivilege(true, READ) — we model this as full+partial with the api_tokens_full_admin scope."
+    ]
+  }
 }

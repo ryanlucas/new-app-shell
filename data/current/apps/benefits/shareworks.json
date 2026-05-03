@@ -3,6 +3,7 @@
   "appLabel": "Shareworks (Equity)",
   "appPath": "/apps/shareworks/overview",
   "appProductGate": "SHAREWORKS",
+  "nav": [],
   "_meta": {
     "generatedBy": "phase-2H",
     "uncertainties": [
@@ -10,6 +11,5 @@
       "Setup uses /apps/shareworks/* setup steps; post-setup the app overlays EquityManagement Overview at /apps/{appName}/overview.",
       "Modeled as a single overview page (no nav)."
     ]
-  },
-  "nav": []
+  }
 }

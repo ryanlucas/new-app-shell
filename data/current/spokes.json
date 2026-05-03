@@ -1280,15 +1280,5 @@
       "crossSellCategory": "IT_APPLICATION_AND_DEVICE_MANAGEMENT",
       "source": "rippling-main/app/hub/spoke_models.py:880"
     }
-  ],
-  "_meta": {
-    "generatedBy": "phase-1C",
-    "uncertainties": [
-      "Some categorizations are inferred from handle name semantics — the spoke_models.py enum itself does not declare sidenav/cross-sell category. Sidenav categories are sourced from rippling-webapp/app/products/webPlatform/SuperUser/components/CrossSell/V2/Modules/CampaignContent/components/CampaignFormFields/InProductFields/InProductFields.app.constants.ts:11-25.",
-      "Cross-sell category constants come from rippling-main/app/cross_sell/constants.py:152-158 (CampaignProductTypeChoices: HR, BENEFITS, TALENT, FINANCE, GLOBAL_PAYROLL, IT_APPLICATION_AND_DEVICE_MANAGEMENT).",
-      "Skipped Rippling-internal-staff-only spoke handles: SENSITIVE_STAFF_USERS (line 789), EXTENDED_ACCESS (line 791), SPOOF_ACCESS_MANAGEMENT (line 793), IMPLEMENTATION (line 750), BUSINESS_PARTNER (line 739), CUSTOMER_SANDBOX (line 818), PARTNER (line 821), DUMMY_UNITY_ADMIN (line 827), DUMMY_FUNCTIONS (line 840), DUMMY_SETTINGS_MANAGER (line 841), DUMMY_WEBHOOK (line 842), LOG_IN_AS (line 839), TIME_PRODUCTS (line 864, marked deprecated), IT_HELPDESK (line 875, marked deprecated).",
-      "EMPLOYEEHOME, RIPPLING, INBOX, UNIVERSAL_SEARCH are platform-wide (no specific sidenav category).",
-      "Apps-style integrations (Salesforce, Slack, Office365, AWS, GitHub, etc.) live in the Apps catalog rather than a sidenav — set sidenavCategory and crossSellCategory to null."
-    ]
-  }
+  ]
 }

@@ -3,22 +3,12 @@
   "appLabel": "Employment Authorization",
   "appPath": "/employment-authorization",
   "appProductGate": null,
-  "_meta": {
-    "generatedBy": "phase-2F",
-    "uncertainties": [
-      "App is admin/HR-only — gated by isI9EverifyAdmin or specific access levels (i9, everify, settings). Maps to full+partial.",
-      "Tab order swaps for non-US HQ companies (work auth dashboard becomes primary)",
-      "Nested sub-links (e.g. I-9 dashboard sections) are tabs/sections inside the dashboard pages — modeled here as parented children",
-      "App has no productGate spoke handle — controlled by access-level checks on roles"
-    ]
-  },
   "nav": [
     {
       "id": "i9-dashboard",
       "label": "I-9",
       "icon": "FileText",
       "path": "/employment-authorization/i9-dashboard",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -27,12 +17,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9 in ALLOWED",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9 in ALLOWED"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:229"
     },
     {
@@ -49,12 +35,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:67"
     },
     {
@@ -71,14 +53,11 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
         "conditions": [
           "!isEmployerFlowComplete"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:79"
     },
     {
@@ -95,14 +74,11 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
         "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
         "conditions": [
           "isEmployerFlowComplete"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:90"
     },
     {
@@ -119,12 +95,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:101"
     },
     {
@@ -141,12 +113,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.i9"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:110"
     },
     {
@@ -154,7 +122,6 @@
       "label": "E-Verify",
       "icon": "ShieldCheck",
       "path": "/employment-authorization/everify-dashboard",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -163,12 +130,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:239"
     },
     {
@@ -185,12 +148,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:135"
     },
     {
@@ -207,12 +166,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:146"
     },
     {
@@ -229,12 +184,8 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "isI9EverifyAdmin || i9EverifyNonFullAdminAccessLevel.everify"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:157"
     },
     {
@@ -242,7 +193,6 @@
       "label": "Global Work Authorization",
       "icon": "Globe",
       "path": "/employment-authorization/international-employment-authorization",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -251,14 +201,11 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
         "permissionGate": "canReviewWorkAuthRequests",
         "conditions": [
           "isCAFlowEnabled (EOR flow)"
-        ],
-        "whenUnowned": null
+        ]
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:252"
     },
     {
@@ -266,7 +213,6 @@
       "label": "Settings",
       "icon": "Gear",
       "path": "/employment-authorization/settings",
-      "parent": null,
       "visibility": {
         "personas": [
           "full",
@@ -275,13 +221,18 @@
         "scopeForPartial": [
           "employmentAuthorization"
         ],
-        "productGate": null,
-        "permissionGate": "accessLevel.settings in [READ_WRITE, READ_ONLY] || canViewOrEditGlobalWorkAuthSettings",
-        "conditions": [],
-        "whenUnowned": null
+        "permissionGate": "accessLevel.settings in [READ_WRITE, READ_ONLY] || canViewOrEditGlobalWorkAuthSettings"
       },
-      "personaVariants": {},
       "source": "rippling-webapp/app/products/hr/EmploymentAuthorization/components/employmentAuthorizationRoot/EmploymentAuthRoot.tsx:263"
     }
-  ]
+  ],
+  "_meta": {
+    "generatedBy": "phase-2F",
+    "uncertainties": [
+      "App is admin/HR-only — gated by isI9EverifyAdmin or specific access levels (i9, everify, settings). Maps to full+partial.",
+      "Tab order swaps for non-US HQ companies (work auth dashboard becomes primary)",
+      "Nested sub-links (e.g. I-9 dashboard sections) are tabs/sections inside the dashboard pages — modeled here as parented children",
+      "App has no productGate spoke handle — controlled by access-level checks on roles"
+    ]
+  }
 }

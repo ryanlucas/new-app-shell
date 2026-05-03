@@ -3,6 +3,72 @@
   "appLabel": "Permissions",
   "appPath": "/permissions/overview",
   "appProductGate": null,
+  "nav": [
+    {
+      "id": "overview",
+      "label": "Permission overview",
+      "icon": "Shield",
+      "path": "/permissions/overview",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
+        "permissionGate": "can_view_permission_profiles"
+      },
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:10"
+    },
+    {
+      "id": "feature-access",
+      "label": "Feature access",
+      "icon": "ToggleRight",
+      "path": "/permissions/feature-access",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
+        "permissionGate": "can_view_default_feature_access"
+      },
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:28"
+    },
+    {
+      "id": "user-dashboard",
+      "label": "Users overview",
+      "icon": "Users",
+      "path": "/permissions/user-dashboard",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "scopeForPartial": [
+          "permissions"
+        ],
+        "permissionGate": "can_view_user_permission_profiles"
+      },
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:35"
+    },
+    {
+      "id": "admins-to-migrate",
+      "label": "Admins to migrate",
+      "icon": "UserGear",
+      "path": "/permissions/admins-to-migrate",
+      "visibility": {
+        "personas": [
+          "full"
+        ],
+        "permissionGate": "can_view_admins_to_migrate"
+      },
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:42"
+    }
+  ],
   "_meta": {
     "generatedBy": "phase-2L",
     "uncertainties": [
@@ -11,92 +77,5 @@
       "Audit functionality is not a separate tab in /permissions; audit logs for permission changes live in the central /company-settings/audit-logs surface. We do not surface a separate Audit nav for this app.",
       "Permission flows (create-profile, edit-profile, recipes, profile/:profileId/...) are wizards/details pages, not top-level nav nodes."
     ]
-  },
-  "nav": [
-    {
-      "id": "overview",
-      "label": "Permission overview",
-      "icon": "Shield",
-      "path": "/permissions/overview",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "permissions"
-        ],
-        "productGate": null,
-        "permissionGate": "can_view_permission_profiles",
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:10"
-    },
-    {
-      "id": "feature-access",
-      "label": "Feature access",
-      "icon": "ToggleRight",
-      "path": "/permissions/feature-access",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "permissions"
-        ],
-        "productGate": null,
-        "permissionGate": "can_view_default_feature_access",
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:28"
-    },
-    {
-      "id": "user-dashboard",
-      "label": "Users overview",
-      "icon": "Users",
-      "path": "/permissions/user-dashboard",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "permissions"
-        ],
-        "productGate": null,
-        "permissionGate": "can_view_user_permission_profiles",
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:35"
-    },
-    {
-      "id": "admins-to-migrate",
-      "label": "Admins to migrate",
-      "icon": "UserGear",
-      "path": "/permissions/admins-to-migrate",
-      "parent": null,
-      "visibility": {
-        "personas": [
-          "full"
-        ],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": "can_view_admins_to_migrate",
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {},
-      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/Permissions/components/dashboard/PermissionDashboard.helpers.ts:42"
-    }
-  ]
+  }
 }
