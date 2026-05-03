@@ -124,6 +124,37 @@ export function DevHud({ catalog }: Props) {
         </div>
       </Section>
 
+      {/* EE archetypes (only when 'ee' is active) — function-shaped permission
+          bundles that gate apps an IC could plausibly access (e.g. recruiter
+          → Recruiting + Reports). Mirrors the partial-scopes panel below. */}
+      {hud.personas.includes('ee') && (catalog?.personas.eeArchetypes?.length ?? 0) > 0 && (
+        <Section
+          label={`EE archetypes (${hud.eeArchetypes.length}/${catalog?.personas.eeArchetypes?.length ?? 0})`}
+        >
+          <div className="flex flex-wrap gap-1">
+            {(catalog?.personas.eeArchetypes ?? []).map((a) => {
+              const active = hud.eeArchetypes.includes(a.id)
+              return (
+                <button
+                  key={a.id}
+                  type="button"
+                  onClick={() => hud.toggleEeArchetype(a.id)}
+                  title={a.description}
+                  className={cn(
+                    'rounded px-2 py-1 text-xs',
+                    active
+                      ? 'bg-violet-600 text-white'
+                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200',
+                  )}
+                >
+                  {a.label}
+                </button>
+              )
+            })}
+          </div>
+        </Section>
+      )}
+
       {/* Partial admin scopes (only when 'partial' is active) */}
       {hud.personas.includes('partial') && allScopes.length > 0 && (
         <Section label={`Partial-admin scopes (${hud.partialScopes.length}/${allScopes.length})`}>

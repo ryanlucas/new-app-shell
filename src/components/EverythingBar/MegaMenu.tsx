@@ -3,7 +3,12 @@ import { Lock } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
 import type { App, Suite, SuiteGroupDef } from '@/lib/types.ts'
 import { Icon } from '@/lib/icon.tsx'
-import { resolve, buildConditionSet, type ResolveContext } from '@/lib/visibility.ts'
+import {
+  resolve,
+  resolveSuite,
+  buildConditionSet,
+  type ResolveContext,
+} from '@/lib/visibility.ts'
 import { cn } from '@/lib/cn.ts'
 import { useHud } from '@/state/HudContext.tsx'
 
@@ -29,10 +34,19 @@ export function MegaMenu({ catalog, query, onSelect }: Props) {
     () => ({
       personas: new Set(hud.personas),
       partialScopes: new Set(hud.partialScopes),
+      eeArchetypes: new Set(hud.eeArchetypes),
       ownedSuites,
       conditions: buildConditionSet(hud.derivedConditions, catalog.plans, hud.planId),
     }),
-    [hud.personas, hud.partialScopes, ownedSuites, hud.derivedConditions, catalog.plans, hud.planId],
+    [
+      hud.personas,
+      hud.partialScopes,
+      hud.eeArchetypes,
+      ownedSuites,
+      hud.derivedConditions,
+      catalog.plans,
+      hud.planId,
+    ],
   )
 
   const q = query.trim().toLowerCase()
@@ -61,8 +75,16 @@ function BrowseTwoPane({
     const definedGroups = catalog.suites.groups ?? []
     const orderedGroups: SuiteGroupDef[] = [...definedGroups].sort((a, b) => a.order - b.order)
 
+    // Filter out suites with no visible/locked content for the active
+    // persona+plan. resolveSuite considers both the suite's own apps and
+    // capabilities cross-listed via `appearsIn`.
+    const allSuites = catalog.suites.suites
+    const visibleSuites = allSuites.filter(
+      (s) => resolveSuite(s, ctx, { suites: allSuites }) !== 'hidden',
+    )
+
     const byGroup = new Map<string, Suite[]>()
-    for (const s of catalog.suites.suites) {
+    for (const s of visibleSuites) {
       const g = s.group ?? FALLBACK_GROUP.id
       const arr = byGroup.get(g) ?? []
       arr.push(s)
@@ -92,7 +114,7 @@ function BrowseTwoPane({
       out.push({ group: { id: gid, label: gid, order: 99 }, suites: arr })
     }
     return out
-  }, [catalog.suites.suites, catalog.suites.groups, ownedSuites])
+  }, [catalog.suites.suites, catalog.suites.groups, ownedSuites, ctx])
 
   const allSuitesFlat = useMemo(
     () => groupedSuites.flatMap((g) => g.suites),
@@ -499,11 +521,6 @@ function SuiteRow({
           <span className="truncate">{suite.label}</span>
           {locked && <Lock size={10} className="shrink-0 text-neutral-300" />}
         </div>
-        {suite.description && (
-          <div className="truncate text-[11px] text-neutral-500">
-            {suite.description}
-          </div>
-        )}
       </div>
     </button>
   )

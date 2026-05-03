@@ -261,5 +261,42 @@
       "description": "Standard employee with self-service access. isEmployee defaults True; set to True when role transitions to HIRED state.",
       "source": "rippling-main/app/hris/models/role/role_with_company.py:971"
     }
+  ],
+  "eeArchetypes": [
+    {
+      "id": "recruiter",
+      "label": "Recruiter",
+      "description": "IC recruiter or recruiting coordinator. Primary surfaces: Recruiting (ATS), Reports/Dashboards on candidate funnel, Surveys for candidate experience."
+    },
+    {
+      "id": "analyst",
+      "label": "Data Analyst",
+      "description": "IC with reporting/data permissions. Builds reports and dashboards, queries Data Catalog, may build pipelines and transformations."
+    },
+    {
+      "id": "people-ops",
+      "label": "People Ops",
+      "description": "IC HR coordinator / people-ops specialist. Works in HR Overview, Compliance 360, Employment Authorization, runs reports on workforce data."
+    },
+    {
+      "id": "finance-ic",
+      "label": "Finance IC",
+      "description": "IC accountant, AP clerk, or buyer. Works in Bills, Vendors, Procurement, Accounting, runs financial reports."
+    },
+    {
+      "id": "compliance",
+      "label": "Compliance Officer",
+      "description": "IC security/compliance role with audit-read permissions. Primary surfaces: Audit Log, Compliance 360."
+    },
+    {
+      "id": "developer",
+      "label": "Developer",
+      "description": "IC engineer with API/dev permissions. Builds custom apps, uses Developer tools, creates recipes and workflow automations."
+    },
+    {
+      "id": "hourly-worker",
+      "label": "Hourly Worker",
+      "description": "Hourly EE in a shift-based role (retail, hospitality, warehouse). Personal surface includes clock in/out, my schedule, my timecard, shift swaps. Distinct from salaried EEs whose Time interaction is mostly time-off requests."
+    }
   ]
 }

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { Persona } from '@/lib/types.ts'
 
-const STORAGE_KEY = 'app-shell-prototype-hud-v3'
+const STORAGE_KEY = 'app-shell-prototype-hud-v4'
 const TOGGLE_KEY = '.' // Cmd+. (Ctrl+. on non-Mac)
 
 export type Lifecycle = 'active' | 'onboarding' | 'pre-contract'
@@ -37,6 +37,8 @@ export interface HudState {
   planId: string
   /** Partial-admin scopes the user has; only meaningful when 'partial' ∈ personas. */
   partialScopes: string[]
+  /** EE archetypes (function-shaped permission bundles); only meaningful when 'ee' ∈ personas. */
+  eeArchetypes: string[]
   /** Where the company sits in its lifecycle. Implies a set of conditions. */
   lifecycle: Lifecycle
   /** How the user is accessing the shell (direct / spoofed / partner / mobile). */
@@ -51,6 +53,7 @@ const DEFAULT_STATE: HudState = {
   personas: ['full'],
   planId: 'full',
   partialScopes: [],
+  eeArchetypes: [],
   lifecycle: 'active',
   surface: 'direct',
   view: 'current',
@@ -76,6 +79,8 @@ interface HudContextValue extends HudState {
   togglePersona: (p: Persona) => void
   setPlanId: (id: string) => void
   setPartialScopes: (s: string[]) => void
+  setEeArchetypes: (a: string[]) => void
+  toggleEeArchetype: (a: string) => void
   setLifecycle: (l: Lifecycle) => void
   setSurface: (s: Surface) => void
   setView: (v: string) => void
@@ -125,6 +130,14 @@ export function HudProvider({ children }: { children: ReactNode }) {
         })),
       setPlanId: (planId) => setState((s) => ({ ...s, planId })),
       setPartialScopes: (partialScopes) => setState((s) => ({ ...s, partialScopes })),
+      setEeArchetypes: (eeArchetypes) => setState((s) => ({ ...s, eeArchetypes })),
+      toggleEeArchetype: (a) =>
+        setState((s) => ({
+          ...s,
+          eeArchetypes: s.eeArchetypes.includes(a)
+            ? s.eeArchetypes.filter((x) => x !== a)
+            : [...s.eeArchetypes, a],
+        })),
       setLifecycle: (lifecycle) => setState((s) => ({ ...s, lifecycle })),
       setSurface: (surface) => setState((s) => ({ ...s, surface })),
       setView: (view) => setState((s) => ({ ...s, view })),

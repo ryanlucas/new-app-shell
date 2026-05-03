@@ -1,7 +1,12 @@
 import { Lock } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
 import { Icon } from '@/lib/icon.tsx'
-import { resolve, buildConditionSet, type ResolveContext } from '@/lib/visibility.ts'
+import {
+  resolve,
+  resolveSuite,
+  buildConditionSet,
+  type ResolveContext,
+} from '@/lib/visibility.ts'
 import { cn } from '@/lib/cn.ts'
 import { useHud } from '@/state/HudContext.tsx'
 import type { App, Suite } from '@/lib/types.ts'
@@ -17,6 +22,7 @@ export function Sidebar({ catalog, selectedAppId, onSelect }: Props) {
   const ctx: ResolveContext = {
     personas: new Set(hud.personas),
     partialScopes: new Set(hud.partialScopes),
+    eeArchetypes: new Set(hud.eeArchetypes),
     ownedSuites: new Set(
       catalog.plans.plans.find((p) => p.id === hud.planId)?.ownedSuites ?? [],
     ),
@@ -35,6 +41,7 @@ export function Sidebar({ catalog, selectedAppId, onSelect }: Props) {
         <SuiteBlock
           key={suite.id}
           suite={suite}
+          catalog={catalog}
           ctx={ctx}
           selectedAppId={selectedAppId}
           onSelect={onSelect}
@@ -81,16 +88,18 @@ function Section({
 
 function SuiteBlock({
   suite,
+  catalog,
   ctx,
   selectedAppId,
   onSelect,
 }: {
   suite: Suite
+  catalog: CatalogResponse
   ctx: ResolveContext
   selectedAppId: string | null
   onSelect: (id: string) => void
 }) {
-  const suiteResolution = resolve(suite, { ...ctx, suiteId: suite.id })
+  const suiteResolution = resolveSuite(suite, ctx, { suites: catalog.suites.suites })
   if (suiteResolution === 'hidden') return null
 
   // For apps within the suite, productGate falls back to suite ownership.

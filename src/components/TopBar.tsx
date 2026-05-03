@@ -17,6 +17,7 @@ export function TopBar({ catalog, onOpenChat, onOpenBar }: Props) {
   const ctx: ResolveContext = {
     personas: new Set(hud.personas),
     partialScopes: new Set(hud.partialScopes),
+    eeArchetypes: new Set(hud.eeArchetypes),
     ownedSuites: new Set(
       catalog.plans.plans.find((p) => p.id === hud.planId)?.ownedSuites ?? [],
     ),

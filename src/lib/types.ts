@@ -29,6 +29,12 @@ export interface CrossSell {
 export interface Visibility {
   personas?: Persona[]
   scopeForPartial?: string[]
+  /** When persona='ee' is active, require any one of these EE archetypes
+   *  to also be active. Mirrors `scopeForPartial` for the `partial` persona.
+   *  Models "EE with permission to do X" without modeling raw permissions —
+   *  archetype = curated bundle of permissions that maps to a known IC role
+   *  (recruiter, analyst, finance-ic, etc.). */
+  archetypesForEe?: string[]
   productGate?: string | null
   permissionGate?: string | null
   conditions?: string[]
@@ -164,8 +170,18 @@ export interface PersonaDef {
   scopes?: PersonaScope[]
 }
 
+export interface EeArchetypeDef {
+  id: string
+  label: string
+  description: string
+}
+
 export interface PersonasFile {
   personas: PersonaDef[]
+  /** Curated IC archetypes (function-shaped). Used to gate apps that an EE
+   *  *with the right permission grant* could plausibly access — e.g. Reports
+   *  for a recruiter or analyst. Orthogonal to persona. */
+  eeArchetypes?: EeArchetypeDef[]
   _meta?: Record<string, unknown>
 }
 

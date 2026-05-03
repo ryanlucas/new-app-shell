@@ -334,10 +334,14 @@
             "personas": [
               "full",
               "partial",
-              "manager"
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "talent_admin"
+            ],
+            "archetypesForEe": [
+              "recruiter"
             ],
             "productGate": "ATS2",
             "whenUnowned": {
@@ -1090,7 +1094,11 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
+            ],
+            "archetypesForEe": [
+              "hourly-worker"
             ],
             "productGate": "TIME_PLATFORM"
           },
@@ -1105,7 +1113,11 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
+            ],
+            "archetypesForEe": [
+              "hourly-worker"
             ],
             "productGate": "TIME_PLATFORM"
           },
@@ -1762,10 +1774,17 @@
             "personas": [
               "full",
               "partial",
-              "manager"
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "reports_admin"
+            ],
+            "archetypesForEe": [
+              "analyst",
+              "recruiter",
+              "people-ops",
+              "finance-ic"
             ],
             "productGate": "REPORTS",
             "whenUnowned": {
@@ -1787,10 +1806,14 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "data_admin"
+            ],
+            "archetypesForEe": [
+              "analyst"
             ],
             "productGate": "DATAMANAGER",
             "whenUnowned": {
@@ -1812,10 +1835,14 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "data_admin"
+            ],
+            "archetypesForEe": [
+              "analyst"
             ],
             "productGate": "DATA_PIPELINES",
             "whenUnowned": {
@@ -1837,10 +1864,14 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "data_admin"
+            ],
+            "archetypesForEe": [
+              "analyst"
             ],
             "productGate": "DERIVED_OBJECTS",
             "whenUnowned": {
@@ -2098,10 +2129,15 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "apps_admin"
+            ],
+            "archetypesForEe": [
+              "developer",
+              "analyst"
             ],
             "productGate": "UNLIMITED_CUSTOM_APPS"
           },
@@ -2193,7 +2229,14 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
+            ],
+            "archetypesForEe": [
+              "analyst",
+              "developer",
+              "recruiter",
+              "people-ops"
             ],
             "productGate": "ALERTS"
           },
@@ -2230,10 +2273,14 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "it_admin",
+              "developer"
+            ],
+            "archetypesForEe": [
               "developer"
             ],
             "productGate": "RIPPLING_BUILD",
@@ -2258,10 +2305,16 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "apps_admin"
+            ],
+            "archetypesForEe": [
+              "analyst",
+              "developer",
+              "people-ops"
             ],
             "productGate": "RECIPES"
           },
@@ -2301,10 +2354,14 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "ee"
             ],
             "scopeForPartial": [
               "audit_admin"
+            ],
+            "archetypesForEe": [
+              "compliance"
             ],
             "productGate": "ACTIVITY_LOG"
           },
