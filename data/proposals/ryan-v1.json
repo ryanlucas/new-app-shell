@@ -131,9 +131,27 @@
       "id": "it",
       "patch": {
         "appGroups": [
-          { "id": "identity", "label": "Identity & Access Management", "order": 1 },
-          { "id": "device-mgmt", "label": "Device Management", "order": 2 },
-          { "id": "security", "label": "Security & Compliance", "order": 3 }
+          {
+            "id": "identity",
+            "label": "Identity & Access Management",
+            "order": 1,
+            "icon": "Key",
+            "description": "SSO, MFA, RBAC, conditional access"
+          },
+          {
+            "id": "device-mgmt",
+            "label": "Device Management",
+            "order": 2,
+            "icon": "Laptop",
+            "description": "MDM, lifecycle, logistics, integrations"
+          },
+          {
+            "id": "security",
+            "label": "Security & Compliance",
+            "order": 3,
+            "icon": "ShieldCheck",
+            "description": "EDR, automated compliance, audit logs"
+          }
         ]
       }
     },

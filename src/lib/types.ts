@@ -111,6 +111,10 @@ export interface SuiteGroupDef {
   id: string
   label: string
   order: number
+  /** Phosphor icon name. Optional; renderers fall back to the parent's icon. */
+  icon?: string
+  /** Short tagline shown alongside the group, like a suite description. */
+  description?: string
 }
 
 export interface ShellSuites {

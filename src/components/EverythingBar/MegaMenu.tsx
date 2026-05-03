@@ -234,37 +234,63 @@ function BrowseTwoPane({
                     handleSuiteHover(elevated.id)
                     setActiveAppGroup(null)
                   }}
-                  className="flex items-center gap-2 px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400"
+                  className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400"
                 >
-                  <Icon name={elevated.icon} size={11} className="shrink-0 text-neutral-400" />
-                  <span className="flex-1 truncate">{elevated.label}</span>
+                  {elevated.label}
                 </div>
                 {[...elevated.appGroups!]
                   .sort((a, b) => a.order - b.order)
-                  .map((sub) => (
-                    <button
-                      key={sub.id}
-                      type="button"
-                      onMouseEnter={() => {
-                        handleSuiteHover(elevated.id)
-                        setActiveAppGroup(sub.id)
-                      }}
-                      onClick={() => {
-                        if (ownedSuite) {
+                  .map((sub) => {
+                    const active = activeId === elevated.id && activeAppGroup === sub.id
+                    const locked = !ownedSuite
+                    return (
+                      <button
+                        key={sub.id}
+                        type="button"
+                        onMouseEnter={() => {
                           handleSuiteHover(elevated.id)
                           setActiveAppGroup(sub.id)
-                        }
-                      }}
-                      className={cn(
-                        'flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px]',
-                        activeId === elevated.id && activeAppGroup === sub.id
-                          ? 'bg-neutral-100 text-neutral-900'
-                          : 'text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900',
-                      )}
-                    >
-                      <span className="flex-1 truncate">{sub.label}</span>
-                    </button>
-                  ))}
+                        }}
+                        onClick={() => {
+                          if (ownedSuite) {
+                            handleSuiteHover(elevated.id)
+                            setActiveAppGroup(sub.id)
+                          }
+                        }}
+                        className={cn(
+                          'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
+                          active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+                        )}
+                      >
+                        <Icon
+                          name={sub.icon ?? elevated.icon}
+                          size={15}
+                          className={cn(
+                            'mt-0.5 shrink-0',
+                            locked ? 'text-neutral-400' : 'text-neutral-600',
+                          )}
+                        />
+                        <div className="min-w-0 flex-1">
+                          <div
+                            className={cn(
+                              'flex items-center gap-1 truncate text-[13px]',
+                              locked
+                                ? 'text-neutral-500'
+                                : 'font-medium text-neutral-900',
+                            )}
+                          >
+                            <span className="truncate">{sub.label}</span>
+                            {locked && <Lock size={10} className="shrink-0 text-neutral-300" />}
+                          </div>
+                          {sub.description && (
+                            <div className="truncate text-[11px] text-neutral-500">
+                              {sub.description}
+                            </div>
+                          )}
+                        </div>
+                      </button>
+                    )
+                  })}
               </div>
             )
           }
