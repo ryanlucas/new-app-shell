@@ -81,10 +81,48 @@ function BrowseTwoPane({
 
   // Derived L1 spine — applies hide / flatten-sparse / keep-dense /
   // collapse-dominant rules to the resolved tree.
-  const spine = useMemo(
+  const rawSpine = useMemo(
     () => deriveSpine(catalog.suites, ctx, { favorites }),
     [catalog.suites, ctx, favorites],
   )
+
+  // Sparse-app expansion: when L1 ends up as a single my-* app that has
+  // L3 sub-tabs, replace the lone entry with each L3 tab as its own L1
+  // entry. Gives standalone non-admins something to navigate.
+  const spine = useMemo(() => {
+    if (rawSpine.entries.length !== 1) return rawSpine
+    const only = rawSpine.entries[0]
+    if (only.kind !== 'app') return rawSpine
+    const l3 = catalog.apps[only.app.id]
+    const nav = (l3?.nav as Array<{ id: string; label: string; icon?: string; path: string | null }>) ?? []
+    if (nav.length < 2) return rawSpine
+    const expanded: L1Entry[] = nav.map((n) => ({
+      kind: 'app' as const,
+      app: {
+        id: n.id,
+        label: n.label,
+        icon: n.icon ?? only.app.icon,
+        path: n.path ?? undefined,
+        parent: only.suite.id,
+      } as App,
+      suite: only.suite,
+      resolution: 'visible' as const,
+    }))
+    return { entries: expanded }
+  }, [rawSpine, catalog.apps])
+
+  // Standalone product context: when only one non-utility suite is owned,
+  // show "Rippling [Suite]" as a header so the user knows which product
+  // they're using. Utility suites (custom-apps, data, tools, settings)
+  // don't count as the primary product.
+  const standaloneProductLabel = useMemo(() => {
+    const UTILITY = new Set(['custom-apps', 'studio', 'data', 'tools', 'settings'])
+    const primary = [...ownedSuites].filter((id) => !UTILITY.has(id))
+    if (primary.length !== 1) return null
+    const suite = catalog.suites.suites.find((s) => s.id === primary[0])
+    if (!suite) return null
+    return `Rippling ${suite.label}`
+  }, [ownedSuites, catalog.suites.suites])
 
   // Favorites feature is "on" only when content density crosses the floor.
   // Toggle UI is hidden below this — there's no point in starring 3 items.
@@ -245,6 +283,11 @@ function BrowseTwoPane({
         lastMousePos.current = { x: e.clientX, y: e.clientY }
       }}
     >
+      {standaloneProductLabel && (
+        <div className="border-b border-neutral-200 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+          {standaloneProductLabel}
+        </div>
+      )}
       <div className="flex">
       <div
         className={cn(
@@ -380,12 +423,45 @@ function BrowseTwoPane({
             className="flex flex-1 flex-col py-3"
           >
             {activeEntry && activeEntry.kind === 'app' ? (
-              <FlatAppEmptyState
-                app={activeEntry.app}
-                onClick={() =>
-                  onSelect({ kind: 'app', id: activeEntry.app.id, label: activeEntry.app.label })
+              (() => {
+                const l3 = catalog.apps[activeEntry.app.id]
+                const nav = (l3?.nav as Array<{
+                  id: string
+                  label: string
+                  icon?: string
+                  path?: string | null
+                }>) ?? []
+                if (nav.length >= 2) {
+                  return (
+                    <div className="max-h-[440px] overflow-y-auto">
+                      {nav.map((n) => (
+                        <AppRow
+                          key={`l3-${n.id}`}
+                          entry={{
+                            app: {
+                              id: n.id,
+                              label: n.label,
+                              icon: n.icon ?? activeEntry.app.icon,
+                              path: n.path ?? undefined,
+                              parent: activeEntry.suite.id,
+                            } as App,
+                          }}
+                          owned
+                          onSelect={onSelect}
+                        />
+                      ))}
+                    </div>
+                  )
                 }
-              />
+                return (
+                  <FlatAppEmptyState
+                    app={activeEntry.app}
+                    onClick={() =>
+                      onSelect({ kind: 'app', id: activeEntry.app.id, label: activeEntry.app.label })
+                    }
+                  />
+                )
+              })()
             ) : activeEntry ? (
               <div className="max-h-[440px] overflow-y-auto">
                 {rightPane.apps.length === 0 ? (
@@ -417,21 +493,6 @@ function BrowseTwoPane({
         </>
       )}
       </div>
-      {(() => {
-        let desc: string | undefined
-        if (activeEntry?.kind === 'suite') desc = activeEntry.suite.description
-        else if (activeEntry?.kind === 'group') desc = activeEntry.group.description
-        else if (activeEntry?.kind === 'my-cluster')
-          desc = 'Your personal items, scoped to just you across whatever Rippling products your company uses.'
-        else if (activeEntry?.kind === 'favorites')
-          desc = 'Apps you star. Click the star on any item in the menu to pin it here.'
-        if (!desc) return null
-        return (
-          <div className="border-t border-neutral-200 px-4 py-2 text-[11px] leading-snug text-neutral-500">
-            {desc}
-          </div>
-        )
-      })()}
     </div>
   )
 }
