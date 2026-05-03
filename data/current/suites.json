@@ -99,8 +99,7 @@
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
+              "partial"
             ],
             "scopeForPartial": [
               "compliance_admin"
@@ -125,8 +124,7 @@
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
+              "partial"
             ],
             "scopeForPartial": [
               "hr_admin"
@@ -250,12 +248,10 @@
           "parent": "hr",
           "visibility": {
             "personas": [
-              "full"
+              "full",
+              "partial"
             ],
-            "productGate": "GLOBAL_CONTRACTOR",
-            "conditions": [
-              "request_cache_contractor_app_visibility_toggle()"
-            ]
+            "productGate": "GLOBAL_CONTRACTOR"
           },
           "source": "app/apps/data/apps/internal/global_contractor.json"
         },
@@ -608,28 +604,49 @@
       "apps": [
         {
           "id": "payroll-overview",
-          "label": "Run Payroll",
-          "icon": "Calculator",
-          "path": "/payroll",
+          "label": "Payroll",
+          "icon": "Money",
+          "path": "/payroll/dashboard",
           "parent": "payroll",
           "visibility": {
             "personas": [
               "full",
               "partial"
             ],
-            "scopeForPartial": [
-              "payroll_admin"
-            ],
-            "productGate": "PAYROLL",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavPayroll"
-            }
+            "productGate": "PAYROLL"
           },
-          "source": "phase-1.7 research (manual cleanup)"
+          "source": "app/apps/data/apps/internal/payroll.json (US payroll spoke)"
+        },
+        {
+          "id": "my-pay",
+          "label": "My Pay",
+          "icon": "Wallet",
+          "path": "/me/paystubs",
+          "parent": "payroll",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager",
+              "ee"
+            ]
+          },
+          "source": "app/apps/data/apps/internal/payroll_my_pay.json"
+        },
+        {
+          "id": "accounting-integrations",
+          "label": "Accounting Integrations",
+          "icon": "Bank",
+          "path": "/accounting-integrations",
+          "parent": "payroll",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "ACCOUNTING_INTEGRATIONS"
+          },
+          "source": "app/apps/data/apps/internal/accounting_integrations.json"
         },
         {
           "id": "global-payroll",
@@ -642,135 +659,24 @@
               "full",
               "partial"
             ],
-            "scopeForPartial": [
-              "payroll_admin"
-            ],
-            "productGate": "GLOBAL_PAYROLL",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavPayroll"
-            }
+            "productGate": "GLOBAL_PAYROLL"
           },
-          "source": "phase-1.7 research (manual cleanup)"
+          "source": "app/apps/data/apps/internal/international_payroll.json"
         },
         {
-          "id": "my-pay",
-          "label": "My Pay",
-          "icon": "Wallet",
-          "path": "/my-pay",
-          "parent": "payroll",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "manager",
-              "ee"
-            ]
-          },
-          "source": "phase-1.7 research (manual cleanup)"
-        },
-        {
-          "id": "job-codes",
-          "label": "Job Codes",
-          "icon": "Tag",
-          "path": "/payroll/dashboard/job-codes",
+          "id": "variable-compensation",
+          "label": "Variable Compensation",
+          "icon": "ChartLineUp",
+          "path": "/variable-compensation",
           "parent": "payroll",
           "visibility": {
             "personas": [
               "full",
               "partial"
             ],
-            "scopeForPartial": [
-              "payroll_admin"
-            ],
-            "productGate": "PAYROLL",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavPayroll"
-            }
+            "productGate": "VARIABLE_COMPENSATION"
           },
-          "source": "phase-1.7 research (manual cleanup)"
-        },
-        {
-          "id": "tax-filings",
-          "label": "Tax Filings",
-          "icon": "FileText",
-          "path": "/payroll/dashboard/taxPayments",
-          "parent": "payroll",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "payroll_admin"
-            ],
-            "productGate": "PAYROLL",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavPayroll"
-            }
-          },
-          "source": "phase-1.7 research (manual cleanup)"
-        },
-        {
-          "id": "accounting-integrations",
-          "label": "Accounting",
-          "icon": "BookOpen",
-          "path": "/accounting-integrations",
-          "parent": "payroll",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "payroll_admin"
-            ],
-            "productGate": "ACCOUNTING_INTEGRATIONS",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavPayroll"
-            }
-          },
-          "source": "phase-1.7 research (manual cleanup)"
-        },
-        {
-          "id": "contractor-of-record",
-          "label": "Contractor of Record",
-          "icon": "Briefcase",
-          "path": "/global-contractors-standalone",
-          "parent": "payroll",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "payroll_admin"
-            ],
-            "productGate": "GLOBAL_CONTRACTOR",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavPayroll"
-            }
-          },
-          "source": "phase-1.7 research (manual cleanup)"
+          "source": "app/variable_compensation/variable_compensation_unity_config.py:35 (Unity custom app)"
         }
       ]
     },
@@ -835,10 +741,7 @@
             "scopeForPartial": [
               "spend_provisioned"
             ],
-            "productGate": "SPENDMANAGEMENT",
-            "conditions": [
-              "dropped_if_overview_present_for_full_admin"
-            ]
+            "productGate": "SPENDMANAGEMENT"
           },
           "source": "rippling-main:spend_management/super_app/link_configs.py:61-84"
         },
@@ -1154,24 +1057,22 @@
         {
           "id": "time-overview",
           "label": "Time Overview",
-          "icon": "COMBO_CHART_OUTLINE",
+          "icon": "ChartBar",
           "path": "/time-products/dashboard/overview",
           "parent": "time",
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "manager"
+              "partial"
             ],
-            "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_time_overview"
+            "productGate": "TIME_PLATFORM"
           },
-          "source": "rippling-main/app/time_products/types/constants.py:9-10, rippling-main/app/apps/utils/dummy_apps.py:188-198"
+          "source": "app/time_products/types/constants.py NAV_FEATURE_ORDER:10 + permissioned_features_helpers.py:final_overview_nav_config"
         },
         {
           "id": "my-time",
           "label": "My Time",
-          "icon": "USER_OUTLINE",
+          "icon": "User",
           "path": "/time-products/dashboard/my-time",
           "parent": "time",
           "visibility": {
@@ -1180,17 +1081,15 @@
               "partial",
               "manager",
               "ee"
-            ],
-            "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_my_time"
+            ]
           },
-          "source": "rippling-main/app/time_products/types/constants.py:10-11, rippling-main/app/apps/utils/dummy_apps.py:199-208"
+          "source": "NAV_FEATURE_ORDER:20 + final_my_time_nav_config"
         },
         {
-          "id": "schedule",
-          "label": "Schedules",
-          "icon": "CALENDAR_OUTLINE",
-          "path": "/time-products/dashboard/schedules",
+          "id": "time-approvals",
+          "label": "Approvals",
+          "icon": "CheckSquare",
+          "path": "/time-products/dashboard/approvals",
           "parent": "time",
           "visibility": {
             "personas": [
@@ -1198,46 +1097,144 @@
               "partial",
               "manager"
             ],
-            "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_schedules"
+            "productGate": "TIME_PLATFORM"
           },
-          "source": "rippling-main/app/time_products/types/constants.py:12-13, rippling-main/app/apps/utils/dummy_apps.py:209-218"
+          "source": "NAV_FEATURE_ORDER:30 + final_approval_nav_config"
+        },
+        {
+          "id": "schedule",
+          "label": "Schedules",
+          "icon": "Calendar",
+          "path": "/time-products/dashboard/schedules",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:40 + final_schedule_nav_config"
         },
         {
           "id": "timecards",
           "label": "Timecards",
-          "icon": "OVERTIME_POLICY_OUTLINE",
+          "icon": "Clock",
           "path": "/time-products/dashboard/timecards",
           "parent": "time",
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "manager",
-              "ee"
+              "partial"
             ],
-            "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_timecards"
+            "productGate": "TIME_PLATFORM"
           },
-          "source": "rippling-main/app/time_products/types/constants.py:13-14, rippling-main/app/apps/utils/dummy_apps.py:219-228, rippling-main/app/apps/utils/navigation_bar.py:680-685"
+          "source": "NAV_FEATURE_ORDER:50 + final_timecards_nav_config"
+        },
+        {
+          "id": "attendance",
+          "label": "Attendance",
+          "icon": "Star",
+          "path": "/time-products/dashboard/attendance",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:60 + final_attendance_nav_config"
+        },
+        {
+          "id": "data-sources",
+          "label": "Data Sources",
+          "icon": "Database",
+          "path": "/time-products/dashboard/data-sources",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:70 + final_data_sources_nav_config"
         },
         {
           "id": "time-off-tracking",
           "label": "Time Off",
-          "icon": "LEAVE_MANAGEMENT_OUTLINED",
+          "icon": "Airplane",
           "path": "/time-products/dashboard/time-off",
           "parent": "time",
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "manager",
-              "ee"
+              "partial"
             ],
-            "productGate": "TIME_PLATFORM",
-            "permissionGate": "can_role_access_time_off"
+            "productGate": "TIME_PLATFORM"
           },
-          "source": "rippling-main/app/time_products/types/constants.py:16-17, rippling-main/app/apps/utils/dummy_apps.py:229-238"
+          "source": "NAV_FEATURE_ORDER:80 + final_time_off_nav_config"
+        },
+        {
+          "id": "time-policies",
+          "label": "Policies",
+          "icon": "ListChecks",
+          "path": "/time-products/dashboard/policies",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:90 + final_policies_nav_config"
+        },
+        {
+          "id": "time-people",
+          "label": "People",
+          "icon": "Users",
+          "path": "/time-products/dashboard/people",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:100 + final_people_nav_config"
+        },
+        {
+          "id": "kiosk-management",
+          "label": "Timeclock Management",
+          "icon": "DeviceTablet",
+          "path": "/time-products/dashboard/kiosk-management",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:110 + final_kiosk_nav_config"
+        },
+        {
+          "id": "time-settings",
+          "label": "Time Settings",
+          "icon": "Gear",
+          "path": "/time-products/dashboard/settings",
+          "parent": "time",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "TIME_PLATFORM"
+          },
+          "source": "NAV_FEATURE_ORDER:120 + final_settings_nav_config"
         }
       ]
     },
