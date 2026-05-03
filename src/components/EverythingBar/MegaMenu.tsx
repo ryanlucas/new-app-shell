@@ -216,14 +216,67 @@ function BrowseTwoPane({
       }}
     >
       <div className="flex w-[300px] flex-col py-2">
-        {groupedSuites.map((g, gi) => (
-          <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
-            <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
-              {g.group.label}
-            </div>
-            {g.suites.map((s) => (
-              <div key={s.id}>
+        {groupedSuites.map((g, gi) => {
+          // Special case: a suite-group containing exactly one suite that
+          // has appGroups elevates the suite's label to eyebrow and renders
+          // the appGroups as the L2 rows. Keeps the catalog hierarchy but
+          // collapses redundant nesting in the UI.
+          const elevated =
+            g.suites.length === 1 && g.suites[0].appGroups && g.suites[0].appGroups.length > 0
+              ? g.suites[0]
+              : null
+          if (elevated) {
+            const ownedSuite = ownedSuites.has(elevated.id)
+            return (
+              <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
+                <div
+                  onMouseEnter={() => {
+                    handleSuiteHover(elevated.id)
+                    setActiveAppGroup(null)
+                  }}
+                  className="flex items-center gap-2 px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400"
+                >
+                  <Icon name={elevated.icon} size={11} className="shrink-0 text-neutral-400" />
+                  <span className="flex-1 truncate">{elevated.label}</span>
+                </div>
+                {[...elevated.appGroups!]
+                  .sort((a, b) => a.order - b.order)
+                  .map((sub) => (
+                    <button
+                      key={sub.id}
+                      type="button"
+                      onMouseEnter={() => {
+                        handleSuiteHover(elevated.id)
+                        setActiveAppGroup(sub.id)
+                      }}
+                      onClick={() => {
+                        if (ownedSuite) {
+                          handleSuiteHover(elevated.id)
+                          setActiveAppGroup(sub.id)
+                        }
+                      }}
+                      className={cn(
+                        'flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px]',
+                        activeId === elevated.id && activeAppGroup === sub.id
+                          ? 'bg-neutral-100 text-neutral-900'
+                          : 'text-neutral-700 hover:bg-neutral-50 hover:text-neutral-900',
+                      )}
+                    >
+                      <span className="flex-1 truncate">{sub.label}</span>
+                    </button>
+                  ))}
+              </div>
+            )
+          }
+
+          return (
+            <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
+              <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                {g.group.label}
+              </div>
+              {g.suites.map((s) => (
                 <SuiteRow
+                  key={s.id}
                   suite={s}
                   active={s.id === activeId}
                   locked={!ownedSuites.has(s.id)}
@@ -237,32 +290,10 @@ function BrowseTwoPane({
                       : setActiveId(s.id)
                   }
                 />
-                {s.id === activeId && s.appGroups?.length ? (
-                  <div className="ml-3 border-l border-neutral-200">
-                    {[...s.appGroups]
-                      .sort((a, b) => a.order - b.order)
-                      .map((sub) => (
-                        <button
-                          key={sub.id}
-                          type="button"
-                          onMouseEnter={() => setActiveAppGroup(sub.id)}
-                          onClick={() => setActiveAppGroup(sub.id)}
-                          className={cn(
-                            'flex w-full items-center gap-2 px-3 py-1 text-left text-[12px]',
-                            activeAppGroup === sub.id
-                              ? 'bg-neutral-100 text-neutral-900'
-                              : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900',
-                          )}
-                        >
-                          <span className="flex-1 truncate">{sub.label}</span>
-                        </button>
-                      ))}
-                  </div>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        ))}
+              ))}
+            </div>
+          )
+        })}
       </div>
       <div className="w-px self-stretch bg-neutral-200" />
 
