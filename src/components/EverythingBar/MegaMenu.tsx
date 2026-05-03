@@ -1,14 +1,12 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Lock, Star } from '@phosphor-icons/react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { CaretRight, Lock, Star } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
-import type { App, Suite, SuiteGroupDef } from '@/lib/types.ts'
+import type { App, Suite } from '@/lib/types.ts'
 import { Icon } from '@/lib/icon.tsx'
-import {
-  resolve,
-  buildConditionSet,
-  type ResolveContext,
-} from '@/lib/visibility.ts'
-import { deriveSpine, FAVORITES_FLOOR, type L1Entry } from '@/lib/derive.ts'
+import { resolve, buildConditionSet, type ResolveContext } from '@/lib/visibility.ts'
+import { deriveSpine, FAVORITES_FLOOR, type L1Entry, type VisibleAppGroup } from '@/lib/derive.ts'
 import { cn } from '@/lib/cn.ts'
 import { useHud } from '@/state/HudContext.tsx'
 import { useFavorites } from '@/state/FavoritesContext.tsx'
@@ -49,24 +47,15 @@ export function MegaMenu({ catalog, query, onSelect }: Props) {
   )
 
   const q = query.trim().toLowerCase()
-
   if (q) {
-    return <SearchResults catalog={catalog} ctx={ctx} ownedSuites={ownedSuites} q={q} onSelect={onSelect} />
+    return <SearchResults catalog={catalog} ctx={ctx} q={q} onSelect={onSelect} />
   }
-
-  return <BrowseTwoPane catalog={catalog} ctx={ctx} ownedSuites={ownedSuites} onSelect={onSelect} />
+  return <BrowseList catalog={catalog} ctx={ctx} ownedSuites={ownedSuites} onSelect={onSelect} />
 }
 
-/** Stable key for an L1 entry. Used as activeKey for hover/selection. */
-function entryKey(e: L1Entry): string {
-  if (e.kind === 'suite') return `s:${e.suite.id}`
-  if (e.kind === 'group') return `g:${e.suite.id}/${e.group.id}`
-  if (e.kind === 'my-cluster') return `my:cluster`
-  if (e.kind === 'favorites') return `fav:cluster`
-  return `a:${e.app.id}`
-}
+// ─── Browse mode (single column with flyouts) ──────────────────────────
 
-function BrowseTwoPane({
+function BrowseList({
   catalog,
   ctx,
   ownedSuites,
@@ -88,8 +77,7 @@ function BrowseTwoPane({
 
   // Standalone product context: when only one non-utility suite is owned,
   // show "Rippling [Suite]" as a header so the user knows which product
-  // they're using. Utility suites (custom-apps, data, tools, settings)
-  // don't count as the primary product.
+  // they're using.
   const standaloneProductLabel = useMemo(() => {
     const UTILITY = new Set(['custom-apps', 'studio', 'data', 'tools', 'settings'])
     const primary = [...ownedSuites].filter((id) => !UTILITY.has(id))
@@ -100,17 +88,15 @@ function BrowseTwoPane({
   }, [ownedSuites, catalog.suites.suites])
 
   // In standalone mode, expand any flat my-* app at L1 into its L3
-  // sub-tabs. Gives the user real navigation when there's barely any
-  // content in the menu. In multi-suite mode, my-* apps stay as flat
-  // entries; their L3 surfaces in the right pane on hover.
+  // sub-tabs.
   const spine = useMemo(() => {
     if (!standaloneProductLabel) return rawSpine
     const expanded: L1Entry[] = []
     for (const e of rawSpine.entries) {
-      const isMy =
+      if (
         e.kind === 'app' &&
         (e.app.id.startsWith('my-') || e.app.label.startsWith('My '))
-      if (isMy && e.kind === 'app') {
+      ) {
         const l3 = catalog.apps[e.app.id]
         const nav = (l3?.nav as Array<{
           id: string
@@ -141,8 +127,6 @@ function BrowseTwoPane({
     return { entries: expanded }
   }, [rawSpine, catalog.apps, standaloneProductLabel])
 
-  // Favorites feature is "on" only when content density crosses the floor.
-  // Toggle UI is hidden below this — there's no point in starring 3 items.
   const totalVisibleApps = useMemo(() => {
     let n = 0
     for (const s of catalog.suites.suites) {
@@ -154,387 +138,255 @@ function BrowseTwoPane({
   }, [catalog.suites.suites, ctx])
   const favoritesEnabled = totalVisibleApps >= FAVORITES_FLOOR
 
-  // First entry wins as initial active (any kind — flat apps now show a
-  // graphical preview pane too).
-  const [activeKey, setActiveKey] = useState<string>(() =>
-    spine.entries[0] ? entryKey(spine.entries[0]) : '',
-  )
+  const isPersonal = (e: L1Entry): boolean => {
+    if (e.kind === 'my-cluster' || e.kind === 'favorites') return true
+    if (e.kind === 'app')
+      return !!(e.app.pinAtL1 || e.app.id.startsWith('my-') || e.app.label.startsWith('My '))
+    return false
+  }
+  const isPlatform = (e: L1Entry): boolean => {
+    if (e.kind === 'suite') return e.suite.group === 'platform'
+    if (e.kind === 'group') return e.suite.group === 'platform'
+    if (e.kind === 'app') return e.suite.group === 'platform'
+    return false
+  }
 
-  // Keep activeKey valid as the spine changes (plan/persona toggle).
-  useEffect(() => {
-    if (!spine.entries.some((e) => entryKey(e) === activeKey)) {
-      setActiveKey(spine.entries[0] ? entryKey(spine.entries[0]) : '')
-    }
-  }, [spine.entries, activeKey])
+  const myEntries = spine.entries.filter(isPersonal)
+  const otherEntries = spine.entries.filter((e) => !isPersonal(e))
+  const myOtherSepHandlesPlatform =
+    myEntries.length > 0 && otherEntries.length > 0 && isPlatform(otherEntries[0])
+  let insertedPlatformSep = myOtherSepHandlesPlatform
 
-  // ── Safe-triangle hover intent ──────────────────────────────────────────
-  const intentRef = useRef<{
-    timer: ReturnType<typeof setTimeout> | null
-    pendingKey: string | null
-  }>({ timer: null, pendingKey: null })
-  const lastMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
-  const rightPanelRef = useRef<HTMLDivElement>(null)
-
-  const handleEntryHover = useCallback(
-    (key: string) => {
-      if (key === activeKey) {
-        if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-        intentRef.current.pendingKey = null
-        return
-      }
-      const panel = rightPanelRef.current
-      if (!panel) {
-        setActiveKey(key)
-        return
-      }
-      const panelRect = panel.getBoundingClientRect()
-      const mouse = lastMousePos.current
-      const movingRight = mouse.x > 0 && mouse.x < panelRect.left
-      if (movingRight) {
-        if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-        intentRef.current.pendingKey = key
-        intentRef.current.timer = setTimeout(() => {
-          setActiveKey(key)
-          intentRef.current.pendingKey = null
-        }, 60)
-      } else {
-        if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-        intentRef.current.pendingKey = null
-        setActiveKey(key)
-      }
-    },
-    [activeKey],
-  )
-
-  const handleRightEnter = useCallback(() => {
-    if (intentRef.current.pendingKey) {
-      if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-      intentRef.current.pendingKey = null
-    }
-  }, [])
-
-  const activeEntry = spine.entries.find((e) => entryKey(e) === activeKey) ?? null
-  // Right pane only meaningful when at least one entry can populate it
-  // (suite, promoted group, or my-cluster). All-flat L1 → no pane.
-  const hasPaneCapableEntry = spine.entries.some(
-    (e) => e.kind === 'suite' || e.kind === 'group' || e.kind === 'my-cluster',
-  )
-
-  // Apps to show in the right pane for the active entry.
-  type ShownApp = { app: App; linkedFrom?: Suite }
-  const rightPane = useMemo<{
-    apps: ShownApp[]
-    showGroups: boolean
-    suite?: Suite
-    title?: string
-  }>(() => {
-    if (!activeEntry) return { apps: [], showGroups: false }
-    if (activeEntry.kind === 'suite') {
-      // Suite-with-pane: show its visible apps grouped by visibleGroups +
-      // ungrouped flat. Cross-listed apps are already included by
-      // `buildResolvedTree` (don't re-iterate appearsIn here or they double).
-      // Annotate cross-listed entries with `linkedFrom` for the UI.
-      const suite = activeEntry.suite
-      const ownerById = new Map<string, Suite>()
-      for (const s of catalog.suites.suites) {
-        for (const a of s.apps) {
-          if (!ownerById.has(a.id)) ownerById.set(a.id, s)
-        }
-      }
-      const annotate = (app: App): ShownApp => {
-        const owner = ownerById.get(app.id)
-        return owner && owner.id !== suite.id ? { app, linkedFrom: owner } : { app }
-      }
-      const direct: ShownApp[] = activeEntry.visibleApps.map(annotate)
-      const fromGroups: ShownApp[] = activeEntry.visibleGroups.flatMap((vg) =>
-        vg.apps.map(annotate),
+  const renderEntry = (e: L1Entry) => {
+    if (e.kind === 'suite') {
+      return (
+        <SuiteFlyout
+          key={`s:${e.suite.id}`}
+          suite={e.suite}
+          visibleApps={e.visibleApps}
+          visibleGroups={e.visibleGroups}
+          ownedSuites={ownedSuites}
+          catalog={catalog}
+          favoritesEnabled={favoritesEnabled}
+          isFavorite={isFavorite}
+          onToggleFavorite={toggleFavorite}
+          onSelect={onSelect}
+        />
       )
-      // Dedup by id (defense-in-depth — the resolver should already not
-      // surface the same app twice in one suite's tree).
-      const seen = new Set<string>()
-      const apps: ShownApp[] = []
-      for (const e of [...fromGroups, ...direct]) {
-        if (seen.has(e.app.id)) continue
-        seen.add(e.app.id)
-        apps.push(e)
-      }
-      return {
-        apps,
-        showGroups: activeEntry.visibleGroups.length > 0,
-        suite,
-        title: suite.label,
-      }
     }
-    if (activeEntry.kind === 'group') {
-      // Promoted appGroup: render its apps as a flat list.
-      return {
-        apps: activeEntry.visibleApps.map((app) => ({ app })),
-        showGroups: false,
-        suite: activeEntry.suite,
-        title: activeEntry.group.label,
-      }
+    if (e.kind === 'group') {
+      return (
+        <GroupFlyout
+          key={`g:${e.suite.id}/${e.group.id}`}
+          suite={e.suite}
+          group={e.group}
+          apps={e.visibleApps}
+          favoritesEnabled={favoritesEnabled}
+          isFavorite={isFavorite}
+          onToggleFavorite={toggleFavorite}
+          onSelect={onSelect}
+        />
+      )
     }
-    if (activeEntry.kind === 'my-cluster') {
-      // Density-conditional My-Rippling cluster: flat list of personal apps.
-      return {
-        apps: activeEntry.apps.map(({ app }) => ({ app })),
-        showGroups: false,
-        title: 'My Rippling',
-      }
+    if (e.kind === 'my-cluster') {
+      return (
+        <ClusterFlyout
+          key="my-cluster"
+          icon="UserCircle"
+          label="My Rippling"
+          apps={e.apps.map(({ app }) => app)}
+          favoritesEnabled={favoritesEnabled}
+          isFavorite={isFavorite}
+          onToggleFavorite={toggleFavorite}
+          onSelect={onSelect}
+        />
+      )
     }
-    if (activeEntry.kind === 'favorites') {
-      return {
-        apps: activeEntry.apps.map(({ app }) => ({ app })),
-        showGroups: false,
-        title: 'Favorites',
-      }
+    if (e.kind === 'favorites') {
+      return (
+        <ClusterFlyout
+          key="fav-cluster"
+          customIcon={<Star size={15} weight="duotone" className="shrink-0 text-neutral-600" />}
+          label="Favorites"
+          apps={e.apps.map(({ app }) => app)}
+          favoritesEnabled={favoritesEnabled}
+          isFavorite={isFavorite}
+          onToggleFavorite={toggleFavorite}
+          onSelect={onSelect}
+        />
+      )
     }
-    // Flattened single app — no pane content.
-    return { apps: [], showGroups: false }
-  }, [activeEntry, catalog.suites.suites, ctx])
+    // Flat app — has L3? open flyout. Else direct nav.
+    return (
+      <AppL1Row
+        key={`a:${e.app.id}`}
+        app={e.app}
+        suite={e.suite}
+        catalog={catalog}
+        favoritesEnabled={favoritesEnabled}
+        isFavorite={isFavorite}
+        onToggleFavorite={toggleFavorite}
+        onSelect={onSelect}
+      />
+    )
+  }
+
+  const renderOther = (e: L1Entry) => {
+    if (!insertedPlatformSep && isPlatform(e)) {
+      insertedPlatformSep = true
+      return (
+        <div key={`sep-${entryKey(e)}`}>
+          <hr className="mx-4 my-2 border-neutral-200" />
+          {renderEntry(e)}
+        </div>
+      )
+    }
+    return renderEntry(e)
+  }
 
   return (
-    <div
-      className="flex flex-col"
-      onMouseMove={(e) => {
-        lastMousePos.current = { x: e.clientX, y: e.clientY }
-      }}
-    >
+    <div className="flex flex-col">
       {standaloneProductLabel && (
-        <div className="border-b border-neutral-200 px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
+        <div className="bg-neutral-50 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-400">
           {standaloneProductLabel}
         </div>
       )}
-      <div className="flex">
-      <div
-        className={cn(
-          'flex flex-col py-2',
-          hasPaneCapableEntry
-            ? 'w-fit min-w-[220px] max-w-[340px]'
-            : 'w-full flex-1',
+      <div className="flex w-[300px] flex-col py-2">
+        {myEntries.map(renderEntry)}
+        {myEntries.length > 0 && otherEntries.length > 0 && (
+          <hr className="mx-4 my-2 border-neutral-200" />
         )}
-      >
-        {spine.collapsed && (
-          <div className="px-4 pb-1 pt-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
-            {spine.collapsed.suite.label}
-          </div>
-        )}
-        {(() => {
-          // Pull personal items (pinAtL1 like Inbox + my-prefixed apps) to the
-          // top of the L1 list and divide them from the rest with a horizontal
-          // rule. The my-cluster (when threshold fires) also belongs in the
-          // personal zone.
-          const isPersonal = (e: L1Entry) =>
-            e.kind === 'my-cluster' ||
-            e.kind === 'favorites' ||
-            (e.kind === 'app' &&
-              (e.app.pinAtL1 ||
-                e.app.id.startsWith('my-') ||
-                e.app.label.startsWith('My ')))
-          const myEntries = spine.entries.filter(isPersonal)
-          const otherEntries = spine.entries.filter((e) => !isPersonal(e))
-
-          const renderEntry = (e: L1Entry) => {
-            const key = entryKey(e)
-            const isActive = key === activeKey
-            if (e.kind === 'suite') {
-              return (
-                <SuiteRow
-                  key={key}
-                  suite={e.suite}
-                  active={isActive}
-                  locked={!ownedSuites.has(e.suite.id)}
-                  onHover={() => handleEntryHover(key)}
-                  onClick={() => onSelect({ kind: 'suite', id: e.suite.id, label: e.suite.label })}
-                />
-              )
-            }
-            if (e.kind === 'group') {
-              return (
-                <GroupRow
-                  key={key}
-                  suite={e.suite}
-                  group={e.group}
-                  active={isActive}
-                  onHover={() => handleEntryHover(key)}
-                />
-              )
-            }
-            if (e.kind === 'my-cluster') {
-              return (
-                <MyClusterRow
-                  key={key}
-                  active={isActive}
-                  onHover={() => handleEntryHover(key)}
-                />
-              )
-            }
-            if (e.kind === 'favorites') {
-              return (
-                <FavoritesClusterRow
-                  key={key}
-                  active={isActive}
-                  onHover={() => handleEntryHover(key)}
-                />
-              )
-            }
-            return (
-              <FlatAppRow
-                key={key}
-                app={e.app}
-                suite={e.suite}
-                active={isActive}
-                onHover={() => handleEntryHover(key)}
-                onClick={() => onSelect({ kind: 'app', id: e.app.id, label: e.app.label })}
-              />
-            )
-          }
-
-          // Insert a separator the first time we render a platform-group
-          // entry (Data, Studio/custom-apps, Tools, Settings) — divides
-          // product suites from cross-cutting tooling.
-          const isPlatform = (e: L1Entry): boolean => {
-            if (e.kind === 'suite') return e.suite.group === 'platform'
-            if (e.kind === 'group') return e.suite.group === 'platform'
-            if (e.kind === 'app') return e.suite.group === 'platform'
-            return false
-          }
-          // If the first "other" entry is itself platform, the my/other
-          // separator already does the platform divider's job — don't
-          // double-up.
-          const myOtherSepHandlesPlatform =
-            myEntries.length > 0 &&
-            otherEntries.length > 0 &&
-            isPlatform(otherEntries[0])
-          let insertedPlatformSep = myOtherSepHandlesPlatform
-          const renderOther = (e: L1Entry) => {
-            if (!insertedPlatformSep && isPlatform(e)) {
-              insertedPlatformSep = true
-              return (
-                <div key={`sep-${entryKey(e)}`}>
-                  <hr className="mx-4 my-2 border-neutral-200" />
-                  {renderEntry(e)}
-                </div>
-              )
-            }
-            return renderEntry(e)
-          }
-
-          return (
-            <>
-              {myEntries.map(renderEntry)}
-              {myEntries.length > 0 && otherEntries.length > 0 && (
-                <hr className="mx-4 my-2 border-neutral-200" />
-              )}
-              {otherEntries.map(renderOther)}
-            </>
-          )
-        })()}
-      </div>
-      {hasPaneCapableEntry && (
-        <>
-          <div className="w-px self-stretch bg-neutral-200" />
-          <div
-            ref={rightPanelRef}
-            onMouseEnter={handleRightEnter}
-            className="flex flex-1 flex-col py-3"
-          >
-            {activeEntry && activeEntry.kind === 'app' ? (
-              (() => {
-                const l3 = catalog.apps[activeEntry.app.id]
-                const nav = (l3?.nav as Array<{
-                  id: string
-                  label: string
-                  icon?: string
-                  path?: string | null
-                }>) ?? []
-                if (nav.length >= 2) {
-                  return (
-                    <div className="max-h-[440px] overflow-y-auto">
-                      {nav.map((n) => (
-                        <AppRow
-                          key={`l3-${n.id}`}
-                          entry={{
-                            app: {
-                              id: n.id,
-                              label: n.label,
-                              icon: n.icon ?? activeEntry.app.icon,
-                              path: n.path ?? undefined,
-                              parent: activeEntry.suite.id,
-                            } as App,
-                          }}
-                          owned
-                          onSelect={onSelect}
-                        />
-                      ))}
-                    </div>
-                  )
-                }
-                return (
-                  <FlatAppEmptyState
-                    app={activeEntry.app}
-                    onClick={() =>
-                      onSelect({ kind: 'app', id: activeEntry.app.id, label: activeEntry.app.label })
-                    }
-                  />
-                )
-              })()
-            ) : activeEntry ? (
-              <div className="max-h-[440px] overflow-y-auto">
-                {rightPane.apps.length === 0 ? (
-                  <div className="px-3 py-4 text-xs text-neutral-400">
-                    No apps available.
-                  </div>
-                ) : rightPane.showGroups && activeEntry.kind === 'suite' ? (
-                  renderGroupedAppList(activeEntry, onSelect, {
-                    favoritesEnabled,
-                    isFavorite,
-                    onToggleFavorite: toggleFavorite,
-                  })
-                ) : (
-                  rightPane.apps.map((entry) => (
-                    <AppRow
-                      key={`${entry.linkedFrom?.id ?? 'self'}-${entry.app.id}`}
-                      entry={entry}
-                      owned
-                      onSelect={onSelect}
-                      favoritesEnabled={favoritesEnabled}
-                      isFavorite={isFavorite(entry.app.id)}
-                      onToggleFavorite={toggleFavorite}
-                    />
-                  ))
-                )}
-              </div>
-            ) : null}
-          </div>
-        </>
-      )}
+        {otherEntries.map(renderOther)}
       </div>
     </div>
   )
 }
 
-/** Render a suite-pane with dense appGroups as headers + ungrouped flat. */
-function renderGroupedAppList(
-  entry: Extract<L1Entry, { kind: 'suite' }>,
-  onSelect: (n: { kind: 'app' | 'suite'; id: string; label: string }) => void,
-  favs?: {
-    favoritesEnabled: boolean
-    isFavorite: (id: string) => boolean
-    onToggleFavorite: (id: string) => void
-  },
-) {
-  const favProps = (id: string) =>
-    favs
-      ? {
-          favoritesEnabled: favs.favoritesEnabled,
-          isFavorite: favs.isFavorite(id),
-          onToggleFavorite: favs.onToggleFavorite,
-        }
-      : {}
+function entryKey(e: L1Entry): string {
+  if (e.kind === 'suite') return `s:${e.suite.id}`
+  if (e.kind === 'group') return `g:${e.suite.id}/${e.group.id}`
+  if (e.kind === 'my-cluster') return 'my-cluster'
+  if (e.kind === 'favorites') return 'fav-cluster'
+  return `a:${e.app.id}`
+}
+
+// ─── Flyout primitive ──────────────────────────────────────────────────
+
+interface FlyoutContent {
+  /** Hero row pinned to the top — typically a suite-overview link. */
+  hero?: { label: string; onClick: () => void; icon?: string }
+  /** Grouped sections rendered with subheaders. */
+  groups?: VisibleAppGroup[]
+  /** Flat trailing apps (after groups). */
+  flat?: App[]
+  /** Whether to render the favorite-toggle on each app. */
+  favoritesEnabled?: boolean
+  isFavorite?: (id: string) => boolean
+  onToggleFavorite?: (id: string) => void
+  onSelect: (node: Selection) => void
+}
+
+interface FlyoutItemProps {
+  /** The trigger row content. */
+  trigger: React.ReactNode
+  /** Click on the trigger itself (e.g. to navigate to the suite landing). */
+  onTriggerClick?: () => void
+  /** What to render inside the flyout. */
+  content: FlyoutContent
+}
+
+function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
+  const [open, setOpen] = useState(false)
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
+  const buttonRef = useRef<HTMLDivElement>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const measure = () => {
+    if (!buttonRef.current) return
+    const rect = buttonRef.current.getBoundingClientRect()
+    const W = 300
+    const itemCount =
+      (content.hero ? 1 : 0) +
+      (content.groups?.reduce((n, g) => n + g.apps.length + 1, 0) ?? 0) +
+      (content.flat?.length ?? 0)
+    const H_MAX = Math.min(itemCount * 32 + 24, 480)
+    // Subtle overlap with the parent (macOS-style) — submenu starts a few
+    // pixels inside the parent's right edge so it visually butts up.
+    const OVERLAP = 10
+    const PAD = 8
+    let left = rect.right - OVERLAP
+    if (left + W > window.innerWidth - PAD) left = rect.left + OVERLAP - W
+    let top = rect.top
+    if (top + H_MAX > window.innerHeight - PAD) top = window.innerHeight - PAD - H_MAX
+    if (top < PAD) top = PAD
+    setPos({ top, left })
+  }
+
+  useLayoutEffect(() => {
+    if (open) measure()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open])
+
+  const handleEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpen(true)
+  }
+  const handleLeave = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => setOpen(false), 100)
+  }
+
   return (
-    <>
-      {entry.visibleGroups.map((vg) => (
+    <div ref={buttonRef} onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+      <button
+        type="button"
+        onClick={onTriggerClick}
+        className={cn(
+          'group/row flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px]',
+          open ? 'bg-neutral-100 text-neutral-900' : 'text-neutral-700 hover:bg-neutral-50',
+        )}
+      >
+        {trigger}
+        <CaretRight size={11} className="shrink-0 text-neutral-400" />
+      </button>
+
+      {open && pos &&
+        createPortal(
+          <div
+            onMouseEnter={handleEnter}
+            onMouseLeave={handleLeave}
+            style={{ position: 'fixed', top: pos.top, left: pos.left, zIndex: 60 }}
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -4 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.12 }}
+              className="w-[300px] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl"
+            >
+              <FlyoutBody content={content} />
+            </motion.div>
+          </div>,
+          document.body,
+        )}
+    </div>
+  )
+}
+
+function FlyoutBody({ content }: { content: FlyoutContent }) {
+  const { hero, groups, flat, favoritesEnabled, isFavorite, onToggleFavorite, onSelect } = content
+  return (
+    <div className="max-h-[480px] overflow-y-auto py-1.5">
+      {hero && (
+        <button
+          type="button"
+          onClick={hero.onClick}
+          className="flex w-full items-center gap-2.5 px-3 py-1.5 text-left text-[13px] text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900"
+        >
+          <Icon name={hero.icon} size={14} className="shrink-0 text-neutral-500" />
+          <span className="flex-1 truncate">{hero.label}</span>
+        </button>
+      )}
+      {groups?.map((vg) => (
         <div key={vg.group.id} className="mt-2 first:mt-0">
           <div className="px-3 pb-0.5 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
             {vg.group.label}
@@ -542,201 +394,290 @@ function renderGroupedAppList(
           {vg.apps.map((app) => (
             <AppRow
               key={`g-${app.id}`}
-              entry={{ app }}
-              owned
+              app={app}
               onSelect={onSelect}
-              {...favProps(app.id)}
+              favoritesEnabled={favoritesEnabled}
+              isFavorite={isFavorite?.(app.id)}
+              onToggleFavorite={onToggleFavorite}
             />
           ))}
         </div>
       ))}
-      {entry.visibleApps.length > 0 && (
-        <div className="mt-2">
-          {entry.visibleApps.map((app) => (
+      {flat && flat.length > 0 && (
+        <div className={cn(groups && groups.length > 0 && 'mt-2')}>
+          {flat.map((app) => (
             <AppRow
               key={`f-${app.id}`}
-              entry={{ app }}
-              owned
+              app={app}
               onSelect={onSelect}
-              {...favProps(app.id)}
+              favoritesEnabled={favoritesEnabled}
+              isFavorite={isFavorite?.(app.id)}
+              onToggleFavorite={onToggleFavorite}
             />
           ))}
         </div>
       )}
-    </>
+    </div>
   )
 }
 
-function FlatAppEmptyState({ app, onClick }: { app: App; onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex h-full min-h-[200px] w-full flex-col items-center justify-center gap-3 px-4 py-6 text-center hover:bg-neutral-50"
-    >
-      <div className="rounded-full bg-neutral-100 p-4">
-        <Icon name={app.icon} size={28} className="text-neutral-500" />
-      </div>
-      <div>
-        <div className="text-sm font-medium text-neutral-900">{app.label}</div>
-        <div className="mt-1 text-[11px] text-neutral-500">Click to open</div>
-      </div>
-    </button>
-  )
-}
+// ─── Specific row variants ─────────────────────────────────────────────
 
-function MyClusterRow({
-  active,
-  onHover,
-}: {
-  active: boolean
-  onHover: () => void
-}) {
-  return (
-    <button
-      type="button"
-      onMouseEnter={onHover}
-      className={cn(
-        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
-        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
-      )}
-    >
-      <Icon name="UserCircle" size={15} className="mt-0.5 shrink-0 text-neutral-600" />
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-[13px] font-medium text-neutral-900">My Rippling</div>
-      </div>
-    </button>
-  )
-}
-
-function FavoritesClusterRow({
-  active,
-  onHover,
-}: {
-  active: boolean
-  onHover: () => void
-}) {
-  return (
-    <button
-      type="button"
-      onMouseEnter={onHover}
-      className={cn(
-        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
-        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
-      )}
-    >
-      <Star size={15} weight="duotone" className="mt-0.5 shrink-0 text-neutral-600" />
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-[13px] font-medium text-neutral-900">Favorites</div>
-      </div>
-    </button>
-  )
-}
-
-function GroupRow({
-  suite: _suite,
-  group,
-  active,
-  onHover,
+function SuiteFlyout({
+  suite,
+  visibleApps,
+  visibleGroups,
+  ownedSuites,
+  catalog,
+  favoritesEnabled,
+  isFavorite,
+  onToggleFavorite,
+  onSelect,
 }: {
   suite: Suite
-  group: SuiteGroupDef
-  active: boolean
-  onHover: () => void
+  visibleApps: App[]
+  visibleGroups: VisibleAppGroup[]
+  ownedSuites: Set<string>
+  catalog: CatalogResponse
+  favoritesEnabled: boolean
+  isFavorite: (id: string) => boolean
+  onToggleFavorite: (id: string) => void
+  onSelect: (node: Selection) => void
 }) {
+  const locked = !ownedSuites.has(suite.id)
+  // Suite landing = '<suite>-overview' app, by convention. Some suites
+  // (Settings, Tools, Data, etc.) don't have one — no hero in that case.
+  const overviewId = `${suite.id}-overview`
+  const overviewApp =
+    suite.apps.find((a) => a.id === overviewId) ??
+    (catalog.apps[overviewId] ? ({ id: overviewId } as App) : null)
+  const heroLabel = `${suite.label} Overview`
+  const hero = overviewApp
+    ? {
+        label: heroLabel,
+        icon: suite.icon,
+        onClick: () => onSelect({ kind: 'app', id: overviewId, label: heroLabel }),
+      }
+    : undefined
+  // Strip the overview app from the rendered groups/flat so it's not
+  // shown twice (it's now the hero row, when present).
+  const filteredGroups = visibleGroups
+    .map((vg) => ({ ...vg, apps: vg.apps.filter((a) => a.id !== overviewId) }))
+    .filter((vg) => vg.apps.length > 0)
+  const filteredFlat = visibleApps.filter((a) => a.id !== overviewId)
+
   return (
-    <button
-      type="button"
-      onMouseEnter={onHover}
-      className={cn(
-        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
-        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
-      )}
-    >
-      <Icon
-        name={group.icon ?? 'FolderSimple'}
-        size={15}
-        className="mt-0.5 shrink-0 text-neutral-600"
-      />
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-[13px] font-medium text-neutral-900">{group.label}</div>
-      </div>
-    </button>
+    <FlyoutItem
+      trigger={
+        <>
+          <Icon
+            name={suite.icon}
+            size={14}
+            className={cn('shrink-0', locked ? 'text-neutral-400' : 'text-neutral-600')}
+          />
+          <span className={cn('flex-1 truncate', locked && 'text-neutral-500')}>{suite.label}</span>
+          {locked && <Lock size={10} className="shrink-0 text-neutral-300" />}
+        </>
+      }
+      onTriggerClick={
+        overviewApp
+          ? () => onSelect({ kind: 'app', id: overviewId, label: heroLabel })
+          : undefined
+      }
+      content={{
+        hero,
+        groups: filteredGroups,
+        flat: filteredFlat,
+        favoritesEnabled,
+        isFavorite,
+        onToggleFavorite,
+        onSelect,
+      }}
+    />
   )
 }
 
-function FlatAppRow({
+function GroupFlyout({
+  suite: _suite,
+  group,
+  apps,
+  favoritesEnabled,
+  isFavorite,
+  onToggleFavorite,
+  onSelect,
+}: {
+  suite: Suite
+  group: { id: string; label: string; icon?: string }
+  apps: App[]
+  favoritesEnabled: boolean
+  isFavorite: (id: string) => boolean
+  onToggleFavorite: (id: string) => void
+  onSelect: (node: Selection) => void
+}) {
+  return (
+    <FlyoutItem
+      trigger={
+        <>
+          <Icon
+            name={group.icon ?? 'FolderSimple'}
+            size={14}
+            className="shrink-0 text-neutral-600"
+          />
+          <span className="flex-1 truncate">{group.label}</span>
+        </>
+      }
+      content={{ flat: apps, favoritesEnabled, isFavorite, onToggleFavorite, onSelect }}
+    />
+  )
+}
+
+function ClusterFlyout({
+  icon,
+  customIcon,
+  label,
+  apps,
+  favoritesEnabled,
+  isFavorite,
+  onToggleFavorite,
+  onSelect,
+}: {
+  icon?: string
+  customIcon?: React.ReactNode
+  label: string
+  apps: App[]
+  favoritesEnabled: boolean
+  isFavorite: (id: string) => boolean
+  onToggleFavorite: (id: string) => void
+  onSelect: (node: Selection) => void
+}) {
+  return (
+    <FlyoutItem
+      trigger={
+        <>
+          {customIcon ?? (
+            <Icon name={icon ?? 'FolderSimple'} size={14} className="shrink-0 text-neutral-600" />
+          )}
+          <span className="flex-1 truncate">{label}</span>
+        </>
+      }
+      content={{ flat: apps, favoritesEnabled, isFavorite, onToggleFavorite, onSelect }}
+    />
+  )
+}
+
+function AppL1Row({
   app,
-  suite,
-  active,
-  onHover,
-  onClick,
+  suite: _suite,
+  catalog,
+  favoritesEnabled,
+  isFavorite,
+  onToggleFavorite,
+  onSelect,
 }: {
   app: App
   suite: Suite
-  active: boolean
-  onHover: () => void
-  onClick: () => void
+  catalog: CatalogResponse
+  favoritesEnabled: boolean
+  isFavorite: (id: string) => boolean
+  onToggleFavorite: (id: string) => void
+  onSelect: (node: Selection) => void
 }) {
+  // L3 flyouts are reserved for my-* apps where the sub-tabs are real
+  // peer destinations (my-it → My Devices / My Apps / My Password).
+  // Other apps' L3 tabs are internal to the app and shouldn't be
+  // surfaced from the menu.
+  const isMyApp = app.id.startsWith('my-') || app.label.startsWith('My ')
+  const l3 = isMyApp ? catalog.apps[app.id] : null
+  const nav = (l3?.nav as Array<{
+    id: string
+    label: string
+    icon?: string
+    path?: string | null
+  }>) ?? []
+
+  if (nav.length >= 2) {
+    const subApps: App[] = nav.map(
+      (n) =>
+        ({
+          id: n.id,
+          label: n.label,
+          icon: n.icon ?? app.icon,
+          path: n.path ?? undefined,
+          parent: app.parent,
+        }) as App,
+    )
+    return (
+      <FlyoutItem
+        trigger={
+          <>
+            <Icon name={app.icon} size={14} className="shrink-0 text-neutral-600" />
+            <span className="flex-1 truncate">{app.label}</span>
+          </>
+        }
+        onTriggerClick={() => onSelect({ kind: 'app', id: app.id, label: app.label })}
+        content={{ flat: subApps, favoritesEnabled, isFavorite, onToggleFavorite, onSelect }}
+      />
+    )
+  }
+
   return (
-    <button
-      type="button"
-      onMouseEnter={onHover}
-      onClick={onClick}
-      className={cn(
-        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
-        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+    <div className="group/row relative hover:bg-neutral-50">
+      <button
+        type="button"
+        onClick={() => onSelect({ kind: 'app', id: app.id, label: app.label })}
+        className="flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px] text-neutral-700 group-hover/row:text-neutral-900"
+      >
+        <Icon name={app.icon} size={14} className="shrink-0 text-neutral-600" />
+        <span className="flex-1 truncate">{app.label}</span>
+        {favoritesEnabled && <span className="w-[15px] shrink-0" aria-hidden />}
+      </button>
+      {favoritesEnabled && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            onToggleFavorite(app.id)
+          }}
+          title={isFavorite(app.id) ? 'Remove from favorites' : 'Add to favorites'}
+          className={cn(
+            'absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded p-0.5 transition-colors',
+            isFavorite(app.id)
+              ? 'text-neutral-700'
+              : 'text-neutral-300 hover:text-neutral-700 group-hover/row:text-neutral-500',
+          )}
+        >
+          <Star size={13} weight={isFavorite(app.id) ? 'fill' : 'regular'} />
+        </button>
       )}
-      title={`${suite.label} · ${app.label}`}
-    >
-      <Icon name={app.icon} size={15} className="mt-0.5 shrink-0 text-neutral-600" />
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-[13px] font-medium text-neutral-900">{app.label}</div>
-      </div>
-    </button>
+    </div>
   )
 }
 
 function AppRow({
-  entry,
-  owned,
+  app,
   onSelect,
   favoritesEnabled,
   isFavorite,
   onToggleFavorite,
 }: {
-  entry: { app: App; linkedFrom?: Suite }
-  owned: boolean
-  onSelect: (n: { kind: 'app' | 'suite'; id: string; label: string }) => void
+  app: App
+  onSelect: (node: Selection) => void
   favoritesEnabled?: boolean
   isFavorite?: boolean
   onToggleFavorite?: (id: string) => void
 }) {
-  const { app, linkedFrom } = entry
   return (
-    <div
-      className={cn(
-        'group/row flex w-full items-center gap-2.5 px-3 py-1.5 text-[13px]',
-        owned
-          ? 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900'
-          : 'cursor-default text-neutral-400',
-      )}
-    >
+    <div className="group/row relative hover:bg-neutral-100">
       <button
         type="button"
-        onClick={() => (owned ? onSelect({ kind: 'app', id: app.id, label: app.label }) : undefined)}
-        disabled={!owned}
-        title={linkedFrom ? `Linked from ${linkedFrom.label}` : undefined}
-        className="flex flex-1 items-center gap-2.5 text-left"
+        onClick={() => onSelect({ kind: 'app', id: app.id, label: app.label })}
+        className="flex w-full items-center gap-2.5 px-3 py-1.5 text-left text-[13px] text-neutral-700 group-hover/row:text-neutral-900"
       >
-        <Icon name={app.icon} size={14} className={owned ? 'text-neutral-500' : 'text-neutral-300'} />
+        <Icon name={app.icon} size={14} className="shrink-0 text-neutral-500" />
         <span className="flex-1 truncate">{app.label}</span>
-        {linkedFrom && (
-          <span className="text-[10px] text-neutral-400">{linkedFrom.label}</span>
-        )}
-        {!owned && <Lock size={11} className="text-neutral-300" />}
+        {favoritesEnabled && <span className="w-[15px] shrink-0" aria-hidden />}
       </button>
-      {favoritesEnabled && owned && (
+      {favoritesEnabled && (
         <button
           type="button"
           onClick={(e) => {
@@ -744,144 +685,69 @@ function AppRow({
             onToggleFavorite?.(app.id)
           }}
           title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
           className={cn(
-            'shrink-0 rounded p-0.5 transition-colors',
+            'absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded p-0.5 transition-colors',
             isFavorite
               ? 'text-neutral-700'
               : 'text-neutral-300 hover:text-neutral-700 group-hover/row:text-neutral-500',
           )}
         >
-          <Star size={14} weight={isFavorite ? 'fill' : 'regular'} />
+          <Star size={13} weight={isFavorite ? 'fill' : 'regular'} />
         </button>
       )}
     </div>
   )
 }
 
+// ─── Search results (unchanged behavior) ──────────────────────────────
 
 function SearchResults({
   catalog,
   ctx,
-  ownedSuites,
   q,
   onSelect,
 }: {
   catalog: CatalogResponse
   ctx: ResolveContext
-  ownedSuites: Set<string>
   q: string
   onSelect: (node: Selection) => void
 }) {
   const matches = (label: string) => label.toLowerCase().includes(q)
 
-  type Hit =
-    | { kind: 'suite'; suite: Suite }
-    | { kind: 'app'; app: App; suite: Suite }
-
-  // Search only over things the user can actually access. No locked / not-
-  // owned tiles in search results — those add noise for non-admins.
+  type Hit = { app: App; suite: Suite }
   const hits: Hit[] = []
   for (const suite of catalog.suites.suites) {
-    const suiteOwned = ownedSuites.has(suite.id)
-    if (suiteOwned && matches(suite.label)) hits.push({ kind: 'suite', suite })
     for (const app of suite.apps) {
       if (!matches(app.label)) continue
       if (resolve(app, { ...ctx, suiteId: suite.id }) !== 'visible') continue
-      hits.push({ kind: 'app', app, suite })
+      hits.push({ app, suite })
     }
   }
 
   if (hits.length === 0) {
     return (
-      <div className="w-[520px] px-6 py-12 text-center text-sm text-neutral-500">
-        No apps or suites match "{q}".
+      <div className="w-[420px] px-6 py-12 text-center text-sm text-neutral-500">
+        No apps match "{q}".
       </div>
     )
   }
 
   return (
-    <ul className="max-h-[60vh] w-[520px] overflow-y-auto py-1.5">
-      {hits.slice(0, 50).map((hit, i) => {
-        if (hit.kind === 'suite') {
-          return (
-            <li key={`s-${hit.suite.id}-${i}`}>
-              <button
-                type="button"
-                onClick={() => onSelect({ kind: 'suite', id: hit.suite.id, label: hit.suite.label })}
-                className="flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px] hover:bg-neutral-100"
-              >
-                <Icon name={hit.suite.icon} size={14} className="text-neutral-500" />
-                <span className="flex-1 font-medium text-neutral-900">{hit.suite.label}</span>
-                <span className="text-[10px] uppercase tracking-wider text-neutral-400">
-                  Suite
-                </span>
-              </button>
-            </li>
-          )
-        }
-        return (
-          <li key={`a-${hit.app.id}-${i}`}>
-            <button
-              type="button"
-              onClick={() => onSelect({ kind: 'app', id: hit.app.id, label: hit.app.label })}
-              className="flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px] hover:bg-neutral-100"
-            >
-              <Icon name={hit.app.icon} size={13} className="text-neutral-400" />
-              <span className="flex-1 truncate text-neutral-800">{hit.app.label}</span>
-              <span className="text-[10px] text-neutral-400">{hit.suite.label}</span>
-            </button>
-          </li>
-        )
-      })}
+    <ul className="max-h-[60vh] w-[420px] overflow-y-auto py-1.5">
+      {hits.slice(0, 50).map((hit, i) => (
+        <li key={`${hit.app.id}-${i}`}>
+          <button
+            type="button"
+            onClick={() => onSelect({ kind: 'app', id: hit.app.id, label: hit.app.label })}
+            className="flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px] hover:bg-neutral-100"
+          >
+            <Icon name={hit.app.icon} size={13} className="text-neutral-400" />
+            <span className="flex-1 truncate text-neutral-800">{hit.app.label}</span>
+            <span className="text-[10px] text-neutral-400">{hit.suite.label}</span>
+          </button>
+        </li>
+      ))}
     </ul>
   )
 }
 
-function SuiteRow({
-  suite,
-  active,
-  locked,
-  onHover,
-  onClick,
-}: {
-  suite: Suite
-  active: boolean
-  locked?: boolean
-  onHover: () => void
-  onClick: () => void
-}) {
-  return (
-    <button
-      type="button"
-      onMouseEnter={onHover}
-      onClick={onClick}
-      className={cn(
-        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
-        active
-          ? 'bg-neutral-100'
-          : 'hover:bg-neutral-50',
-      )}
-    >
-      <Icon
-        name={suite.icon}
-        size={15}
-        className={cn(
-          'mt-0.5 shrink-0',
-          locked ? 'text-neutral-400' : 'text-neutral-600',
-        )}
-      />
-      <div className="min-w-0 flex-1">
-        <div
-          className={cn(
-            'flex items-center gap-1 truncate text-[13px]',
-            locked ? 'text-neutral-500' : 'text-neutral-900 font-medium',
-          )}
-        >
-          <span className="truncate">{suite.label}</span>
-          {locked && <Lock size={10} className="shrink-0 text-neutral-300" />}
-        </div>
-      </div>
-    </button>
-  )
-}

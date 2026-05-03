@@ -81,7 +81,7 @@ export function EverythingBar({ open, onClose, catalog, onNavigate }: Props) {
       />
       <div
         className={cn(
-          'fixed left-[64px] top-[60px] z-50 flex w-[520px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
+          'fixed left-[64px] top-[60px] z-50 flex w-[300px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
           exiting ? 'menu-pop-exit' : 'menu-pop',
         )}
         onClick={(e) => e.stopPropagation()}
