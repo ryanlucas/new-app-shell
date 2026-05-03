@@ -1,16 +1,18 @@
-import { MagnifyingGlass, Sparkle } from '@phosphor-icons/react'
+import { Sparkle } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
 import { Icon } from '@/lib/icon.tsx'
 import { resolve, buildConditionSet, type ResolveContext } from '@/lib/visibility.ts'
 import { cn } from '@/lib/cn.ts'
 import { useHud } from '@/state/HudContext.tsx'
+import { EverythingBarButton } from './EverythingBar/EverythingBarButton.tsx'
 
 interface Props {
   catalog: CatalogResponse
   onOpenChat: () => void
+  onOpenBar: () => void
 }
 
-export function TopBar({ catalog, onOpenChat }: Props) {
+export function TopBar({ catalog, onOpenChat, onOpenBar }: Props) {
   const hud = useHud()
   const ctx: ResolveContext = {
     personas: new Set(hud.personas),
@@ -39,11 +41,7 @@ export function TopBar({ catalog, onOpenChat }: Props) {
         </button>
       )}
 
-      {/* Search input — visual only */}
-      <div className="ml-2 flex max-w-md flex-1 items-center gap-2 rounded border border-neutral-200 bg-neutral-50 px-3 py-1.5 text-sm text-neutral-500">
-        <MagnifyingGlass size={16} />
-        <span>Search…</span>
-      </div>
+      <EverythingBarButton onClick={onOpenBar} />
 
       <div className="flex items-center gap-1">
         {others.map((w) => (

@@ -216,104 +216,30 @@ function BrowseTwoPane({
       }}
     >
       <div className="flex w-[300px] flex-col py-2">
-        {groupedSuites.map((g, gi) => {
-          // Special case: a suite-group containing exactly one suite that
-          // has appGroups elevates the suite's label to eyebrow and renders
-          // the appGroups as the L2 rows. Keeps the catalog hierarchy but
-          // collapses redundant nesting in the UI.
-          const elevated =
-            g.suites.length === 1 && g.suites[0].appGroups && g.suites[0].appGroups.length > 0
-              ? g.suites[0]
-              : null
-          if (elevated) {
-            const ownedSuite = ownedSuites.has(elevated.id)
-            return (
-              <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
-                <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
-                  {elevated.label}
-                </div>
-                {[...elevated.appGroups!]
-                  .sort((a, b) => a.order - b.order)
-                  .map((sub) => {
-                    const active = activeId === elevated.id && activeAppGroup === sub.id
-                    const locked = !ownedSuite
-                    return (
-                      <button
-                        key={sub.id}
-                        type="button"
-                        onMouseEnter={() => {
-                          handleSuiteHover(elevated.id)
-                          setActiveAppGroup(sub.id)
-                        }}
-                        onClick={() => {
-                          if (ownedSuite) {
-                            handleSuiteHover(elevated.id)
-                            setActiveAppGroup(sub.id)
-                          }
-                        }}
-                        className={cn(
-                          'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
-                          active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
-                        )}
-                      >
-                        <Icon
-                          name={sub.icon ?? elevated.icon}
-                          size={15}
-                          className={cn(
-                            'mt-0.5 shrink-0',
-                            locked ? 'text-neutral-400' : 'text-neutral-600',
-                          )}
-                        />
-                        <div className="min-w-0 flex-1">
-                          <div
-                            className={cn(
-                              'flex items-center gap-1 truncate text-[13px]',
-                              locked
-                                ? 'text-neutral-500'
-                                : 'font-medium text-neutral-900',
-                            )}
-                          >
-                            <span className="truncate">{sub.label}</span>
-                            {locked && <Lock size={10} className="shrink-0 text-neutral-300" />}
-                          </div>
-                          {sub.description && (
-                            <div className="truncate text-[11px] text-neutral-500">
-                              {sub.description}
-                            </div>
-                          )}
-                        </div>
-                      </button>
-                    )
-                  })}
-              </div>
-            )
-          }
-
-          return (
-            <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
-              <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
-                {g.group.label}
-              </div>
-              {g.suites.map((s) => (
-                <SuiteRow
-                  key={s.id}
-                  suite={s}
-                  active={s.id === activeId}
-                  locked={!ownedSuites.has(s.id)}
-                  onHover={() => {
-                    handleSuiteHover(s.id)
-                    setActiveAppGroup(null)
-                  }}
-                  onClick={() =>
-                    ownedSuites.has(s.id)
-                      ? onSelect({ kind: 'suite', id: s.id, label: s.label })
-                      : setActiveId(s.id)
-                  }
-                />
-              ))}
+        {groupedSuites.map((g, gi) => (
+          <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
+            <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+              {g.group.label}
             </div>
-          )
-        })}
+            {g.suites.map((s) => (
+              <SuiteRow
+                key={s.id}
+                suite={s}
+                active={s.id === activeId}
+                locked={!ownedSuites.has(s.id)}
+                onHover={() => {
+                  handleSuiteHover(s.id)
+                  setActiveAppGroup(null)
+                }}
+                onClick={() =>
+                  ownedSuites.has(s.id)
+                    ? onSelect({ kind: 'suite', id: s.id, label: s.label })
+                    : setActiveId(s.id)
+                }
+              />
+            ))}
+          </div>
+        ))}
       </div>
       <div className="w-px self-stretch bg-neutral-200" />
 

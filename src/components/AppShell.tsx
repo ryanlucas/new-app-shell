@@ -6,12 +6,15 @@ import { TopBar } from './TopBar.tsx'
 import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
 import { DevHud } from './DevHud.tsx'
+import { EverythingBar } from './EverythingBar/EverythingBar.tsx'
+import { useEverythingBar } from './EverythingBar/useEverythingBar.ts'
 
 export function AppShell() {
   const hud = useHud()
   const { data: catalog, loading, error } = useCatalog(hud.view)
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null)
   const [chatOpen, setChatOpen] = useState(false)
+  const bar = useEverythingBar()
 
   if (loading && !catalog) {
     return (
@@ -31,12 +34,17 @@ export function AppShell() {
 
   return (
     <div className="flex h-full flex-col bg-white text-neutral-900">
-      <TopBar catalog={catalog} onOpenChat={() => setChatOpen(true)} />
+      <TopBar
+        catalog={catalog}
+        onOpenChat={() => setChatOpen(true)}
+        onOpenBar={() => bar.setOpen(true)}
+      />
       <div className="flex flex-1 overflow-hidden">
         <Sidebar catalog={catalog} selectedAppId={selectedAppId} onSelect={setSelectedAppId} />
         <ContentPlaceholder catalog={catalog} selectedAppId={selectedAppId} />
       </div>
       <AiChatPanel open={chatOpen} onClose={() => setChatOpen(false)} />
+      <EverythingBar open={bar.open} onClose={() => bar.setOpen(false)} catalog={catalog} />
       <DevHud catalog={catalog} />
     </div>
   )
