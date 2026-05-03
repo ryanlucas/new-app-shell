@@ -6,6 +6,7 @@ import { AvatarRail, LeftRail } from './LeftRail.tsx'
 import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
 import { InboxPanel } from './InboxPanel.tsx'
+import { ChatPanel } from './ChatPanel.tsx'
 import { DevHud } from './DevHud.tsx'
 import { EverythingBar } from './EverythingBar/EverythingBar.tsx'
 import { useEverythingBar } from './EverythingBar/useEverythingBar.ts'
@@ -17,9 +18,9 @@ export function AppShell() {
   const { data: catalog, loading, error } = useCatalog(hud.view)
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null)
 
-  // Single side-panel slot — only one of AI / Inbox can be open at a
-  // time. Click the active one's rail icon to close.
-  const [sidePanel, setSidePanel] = useState<null | 'ai' | 'inbox'>(null)
+  // Single side-panel slot — only one of AI / Inbox / Chat can be open
+  // at a time. Click the active one's rail icon to close.
+  const [sidePanel, setSidePanel] = useState<null | 'ai' | 'inbox' | 'chat'>(null)
   const bar = useEverythingBar()
   const cmd = useCommandBar()
 
@@ -34,9 +35,14 @@ export function AppShell() {
     () => setSidePanel((v) => (v === 'inbox' ? null : 'inbox')),
     [],
   )
+  const toggleChat = useCallback(
+    () => setSidePanel((v) => (v === 'chat' ? null : 'chat')),
+    [],
+  )
   const closeSidePanel = useCallback(() => setSidePanel(null), [])
   const aiOpen = sidePanel === 'ai'
   const inboxOpen = sidePanel === 'inbox'
+  const chatOpen = sidePanel === 'chat'
 
   if (loading && !catalog) {
     return (
@@ -63,6 +69,8 @@ export function AppShell() {
           aiOpen={aiOpen}
           onToggleInbox={toggleInbox}
           inboxOpen={inboxOpen}
+          onToggleChat={toggleChat}
+          chatOpen={chatOpen}
           onOpenSearch={() => cmd.setOpen(true)}
           onGoHome={() => setSelectedAppId(null)}
         />
@@ -84,6 +92,7 @@ export function AppShell() {
             <div className="flex h-full w-[380px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
               {sidePanel === 'ai' && <AiChatPanel onClose={closeSidePanel} />}
               {sidePanel === 'inbox' && <InboxPanel onClose={closeSidePanel} />}
+              {sidePanel === 'chat' && <ChatPanel onClose={closeSidePanel} />}
             </div>
           </motion.aside>
         )}

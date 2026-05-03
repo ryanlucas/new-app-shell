@@ -1,4 +1,4 @@
-import { MagnifyingGlass, Sparkle, SquaresFour, Tray } from '@phosphor-icons/react'
+import { ChatCircle, MagnifyingGlass, Sparkle, SquaresFour, Tray } from '@phosphor-icons/react'
 import { cn } from '@/lib/cn.ts'
 
 interface Props {
@@ -7,6 +7,8 @@ interface Props {
   aiOpen: boolean
   onToggleInbox: () => void
   inboxOpen: boolean
+  onToggleChat: () => void
+  chatOpen: boolean
   onOpenSearch?: () => void
   onGoHome?: () => void
 }
@@ -17,6 +19,8 @@ export function LeftRail({
   aiOpen,
   onToggleInbox,
   inboxOpen,
+  onToggleChat,
+  chatOpen,
   onOpenSearch,
   onGoHome,
 }: Props) {
@@ -44,6 +48,12 @@ export function LeftRail({
         label={inboxOpen ? 'Close Inbox' : 'Open Inbox'}
         onClick={onToggleInbox}
         active={inboxOpen}
+      />
+      <RailButton
+        icon={<ChatCircle size={20} weight={chatOpen ? 'fill' : 'duotone'} />}
+        label={chatOpen ? 'Close Chat' : 'Open Chat'}
+        onClick={onToggleChat}
+        active={chatOpen}
       />
       <RailButton
         icon={<Sparkle size={20} weight={aiOpen ? 'fill' : 'duotone'} />}
