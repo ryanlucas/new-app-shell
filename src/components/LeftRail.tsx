@@ -95,22 +95,27 @@ function RailButton({
   )
 }
 
+import { forwardRef } from 'react'
+
 /** Avatar floats at the bottom of the rail column with no surrounding pill. */
-export function AvatarRail({ onOpenProfile }: { onOpenProfile?: () => void }) {
-  return (
-    <div className="mb-3 flex w-12 shrink-0 items-center justify-center">
-      <button
-        type="button"
-        onClick={onOpenProfile}
-        title="Profile"
-        aria-label="Profile"
-        className="h-9 w-9 overflow-hidden rounded-xl ring-1 ring-neutral-200 shadow-[0_4px_10px_-2px_rgba(0,0,0,0.22)] hover:ring-neutral-300"
-      >
-        <img src="/avatar.png" alt="Profile" className="h-full w-full object-cover" />
-      </button>
-    </div>
-  )
-}
+export const AvatarRail = forwardRef<HTMLButtonElement, { onOpenProfile?: () => void }>(
+  function AvatarRail({ onOpenProfile }, ref) {
+    return (
+      <div className="mb-3 flex w-12 shrink-0 items-center justify-center">
+        <button
+          ref={ref}
+          type="button"
+          onClick={onOpenProfile}
+          title="Profile"
+          aria-label="Profile"
+          className="h-9 w-9 overflow-hidden rounded-xl ring-1 ring-neutral-200 shadow-[0_4px_10px_-2px_rgba(0,0,0,0.22)] hover:ring-neutral-300"
+        >
+          <img src="/avatar.png" alt="Profile" className="h-full w-full object-cover" />
+        </button>
+      </div>
+    )
+  },
+)
 
 /** Just the three R's from the Rippling lockup — the logomark. */
 function RipplingLogomark() {

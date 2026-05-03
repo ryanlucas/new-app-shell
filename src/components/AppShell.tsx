@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useHud } from '@/state/HudContext.tsx'
 import { useCatalog } from '@/state/useCatalog.ts'
@@ -7,6 +7,7 @@ import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
 import { InboxPanel } from './InboxPanel.tsx'
 import { ChatPanel } from './ChatPanel.tsx'
+import { UserMenu } from './UserMenu.tsx'
 import { DevHud } from './DevHud.tsx'
 import { EverythingBar } from './EverythingBar/EverythingBar.tsx'
 import { useEverythingBar } from './EverythingBar/useEverythingBar.ts'
@@ -44,6 +45,9 @@ export function AppShell() {
   const inboxOpen = sidePanel === 'inbox'
   const chatOpen = sidePanel === 'chat'
 
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
+  const avatarRef = useRef<HTMLButtonElement>(null)
+
   if (loading && !catalog) {
     return (
       <div className="flex h-full items-center justify-center text-sm text-neutral-500">
@@ -74,7 +78,10 @@ export function AppShell() {
           onOpenSearch={() => cmd.setOpen(true)}
           onGoHome={() => setSelectedAppId(null)}
         />
-        <AvatarRail />
+        <AvatarRail
+          ref={avatarRef}
+          onOpenProfile={() => setUserMenuOpen((v) => !v)}
+        />
       </div>
       <AnimatePresence initial={false}>
         {sidePanel && (
@@ -112,6 +119,11 @@ export function AppShell() {
         catalog={catalog}
         onNavigate={handleNavigate}
         onToggleChat={toggleAi}
+      />
+      <UserMenu
+        open={userMenuOpen}
+        onClose={() => setUserMenuOpen(false)}
+        anchorRef={avatarRef}
       />
       <DevHud catalog={catalog} />
     </div>
