@@ -382,13 +382,14 @@ function SubmenuItem({
     const rect = buttonRef.current.getBoundingClientRect()
     const SUBMENU_W = 200
     const SUBMENU_H_MAX = items.length * 32 + 12
-    const GAP = 14
+    // Subtle overlap with the parent menu (macOS-style).
+    const OVERLAP = 10
     const PAD = 12
 
     // Horizontal: prefer right of button; flip to left if it would clip.
-    let left = rect.right + GAP
+    let left = rect.right - OVERLAP
     if (left + SUBMENU_W > window.innerWidth - PAD) {
-      left = rect.left - GAP - SUBMENU_W
+      left = rect.left + OVERLAP - SUBMENU_W
     }
     // Vertical: prefer top-aligned with button; lift up if it would clip
     // the bottom of the viewport.
