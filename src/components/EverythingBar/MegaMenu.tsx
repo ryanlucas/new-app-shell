@@ -326,15 +326,6 @@ function BrowseTwoPane({
       <div ref={rightPanelRef} onMouseEnter={handleRightEnter} className="flex w-[280px] flex-col py-3">
         {activeSuite && (
           <>
-            <div className="flex items-center gap-2 px-4 pb-2">
-              <Icon name={activeSuite.icon} size={14} className="shrink-0 text-neutral-500" />
-              <span className="text-[13px] font-semibold text-neutral-900">{activeSuite.label}</span>
-              {!activeOwned && (
-                <span className="ml-auto flex items-center gap-1 rounded bg-neutral-100 px-1.5 py-0.5 text-[9px] uppercase tracking-wider text-neutral-500">
-                  <Lock size={9} /> Not owned
-                </span>
-              )}
-            </div>
             <div className="max-h-[440px] overflow-y-auto">
               {visibleApps.length === 0 ? (
                 <div className="px-3 py-4 text-xs text-neutral-400">
