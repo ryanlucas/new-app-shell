@@ -95,6 +95,44 @@
           "group": "people"
         },
         {
+          "id": "hire",
+          "label": "Hire",
+          "icon": "UserPlus",
+          "path": "/navigate-role-hire",
+          "parent": "hr",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager"
+            ],
+            "scopeForPartial": [
+              "hr_admin"
+            ]
+          },
+          "source": "app/appShell/components/navigation/config/getSideNavConfig.ts (firstSection imperative action; promoted to L2 in HR)",
+          "group": "people"
+        },
+        {
+          "id": "offboard",
+          "label": "Offboard",
+          "icon": "UserMinus",
+          "path": "/role-terminate/complete/select",
+          "parent": "hr",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager"
+            ],
+            "scopeForPartial": [
+              "hr_admin"
+            ]
+          },
+          "source": "app/appShell/components/navigation/config/getSideNavConfig.ts (firstSection imperative action; promoted to L2 in HR)",
+          "group": "people"
+        },
+        {
           "id": "people",
           "label": "People",
           "icon": "Users",
@@ -1491,7 +1529,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "plans"
         },
         {
           "id": "my-benefits",
@@ -1518,7 +1557,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "plans"
         },
         {
           "id": "benefits-enrollments",
@@ -1543,7 +1583,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "plans"
         },
         {
           "id": "benefits-integrations",
@@ -1568,7 +1609,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "plans"
         },
         {
           "id": "benefits-deductions",
@@ -1593,7 +1635,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "plans"
         },
         {
           "id": "benefits-fsa",
@@ -1618,7 +1661,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "spending-accounts"
         },
         {
           "id": "benefits-hsa",
@@ -1643,7 +1687,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "spending-accounts"
         },
         {
           "id": "benefits-commuter",
@@ -1668,7 +1713,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "spending-accounts"
         },
         {
           "id": "workers-compensation",
@@ -1693,7 +1739,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "compliance"
         },
         {
           "id": "benefits-cobra",
@@ -1718,7 +1765,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "compliance"
         },
         {
           "id": "benefits-aca",
@@ -1743,7 +1791,8 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "compliance"
         },
         {
           "id": "benefits-settings",
@@ -1768,7 +1817,30 @@
               "campaign": "SidenavBenefits"
             }
           },
-          "source": "verified against rippling-webapp Benefits sidenav"
+          "source": "verified against rippling-webapp Benefits sidenav",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "plans",
+          "label": "Plans",
+          "order": 1
+        },
+        {
+          "id": "spending-accounts",
+          "label": "Spending Accounts",
+          "order": 2
+        },
+        {
+          "id": "compliance",
+          "label": "Compliance",
+          "order": 3
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
@@ -1851,7 +1923,7 @@
             ]
           },
           "source": "rippling-webapp:app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:66-101",
-          "group": "device-management"
+          "group": "identity-access"
         },
         {
           "id": "device-management",
@@ -2159,23 +2231,6 @@
             "productGate": "SNOWFLAKE"
           },
           "source": "app/hub/spoke_models.py:823"
-        },
-        {
-          "id": "data-settings",
-          "label": "Data Settings",
-          "icon": "Gear",
-          "path": "/data/settings",
-          "parent": "data",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "data_admin"
-            ]
-          },
-          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },
@@ -2434,23 +2489,6 @@
             "productGate": "UNLIMITED_CUSTOM_APPS"
           },
           "source": "app/hub/spoke_models.py:847"
-        },
-        {
-          "id": "studio-settings",
-          "label": "Studio Settings",
-          "icon": "Gear",
-          "path": "/custom-apps/settings",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ]
-          },
-          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },
@@ -2698,20 +2736,6 @@
             "productGate": "PARTNER"
           },
           "source": "app/hub/spoke_models.py:821"
-        },
-        {
-          "id": "tools-settings",
-          "label": "Tools Settings",
-          "icon": "Gear",
-          "path": "/tools/settings",
-          "parent": "tools",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ]
-          },
-          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },

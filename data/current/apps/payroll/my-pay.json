@@ -57,19 +57,6 @@
       "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:49"
     },
     {
-      "id": "tasks",
-      "label": "Tasks",
-      "icon": "CheckSquare",
-      "path": "/my-pay/tasks",
-      "visibility": {
-        "personas": [
-          "ee"
-        ],
-        "productGate": "MYPAY"
-      },
-      "source": "app/products/finance/MyPay/routes/myPay.routes.tsx:82"
-    },
-    {
       "id": "settings",
       "label": "Settings",
       "icon": "Gear",
