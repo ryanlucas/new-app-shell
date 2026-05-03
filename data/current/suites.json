@@ -1426,14 +1426,14 @@
       "description": "Schedules, timecards, attendance",
       "apps": [
         {
-          "id": "TIME_OVERVIEW",
+          "id": "time-overview",
           "label": "Time Overview",
           "icon": "COMBO_CHART_OUTLINE",
           "path": "/time-products/dashboard/overview",
           "parent": "time",
           "visibility": {
             "personas": [
-              "full_admin"
+              "full"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
@@ -1445,15 +1445,15 @@
           "source": "rippling-main/app/time_products/types/constants.py:9-10, rippling-main/app/apps/utils/dummy_apps.py:188-198"
         },
         {
-          "id": "MY_TIME",
+          "id": "my-time",
           "label": "My Time",
           "icon": "USER_OUTLINE",
           "path": "/time-products/dashboard/my-time",
           "parent": "time",
           "visibility": {
             "personas": [
-              "full_admin",
-              "employee"
+              "full",
+              "ee"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
@@ -1465,14 +1465,14 @@
           "source": "rippling-main/app/time_products/types/constants.py:10-11, rippling-main/app/apps/utils/dummy_apps.py:199-208"
         },
         {
-          "id": "SCHEDULE",
+          "id": "schedule",
           "label": "Schedules",
           "icon": "CALENDAR_OUTLINE",
           "path": "/time-products/dashboard/schedules",
           "parent": "time",
           "visibility": {
             "personas": [
-              "full_admin"
+              "full"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
@@ -1484,14 +1484,14 @@
           "source": "rippling-main/app/time_products/types/constants.py:12-13, rippling-main/app/apps/utils/dummy_apps.py:209-218"
         },
         {
-          "id": "TIMECARDS",
+          "id": "timecards",
           "label": "Timecards",
           "icon": "OVERTIME_POLICY_OUTLINE",
           "path": "/time-products/dashboard/timecards",
           "parent": "time",
           "visibility": {
             "personas": [
-              "full_admin",
+              "full",
               "manager"
             ],
             "scopeForPartial": [],
@@ -1506,14 +1506,14 @@
           "source": "rippling-main/app/time_products/types/constants.py:13-14, rippling-main/app/apps/utils/dummy_apps.py:219-228, rippling-main/app/apps/utils/navigation_bar.py:680-685"
         },
         {
-          "id": "TIME_OFF",
+          "id": "time-off-tracking",
           "label": "Time Off",
           "icon": "LEAVE_MANAGEMENT_OUTLINED",
           "path": "/time-products/dashboard/time-off",
           "parent": "time",
           "visibility": {
             "personas": [
-              "full_admin"
+              "full"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
