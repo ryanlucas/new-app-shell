@@ -86,31 +86,6 @@ function BrowseTwoPane({
     [catalog.suites, ctx, favorites],
   )
 
-  // Sparse-app expansion: when L1 ends up as a single my-* app that has
-  // L3 sub-tabs, replace the lone entry with each L3 tab as its own L1
-  // entry. Gives standalone non-admins something to navigate.
-  const spine = useMemo(() => {
-    if (rawSpine.entries.length !== 1) return rawSpine
-    const only = rawSpine.entries[0]
-    if (only.kind !== 'app') return rawSpine
-    const l3 = catalog.apps[only.app.id]
-    const nav = (l3?.nav as Array<{ id: string; label: string; icon?: string; path: string | null }>) ?? []
-    if (nav.length < 2) return rawSpine
-    const expanded: L1Entry[] = nav.map((n) => ({
-      kind: 'app' as const,
-      app: {
-        id: n.id,
-        label: n.label,
-        icon: n.icon ?? only.app.icon,
-        path: n.path ?? undefined,
-        parent: only.suite.id,
-      } as App,
-      suite: only.suite,
-      resolution: 'visible' as const,
-    }))
-    return { entries: expanded }
-  }, [rawSpine, catalog.apps])
-
   // Standalone product context: when only one non-utility suite is owned,
   // show "Rippling [Suite]" as a header so the user knows which product
   // they're using. Utility suites (custom-apps, data, tools, settings)
@@ -123,6 +98,48 @@ function BrowseTwoPane({
     if (!suite) return null
     return `Rippling ${suite.label}`
   }, [ownedSuites, catalog.suites.suites])
+
+  // In standalone mode, expand any flat my-* app at L1 into its L3
+  // sub-tabs. Gives the user real navigation when there's barely any
+  // content in the menu. In multi-suite mode, my-* apps stay as flat
+  // entries; their L3 surfaces in the right pane on hover.
+  const spine = useMemo(() => {
+    if (!standaloneProductLabel) return rawSpine
+    const expanded: L1Entry[] = []
+    for (const e of rawSpine.entries) {
+      const isMy =
+        e.kind === 'app' &&
+        (e.app.id.startsWith('my-') || e.app.label.startsWith('My '))
+      if (isMy && e.kind === 'app') {
+        const l3 = catalog.apps[e.app.id]
+        const nav = (l3?.nav as Array<{
+          id: string
+          label: string
+          icon?: string
+          path: string | null
+        }>) ?? []
+        if (nav.length >= 2) {
+          for (const n of nav) {
+            expanded.push({
+              kind: 'app',
+              app: {
+                id: n.id,
+                label: n.label,
+                icon: n.icon ?? e.app.icon,
+                path: n.path ?? undefined,
+                parent: e.suite.id,
+              } as App,
+              suite: e.suite,
+              resolution: 'visible',
+            })
+          }
+          continue
+        }
+      }
+      expanded.push(e)
+    }
+    return { entries: expanded }
+  }, [rawSpine, catalog.apps, standaloneProductLabel])
 
   // Favorites feature is "on" only when content density crosses the floor.
   // Toggle UI is hidden below this — there's no point in starring 3 items.
