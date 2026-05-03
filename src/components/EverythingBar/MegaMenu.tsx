@@ -229,13 +229,7 @@ function BrowseTwoPane({
             const ownedSuite = ownedSuites.has(elevated.id)
             return (
               <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
-                <div
-                  onMouseEnter={() => {
-                    handleSuiteHover(elevated.id)
-                    setActiveAppGroup(null)
-                  }}
-                  className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400"
-                >
+                <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
                   {elevated.label}
                 </div>
                 {[...elevated.appGroups!]
