@@ -3,19 +3,21 @@ import { cn } from '@/lib/cn.ts'
 
 interface Props {
   onOpenMenu: () => void
-  onToggleChat: () => void
-  chatOpen: boolean
+  onToggleAi: () => void
+  aiOpen: boolean
+  onToggleInbox: () => void
+  inboxOpen: boolean
   onOpenSearch?: () => void
-  onOpenInbox?: () => void
   onGoHome?: () => void
 }
 
 export function LeftRail({
   onOpenMenu,
-  onToggleChat,
-  chatOpen,
+  onToggleAi,
+  aiOpen,
+  onToggleInbox,
+  inboxOpen,
   onOpenSearch,
-  onOpenInbox,
   onGoHome,
 }: Props) {
   return (
@@ -33,36 +35,23 @@ export function LeftRail({
       <div className="my-2 h-px w-6 bg-neutral-200" />
 
       <RailButton icon={<SquaresFour size={20} weight="duotone" />} label="Open menu" onClick={onOpenMenu} />
-      <RailButton icon={<Tray size={20} weight="duotone" />} label="Inbox" onClick={onOpenInbox} />
       <RailButton icon={<MagnifyingGlass size={20} weight="duotone" />} label="Search" onClick={onOpenSearch} />
+
+      <div className="my-2 h-px w-6 bg-neutral-200" />
+
       <RailButton
-        icon={<Sparkle size={20} weight={chatOpen ? 'fill' : 'duotone'} />}
-        label={chatOpen ? 'Close Rippling AI' : 'Open Rippling AI'}
-        onClick={onToggleChat}
-        active={chatOpen}
+        icon={<Tray size={20} weight={inboxOpen ? 'fill' : 'duotone'} />}
+        label={inboxOpen ? 'Close Inbox' : 'Open Inbox'}
+        onClick={onToggleInbox}
+        active={inboxOpen}
+      />
+      <RailButton
+        icon={<Sparkle size={20} weight={aiOpen ? 'fill' : 'duotone'} />}
+        label={aiOpen ? 'Close Rippling AI' : 'Open Rippling AI'}
+        onClick={onToggleAi}
+        active={aiOpen}
       />
     </nav>
-  )
-}
-
-/** Avatar floats at the bottom of the rail column with no surrounding pill. */
-export function AvatarRail({ onOpenProfile }: { onOpenProfile?: () => void }) {
-  return (
-    <div className="mb-3 flex w-12 shrink-0 items-center justify-center">
-      <button
-        type="button"
-        onClick={onOpenProfile}
-        title="Profile"
-        aria-label="Profile"
-        className="h-9 w-9 overflow-hidden rounded-xl ring-1 ring-neutral-200 shadow-[0_4px_10px_-2px_rgba(0,0,0,0.22)] hover:ring-neutral-300"
-      >
-        <img
-          src="/avatar.png"
-          alt="Profile"
-          className="h-full w-full object-cover"
-        />
-      </button>
-    </div>
   )
 }
 
@@ -93,6 +82,23 @@ function RailButton({
     >
       {icon}
     </button>
+  )
+}
+
+/** Avatar floats at the bottom of the rail column with no surrounding pill. */
+export function AvatarRail({ onOpenProfile }: { onOpenProfile?: () => void }) {
+  return (
+    <div className="mb-3 flex w-12 shrink-0 items-center justify-center">
+      <button
+        type="button"
+        onClick={onOpenProfile}
+        title="Profile"
+        aria-label="Profile"
+        className="h-9 w-9 overflow-hidden rounded-xl ring-1 ring-neutral-200 shadow-[0_4px_10px_-2px_rgba(0,0,0,0.22)] hover:ring-neutral-300"
+      >
+        <img src="/avatar.png" alt="Profile" className="h-full w-full object-cover" />
+      </button>
+    </div>
   )
 }
 

@@ -1,9 +1,11 @@
 import { useCallback, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useHud } from '@/state/HudContext.tsx'
 import { useCatalog } from '@/state/useCatalog.ts'
 import { AvatarRail, LeftRail } from './LeftRail.tsx'
 import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
+import { InboxPanel } from './InboxPanel.tsx'
 import { DevHud } from './DevHud.tsx'
 import { EverythingBar } from './EverythingBar/EverythingBar.tsx'
 import { useEverythingBar } from './EverythingBar/useEverythingBar.ts'
@@ -14,14 +16,27 @@ export function AppShell() {
   const hud = useHud()
   const { data: catalog, loading, error } = useCatalog(hud.view)
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null)
-  const [chatOpen, setChatOpen] = useState(false)
+
+  // Single side-panel slot — only one of AI / Inbox can be open at a
+  // time. Click the active one's rail icon to close.
+  const [sidePanel, setSidePanel] = useState<null | 'ai' | 'inbox'>(null)
   const bar = useEverythingBar()
   const cmd = useCommandBar()
 
   const handleNavigate = useCallback((appId: string) => {
     setSelectedAppId(appId)
   }, [])
-  const toggleChat = useCallback(() => setChatOpen((v) => !v), [])
+  const toggleAi = useCallback(
+    () => setSidePanel((v) => (v === 'ai' ? null : 'ai')),
+    [],
+  )
+  const toggleInbox = useCallback(
+    () => setSidePanel((v) => (v === 'inbox' ? null : 'inbox')),
+    [],
+  )
+  const closeSidePanel = useCallback(() => setSidePanel(null), [])
+  const aiOpen = sidePanel === 'ai'
+  const inboxOpen = sidePanel === 'inbox'
 
   if (loading && !catalog) {
     return (
@@ -44,15 +59,35 @@ export function AppShell() {
       <div className="flex flex-col justify-between">
         <LeftRail
           onOpenMenu={() => bar.setOpen(true)}
-          onToggleChat={toggleChat}
-          chatOpen={chatOpen}
+          onToggleAi={toggleAi}
+          aiOpen={aiOpen}
+          onToggleInbox={toggleInbox}
+          inboxOpen={inboxOpen}
           onOpenSearch={() => cmd.setOpen(true)}
-          onOpenInbox={() => handleNavigate('inbox')}
           onGoHome={() => setSelectedAppId(null)}
         />
         <AvatarRail />
       </div>
-      <AiChatPanel open={chatOpen} onClose={toggleChat} />
+      <AnimatePresence initial={false}>
+        {sidePanel && (
+          <motion.aside
+            key="side-panel"
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 380, opacity: 1 }}
+            exit={{ width: 0, opacity: 0 }}
+            transition={{
+              width: { duration: 0.22, ease: [0.4, 0, 0.2, 1] },
+              opacity: { duration: 0.18, ease: 'easeOut' },
+            }}
+            className="flex h-full shrink-0 flex-col overflow-hidden"
+          >
+            <div className="flex h-full w-[380px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
+              {sidePanel === 'ai' && <AiChatPanel onClose={closeSidePanel} />}
+              {sidePanel === 'inbox' && <InboxPanel onClose={closeSidePanel} />}
+            </div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
       <main className="flex h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
         <ContentPlaceholder catalog={catalog} selectedAppId={selectedAppId} />
       </main>
@@ -67,7 +102,7 @@ export function AppShell() {
         onClose={() => cmd.setOpen(false)}
         catalog={catalog}
         onNavigate={handleNavigate}
-        onToggleChat={toggleChat}
+        onToggleChat={toggleAi}
       />
       <DevHud catalog={catalog} />
     </div>
