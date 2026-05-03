@@ -40,7 +40,7 @@ export function AppShell() {
   if (!catalog) return null
 
   return (
-    <div className="flex h-full gap-3 bg-neutral-200 p-3 text-neutral-900">
+    <div className="flex h-full gap-2 bg-neutral-200 p-2 text-neutral-900">
       <div className="flex flex-col justify-between">
         <LeftRail
           onOpenMenu={() => bar.setOpen(true)}
@@ -52,10 +52,10 @@ export function AppShell() {
         />
         <AvatarRail />
       </div>
+      <AiChatPanel open={chatOpen} onClose={toggleChat} />
       <main className="flex h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
         <ContentPlaceholder catalog={catalog} selectedAppId={selectedAppId} />
       </main>
-      <AiChatPanel open={chatOpen} onClose={() => setChatOpen(false)} />
       <EverythingBar
         open={bar.open}
         onClose={() => bar.setOpen(false)}

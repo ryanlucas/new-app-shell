@@ -74,14 +74,14 @@ export function EverythingBar({ open, onClose, catalog, onNavigate }: Props) {
     <>
       <div
         className={cn(
-          'fixed inset-0 z-40 bg-black/30 backdrop-blur-[1px]',
+          'fixed inset-0 z-40 bg-black/30',
           exiting ? 'menu-overlay-exit' : 'menu-overlay',
         )}
         onClick={onClose}
       />
       <div
         className={cn(
-          'fixed left-[68px] top-[68px] z-50 flex w-[520px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
+          'fixed left-[64px] top-[60px] z-50 flex w-[520px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
           exiting ? 'menu-pop-exit' : 'menu-pop',
         )}
         onClick={(e) => e.stopPropagation()}
