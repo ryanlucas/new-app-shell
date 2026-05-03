@@ -481,7 +481,8 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager"
             ],
             "scopeForPartial": [],
             "productGate": null,
@@ -504,7 +505,8 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -532,7 +534,8 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -560,7 +563,9 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -618,7 +623,9 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -646,7 +653,9 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -674,7 +683,9 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -702,7 +713,9 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -1433,7 +1446,9 @@
           "parent": "time",
           "visibility": {
             "personas": [
-              "full"
+              "full",
+              "partial",
+              "manager"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
@@ -1453,6 +1468,8 @@
           "visibility": {
             "personas": [
               "full",
+              "partial",
+              "manager",
               "ee"
             ],
             "scopeForPartial": [],
@@ -1472,7 +1489,9 @@
           "parent": "time",
           "visibility": {
             "personas": [
-              "full"
+              "full",
+              "partial",
+              "manager"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
@@ -1492,14 +1511,14 @@
           "visibility": {
             "personas": [
               "full",
-              "manager"
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
             "permissionGate": "can_role_access_timecards",
-            "conditions": [
-              "is_time_standalone_company -> renames to 'Timesheets' and uses /time-products/dashboard/timesheets"
-            ],
+            "conditions": [],
             "whenUnowned": null
           },
           "personaVariants": {},
@@ -1513,7 +1532,10 @@
           "parent": "time",
           "visibility": {
             "personas": [
-              "full"
+              "full",
+              "partial",
+              "manager",
+              "ee"
             ],
             "scopeForPartial": [],
             "productGate": "TIME_PLATFORM",
