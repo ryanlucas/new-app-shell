@@ -2920,34 +2920,6 @@
       "description": "Build apps, recipes, workflows",
       "apps": [
         {
-          "id": "rippling-build",
-          "label": "Rippling Build",
-          "icon": "Hammer",
-          "path": "/developer",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ],
-            "productGate": "RIPPLING_BUILD",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavCustomApps"
-            }
-          },
-          "personaVariants": {},
-          "source": "app/hub/spoke_models.py:850"
-        },
-        {
           "id": "rippling-solution",
           "label": "Solutions",
           "icon": "Stack",
@@ -3334,6 +3306,37 @@
           },
           "personaVariants": {},
           "source": "app/hub/spoke_models.py:879"
+        },
+        {
+          "id": "developer",
+          "label": "Rippling Build",
+          "icon": "Code",
+          "path": "/developer",
+          "parent": "tools",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin",
+              "developer"
+            ],
+            "productGate": "RIPPLING_BUILD",
+            "permissionGate": null,
+            "conditions": [],
+            "whenUnowned": {
+              "showLockedTo": [
+                "full",
+                "partial"
+              ],
+              "campaign": "SidenavTools"
+            }
+          },
+          "personaVariants": {},
+          "kind": "product",
+          "hiddenInSidenav": true,
+          "source": "rippling-main:app/apps/data/apps/internal/developer.json + rippling-webapp:app/products/platform/Developer/routes-v6/developer.routes.tsx"
         }
       ]
     },
@@ -3542,31 +3545,6 @@
           },
           "personaVariants": {},
           "source": "app/apps/utils/dummy_apps.py:355"
-        },
-        {
-          "id": "developer",
-          "label": "Developer",
-          "icon": "Code",
-          "path": "/developer",
-          "parent": "settings",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "developer_admin"
-            ],
-            "productGate": "DEVELOPER",
-            "permissionGate": null,
-            "conditions": [],
-            "whenUnowned": {
-              "showLockedTo": [],
-              "campaign": null
-            }
-          },
-          "personaVariants": {},
-          "source": "app/hub/spoke_models.py:846"
         },
         {
           "id": "api-tokens",

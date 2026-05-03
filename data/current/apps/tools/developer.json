@@ -1,0 +1,61 @@
+{
+  "appId": "developer",
+  "appLabel": "Rippling Build",
+  "appPath": "/developer",
+  "appProductGate": "RIPPLING_BUILD",
+  "nav": [
+    {
+      "id": "developer-functions",
+      "label": "Functions",
+      "icon": "Code",
+      "path": "/developer/functions",
+      "parent": "developer",
+      "description": "Serverless functions to extend Rippling",
+      "source": "rippling-webapp:app/products/platform/Developer/modules/functions/"
+    },
+    {
+      "id": "developer-webhooks",
+      "label": "Webhooks",
+      "icon": "Lightning",
+      "path": "/developer/webhooks",
+      "parent": "developer",
+      "description": "Outbound event delivery to your systems",
+      "source": "rippling-webapp:app/products/platform/Developer/modules/webhooks/"
+    },
+    {
+      "id": "developer-api-tokens",
+      "label": "API Tokens",
+      "icon": "Key",
+      "path": "/developer/api-tokens",
+      "parent": "developer",
+      "description": "Credentials for programmatic access",
+      "source": "rippling-webapp:app/products/it/Apps/modules/ApiTokens/"
+    },
+    {
+      "id": "developer-settings-manager",
+      "label": "Settings Manager",
+      "icon": "Sliders",
+      "path": "/developer/settings",
+      "parent": "developer",
+      "description": "Programmatic configuration",
+      "source": "rippling-webapp:app/products/platform/Developer/modules/settingsManager/"
+    },
+    {
+      "id": "developer-packages",
+      "label": "Packages",
+      "icon": "Package",
+      "path": "/developer/packages",
+      "parent": "developer",
+      "description": "Build and install custom packages",
+      "source": "rippling-webapp:app/products/platform/Developer/modules/packages/"
+    }
+  ],
+  "_meta": {
+    "generatedBy": "manual — verified against rippling-webapp Developer routes",
+    "notes": [
+      "Index route /developer auto-redirects to first available sub-module via IndexRouteRedirect (developer.routes.tsx:24-52).",
+      "Order of redirect priority in source: Functions → SettingsManager → Webhooks → APITokens → Packages → /dashboard.",
+      "Each sub-module is gated by its own SKU/feature flag (useFunctionsSkuEnabled, usePackageBuilderEnabled, useDeveloperAPITokensEnabled, etc)."
+    ]
+  }
+}

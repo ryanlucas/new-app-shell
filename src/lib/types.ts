@@ -40,6 +40,27 @@ export interface NavNode {
   personaVariants: Partial<Record<Persona, PersonaVariant>>
   source: string
   logicalId?: string
+  /**
+   * Whether this is a discrete product (lives in one place) or a horizontal
+   * capability that's consumed across the platform. Defaults to 'product'.
+   */
+  kind?: 'product' | 'capability'
+  /**
+   * For capabilities: additional suite ids the node should surface in.
+   * The node remains canonically defined under its `parent` suite; mega-menu
+   * renderers cross-list it under each `appearsIn` suite with a "linked from"
+   * annotation pointing back to the primary home.
+   */
+  appearsIn?: string[]
+  /**
+   * Mirrors `invisible: true` / `showInLeftNav: false` on backend app
+   * definitions: the route exists and is reachable, but the live sidebar
+   * does not auto-render this entry. Renderers should:
+   *   - skip these in the main sidebar
+   *   - keep them in the everything-bar palette / search / cross-sell so
+   *     they remain discoverable
+   */
+  hiddenInSidenav?: boolean
   _proposalNotes?: ProposalNote[]
 }
 
@@ -47,10 +68,22 @@ export interface App extends NavNode {}
 
 export interface Suite extends NavNode {
   apps: App[]
+  /** Editorial group id (e.g. "people", "finance") — drives mega-menu grouping. */
+  group?: string
+  /** Short tagline shown in launcher/menu surfaces. */
+  description?: string
+}
+
+export interface SuiteGroupDef {
+  id: string
+  label: string
+  order: number
 }
 
 export interface ShellSuites {
   suites: Suite[]
+  /** Ordered list of editorial groups suites can belong to. */
+  groups?: SuiteGroupDef[]
   _meta?: Record<string, unknown>
 }
 
