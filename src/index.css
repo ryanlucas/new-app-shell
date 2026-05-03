@@ -2,7 +2,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* Soft warm gray body — panels float on top of this. */
+    --background: 240 6% 95%;
     --foreground: 240 10% 3.9%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;

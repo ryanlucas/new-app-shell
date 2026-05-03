@@ -50,7 +50,7 @@ export function AiChatPanel({ open, onClose }: Props) {
             <li
               key={i}
               className={cn(
-                'max-w-[85%] rounded-2xl px-3 py-2 text-sm',
+                'max-w-[85%] rounded-xl px-3 py-2 text-sm',
                 msg.role === 'user'
                   ? 'self-end bg-violet-600 text-white'
                   : 'self-start bg-neutral-100 text-neutral-800',

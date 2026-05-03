@@ -547,7 +547,7 @@ function FavoritesClusterRow({
         active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
       )}
     >
-      <Star size={15} weight="fill" className="mt-0.5 shrink-0 text-amber-500" />
+      <Star size={15} weight="duotone" className="mt-0.5 shrink-0 text-neutral-600" />
       <div className="min-w-0 flex-1">
         <div className="truncate text-[13px] font-medium text-neutral-900">Favorites</div>
       </div>
@@ -670,8 +670,8 @@ function AppRow({
           className={cn(
             'shrink-0 rounded p-0.5 transition-colors',
             isFavorite
-              ? 'text-amber-500'
-              : 'text-neutral-300 hover:text-amber-500 group-hover/row:text-neutral-500',
+              ? 'text-neutral-700'
+              : 'text-neutral-300 hover:text-neutral-700 group-hover/row:text-neutral-500',
           )}
         >
           <Star size={14} weight={isFavorite ? 'fill' : 'regular'} />

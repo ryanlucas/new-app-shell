@@ -8,6 +8,7 @@ interface Props {
   open: boolean
   onClose: () => void
   catalog: CatalogResponse
+  onNavigate: (appId: string) => void
 }
 
 const EXIT_MS = 140
@@ -42,7 +43,7 @@ function HeightMotion({ children }: { children: React.ReactNode }) {
   )
 }
 
-export function EverythingBar({ open, onClose, catalog }: Props) {
+export function EverythingBar({ open, onClose, catalog, onNavigate }: Props) {
   const [mounted, setMounted] = useState(open)
   const [exiting, setExiting] = useState(false)
 
@@ -63,8 +64,9 @@ export function EverythingBar({ open, onClose, catalog }: Props) {
   if (!mounted) return null
 
   const handleSelect = (node: { kind: 'suite' | 'app'; id: string; label: string }) => {
-    // eslint-disable-next-line no-console
-    console.log('[EverythingBar]', node)
+    // App ids navigate directly. Suites have no canonical landing page in
+    // the prototype yet — log and close.
+    if (node.kind === 'app') onNavigate(node.id)
     onClose()
   }
 
@@ -79,7 +81,7 @@ export function EverythingBar({ open, onClose, catalog }: Props) {
       />
       <div
         className={cn(
-          'fixed left-3 top-14 z-50 flex w-[520px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
+          'fixed left-[68px] top-[68px] z-50 flex w-[520px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
           exiting ? 'menu-pop-exit' : 'menu-pop',
         )}
         onClick={(e) => e.stopPropagation()}

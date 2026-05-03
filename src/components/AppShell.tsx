@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useHud } from '@/state/HudContext.tsx'
 import { useCatalog } from '@/state/useCatalog.ts'
-import { TopBar } from './TopBar.tsx'
+import { AvatarRail, LeftRail } from './LeftRail.tsx'
 import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
 import { DevHud } from './DevHud.tsx'
@@ -14,6 +14,11 @@ export function AppShell() {
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null)
   const [chatOpen, setChatOpen] = useState(false)
   const bar = useEverythingBar()
+
+  const handleNavigate = useCallback((appId: string) => {
+    setSelectedAppId(appId)
+  }, [])
+  const toggleChat = useCallback(() => setChatOpen((v) => !v), [])
 
   if (loading && !catalog) {
     return (
@@ -32,17 +37,27 @@ export function AppShell() {
   if (!catalog) return null
 
   return (
-    <div className="flex h-full flex-col bg-white text-neutral-900">
-      <TopBar
-        catalog={catalog}
-        onOpenChat={() => setChatOpen(true)}
-        onOpenBar={() => bar.setOpen(true)}
-      />
-      <div className="flex flex-1 overflow-hidden">
-        <ContentPlaceholder catalog={catalog} selectedAppId={selectedAppId} />
+    <div className="flex h-full gap-3 bg-neutral-200 p-3 text-neutral-900">
+      <div className="flex flex-col justify-between">
+        <LeftRail
+          onOpenMenu={() => bar.setOpen(true)}
+          onToggleChat={toggleChat}
+          chatOpen={chatOpen}
+          onOpenInbox={() => handleNavigate('inbox')}
+          onGoHome={() => setSelectedAppId(null)}
+        />
+        <AvatarRail />
       </div>
+      <main className="flex h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-md">
+        <ContentPlaceholder catalog={catalog} selectedAppId={selectedAppId} />
+      </main>
       <AiChatPanel open={chatOpen} onClose={() => setChatOpen(false)} />
-      <EverythingBar open={bar.open} onClose={() => bar.setOpen(false)} catalog={catalog} />
+      <EverythingBar
+        open={bar.open}
+        onClose={() => bar.setOpen(false)}
+        catalog={catalog}
+        onNavigate={handleNavigate}
+      />
       <DevHud catalog={catalog} />
     </div>
   )
