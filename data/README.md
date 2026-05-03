@@ -1,6 +1,8 @@
 # Data model
 
-This directory is the source of truth for the prototype catalog. The shell, the composer, and the MSW mock backend all read from here.
+This directory is a **reference catalog** of Rippling's navigation: today's nav under `current/`, proposed IA changes under `proposals/`. The prototype shell renders it so we can evaluate IA candidates against the persona × plan matrix — but production migrations happen against the live `rippling-main` / `rippling-webapp` code, not this repo.
+
+Treat the catalog as a spec, not a deliverable. If you're implementing one of the proposals in production, the *composed* output of `current + proposal` describes the target end-state nav — not this prototype.
 
 ## Layout
 
@@ -121,15 +123,17 @@ A proposal is an ordered list of operations applied on top of `current`:
 
 Op types are documented in `src/lib/types.ts` (`Op` union). The composer is pure — same input → same output, no side effects, no state. Useful for testing IA migrations without rewriting `current`.
 
-## Migrating to a proposal
+## Reading the catalog as a production spec
 
-If you're tasked with making a proposal the new ground truth (rewrite, not overlay):
+If you've been asked to implement one of these proposals in production:
 
-1. Run the composer on `current + proposal` and capture the output.
-2. Move the composed `suites.json`, `frame.json`, `plans.json` into `data/current/`.
-3. Update / remove the proposal file (now redundant).
-4. Migrate `data/current/apps/<old-suite>/` directories to match the new suite structure (grep for `appId` references in the composed nav data; the composer doesn't move L3 files).
-5. Re-run `npm run nav:md` (`scripts/render-nav-md.ts`) to refresh the human-readable docs.
+1. **Compose the proposal locally first.** Open the prototype and switch the HUD's "view" dropdown from `current` to your proposal id. The shell now renders the proposed end-state. Walk the persona × plan matrix to confirm visibility/cross-sell behavior matches intent.
+2. **Read the composed `suites.json` for the proposal as your target.** Run `node scripts/inspect-proposal.ts <proposal-id>` to dump the composed catalog. That is the spec — every L2 entry, its parent suite, productGate, persona array — describes what production should render.
+3. **Op list = migration plan.** A proposal's `ops` array (in `data/proposals/<id>.json`) is the ordered set of structural changes from today's IA to the proposed IA. Each op corresponds roughly to a real engineering task: `renameSuite` → relabel + reroute, `mergeSuite` → consolidate two sidenav categories, `moveApp` → move a spoke into a new subcategory, etc. Use it as a checklist.
+4. **Source breadcrumbs.** Every node has a `source` field pointing to the rippling-main / rippling-webapp file it was derived from. Useful when locating the live code that needs to change.
+5. **`research/` directory** has the reconciliation work — Phase 1.7 per-suite drift analysis, source-of-truth diff outputs against rippling-main JSONs, FE-overlay extractions. Helpful context if you're sanity-checking the catalog against the live code.
+
+The catalog itself doesn't need to be migrated — it's a spec. Updates to `data/current/` happen when Rippling's live nav changes; updates to `data/proposals/` happen when we want to evaluate a new IA candidate.
 
 ## Catalog hygiene
 
