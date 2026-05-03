@@ -2457,24 +2457,6 @@
             "productGate": "PARTNER"
           },
           "source": "app/hub/spoke_models.py:821"
-        },
-        {
-          "id": "business-partner",
-          "label": "Business Partner",
-          "icon": "Briefcase",
-          "path": "/company-details/business-partner",
-          "parent": "partner",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "partner_admin"
-            ],
-            "productGate": "BUSINESS_PARTNER"
-          },
-          "source": "app/hub/spoke_models.py:739"
         }
       ]
     },
