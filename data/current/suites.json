@@ -2485,45 +2485,6 @@
             "productGate": "RECIPES"
           },
           "source": "app/hub/spoke_models.py:800"
-        },
-        {
-          "id": "forms",
-          "label": "Forms",
-          "icon": "NotePencil",
-          "path": "/forms",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "ee"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ],
-            "productGate": "FORMS"
-          },
-          "source": "app/hub/spoke_models.py:759"
-        },
-        {
-          "id": "checklist-app",
-          "label": "Checklists",
-          "icon": "CheckSquare",
-          "path": "/checklists",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "manager",
-              "ee"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ],
-            "productGate": "CHECKLISTAPP"
-          },
-          "source": "app/hub/spoke_models.py:710"
         }
       ]
     },
@@ -2718,6 +2679,46 @@
           "kind": "product",
           "hiddenInSidenav": true,
           "source": "rippling-main:app/apps/data/apps/internal/developer.json + rippling-webapp:app/products/platform/Developer/routes-v6/developer.routes.tsx"
+        },
+        {
+          "id": "forms",
+          "label": "Forms",
+          "icon": "NotePencil",
+          "path": "/forms",
+          "parent": "tools",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "ee"
+            ],
+            "scopeForPartial": [
+              "apps_admin"
+            ],
+            "productGate": "FORMS"
+          },
+          "source": "app/hub/spoke_models.py:759",
+          "hiddenInSidenav": true
+        },
+        {
+          "id": "checklist-app",
+          "label": "Tasks",
+          "icon": "CheckSquare",
+          "path": "/checklists",
+          "parent": "tools",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager",
+              "ee"
+            ],
+            "scopeForPartial": [
+              "apps_admin"
+            ],
+            "productGate": "CHECKLISTAPP"
+          },
+          "source": "app/hub/spoke_models.py:710"
         }
       ]
     },
