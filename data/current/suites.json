@@ -56,9 +56,26 @@
         }
       },
       "group": "people",
-      "description": "People, org, compliance, documents",
+      "description": "The single source of truth for everyone who works here. Hire, manage, and stay compliant as people move through the company.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:64-74",
       "apps": [
+        {
+          "id": "my-profile",
+          "label": "My Profile",
+          "icon": "UserCircle",
+          "path": "/profile",
+          "parent": "hr",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager",
+              "ee"
+            ]
+          },
+          "source": "rippling-webapp/app/products/hr/Profile (universal employee self-service profile)",
+          "group": "people"
+        },
         {
           "id": "hr-overview",
           "label": "HR Overview",
@@ -74,7 +91,8 @@
               "hr_admin"
             ]
           },
-          "source": "app/apps/utils/dummy_apps.py:103"
+          "source": "app/apps/utils/dummy_apps.py:103",
+          "group": "people"
         },
         {
           "id": "people",
@@ -85,15 +103,31 @@
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "manager",
-              "ee"
+              "partial"
             ],
             "scopeForPartial": [
               "hr_admin"
             ]
           },
-          "source": "app/apps/utils/dummy_apps.py:92"
+          "source": "app/apps/utils/dummy_apps.py:92",
+          "group": "people"
+        },
+        {
+          "id": "org-chart",
+          "label": "Org Chart",
+          "icon": "TreeStructure",
+          "path": "/org-chart",
+          "parent": "hr",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager",
+              "ee"
+            ]
+          },
+          "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:321 (moved from sidebar firstSection \u2014 admin/EE directory)",
+          "group": "people"
         },
         {
           "id": "compliance-360",
@@ -118,7 +152,8 @@
               "campaign": "SidenavHrManagement"
             }
           },
-          "source": "app/apps/utils/dummy_apps.py:151"
+          "source": "app/apps/utils/dummy_apps.py:151",
+          "group": "compliance"
         },
         {
           "id": "employment-authorization",
@@ -135,7 +170,8 @@
               "hr_admin"
             ]
           },
-          "source": "app/apps/utils/dummy_apps.py:125"
+          "source": "app/apps/utils/dummy_apps.py:125",
+          "group": "compliance"
         },
         {
           "id": "leaves",
@@ -147,8 +183,7 @@
             "personas": [
               "full",
               "partial",
-              "manager",
-              "ee"
+              "manager"
             ],
             "scopeForPartial": [
               "leaves_admin"
@@ -162,7 +197,8 @@
               "campaign": "SidenavHrManagement"
             }
           },
-          "source": "app/hub/spoke_models.py:813"
+          "source": "app/hub/spoke_models.py:813",
+          "group": "programs"
         },
         {
           "id": "pto",
@@ -174,8 +210,7 @@
             "personas": [
               "full",
               "partial",
-              "manager",
-              "ee"
+              "manager"
             ],
             "scopeForPartial": [
               "pto_admin"
@@ -204,7 +239,8 @@
               "path": "/team/time-off"
             }
           },
-          "source": "app/apps/utils/navigation_bar.py:1627 (legacy variant, hidden when TIME_PLATFORM installed via should_hide_legacy_time_apps())"
+          "source": "app/apps/utils/navigation_bar.py:1627 (legacy variant, hidden when TIME_PLATFORM installed via should_hide_legacy_time_apps())",
+          "group": "programs"
         },
         {
           "id": "anniversaryapp",
@@ -218,7 +254,8 @@
             ],
             "productGate": "ANNIVERSARYAPP"
           },
-          "source": "app/apps/data/apps/internal/anniversary_app.json"
+          "source": "app/apps/data/apps/internal/anniversary_app.json",
+          "group": "people"
         },
         {
           "id": "global-contractor",
@@ -233,7 +270,8 @@
             ],
             "productGate": "GLOBAL_CONTRACTOR"
           },
-          "source": "app/apps/data/apps/internal/global_contractor.json"
+          "source": "app/apps/data/apps/internal/global_contractor.json",
+          "group": "people"
         },
         {
           "id": "eeoc",
@@ -247,7 +285,8 @@
             ],
             "productGate": "EEOC"
           },
-          "source": "app/apps/data/apps/internal/eeoc.json"
+          "source": "app/apps/data/apps/internal/eeoc.json",
+          "group": "compliance"
         },
         {
           "id": "employment-verifications",
@@ -261,7 +300,8 @@
             ],
             "productGate": "EMPLOYMENTVERIFICATIONS"
           },
-          "source": "app/apps/data/apps/internal/employment_verifications.json"
+          "source": "app/apps/data/apps/internal/employment_verifications.json",
+          "group": "compliance"
         },
         {
           "id": "forecasting",
@@ -279,7 +319,53 @@
             ],
             "productGate": "FORECASTING"
           },
-          "source": "app/hub/spoke_models.py:862"
+          "source": "app/hub/spoke_models.py:862",
+          "group": "planning"
+        },
+        {
+          "id": "hr-settings",
+          "label": "HR Settings",
+          "icon": "Gear",
+          "path": "/hr/settings",
+          "parent": "hr",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "hr_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "people",
+          "label": "People",
+          "order": 1
+        },
+        {
+          "id": "compliance",
+          "label": "Compliance",
+          "order": 2
+        },
+        {
+          "id": "programs",
+          "label": "Programs",
+          "order": 3
+        },
+        {
+          "id": "planning",
+          "label": "Planning",
+          "order": 4
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
@@ -307,7 +393,7 @@
         }
       },
       "group": "people",
-      "description": "Hiring, performance, learning, comp",
+      "description": "Bring in the right people and help them grow. Recruiting, performance, compensation, surveys, and learning, all connected to the same employee record.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:75-85",
       "apps": [
         {
@@ -322,7 +408,8 @@
               "partial",
               "manager"
             ]
-          }
+          },
+          "group": "hire"
         },
         {
           "id": "recruiting",
@@ -351,7 +438,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "hire"
         },
         {
           "id": "headcount-planning",
@@ -376,7 +464,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "hire"
         },
         {
           "id": "review-cycles",
@@ -402,10 +491,11 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "performance"
         },
         {
-          "id": "my-1-on-1s",
+          "id": "one-on-ones",
           "label": "1:1s",
           "icon": "ChatsCircle",
           "path": "/one-on-ones",
@@ -428,7 +518,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "performance"
         },
         {
           "id": "goals",
@@ -454,7 +545,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "performance"
         },
         {
           "id": "lms",
@@ -480,7 +572,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "performance"
         },
         {
           "id": "surveys",
@@ -506,7 +599,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "engagement"
         },
         {
           "id": "feedback",
@@ -532,7 +626,8 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "performance"
         },
         {
           "id": "compensation-bands",
@@ -543,7 +638,8 @@
           "visibility": {
             "personas": [
               "full",
-              "partial"
+              "partial",
+              "manager"
             ],
             "scopeForPartial": [
               "talent_admin"
@@ -556,7 +652,53 @@
               ],
               "campaign": "SidenavTalent"
             }
-          }
+          },
+          "group": "reward"
+        },
+        {
+          "id": "talent-settings",
+          "label": "Talent Settings",
+          "icon": "Gear",
+          "path": "/talent/settings",
+          "parent": "talent",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "talent_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "hire",
+          "label": "Hire",
+          "order": 1
+        },
+        {
+          "id": "performance",
+          "label": "Performance",
+          "order": 2
+        },
+        {
+          "id": "reward",
+          "label": "Reward",
+          "order": 3
+        },
+        {
+          "id": "engagement",
+          "label": "Engagement",
+          "order": 4
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
@@ -583,7 +725,7 @@
         }
       },
       "group": "finance",
-      "description": "Pay, taxes, contractors",
+      "description": "Pay everyone on time, in any country, with the right taxes withheld. Run cycles, handle contractors, and reconcile to your books.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:147-157",
       "apps": [
         {
@@ -599,7 +741,8 @@
             ],
             "productGate": "PAYROLL"
           },
-          "source": "app/apps/data/apps/internal/payroll.json (US payroll spoke)"
+          "source": "app/apps/data/apps/internal/payroll.json (US payroll spoke)",
+          "group": "run"
         },
         {
           "id": "my-pay",
@@ -630,7 +773,8 @@
             ],
             "productGate": "ACCOUNTING_INTEGRATIONS"
           },
-          "source": "app/apps/data/apps/internal/accounting_integrations.json"
+          "source": "app/apps/data/apps/internal/accounting_integrations.json",
+          "group": "configure"
         },
         {
           "id": "global-payroll",
@@ -645,7 +789,8 @@
             ],
             "productGate": "GLOBAL_PAYROLL"
           },
-          "source": "app/apps/data/apps/internal/international_payroll.json"
+          "source": "app/apps/data/apps/internal/international_payroll.json",
+          "group": "run"
         },
         {
           "id": "variable-compensation",
@@ -660,13 +805,49 @@
             ],
             "productGate": "VARIABLE_COMPENSATION"
           },
-          "source": "app/variable_compensation/variable_compensation_unity_config.py:35 (Unity custom app)"
+          "source": "app/variable_compensation/variable_compensation_unity_config.py:35 (Unity custom app)",
+          "group": "plan"
+        },
+        {
+          "id": "payroll-settings",
+          "label": "Payroll Settings",
+          "icon": "Gear",
+          "path": "/payroll/settings",
+          "parent": "payroll",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "payroll_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "run",
+          "label": "Run",
+          "order": 1
+        },
+        {
+          "id": "plan",
+          "label": "Plan",
+          "order": 2
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
     {
-      "id": "spend",
-      "label": "Spend",
+      "id": "finance",
+      "label": "Finance",
       "icon": "CreditCard",
       "path": "/spend-management/dashboard",
       "visibility": {
@@ -689,7 +870,7 @@
         }
       },
       "group": "finance",
-      "description": "Cards, bills, expenses, travel, procurement",
+      "description": "See and control how the company spends money. Cards, expense reports, bills, procurement, and travel in one place.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:158-167",
       "apps": [
         {
@@ -697,7 +878,7 @@
           "label": "Finance Overview",
           "icon": "ChartLineUp",
           "path": "/spend-management/dashboard/overview",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -708,14 +889,15 @@
             ],
             "productGate": "SPENDMANAGEMENT"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:39-59"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:39-59",
+          "group": "operations"
         },
         {
           "id": "my-finances",
           "label": "My Finances",
           "icon": "Wallet",
           "path": "/spend-management/dashboard/my-finances",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "ee",
@@ -727,14 +909,15 @@
             ],
             "productGate": "SPENDMANAGEMENT"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:61-84"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:61-84",
+          "group": "expenses"
         },
         {
           "id": "spend-tasks",
           "label": "Tasks",
           "icon": "ListChecks",
           "path": "/spend-management/dashboard/approvals",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -742,20 +925,20 @@
             ],
             "productGate": "SPENDMANAGEMENT"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:86-112"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:86-112",
+          "group": "operations"
         },
         {
           "id": "travel",
           "label": "Travel",
           "icon": "Airplane",
           "path": "/travel/dashboard",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
               "partial",
-              "manager",
-              "ee"
+              "manager"
             ],
             "scopeForPartial": [
               "travel_admin"
@@ -769,19 +952,19 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:113-131"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:113-131",
+          "group": "operations"
         },
         {
           "id": "corporate-cards",
           "label": "Cards",
           "icon": "CreditCard",
           "path": "/spend-management/dashboard/cards",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
+              "partial"
             ],
             "scopeForPartial": [
               "cards_customer"
@@ -795,20 +978,20 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:270-285"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:270-285",
+          "group": "expenses"
         },
         {
           "id": "expenses",
           "label": "Reimbursements",
           "icon": "Receipt",
           "path": "/spend-management/dashboard/expenses",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
               "partial",
-              "manager",
-              "ee"
+              "manager"
             ],
             "scopeForPartial": [
               "spend_admin"
@@ -822,14 +1005,15 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:359-374"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:359-374",
+          "group": "expenses"
         },
         {
           "id": "expense-reports",
           "label": "Expense Reports",
           "icon": "FolderOpen",
           "path": "/spend-management/dashboard/expense_reports",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -837,14 +1021,15 @@
             ],
             "productGate": "EXPENSES"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:397-414"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:397-414",
+          "group": "expenses"
         },
         {
           "id": "transactions",
           "label": "Transactions",
           "icon": "ArrowsLeftRight",
           "path": "/spend-management/dashboard/transactions",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -856,14 +1041,15 @@
             ],
             "productGate": "CORPORATE_CARDS"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:309-334"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:309-334",
+          "group": "expenses"
         },
         {
           "id": "card-statements",
           "label": "Card Statements",
           "icon": "FileText",
           "path": "/spend-management/dashboard/statements",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -874,14 +1060,15 @@
             ],
             "productGate": "CORPORATE_CARDS"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:639-658"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:639-658",
+          "group": "expenses"
         },
         {
           "id": "bill-pay",
           "label": "Bills",
           "icon": "FileText",
           "path": "/spend-management/dashboard/bills",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -900,14 +1087,15 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:438-453"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:438-453",
+          "group": "bills"
         },
         {
           "id": "procurement",
           "label": "Procurement",
           "icon": "ShoppingCart",
           "path": "/spend-management/dashboard/procurement",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -925,14 +1113,15 @@
               "campaign": "SidenavSpendManagement"
             }
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:455-472"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:455-472",
+          "group": "bills"
         },
         {
           "id": "spend-accounting",
           "label": "Accounting",
           "icon": "BookOpen",
           "path": "/spend-management/dashboard/accounting",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -943,14 +1132,15 @@
             ],
             "productGate": "ACCOUNTING_INTEGRATIONS"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:498-529"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:498-529",
+          "group": "operations"
         },
         {
           "id": "vendors",
           "label": "Vendors",
           "icon": "Buildings",
           "path": "/spend-management/dashboard/vendors",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full"
@@ -960,14 +1150,15 @@
             ],
             "productGate": "SPENDMANAGEMENT"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:474-496"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:474-496",
+          "group": "bills"
         },
         {
           "id": "spend-people",
           "label": "People",
           "icon": "Users",
           "path": "/spend-management/dashboard/people",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full",
@@ -979,35 +1170,45 @@
             ],
             "productGate": "SPENDMANAGEMENT"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:593-612"
-        },
-        {
-          "id": "spend-policies",
-          "label": "Policies",
-          "icon": "Scales",
-          "path": "/spend-management/dashboard/policies",
-          "parent": "spend",
-          "visibility": {
-            "personas": [
-              "full"
-            ],
-            "productGate": "SPENDMANAGEMENT"
-          },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:531-553"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:593-612",
+          "group": "configure"
         },
         {
           "id": "spend-settings",
-          "label": "Settings",
+          "label": "Finance Settings",
           "icon": "Gear",
           "path": "/spend-management/dashboard/settings",
-          "parent": "spend",
+          "parent": "finance",
           "visibility": {
             "personas": [
               "full"
             ],
             "productGate": "SPENDMANAGEMENT"
           },
-          "source": "rippling-main:spend_management/super_app/link_configs.py:614-637"
+          "source": "rippling-main:spend_management/super_app/link_configs.py:614-637",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "expenses",
+          "label": "Expenses",
+          "order": 2
+        },
+        {
+          "id": "bills",
+          "label": "Bills",
+          "order": 3
+        },
+        {
+          "id": "operations",
+          "label": "Operations",
+          "order": 4
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
@@ -1035,7 +1236,7 @@
         }
       },
       "group": "people",
-      "description": "Schedules, timecards, attendance",
+      "description": "Know who worked when. Schedule shifts, capture timecards, and approve time off without spreadsheets.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:177-186",
       "apps": [
         {
@@ -1051,7 +1252,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "app/time_products/types/constants.py NAV_FEATURE_ORDER:10 + permissioned_features_helpers.py:final_overview_nav_config"
+          "source": "app/time_products/types/constants.py NAV_FEATURE_ORDER:10 + permissioned_features_helpers.py:final_overview_nav_config",
+          "group": "operations"
         },
         {
           "id": "my-time",
@@ -1067,7 +1269,8 @@
               "ee"
             ]
           },
-          "source": "NAV_FEATURE_ORDER:20 + final_my_time_nav_config"
+          "source": "NAV_FEATURE_ORDER:20 + final_my_time_nav_config",
+          "group": "track"
         },
         {
           "id": "time-approvals",
@@ -1083,7 +1286,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:30 + final_approval_nav_config"
+          "source": "NAV_FEATURE_ORDER:30 + final_approval_nav_config",
+          "group": "track"
         },
         {
           "id": "schedule",
@@ -1094,15 +1298,12 @@
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
-            ],
-            "archetypesForEe": [
-              "hourly-worker"
+              "partial"
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:40 + final_schedule_nav_config"
+          "source": "NAV_FEATURE_ORDER:40 + final_schedule_nav_config",
+          "group": "track"
         },
         {
           "id": "timecards",
@@ -1113,15 +1314,12 @@
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
-            ],
-            "archetypesForEe": [
-              "hourly-worker"
+              "partial"
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:50 + final_timecards_nav_config"
+          "source": "NAV_FEATURE_ORDER:50 + final_timecards_nav_config",
+          "group": "track"
         },
         {
           "id": "attendance",
@@ -1136,7 +1334,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:60 + final_attendance_nav_config"
+          "source": "NAV_FEATURE_ORDER:60 + final_attendance_nav_config",
+          "group": "track"
         },
         {
           "id": "data-sources",
@@ -1151,7 +1350,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:70 + final_data_sources_nav_config"
+          "source": "NAV_FEATURE_ORDER:70 + final_data_sources_nav_config",
+          "group": "operations"
         },
         {
           "id": "time-off-tracking",
@@ -1166,22 +1366,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:80 + final_time_off_nav_config"
-        },
-        {
-          "id": "time-policies",
-          "label": "Policies",
-          "icon": "ListChecks",
-          "path": "/time-products/dashboard/policies",
-          "parent": "time",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "productGate": "TIME_PLATFORM"
-          },
-          "source": "NAV_FEATURE_ORDER:90 + final_policies_nav_config"
+          "source": "NAV_FEATURE_ORDER:80 + final_time_off_nav_config",
+          "group": "off"
         },
         {
           "id": "time-people",
@@ -1196,7 +1382,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:100 + final_people_nav_config"
+          "source": "NAV_FEATURE_ORDER:100 + final_people_nav_config",
+          "group": "operations"
         },
         {
           "id": "kiosk-management",
@@ -1211,7 +1398,8 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:110 + final_kiosk_nav_config"
+          "source": "NAV_FEATURE_ORDER:110 + final_kiosk_nav_config",
+          "group": "track"
         },
         {
           "id": "time-settings",
@@ -1226,7 +1414,30 @@
             ],
             "productGate": "TIME_PLATFORM"
           },
-          "source": "NAV_FEATURE_ORDER:120 + final_settings_nav_config"
+          "source": "NAV_FEATURE_ORDER:120 + final_settings_nav_config",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "track",
+          "label": "Track",
+          "order": 1
+        },
+        {
+          "id": "off",
+          "label": "Time Off",
+          "order": 3
+        },
+        {
+          "id": "operations",
+          "label": "Operations",
+          "order": 4
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
@@ -1254,7 +1465,7 @@
         }
       },
       "group": "people",
-      "description": "Health, retirement, equity",
+      "description": "Give employees the health, retirement, and pre-tax benefits they expect \u2014 and let Rippling handle enrollment, deductions, and compliance.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:86-96",
       "apps": [
         {
@@ -1586,7 +1797,7 @@
         }
       },
       "group": "tech",
-      "description": "Devices, apps, automation, security",
+      "description": "Keep employees equipped, secure, and productive. Provision devices, gate apps, run access reviews, and automate IT busywork.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:97-107",
       "apps": [
         {
@@ -1604,7 +1815,8 @@
               "it_admin"
             ]
           },
-          "source": "rippling-main:apps/utils/dummy_apps.py IT_OVERVIEW_DUMMY_APP"
+          "source": "rippling-main:apps/utils/dummy_apps.py IT_OVERVIEW_DUMMY_APP",
+          "group": "compliance"
         },
         {
           "id": "my-it",
@@ -1620,7 +1832,8 @@
               "ee"
             ]
           },
-          "source": "app/apps/utils/dummy_apps.py IT_MY_IT_DUMMY_APP"
+          "source": "app/apps/utils/dummy_apps.py IT_MY_IT_DUMMY_APP",
+          "group": "device-management"
         },
         {
           "id": "it-management",
@@ -1637,7 +1850,8 @@
               "it_admin"
             ]
           },
-          "source": "rippling-webapp:app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:66-101"
+          "source": "rippling-webapp:app/products/it/ITManagement/containers/ITManagementNavBar/ITManagementNavBar.tsx:66-101",
+          "group": "device-management"
         },
         {
           "id": "device-management",
@@ -1662,7 +1876,8 @@
               "campaign": "SidenavItManagement"
             }
           },
-          "source": "rippling-main:apps/data/apps/internal/hardware.json"
+          "source": "rippling-main:apps/data/apps/internal/hardware.json",
+          "group": "device-management"
         },
         {
           "id": "device-store",
@@ -1680,7 +1895,8 @@
             ],
             "productGate": "DEVICE_MANAGEMENT"
           },
-          "source": "rippling-main:apps/utils/dummy_apps.py DEVICE_STORE_DUMMY_APP"
+          "source": "rippling-main:apps/utils/dummy_apps.py DEVICE_STORE_DUMMY_APP",
+          "group": "device-management"
         },
         {
           "id": "third-party-integrations",
@@ -1698,7 +1914,8 @@
             ],
             "productGate": "APP_MANAGEMENT"
           },
-          "source": "rippling-main:apps/data/apps/internal/integrations.json"
+          "source": "rippling-main:apps/data/apps/internal/integrations.json",
+          "group": "identity-access"
         },
         {
           "id": "rpass",
@@ -1709,15 +1926,15 @@
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
+              "partial"
             ],
             "scopeForPartial": [
               "it_admin"
             ],
             "productGate": "RPASS"
           },
-          "source": "rippling-main:apps/data/apps/internal/rpass.json"
+          "source": "rippling-main:apps/data/apps/internal/rpass.json",
+          "group": "identity-access"
         },
         {
           "id": "automated-compliance",
@@ -1735,7 +1952,48 @@
             ],
             "productGate": "AUTOMATED_COMPLIANCE"
           },
-          "source": "rippling-main:apps/data/apps/internal/automated_compliance.json"
+          "source": "rippling-main:apps/data/apps/internal/automated_compliance.json",
+          "group": "compliance"
+        },
+        {
+          "id": "it-settings",
+          "label": "IT Settings",
+          "icon": "Gear",
+          "path": "/it/settings",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)",
+          "group": "configure"
+        }
+      ],
+      "appGroups": [
+        {
+          "id": "identity-access",
+          "label": "Identity & Access Management",
+          "order": 1
+        },
+        {
+          "id": "device-management",
+          "label": "Device Management",
+          "order": 2
+        },
+        {
+          "id": "compliance",
+          "label": "Compliance",
+          "order": 3
+        },
+        {
+          "id": "configure",
+          "label": "Configure",
+          "order": 999
         }
       ]
     },
@@ -1761,7 +2019,7 @@
         }
       },
       "group": "platform",
-      "description": "Reports, pipelines, analytics",
+      "description": "Turn employee and operational data into reports, dashboards, and pipelines. The substrate behind everything else in Rippling.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:108-118",
       "apps": [
         {
@@ -1901,6 +2159,23 @@
             "productGate": "SNOWFLAKE"
           },
           "source": "app/hub/spoke_models.py:823"
+        },
+        {
+          "id": "data-settings",
+          "label": "Data Settings",
+          "icon": "Gear",
+          "path": "/data/settings",
+          "parent": "data",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "data_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },
@@ -1927,7 +2202,7 @@
         }
       },
       "group": "finance",
-      "description": "Treasury and accounts",
+      "description": "Move money and manage accounts from inside Rippling. Treasury and cash flow without switching tools.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:168-176",
       "apps": [
         {
@@ -1954,6 +2229,23 @@
             }
           },
           "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:441"
+        },
+        {
+          "id": "banking-settings",
+          "label": "Banking Settings",
+          "icon": "Gear",
+          "path": "/banking/settings",
+          "parent": "banking",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "billing_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },
@@ -1979,7 +2271,7 @@
         }
       },
       "group": "services",
-      "description": "International workforce, contractors",
+      "description": "Hire and pay international employees and contractors compliantly, without setting up entities yourself.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:206-213",
       "apps": [
         {
@@ -2032,7 +2324,7 @@
         }
       },
       "group": "services",
-      "description": "PEO services, posters, state tax",
+      "description": "Outsource the burdensome parts of HR. Rippling co-employs your team, handling tax accounts, posters, and compliance.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:128-135",
       "apps": [
         {
@@ -2117,7 +2409,7 @@
         }
       },
       "group": "platform",
-      "description": "Build apps, recipes, workflows",
+      "description": "Extend Rippling to fit your business. Build custom apps, dashboards, automations, and integrations using your own data.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:195-204",
       "apps": [
         {
@@ -2142,6 +2434,23 @@
             "productGate": "UNLIMITED_CUSTOM_APPS"
           },
           "source": "app/hub/spoke_models.py:847"
+        },
+        {
+          "id": "studio-settings",
+          "label": "Studio Settings",
+          "icon": "Gear",
+          "path": "/custom-apps/settings",
+          "parent": "custom-apps",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "apps_admin"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },
@@ -2166,7 +2475,7 @@
         }
       },
       "group": "platform",
-      "description": "Inbox, AI, notifications, search",
+      "description": "Day-to-day utilities that cut across the company. Inbox, approvals, documents, audit log, and meetings.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:53-62",
       "apps": [
         {
@@ -2184,7 +2493,8 @@
             ],
             "productGate": "INBOX"
           },
-          "source": "app/hub/spoke_models.py:845"
+          "source": "app/hub/spoke_models.py:845",
+          "pinAtL1": true
         },
         {
           "id": "notification-center",
@@ -2259,7 +2569,7 @@
           "kind": "capability",
           "appearsIn": [
             "hr",
-            "spend",
+            "finance",
             "it"
           ],
           "source": "app/hub/spoke_models.py:783"
@@ -2330,8 +2640,7 @@
             "personas": [
               "full",
               "partial",
-              "manager",
-              "ee"
+              "manager"
             ],
             "scopeForPartial": [
               "documents_admin"
@@ -2341,7 +2650,7 @@
           "kind": "capability",
           "appearsIn": [
             "hr",
-            "spend"
+            "finance"
           ],
           "source": "app/apps/utils/navigation_bar.py:136"
         },
@@ -2371,38 +2680,13 @@
             "tools"
           ],
           "source": "app/hub/spoke_models.py:808"
-        }
-      ]
-    },
-    {
-      "id": "partner",
-      "label": "Partner",
-      "icon": "Handshake",
-      "path": "/partner",
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "partner_admin"
-        ],
-        "productGate": "PARTNER",
-        "whenUnowned": {
-          "showLockedTo": [],
-          "campaign": "SidenavPartner"
-        }
-      },
-      "group": "partner",
-      "description": "Partner administration",
-      "source": "app/apps/scripts/app_navigation_categories_data.py:119-127",
-      "apps": [
+        },
         {
           "id": "partner-admin",
           "label": "Partner Admin",
           "icon": "Handshake",
           "path": "/partner/clients",
-          "parent": "partner",
+          "parent": "tools",
           "visibility": {
             "personas": [
               "full",
@@ -2414,6 +2698,20 @@
             "productGate": "PARTNER"
           },
           "source": "app/hub/spoke_models.py:821"
+        },
+        {
+          "id": "tools-settings",
+          "label": "Tools Settings",
+          "icon": "Gear",
+          "path": "/tools/settings",
+          "parent": "tools",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ]
+          },
+          "source": "prototype: per-suite Settings landing (Configure group)"
         }
       ]
     },
@@ -2436,26 +2734,9 @@
         }
       },
       "group": "platform",
-      "description": "Permissions, audit log, company config",
+      "description": "How your Rippling instance is wired up. Permissions, organizational data, API tokens, and AI configuration.",
       "source": "app/apps/scripts/app_navigation_categories_data.py:136-146",
       "apps": [
-        {
-          "id": "company-settings",
-          "label": "Company Settings",
-          "icon": "Buildings",
-          "path": "/company-settings",
-          "parent": "settings",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "settings_admin"
-            ]
-          },
-          "source": "app/apps/utils/dummy_apps.py:429"
-        },
         {
           "id": "permissions",
           "label": "Permissions",
@@ -2525,6 +2806,23 @@
             "productGate": "GROUP_MANAGER"
           },
           "source": "app/apps/data/apps/internal/group_manager.json"
+        },
+        {
+          "id": "company-settings",
+          "label": "Company Settings",
+          "icon": "Buildings",
+          "path": "/company-settings",
+          "parent": "settings",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "settings_admin"
+            ]
+          },
+          "source": "app/apps/utils/dummy_apps.py:429"
         },
         {
           "id": "ai-settings",

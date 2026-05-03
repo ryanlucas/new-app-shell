@@ -26,6 +26,7 @@ export function DevHud({ catalog }: Props) {
   const hud = useHud()
   const [scopeFilter, setScopeFilter] = useState('')
   const [flagsOpen, setFlagsOpen] = useState(false)
+  const [advancedOpen, setAdvancedOpen] = useState(false)
 
   // All flags currently active, with the source they came from. Read-only —
   // toggle them by changing plan / lifecycle / surface above.
@@ -100,8 +101,8 @@ export function DevHud({ catalog }: Props) {
         </select>
       </Section>
 
-      {/* Personas */}
-      <Section label="Personas (combinable)">
+      {/* Roles (combinable) */}
+      <Section label="Roles (combinable)">
         <div className="flex flex-wrap gap-1">
           {PERSONAS.map((p) => {
             const active = hud.personas.includes(p.id)
@@ -128,9 +129,7 @@ export function DevHud({ catalog }: Props) {
           bundles that gate apps an IC could plausibly access (e.g. recruiter
           → Recruiting + Reports). Mirrors the partial-scopes panel below. */}
       {hud.personas.includes('ee') && (catalog?.personas.eeArchetypes?.length ?? 0) > 0 && (
-        <Section
-          label={`EE archetypes (${hud.eeArchetypes.length}/${catalog?.personas.eeArchetypes?.length ?? 0})`}
-        >
+        <Section label="Permission archetype">
           <div className="flex flex-wrap gap-1">
             {(catalog?.personas.eeArchetypes ?? []).map((a) => {
               const active = hud.eeArchetypes.includes(a.id)
@@ -138,7 +137,7 @@ export function DevHud({ catalog }: Props) {
                 <button
                   key={a.id}
                   type="button"
-                  onClick={() => hud.toggleEeArchetype(a.id)}
+                  onClick={() => hud.setEeArchetypes(active ? [] : [a.id])}
                   title={a.description}
                   className={cn(
                     'rounded px-2 py-1 text-xs',
@@ -189,23 +188,35 @@ export function DevHud({ catalog }: Props) {
         </Section>
       )}
 
-      {/* Lifecycle */}
-      <Section label="Lifecycle">
-        <RadioGroup
-          value={hud.lifecycle}
-          options={LIFECYCLE_OPTIONS}
-          onChange={(v) => hud.setLifecycle(v as Lifecycle)}
-        />
-      </Section>
-
-      {/* Surface */}
-      <Section label="Surface">
-        <RadioGroup
-          value={hud.surface}
-          options={SURFACE_OPTIONS}
-          onChange={(v) => hud.setSurface(v as Surface)}
-        />
-      </Section>
+      {/* Advanced: Lifecycle + Surface (collapsed by default) */}
+      <div>
+        <button
+          type="button"
+          onClick={() => setAdvancedOpen((v) => !v)}
+          className="flex w-full items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-neutral-500 hover:text-neutral-700"
+        >
+          {advancedOpen ? <CaretDown size={11} /> : <CaretRight size={11} />}
+          Advanced
+        </button>
+        {advancedOpen && (
+          <div className="mt-2 flex flex-col gap-3">
+            <Section label="Lifecycle">
+              <RadioGroup
+                value={hud.lifecycle}
+                options={LIFECYCLE_OPTIONS}
+                onChange={(v) => hud.setLifecycle(v as Lifecycle)}
+              />
+            </Section>
+            <Section label="Surface">
+              <RadioGroup
+                value={hud.surface}
+                options={SURFACE_OPTIONS}
+                onChange={(v) => hud.setSurface(v as Surface)}
+              />
+            </Section>
+          </div>
+        )}
+      </div>
 
       {/* Read-only active flags (derived from plan + lifecycle + surface) */}
       <div>

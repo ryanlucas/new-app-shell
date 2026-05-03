@@ -95,6 +95,12 @@ export interface NavNode {
    * the parent suite — see `Suite.appGroups`.
    */
   group?: string
+  /**
+   * Pin this app at L1 regardless of its suite's density. Used for
+   * universal-personal entries (Inbox) that shouldn't live behind a suite
+   * container — they're always relevant, always one click away.
+   */
+  pinAtL1?: boolean
   /** Composer-set on proposal output. Not present in canonical `current`. */
   _proposalNotes?: ProposalNote[]
 }
@@ -225,10 +231,11 @@ export type Op =
       visibility: Visibility
       personaVariants?: Partial<Record<Persona, PersonaVariant>>
       logicalId?: string
+      group?: string
       afterApp?: string
       source?: string
     }
-  | { op: 'moveApp'; appId: string; toSuite: string; afterApp?: string }
+  | { op: 'moveApp'; appId: string; toSuite: string; afterApp?: string; toGroup?: string }
   | { op: 'removeApp'; appId: string }
   | { op: 'overrideNode'; id: string; patch: Partial<NavNode> }
   | { op: 'resolveShapeShifter'; logicalId: string; winningId: string }

@@ -1,14 +1,8 @@
 {
   "id": "ryan-v1",
-  "label": "Ryan v1 — Finance, Data/Studio split, Settings preserved, PEO cleanup",
-  "description": "First-pass IA proposal: (1) rename Spend → Finance and fold Banking into it; (2) restructure Data + Custom Apps into Data (raw substrate: pipelines, transformations, custom objects, custom fields, data manager) and Studio (build artifacts: custom apps, reports, workflows, recipes); (3) keep Tools and Settings as separate L1 suites — Tools for ambient productivity (Inbox absorbs Approvals + Notifications per the unified-inbox direction; plus Documents, Audit Log, Meetings, Rippling Build), Settings for company configuration (Company Settings, Permissions, Org Data, User Management, etc.); (4) PEO cleanup — drop the PEO suite, redistribute its 2 compliance artifacts (Workplace Posters, State Tax Accounts) into HR and gate them on isPeoClient || isAsoClient; PEO and HR Services (ASO) become plans rather than nav entries.",
+  "label": "Platform restructure: Build, Substrate, Tools, Settings",
+  "description": "Cleans up the platform tier of Rippling's IA. (1) Banking folds into Finance — one place for spend. (2) Custom Apps becomes Studio — the build-artifacts suite (custom apps, reports, dashboards, workflow studio, developer, recipes). (3) Data becomes the raw-substrate suite (data catalog, pipelines, transformations, external objects). (4) Tools holds cross-cutting utilities (inbox, approvals, documents, audit log, meetings, partner admin). (5) Settings is dedicated to company configuration. (6) PEO suite drops — its compliance artifacts (workplace posters, state tax accounts) move into HR; PEO and HR Services become plans, not nav entries. (7) Time absorbs all time-off concepts (PTO and Leaves move out of HR).",
   "ops": [
-    {
-      "op": "renameSuite",
-      "id": "spend",
-      "newId": "finance",
-      "newLabel": "Spend Management"
-    },
     {
       "op": "mergeSuite",
       "from": "banking",
@@ -36,10 +30,14 @@
       "label": "External Objects",
       "icon": "Cloud",
       "path": "/data/external-objects",
+      "group": "connect",
       "visibility": {
         "personas": [
           "full",
           "partial"
+        ],
+        "scopeForPartial": [
+          "data_admin"
         ],
         "productGate": "EXTERNAL_OBJECTS"
       },
@@ -86,15 +84,15 @@
     },
     {
       "op": "removeApp",
-      "appId": "pto"
-    },
-    {
-      "op": "removeApp",
       "appId": "approvals"
     },
     {
       "op": "removeApp",
       "appId": "notification-center"
+    },
+    {
+      "op": "removeApp",
+      "appId": "time-off-tracking"
     },
     {
       "op": "removeApp",
@@ -111,7 +109,14 @@
     {
       "op": "moveApp",
       "appId": "leaves",
-      "toSuite": "time"
+      "toSuite": "time",
+      "toGroup": "off"
+    },
+    {
+      "op": "moveApp",
+      "appId": "pto",
+      "toSuite": "time",
+      "toGroup": "off"
     },
     {
       "op": "addApp",

@@ -5,14 +5,12 @@ import type { App, Suite, SuiteGroupDef } from '@/lib/types.ts'
 import { Icon } from '@/lib/icon.tsx'
 import {
   resolve,
-  resolveSuite,
   buildConditionSet,
   type ResolveContext,
 } from '@/lib/visibility.ts'
+import { deriveSpine, type L1Entry } from '@/lib/derive.ts'
 import { cn } from '@/lib/cn.ts'
 import { useHud } from '@/state/HudContext.tsx'
-
-const FALLBACK_GROUP: SuiteGroupDef = { id: 'other', label: 'Other', order: 99 }
 
 type Selection = { kind: 'suite' | 'app'; id: string; label: string }
 
@@ -58,6 +56,14 @@ export function MegaMenu({ catalog, query, onSelect }: Props) {
   return <BrowseTwoPane catalog={catalog} ctx={ctx} ownedSuites={ownedSuites} onSelect={onSelect} />
 }
 
+/** Stable key for an L1 entry. Used as activeKey for hover/selection. */
+function entryKey(e: L1Entry): string {
+  if (e.kind === 'suite') return `s:${e.suite.id}`
+  if (e.kind === 'group') return `g:${e.suite.id}/${e.group.id}`
+  if (e.kind === 'my-cluster') return `my:cluster`
+  return `a:${e.app.id}`
+}
+
 function BrowseTwoPane({
   catalog,
   ctx,
@@ -69,105 +75,41 @@ function BrowseTwoPane({
   ownedSuites: Set<string>
   onSelect: (node: Selection) => void
 }) {
-  // Group suites editorially using the catalog's `groups` definitions.
-  // Each suite carries `group` (id) and `description` from the backend.
-  const groupedSuites = useMemo(() => {
-    const definedGroups = catalog.suites.groups ?? []
-    const orderedGroups: SuiteGroupDef[] = [...definedGroups].sort((a, b) => a.order - b.order)
+  // Derived L1 spine — applies hide / flatten-sparse / keep-dense /
+  // collapse-dominant rules to the resolved tree.
+  const spine = useMemo(() => deriveSpine(catalog.suites, ctx), [catalog.suites, ctx])
 
-    // Filter out suites with no visible/locked content for the active
-    // persona+plan. resolveSuite considers both the suite's own apps and
-    // capabilities cross-listed via `appearsIn`.
-    const allSuites = catalog.suites.suites
-    const visibleSuites = allSuites.filter(
-      (s) => resolveSuite(s, ctx, { suites: allSuites }) !== 'hidden',
-    )
-
-    const byGroup = new Map<string, Suite[]>()
-    for (const s of visibleSuites) {
-      const g = s.group ?? FALLBACK_GROUP.id
-      const arr = byGroup.get(g) ?? []
-      arr.push(s)
-      byGroup.set(g, arr)
-    }
-    // Within each group: owned first, then explore.
-    for (const [, arr] of byGroup) {
-      arr.sort((a, b) => {
-        const aOwned = ownedSuites.has(a.id) ? 0 : 1
-        const bOwned = ownedSuites.has(b.id) ? 0 : 1
-        return aOwned - bOwned
-      })
-    }
-
-    // Walk known groups first, then surface any leftover groups (in case a
-    // proposal introduces a suite with an unknown group id).
-    const seen = new Set<string>()
-    const out: { group: SuiteGroupDef; suites: Suite[] }[] = []
-    for (const g of orderedGroups) {
-      const arr = byGroup.get(g.id) ?? []
-      if (arr.length === 0) continue
-      out.push({ group: g, suites: arr })
-      seen.add(g.id)
-    }
-    for (const [gid, arr] of byGroup) {
-      if (seen.has(gid)) continue
-      out.push({ group: { id: gid, label: gid, order: 99 }, suites: arr })
-    }
-    return out
-  }, [catalog.suites.suites, catalog.suites.groups, ownedSuites, ctx])
-
-  const allSuitesFlat = useMemo(
-    () => groupedSuites.flatMap((g) => g.suites),
-    [groupedSuites],
-  )
-  const owned = useMemo(
-    () => allSuitesFlat.filter((s) => ownedSuites.has(s.id)),
-    [allSuitesFlat, ownedSuites],
-  )
-  const explore = useMemo(
-    () => allSuitesFlat.filter((s) => !ownedSuites.has(s.id)),
-    [allSuitesFlat, ownedSuites],
+  // First entry wins as initial active (any kind — flat apps now show a
+  // graphical preview pane too).
+  const [activeKey, setActiveKey] = useState<string>(() =>
+    spine.entries[0] ? entryKey(spine.entries[0]) : '',
   )
 
-  const [activeId, setActiveId] = useState<string>(() => owned[0]?.id ?? explore[0]?.id ?? '')
-  // When the active suite has appGroups, optionally focus a single group
-  // (filter the right-pane apps). null = show all groups.
-  const [activeAppGroup, setActiveAppGroup] = useState<string | null>(null)
-
-  // Keep activeId valid when plan switches.
+  // Keep activeKey valid as the spine changes (plan/persona toggle).
   useEffect(() => {
-    const all = [...owned, ...explore]
-    if (!all.some((s) => s.id === activeId)) {
-      setActiveId(all[0]?.id ?? '')
+    if (!spine.entries.some((e) => entryKey(e) === activeKey)) {
+      setActiveKey(spine.entries[0] ? entryKey(spine.entries[0]) : '')
     }
-  }, [owned, explore, activeId])
-
-  // Reset app-group focus when switching suites.
-  useEffect(() => {
-    setActiveAppGroup(null)
-  }, [activeId])
+  }, [spine.entries, activeKey])
 
   // ── Safe-triangle hover intent ──────────────────────────────────────────
-  // When the user moves their cursor diagonally from a left-pane item toward
-  // the right pane, we don't want intermediate left items to flicker as
-  // active. Defer the switch ~60ms; cancel if they reach the right pane.
-  const intentRef = useRef<{ timer: ReturnType<typeof setTimeout> | null; pendingId: string | null }>({
-    timer: null,
-    pendingId: null,
-  })
+  const intentRef = useRef<{
+    timer: ReturnType<typeof setTimeout> | null
+    pendingKey: string | null
+  }>({ timer: null, pendingKey: null })
   const lastMousePos = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
   const rightPanelRef = useRef<HTMLDivElement>(null)
 
-  const handleSuiteHover = useCallback(
-    (suiteId: string) => {
-      if (suiteId === activeId) {
+  const handleEntryHover = useCallback(
+    (key: string) => {
+      if (key === activeKey) {
         if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-        intentRef.current.pendingId = null
+        intentRef.current.pendingKey = null
         return
       }
       const panel = rightPanelRef.current
       if (!panel) {
-        setActiveId(suiteId)
+        setActiveKey(key)
         return
       }
       const panelRect = panel.getBoundingClientRect()
@@ -175,183 +117,408 @@ function BrowseTwoPane({
       const movingRight = mouse.x > 0 && mouse.x < panelRect.left
       if (movingRight) {
         if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-        intentRef.current.pendingId = suiteId
+        intentRef.current.pendingKey = key
         intentRef.current.timer = setTimeout(() => {
-          setActiveId(suiteId)
-          intentRef.current.pendingId = null
+          setActiveKey(key)
+          intentRef.current.pendingKey = null
         }, 60)
       } else {
         if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-        intentRef.current.pendingId = null
-        setActiveId(suiteId)
+        intentRef.current.pendingKey = null
+        setActiveKey(key)
       }
     },
-    [activeId],
+    [activeKey],
   )
 
   const handleRightEnter = useCallback(() => {
-    if (intentRef.current.pendingId) {
+    if (intentRef.current.pendingKey) {
       if (intentRef.current.timer) clearTimeout(intentRef.current.timer)
-      intentRef.current.pendingId = null
+      intentRef.current.pendingKey = null
     }
   }, [])
 
-  const activeSuite =
-    catalog.suites.suites.find((s) => s.id === activeId) ?? owned[0] ?? explore[0]
-  const activeOwned = activeSuite ? ownedSuites.has(activeSuite.id) : false
+  const activeEntry = spine.entries.find((e) => entryKey(e) === activeKey) ?? null
+  // Right pane only meaningful when at least one entry can populate it
+  // (suite, promoted group, or my-cluster). All-flat L1 → no pane.
+  const hasPaneCapableEntry = spine.entries.some(
+    (e) => e.kind === 'suite' || e.kind === 'group' || e.kind === 'my-cluster',
+  )
 
-  // Apps shown in the active suite's right pane:
-  //   - Direct apps (parent suite is activeSuite)
-  //   - Capabilities cross-listed via `appearsIn` from other suites
-  // Cross-listed entries carry `linkedFrom` so the UI can annotate them.
+  // Apps to show in the right pane for the active entry.
   type ShownApp = { app: App; linkedFrom?: Suite }
-  const visibleApps = useMemo<ShownApp[]>(() => {
-    if (!activeSuite) return []
-    const direct: ShownApp[] = (
-      !activeOwned
-        ? activeSuite.apps
-        : activeSuite.apps.filter(
-            (a) => resolve(a, { ...ctx, suiteId: activeSuite.id }) === 'visible',
-          )
-    ).map((app) => ({ app }))
-
-    const linked: ShownApp[] = []
-    for (const otherSuite of catalog.suites.suites) {
-      if (otherSuite.id === activeSuite.id) continue
-      for (const app of otherSuite.apps) {
-        if (!app.appearsIn?.includes(activeSuite.id)) continue
-        // Resolve against the active (linked-into) suite so persona/condition
-        // gating still applies. We deliberately use the active suite as
-        // suiteId so suite-ownership fallback uses the consumer's plan.
-        if (activeOwned && resolve(app, { ...ctx, suiteId: activeSuite.id }) !== 'visible') continue
-        linked.push({ app, linkedFrom: otherSuite })
+  const rightPane = useMemo<{
+    apps: ShownApp[]
+    showGroups: boolean
+    suite?: Suite
+    title?: string
+  }>(() => {
+    if (!activeEntry) return { apps: [], showGroups: false }
+    if (activeEntry.kind === 'suite') {
+      // Suite-with-pane: show its visible apps grouped by visibleGroups +
+      // ungrouped flat. Cross-listed apps are already included by
+      // `buildResolvedTree` (don't re-iterate appearsIn here or they double).
+      // Annotate cross-listed entries with `linkedFrom` for the UI.
+      const suite = activeEntry.suite
+      const ownerById = new Map<string, Suite>()
+      for (const s of catalog.suites.suites) {
+        for (const a of s.apps) {
+          if (!ownerById.has(a.id)) ownerById.set(a.id, s)
+        }
+      }
+      const annotate = (app: App): ShownApp => {
+        const owner = ownerById.get(app.id)
+        return owner && owner.id !== suite.id ? { app, linkedFrom: owner } : { app }
+      }
+      const direct: ShownApp[] = activeEntry.visibleApps.map(annotate)
+      const fromGroups: ShownApp[] = activeEntry.visibleGroups.flatMap((vg) =>
+        vg.apps.map(annotate),
+      )
+      // Dedup by id (defense-in-depth — the resolver should already not
+      // surface the same app twice in one suite's tree).
+      const seen = new Set<string>()
+      const apps: ShownApp[] = []
+      for (const e of [...fromGroups, ...direct]) {
+        if (seen.has(e.app.id)) continue
+        seen.add(e.app.id)
+        apps.push(e)
+      }
+      return {
+        apps,
+        showGroups: activeEntry.visibleGroups.length > 0,
+        suite,
+        title: suite.label,
       }
     }
-    return [...direct, ...linked]
-  }, [activeSuite, activeOwned, ctx, catalog.suites.suites])
+    if (activeEntry.kind === 'group') {
+      // Promoted appGroup: render its apps as a flat list.
+      return {
+        apps: activeEntry.visibleApps.map((app) => ({ app })),
+        showGroups: false,
+        suite: activeEntry.suite,
+        title: activeEntry.group.label,
+      }
+    }
+    if (activeEntry.kind === 'my-cluster') {
+      // Density-conditional My-Rippling cluster: flat list of personal apps.
+      return {
+        apps: activeEntry.apps.map(({ app }) => ({ app })),
+        showGroups: false,
+        title: 'My Rippling',
+      }
+    }
+    // Flattened single app — no pane content.
+    return { apps: [], showGroups: false }
+  }, [activeEntry, catalog.suites.suites, ctx])
 
   return (
     <div
-      className="flex"
+      className="flex flex-col"
       onMouseMove={(e) => {
         lastMousePos.current = { x: e.clientX, y: e.clientY }
       }}
     >
-      <div className="flex w-[300px] flex-col py-2">
-        {groupedSuites.map((g, gi) => (
-          <div key={g.group.id} className={gi > 0 ? 'mt-2' : undefined}>
-            <div className="px-4 pb-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
-              {g.group.label}
-            </div>
-            {g.suites.map((s) => (
-              <SuiteRow
-                key={s.id}
-                suite={s}
-                active={s.id === activeId}
-                locked={!ownedSuites.has(s.id)}
-                onHover={() => {
-                  handleSuiteHover(s.id)
-                  setActiveAppGroup(null)
-                }}
+      <div className="flex">
+      <div
+        className={cn(
+          'flex flex-col py-2',
+          hasPaneCapableEntry ? 'w-[300px]' : 'w-[540px]',
+        )}
+      >
+        {spine.collapsed && (
+          <div className="px-4 pb-1 pt-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+            {spine.collapsed.suite.label}
+          </div>
+        )}
+        {(() => {
+          // Pull personal items (pinAtL1 like Inbox + my-prefixed apps) to the
+          // top of the L1 list and divide them from the rest with a horizontal
+          // rule. The my-cluster (when threshold fires) also belongs in the
+          // personal zone.
+          const isPersonal = (e: L1Entry) =>
+            e.kind === 'my-cluster' ||
+            (e.kind === 'app' &&
+              (e.app.pinAtL1 ||
+                e.app.id.startsWith('my-') ||
+                e.app.label.startsWith('My ')))
+          const myEntries = spine.entries.filter(isPersonal)
+          const otherEntries = spine.entries.filter((e) => !isPersonal(e))
+
+          const renderEntry = (e: L1Entry) => {
+            const key = entryKey(e)
+            const isActive = key === activeKey
+            if (e.kind === 'suite') {
+              return (
+                <SuiteRow
+                  key={key}
+                  suite={e.suite}
+                  active={isActive}
+                  locked={!ownedSuites.has(e.suite.id)}
+                  onHover={() => handleEntryHover(key)}
+                  onClick={() => onSelect({ kind: 'suite', id: e.suite.id, label: e.suite.label })}
+                />
+              )
+            }
+            if (e.kind === 'group') {
+              return (
+                <GroupRow
+                  key={key}
+                  suite={e.suite}
+                  group={e.group}
+                  active={isActive}
+                  onHover={() => handleEntryHover(key)}
+                />
+              )
+            }
+            if (e.kind === 'my-cluster') {
+              return (
+                <MyClusterRow
+                  key={key}
+                  active={isActive}
+                  onHover={() => handleEntryHover(key)}
+                />
+              )
+            }
+            return (
+              <FlatAppRow
+                key={key}
+                app={e.app}
+                suite={e.suite}
+                active={isActive}
+                onHover={() => handleEntryHover(key)}
+                onClick={() => onSelect({ kind: 'app', id: e.app.id, label: e.app.label })}
+              />
+            )
+          }
+
+          // Insert a separator the first time we render a platform-group
+          // entry (Data, Studio/custom-apps, Tools, Settings) — divides
+          // product suites from cross-cutting tooling.
+          const isPlatform = (e: L1Entry): boolean => {
+            if (e.kind === 'suite') return e.suite.group === 'platform'
+            if (e.kind === 'group') return e.suite.group === 'platform'
+            if (e.kind === 'app') return e.suite.group === 'platform'
+            return false
+          }
+          // If the first "other" entry is itself platform, the my/other
+          // separator already does the platform divider's job — don't
+          // double-up.
+          const myOtherSepHandlesPlatform =
+            myEntries.length > 0 &&
+            otherEntries.length > 0 &&
+            isPlatform(otherEntries[0])
+          let insertedPlatformSep = myOtherSepHandlesPlatform
+          const renderOther = (e: L1Entry) => {
+            if (!insertedPlatformSep && isPlatform(e)) {
+              insertedPlatformSep = true
+              return (
+                <div key={`sep-${entryKey(e)}`}>
+                  <hr className="mx-4 my-2 border-neutral-200" />
+                  {renderEntry(e)}
+                </div>
+              )
+            }
+            return renderEntry(e)
+          }
+
+          return (
+            <>
+              {myEntries.map(renderEntry)}
+              {myEntries.length > 0 && otherEntries.length > 0 && (
+                <hr className="mx-4 my-2 border-neutral-200" />
+              )}
+              {otherEntries.map(renderOther)}
+            </>
+          )
+        })()}
+      </div>
+      {hasPaneCapableEntry && (
+        <>
+          <div className="w-px self-stretch bg-neutral-200" />
+          <div
+            ref={rightPanelRef}
+            onMouseEnter={handleRightEnter}
+            className="flex w-[280px] flex-col py-3"
+          >
+            {activeEntry && activeEntry.kind === 'app' ? (
+              <FlatAppEmptyState
+                app={activeEntry.app}
                 onClick={() =>
-                  ownedSuites.has(s.id)
-                    ? onSelect({ kind: 'suite', id: s.id, label: s.label })
-                    : setActiveId(s.id)
+                  onSelect({ kind: 'app', id: activeEntry.app.id, label: activeEntry.app.label })
                 }
               />
-            ))}
+            ) : activeEntry ? (
+              <div className="max-h-[440px] overflow-y-auto">
+                {rightPane.apps.length === 0 ? (
+                  <div className="px-3 py-4 text-xs text-neutral-400">
+                    No apps available.
+                  </div>
+                ) : rightPane.showGroups && activeEntry.kind === 'suite' ? (
+                  renderGroupedAppList(activeEntry, onSelect)
+                ) : (
+                  rightPane.apps.map((entry) => (
+                    <AppRow
+                      key={`${entry.linkedFrom?.id ?? 'self'}-${entry.app.id}`}
+                      entry={entry}
+                      owned
+                      onSelect={onSelect}
+                    />
+                  ))
+                )}
+              </div>
+            ) : null}
           </div>
-        ))}
+        </>
+      )}
       </div>
-      <div className="w-px self-stretch bg-neutral-200" />
-
-      <div ref={rightPanelRef} onMouseEnter={handleRightEnter} className="flex w-[280px] flex-col py-3">
-        {activeSuite && (
-          <>
-            <div className="max-h-[440px] overflow-y-auto">
-              {visibleApps.length === 0 ? (
-                <div className="px-3 py-4 text-xs text-neutral-400">
-                  No apps available in this suite.
-                </div>
-              ) : (
-                renderAppList(
-                  activeAppGroup
-                    ? visibleApps.filter((e) => e.app.group === activeAppGroup)
-                    : visibleApps,
-                  activeSuite,
-                  activeOwned,
-                  onSelect,
-                  activeAppGroup,
-                )
-              )}
-            </div>
-          </>
-        )}
-      </div>
+      {(() => {
+        let desc: string | undefined
+        if (activeEntry?.kind === 'suite') desc = activeEntry.suite.description
+        else if (activeEntry?.kind === 'group') desc = activeEntry.group.description
+        else if (activeEntry?.kind === 'my-cluster')
+          desc = 'Your personal items, scoped to just you across whatever Rippling products your company uses.'
+        if (!desc) return null
+        return (
+          <div className="border-t border-neutral-200 px-4 py-2 text-[11px] leading-snug text-neutral-500">
+            {desc}
+          </div>
+        )
+      })()}
     </div>
   )
 }
 
-/**
- * If the active suite defines `appGroups`, render the apps bucketed under
- * those group headers (skip empty groups). Otherwise render flat.
- */
-function renderAppList(
-  apps: { app: App; linkedFrom?: Suite }[],
-  suite: Suite,
-  owned: boolean,
+/** Render a suite-pane with dense appGroups as headers + ungrouped flat. */
+function renderGroupedAppList(
+  entry: Extract<L1Entry, { kind: 'suite' }>,
   onSelect: (n: { kind: 'app' | 'suite'; id: string; label: string }) => void,
-  filterToGroup?: string | null,
 ) {
-  const groups = suite.appGroups
-  if (filterToGroup) {
-    // When user has hovered a specific group, render flat (no sub-headers).
-    return apps.map((entry) => (
-      <AppRow key={`${entry.linkedFrom?.id ?? 'self'}-${entry.app.id}`} entry={entry} owned={owned} onSelect={onSelect} />
-    ))
-  }
-  if (!groups?.length) {
-    return apps.map((entry) => (
-      <AppRow key={`${entry.linkedFrom?.id ?? 'self'}-${entry.app.id}`} entry={entry} owned={owned} onSelect={onSelect} />
-    ))
-  }
-  const ordered = [...groups].sort((a, b) => a.order - b.order)
-  const byGroup = new Map<string, { app: App; linkedFrom?: Suite }[]>()
-  const ungrouped: { app: App; linkedFrom?: Suite }[] = []
-  for (const e of apps) {
-    const g = e.app.group
-    if (g && groups.some((x) => x.id === g)) {
-      const arr = byGroup.get(g) ?? []
-      arr.push(e)
-      byGroup.set(g, arr)
-    } else {
-      ungrouped.push(e)
-    }
-  }
   return (
     <>
-      {ordered.map((g) => {
-        const list = byGroup.get(g.id) ?? []
-        if (list.length === 0) return null
-        return (
-          <div key={g.id} className="mt-2 first:mt-0">
-            <div className="px-3 pb-0.5 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
-              {g.label}
-            </div>
-            {list.map((entry) => (
-              <AppRow key={`${entry.linkedFrom?.id ?? 'self'}-${entry.app.id}`} entry={entry} owned={owned} onSelect={onSelect} />
-            ))}
+      {entry.visibleGroups.map((vg) => (
+        <div key={vg.group.id} className="mt-2 first:mt-0">
+          <div className="px-3 pb-0.5 pt-1.5 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+            {vg.group.label}
           </div>
-        )
-      })}
-      {ungrouped.length > 0 && (
+          {vg.apps.map((app) => (
+            <AppRow key={`g-${app.id}`} entry={{ app }} owned onSelect={onSelect} />
+          ))}
+        </div>
+      ))}
+      {entry.visibleApps.length > 0 && (
         <div className="mt-2">
-          {ungrouped.map((entry) => (
-            <AppRow key={`${entry.linkedFrom?.id ?? 'self'}-${entry.app.id}`} entry={entry} owned={owned} onSelect={onSelect} />
+          {entry.visibleApps.map((app) => (
+            <AppRow key={`f-${app.id}`} entry={{ app }} owned onSelect={onSelect} />
           ))}
         </div>
       )}
     </>
+  )
+}
+
+function FlatAppEmptyState({ app, onClick }: { app: App; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="flex h-full min-h-[200px] w-full flex-col items-center justify-center gap-3 px-4 py-6 text-center hover:bg-neutral-50"
+    >
+      <div className="rounded-full bg-neutral-100 p-4">
+        <Icon name={app.icon} size={28} className="text-neutral-500" />
+      </div>
+      <div>
+        <div className="text-sm font-medium text-neutral-900">{app.label}</div>
+        <div className="mt-1 text-[11px] text-neutral-500">Click to open</div>
+      </div>
+    </button>
+  )
+}
+
+function MyClusterRow({
+  active,
+  onHover,
+}: {
+  active: boolean
+  onHover: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onMouseEnter={onHover}
+      className={cn(
+        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
+        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+      )}
+    >
+      <Icon name="UserCircle" size={15} className="mt-0.5 shrink-0 text-neutral-600" />
+      <div className="min-w-0 flex-1">
+        <div className="truncate text-[13px] font-medium text-neutral-900">My Rippling</div>
+      </div>
+    </button>
+  )
+}
+
+function GroupRow({
+  suite: _suite,
+  group,
+  active,
+  onHover,
+}: {
+  suite: Suite
+  group: SuiteGroupDef
+  active: boolean
+  onHover: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onMouseEnter={onHover}
+      className={cn(
+        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
+        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+      )}
+    >
+      <Icon
+        name={group.icon ?? 'FolderSimple'}
+        size={15}
+        className="mt-0.5 shrink-0 text-neutral-600"
+      />
+      <div className="min-w-0 flex-1">
+        <div className="truncate text-[13px] font-medium text-neutral-900">{group.label}</div>
+      </div>
+    </button>
+  )
+}
+
+function FlatAppRow({
+  app,
+  suite,
+  active,
+  onHover,
+  onClick,
+}: {
+  app: App
+  suite: Suite
+  active: boolean
+  onHover: () => void
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onMouseEnter={onHover}
+      onClick={onClick}
+      className={cn(
+        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
+        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+      )}
+      title={`${suite.label} · ${app.label}`}
+    >
+      <Icon name={app.icon} size={15} className="mt-0.5 shrink-0 text-neutral-600" />
+      <div className="min-w-0 flex-1">
+        <div className="truncate text-[13px] font-medium text-neutral-900">{app.label}</div>
+      </div>
+    </button>
   )
 }
 
@@ -405,17 +572,19 @@ function SearchResults({
   const matches = (label: string) => label.toLowerCase().includes(q)
 
   type Hit =
-    | { kind: 'suite'; suite: Suite; owned: boolean }
-    | { kind: 'app'; app: App; suite: Suite; owned: boolean; visible: boolean }
+    | { kind: 'suite'; suite: Suite }
+    | { kind: 'app'; app: App; suite: Suite }
 
+  // Search only over things the user can actually access. No locked / not-
+  // owned tiles in search results — those add noise for non-admins.
   const hits: Hit[] = []
   for (const suite of catalog.suites.suites) {
-    const owned = ownedSuites.has(suite.id)
-    if (matches(suite.label)) hits.push({ kind: 'suite', suite, owned })
+    const suiteOwned = ownedSuites.has(suite.id)
+    if (suiteOwned && matches(suite.label)) hits.push({ kind: 'suite', suite })
     for (const app of suite.apps) {
       if (!matches(app.label)) continue
-      const visible = resolve(app, { ...ctx, suiteId: suite.id }) === 'visible'
-      hits.push({ kind: 'app', app, suite, owned, visible })
+      if (resolve(app, { ...ctx, suiteId: suite.id }) !== 'visible') continue
+      hits.push({ kind: 'app', app, suite })
     }
   }
 
@@ -436,40 +605,27 @@ function SearchResults({
               <button
                 type="button"
                 onClick={() => onSelect({ kind: 'suite', id: hit.suite.id, label: hit.suite.label })}
-                className={cn(
-                  'flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px]',
-                  hit.owned ? 'hover:bg-neutral-100' : 'opacity-70 hover:bg-neutral-50',
-                )}
+                className="flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px] hover:bg-neutral-100"
               >
                 <Icon name={hit.suite.icon} size={14} className="text-neutral-500" />
                 <span className="flex-1 font-medium text-neutral-900">{hit.suite.label}</span>
                 <span className="text-[10px] uppercase tracking-wider text-neutral-400">
-                  {hit.owned ? 'Suite' : 'Suite · Explore'}
+                  Suite
                 </span>
               </button>
             </li>
           )
         }
-        const dim = !hit.owned || !hit.visible
         return (
           <li key={`a-${hit.app.id}-${i}`}>
             <button
               type="button"
-              onClick={() =>
-                hit.owned && hit.visible
-                  ? onSelect({ kind: 'app', id: hit.app.id, label: hit.app.label })
-                  : undefined
-              }
-              disabled={dim}
-              className={cn(
-                'flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px]',
-                dim ? 'cursor-default opacity-50' : 'hover:bg-neutral-100',
-              )}
+              onClick={() => onSelect({ kind: 'app', id: hit.app.id, label: hit.app.label })}
+              className="flex w-full items-center gap-2.5 px-4 py-1.5 text-left text-[13px] hover:bg-neutral-100"
             >
               <Icon name={hit.app.icon} size={13} className="text-neutral-400" />
               <span className="flex-1 truncate text-neutral-800">{hit.app.label}</span>
               <span className="text-[10px] text-neutral-400">{hit.suite.label}</span>
-              {!hit.owned && <Lock size={11} className="text-neutral-300" />}
             </button>
           </li>
         )

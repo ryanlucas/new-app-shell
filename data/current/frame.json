@@ -150,22 +150,7 @@
         "logicalId": "remove-person",
         "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:104"
       },
-      {
-        "id": "org-chart",
-        "label": "Org Chart",
-        "icon": "TreeStructure",
-        "path": "/org-chart",
-        "visibility": {
-          "personas": [
-            "full",
-            "partial",
-            "manager",
-            "ee"
-          ]
-        },
-        "source": "app/appShell/components/navigation/config/getSideNavConfig.ts:321"
-      },
-      {
+{
         "id": "reports",
         "label": "Reports",
         "icon": "ChartBar",

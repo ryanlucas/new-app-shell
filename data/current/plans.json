@@ -8,7 +8,7 @@
         "hr",
         "talent",
         "payroll",
-        "spend",
+        "finance",
         "time",
         "benefits",
         "it",
@@ -25,7 +25,7 @@
     {
       "id": "hris-only",
       "label": "HRIS only",
-      "description": "Standalone HRIS customer — HR + reporting + integrations",
+      "description": "Standalone HRIS customer \u2014 HR + reporting + integrations",
       "ownedSuites": [
         "hr",
         "custom-apps",
@@ -39,9 +39,9 @@
     {
       "id": "spend-only",
       "label": "Spend Management only (standalone)",
-      "description": "Standalone Spend customer — no HR/Payroll. Spend pillar plus banking and integrations.",
+      "description": "Standalone Spend customer \u2014 no HR/Payroll. Spend pillar plus banking and integrations.",
       "ownedSuites": [
-        "spend",
+        "finance",
         "custom-apps",
         "banking",
         "settings"
@@ -53,7 +53,7 @@
     {
       "id": "it-only",
       "label": "IT only (standalone)",
-      "description": "Standalone IT customer — devices, identity, and integrations only.",
+      "description": "Standalone IT customer \u2014 devices, identity, and integrations only.",
       "ownedSuites": [
         "it",
         "custom-apps",
@@ -66,7 +66,7 @@
     {
       "id": "hr-payroll-benefits",
       "label": "HR + Payroll + Benefits",
-      "description": "Typical SMB bundle — HR, Payroll, Time, Benefits, plus reporting and integrations.",
+      "description": "Typical SMB bundle \u2014 HR, Payroll, Time, Benefits, plus reporting and integrations.",
       "ownedSuites": [
         "hr",
         "payroll",

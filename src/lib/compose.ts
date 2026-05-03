@@ -156,6 +156,7 @@ function applyOp(state: State, op: Op, ctx: { proposalId: string }): void {
         source: op.source ?? `proposal:${ctx.proposalId}`,
         _proposalNotes: [note()],
         ...(op.logicalId ? { logicalId: op.logicalId } : {}),
+        ...(op.group ? { group: op.group } : {}),
       }
       suite.apps = suite.apps || []
       let insertAt = suite.apps.length
@@ -174,6 +175,18 @@ function applyOp(state: State, op: Op, ctx: { proposalId: string }): void {
       if (!target) throw new Error(`moveApp: target "${op.toSuite}" not found`)
       found.suite.apps.splice(found.idx, 1)
       found.app.parent = target.id
+      // Re-anchor the app's group to one in the target suite (or clear if
+      // the new suite doesn't carry that group). Caller can override via
+      // `toGroup`. Without this, a moved app keeps the source suite's group
+      // id which renders as ungrouped in the target.
+      if (op.toGroup !== undefined) {
+        found.app.group = op.toGroup
+      } else if (
+        found.app.group &&
+        !(target.appGroups ?? []).some((g) => g.id === found.app.group)
+      ) {
+        delete found.app.group
+      }
       found.app._proposalNotes = [
         ...(found.app._proposalNotes || []),
         note({ originSuite: found.suite.id }),

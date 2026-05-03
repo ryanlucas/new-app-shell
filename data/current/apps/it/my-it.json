@@ -5,26 +5,43 @@
   "appProductGate": "IT_MANAGEMENT",
   "nav": [
     {
-      "id": "third-party-apps",
-      "label": "Third-Party Apps",
+      "id": "my-devices",
+      "label": "My Devices",
+      "icon": "Laptop",
+      "path": "/it/my-it/devices",
+      "visibility": {
+        "personas": ["ee", "manager", "full", "partial"],
+        "productGate": "DEVICE_MANAGEMENT"
+      },
+      "source": "rippling-webapp/app/products/it/IT/modules/myIt (canonical EE devices view)"
+    },
+    {
+      "id": "my-apps",
+      "label": "My Apps",
       "icon": "AppWindow",
       "path": "/it/my-it/third-party-apps",
       "visibility": {
-        "personas": [
-          "ee",
-          "manager",
-          "full",
-          "partial"
-        ],
+        "personas": ["ee", "manager", "full", "partial"],
         "productGate": "IT_MANAGEMENT"
       },
-      "source": "app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:18"
+      "source": "rippling-webapp/app/products/it/IT/modules/helpDesk/HelpDeskNavBar.tsx:18"
+    },
+    {
+      "id": "my-password",
+      "label": "My Password Manager",
+      "icon": "Key",
+      "path": "/it/my-it/rpass",
+      "visibility": {
+        "personas": ["ee", "manager", "full", "partial"],
+        "productGate": "RPASS"
+      },
+      "source": "rippling-webapp/app/products/it/RPass (EE password vault)"
     }
   ],
   "_meta": {
-    "generatedBy": "phase-2C",
+    "generatedBy": "phase-2C+ee-canonical",
     "uncertainties": [
-      "Currently exposes only one tab (Third-Party Apps). Likely to grow as helpdesk EE flows expand."
+      "Modeling my-it as the comprehensive EE-IT landing (My Devices / My Apps / My Password). Each tab is product-gated so it disappears if the company doesn't own that capability."
     ]
   }
 }

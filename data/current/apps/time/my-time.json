@@ -100,6 +100,19 @@
       "source": "rippling-webapp/app/products/hr/UnifiedTimeProducts/utils/hooks/pageLinks/useMyTimePageLinks.ts:56"
     },
     {
+      "id": "my-leaves",
+      "label": "My Leaves",
+      "icon": "CalendarX",
+      "path": "/time-products/dashboard/my-time/leaves",
+      "visibility": {
+        "personas": [
+          "ee"
+        ],
+        "productGate": "LEAVES"
+      },
+      "source": "EE-canonical: leaves of absence belong inside My Time alongside Time Off"
+    },
+    {
       "id": "my-settings",
       "label": "My Settings",
       "icon": "Gear",
