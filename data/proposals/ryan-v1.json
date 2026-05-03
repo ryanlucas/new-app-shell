@@ -123,6 +123,10 @@
       "id": "peo"
     },
     {
+      "op": "removeApp",
+      "appId": "snowflake"
+    },
+    {
       "op": "addPlan",
       "id": "peo",
       "label": "Rippling PEO",

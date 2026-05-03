@@ -337,6 +337,24 @@
             "productGate": "EMPLOYMENTVERIFICATIONS"
           },
           "source": "app/apps/data/apps/internal/employment_verifications.json"
+        },
+        {
+          "id": "forecasting",
+          "label": "Forecasting",
+          "icon": "TrendUp",
+          "path": "/forecasting",
+          "parent": "hr",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "data_admin"
+            ],
+            "productGate": "FORECASTING"
+          },
+          "source": "app/hub/spoke_models.py:862"
         }
       ]
     },
@@ -2177,24 +2195,6 @@
             "productGate": "SNOWFLAKE"
           },
           "source": "app/hub/spoke_models.py:823"
-        },
-        {
-          "id": "forecasting",
-          "label": "Forecasting",
-          "icon": "TrendUp",
-          "path": "/forecasting",
-          "parent": "data",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "data_admin"
-            ],
-            "productGate": "FORECASTING"
-          },
-          "source": "app/hub/spoke_models.py:862"
         }
       ]
     },
