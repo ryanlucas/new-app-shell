@@ -1,7 +1,8 @@
 import { useCallback, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { useHud } from '@/state/HudContext.tsx'
 import { useCatalog } from '@/state/useCatalog.ts'
+import { useRecents } from '@/state/useRecents.ts'
+import { motion, AnimatePresence } from 'framer-motion'
 import { AvatarRail, LeftRail } from './LeftRail.tsx'
 import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
@@ -18,16 +19,21 @@ export function AppShell() {
   const hud = useHud()
   const { data: catalog, loading, error } = useCatalog(hud.view)
   const [selectedAppId, setSelectedAppId] = useState<string | null>(null)
-
   // Single side-panel slot — only one of AI / Inbox / Chat can be open
   // at a time. Click the active one's rail icon to close.
   const [sidePanel, setSidePanel] = useState<null | 'ai' | 'inbox' | 'chat'>(null)
   const bar = useEverythingBar()
   const cmd = useCommandBar()
 
-  const handleNavigate = useCallback((appId: string) => {
-    setSelectedAppId(appId)
-  }, [])
+  const { recents, addRecent } = useRecents()
+
+  const handleNavigate = useCallback(
+    (appId: string) => {
+      setSelectedAppId(appId)
+      addRecent(appId)
+    },
+    [addRecent],
+  )
   const toggleAi = useCallback(
     () => setSidePanel((v) => (v === 'ai' ? null : 'ai')),
     [],
@@ -119,6 +125,8 @@ export function AppShell() {
         catalog={catalog}
         onNavigate={handleNavigate}
         onToggleChat={toggleAi}
+        onToggleInbox={toggleInbox}
+        recents={recents}
       />
       <UserMenu
         open={userMenuOpen}

@@ -12,7 +12,9 @@ interface Props {
   onClose: () => void
   catalog: CatalogResponse
   onToggleChat: () => void
+  onToggleInbox: () => void
   onNavigate: (appId: string) => void
+  recents: string[]
 }
 
 interface CommandItem {
@@ -26,7 +28,15 @@ interface CommandItem {
 
 const EXIT_MS = 120
 
-export function CommandBar({ open, onClose, catalog, onToggleChat, onNavigate }: Props) {
+export function CommandBar({
+  open,
+  onClose,
+  catalog,
+  onToggleChat,
+  onToggleInbox,
+  onNavigate,
+  recents,
+}: Props) {
   const hud = useHud()
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(0)
@@ -65,8 +75,8 @@ export function CommandBar({ open, onClose, catalog, onToggleChat, onNavigate }:
     [hud, catalog.plans],
   )
 
-  // Build the universe of commands: actions + every visible app + suites.
-  const items = useMemo<CommandItem[]>(() => {
+  // Lookup of all visible apps for searching + suggestion-building.
+  const allItems = useMemo<CommandItem[]>(() => {
     const out: CommandItem[] = [
       {
         id: 'action:toggle-ai',
@@ -75,6 +85,14 @@ export function CommandBar({ open, onClose, catalog, onToggleChat, onNavigate }:
         icon: 'Sparkle',
         kind: 'action',
         run: onToggleChat,
+      },
+      {
+        id: 'action:toggle-inbox',
+        label: 'Toggle Inbox',
+        hint: 'Action',
+        icon: 'Tray',
+        kind: 'action',
+        run: onToggleInbox,
       },
     ]
     for (const suite of catalog.suites.suites) {
@@ -91,15 +109,40 @@ export function CommandBar({ open, onClose, catalog, onToggleChat, onNavigate }:
       }
     }
     return out
-  }, [catalog.suites.suites, ctx, onToggleChat, onNavigate])
+  }, [catalog.suites.suites, ctx, onToggleChat, onToggleInbox, onNavigate])
 
-  const filtered = useMemo(() => {
+  // Default view (empty query): a curated short list of recents + a few
+  // suggested actions. Search expands to the full universe.
+  type Section = { title: string; items: CommandItem[] }
+  const sections = useMemo<Section[]>(() => {
     const q = query.trim().toLowerCase()
-    if (!q) return items.slice(0, 50)
-    return items
-      .filter((i) => i.label.toLowerCase().includes(q) || i.hint?.toLowerCase().includes(q))
-      .slice(0, 50)
-  }, [items, query])
+    if (q) {
+      const filtered = allItems
+        .filter(
+          (i) => i.label.toLowerCase().includes(q) || i.hint?.toLowerCase().includes(q),
+        )
+        .slice(0, 50)
+      return [{ title: 'Results', items: filtered }]
+    }
+    const itemById = new Map(allItems.map((i) => [`app:${i.id.replace(/^app:/, '')}`, i]))
+    // Recents (visible only)
+    const recentItems: CommandItem[] = []
+    for (const id of recents) {
+      const it = itemById.get(`app:${id}`)
+      if (it) recentItems.push(it)
+    }
+    const out: Section[] = []
+    if (recentItems.length > 0) {
+      out.push({ title: 'Recent', items: recentItems.slice(0, 5) })
+    }
+    const suggestions = allItems
+      .filter((i) => i.kind === 'action' || i.id === 'app:my-profile' || i.id === 'app:inbox')
+      .slice(0, 5)
+    out.push({ title: 'Suggestions', items: suggestions })
+    return out
+  }, [allItems, query, recents])
+
+  const filtered = useMemo(() => sections.flatMap((s) => s.items), [sections])
 
   // Reset active index when filtered set changes.
   useEffect(() => {
@@ -174,37 +217,50 @@ export function CommandBar({ open, onClose, catalog, onToggleChat, onNavigate }:
               No matches.
             </li>
           ) : (
-            filtered.map((item, i) => {
-              const isActive = i === active
-              return (
-                <li key={item.id}>
-                  <button
-                    type="button"
-                    onMouseEnter={() => setActive(i)}
-                    onClick={() => {
-                      item.run()
-                      onClose()
-                    }}
-                    className={cn(
-                      'flex w-full items-center gap-2.5 px-4 py-2 text-left text-[13px]',
-                      isActive ? 'bg-neutral-100' : 'hover:bg-neutral-50',
-                    )}
-                  >
-                    {item.icon === 'Sparkle' ? (
-                      <Sparkle size={14} className="text-neutral-500" />
-                    ) : (
-                      <Icon name={item.icon} size={14} className="text-neutral-500" />
-                    )}
-                    <span className="flex-1 truncate text-neutral-800">{item.label}</span>
-                    {item.hint && (
-                      <span className="text-[10px] uppercase tracking-wider text-neutral-400">
-                        {item.hint}
-                      </span>
-                    )}
-                  </button>
+            (() => {
+              let idx = 0
+              return sections.map((section) => (
+                <li key={section.title}>
+                  <div className="px-4 pb-1 pt-2 text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
+                    {section.title}
+                  </div>
+                  <ul>
+                    {section.items.map((item) => {
+                      const i = idx++
+                      const isActive = i === active
+                      return (
+                        <li key={item.id}>
+                          <button
+                            type="button"
+                            onMouseEnter={() => setActive(i)}
+                            onClick={() => {
+                              item.run()
+                              onClose()
+                            }}
+                            className={cn(
+                              'flex w-full items-center gap-2.5 px-4 py-2 text-left text-[13px]',
+                              isActive ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+                            )}
+                          >
+                            {item.icon === 'Sparkle' ? (
+                              <Sparkle size={14} className="text-neutral-500" />
+                            ) : (
+                              <Icon name={item.icon} size={14} className="text-neutral-500" />
+                            )}
+                            <span className="flex-1 truncate text-neutral-800">{item.label}</span>
+                            {item.hint && (
+                              <span className="text-[10px] uppercase tracking-wider text-neutral-400">
+                                {item.hint}
+                              </span>
+                            )}
+                          </button>
+                        </li>
+                      )
+                    })}
+                  </ul>
                 </li>
-              )
-            })
+              ))
+            })()
           )}
         </ul>
       </motion.div>
