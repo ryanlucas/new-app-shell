@@ -33,13 +33,15 @@
       "id": "spend-only",
       "label": "Spend Management only (standalone)",
       "description": "Standalone Spend customer — no HR/Payroll. Spend pillar plus banking and integrations.",
-      "ownedSuites": ["spend", "custom-apps", "banking", "settings"]
+      "ownedSuites": ["spend", "custom-apps", "banking", "settings"],
+      "conditions": ["isStandaloneCompany"]
     },
     {
       "id": "it-only",
       "label": "IT only (standalone)",
       "description": "Standalone IT customer — devices, identity, and integrations only.",
-      "ownedSuites": ["it", "identity", "custom-apps", "settings"]
+      "ownedSuites": ["it", "identity", "custom-apps", "settings"],
+      "conditions": ["isStandaloneCompany"]
     },
     {
       "id": "hr-payroll-benefits",

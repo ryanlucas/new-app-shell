@@ -58,11 +58,13 @@ function personaMatches(v: Visibility, ctx: ResolveContext): boolean {
 }
 
 function productGateMet(v: Visibility, ctx: ResolveContext): boolean {
-  if (!v.productGate) return true
+  // No explicit gate: ownership is determined by suite membership (so an app
+  // with no productGate inside an unowned suite is still "not owned").
+  if (!v.productGate) {
+    return ctx.suiteId ? ctx.ownedSuites.has(ctx.suiteId) : true
+  }
   if (ctx.ownedSpokes?.has(v.productGate)) return true
-  // Fallback heuristic: if we don't have spoke-level ownership data, treat the
-  // suite-level ownership as a proxy. (The renderer typically resolves the
-  // suite first and only walks into apps when the suite is visible.)
+  // Fallback when spoke-level data isn't available: use suite ownership.
   return ctx.suiteId ? ctx.ownedSuites.has(ctx.suiteId) : false
 }
 
