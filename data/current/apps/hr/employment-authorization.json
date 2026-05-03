@@ -232,7 +232,8 @@
       "App is admin/HR-only — gated by isI9EverifyAdmin or specific access levels (i9, everify, settings). Maps to full+partial.",
       "Tab order swaps for non-US HQ companies (work auth dashboard becomes primary)",
       "Nested sub-links (e.g. I-9 dashboard sections) are tabs/sections inside the dashboard pages — modeled here as parented children",
-      "App has no productGate spoke handle — controlled by access-level checks on roles"
+      "App has no productGate spoke handle — controlled by access-level checks on roles",
+      "Label variant: standalone (HRIS-only) customers see 'Work Authorization' — applied via standalone_nav_overrides.py:228 (attr_name=name, attr_value=work_authorization). Non-standalone customers see 'Employment Authorization'. Catalog uses the non-standalone label as canonical."
     ]
   }
 }

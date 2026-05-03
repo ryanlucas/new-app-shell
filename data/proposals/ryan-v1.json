@@ -1,13 +1,13 @@
 {
   "id": "ryan-v1",
-  "label": "Ryan v1 — Finance, Identity-into-IT, Platform foundations, PEO cleanup",
-  "description": "First-pass IA proposal: (1) rename Spend → Finance and fold Banking into it; (2) merge Identity into IT to match commercial bundling; (3) collapse Tools and Settings into a single Platform foundations suite; (4) reposition User Management as an ungated foundation primitive in Platform (was a paid Identity SKU), and add Directory; (5) PEO cleanup — drop the PEO suite, redistribute its 2 compliance artifacts (Workplace Posters, State Tax Accounts) into HR and gate them on isPeoClient; PEO becomes a plan rather than a suite.",
+  "label": "Ryan v1 — Finance, Platform foundations, PEO cleanup",
+  "description": "First-pass IA proposal: (1) rename Spend → Finance and fold Banking into it; (2) collapse Tools and Settings into a single Platform foundations suite; (3) add User Management and Directory as ungated foundation primitives in Platform; (4) PEO cleanup — drop the PEO suite, redistribute its 2 compliance artifacts (Workplace Posters, State Tax Accounts) into HR and gate them on isPeoClient || isAsoClient; PEO and HR Services (ASO) become plans rather than nav entries.",
   "ops": [
     {
       "op": "renameSuite",
       "id": "spend",
       "newId": "finance",
-      "newLabel": "Finance"
+      "newLabel": "Spend Management"
     },
     {
       "op": "mergeSuite",
@@ -27,11 +27,6 @@
       "into": "platform"
     },
     {
-      "op": "moveApp",
-      "appId": "user-management",
-      "toSuite": "platform"
-    },
-    {
       "op": "removeApp",
       "appId": "pto"
     },
@@ -41,22 +36,18 @@
       "toSuite": "time"
     },
     {
-      "op": "overrideNode",
+      "op": "addApp",
+      "suiteId": "platform",
       "id": "user-management",
-      "patch": {
-        "visibility": {
-          "personas": ["full", "partial"],
-          "scopeForPartial": [],
-          "productGate": null,
-          "permissionGate": null,
-          "conditions": [],
-          "whenUnowned": null
-        }
+      "label": "User Management",
+      "icon": "UserGear",
+      "path": "/user-management",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ]
       }
-    },
-    {
-      "op": "removeApp",
-      "appId": "manual-user-management"
     },
     {
       "op": "addApp",
@@ -66,19 +57,13 @@
       "icon": "BookUser",
       "path": "/directory",
       "visibility": {
-        "personas": ["full", "partial", "manager", "ee"],
-        "scopeForPartial": [],
-        "productGate": null,
-        "permissionGate": null,
-        "conditions": [],
-        "whenUnowned": null
-      },
-      "personaVariants": {}
-    },
-    {
-      "op": "mergeSuite",
-      "from": "identity",
-      "into": "it"
+        "personas": [
+          "full",
+          "partial",
+          "manager",
+          "ee"
+        ]
+      }
     },
     {
       "op": "moveApp",
@@ -90,11 +75,16 @@
       "id": "workplace-posters",
       "patch": {
         "visibility": {
-          "personas": ["full", "partial"],
+          "personas": [
+            "full",
+            "partial"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
-          "conditions": ["isPeoClient"],
+          "conditions": [
+            "isPeoClient || isAsoClient"
+          ],
           "whenUnowned": null
         }
       }
@@ -109,11 +99,16 @@
       "id": "state-tax-accounts",
       "patch": {
         "visibility": {
-          "personas": ["full", "partial"],
+          "personas": [
+            "full",
+            "partial"
+          ],
           "scopeForPartial": [],
           "productGate": null,
           "permissionGate": null,
-          "conditions": ["isPeoClient"],
+          "conditions": [
+            "isPeoClient || isAsoClient"
+          ],
           "whenUnowned": null
         }
       }
@@ -155,52 +150,99 @@
         ]
       }
     },
-    { "op": "overrideNode", "id": "rpass",                  "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "custom-integrations",    "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "saml-service",           "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "duo",                    "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "yubikey",                "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "group-manager",          "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "extended-access",        "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "vldap",                  "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "rbac",                   "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "conditional-access",     "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "zero-trust",             "patch": { "group": "identity" } },
-    { "op": "overrideNode", "id": "device-management",      "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "apple-mdm",              "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "windows-mdm",            "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "os-patching",            "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "lifecycle-management",   "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "device-trust",           "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "it-automations",         "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "device-store",           "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "device-buyback",         "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "global-warehousing",     "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "endpoint-detection",     "patch": { "group": "security" } },
-    { "op": "overrideNode", "id": "automated-compliance",   "patch": { "group": "security" } },
-    { "op": "overrideNode", "id": "security-monitoring",    "patch": { "group": "security" } },
-    { "op": "overrideNode", "id": "sentinelone",            "patch": { "group": "security" } },
-    { "op": "overrideNode", "id": "activity-logs",          "patch": { "group": "security" } },
-    { "op": "overrideNode", "id": "third-party-integrations","patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "it-management",          "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "it-overview",            "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "ssh",                    "patch": { "group": "identity" } },
+    {
+      "op": "overrideNode",
+      "id": "rpass",
+      "patch": {
+        "group": "identity"
+      }
+    },
+    {
+      "op": "overrideNode",
+      "id": "device-management",
+      "patch": {
+        "group": "device-mgmt"
+      }
+    },
+    {
+      "op": "overrideNode",
+      "id": "device-store",
+      "patch": {
+        "group": "device-mgmt"
+      }
+    },
+    {
+      "op": "overrideNode",
+      "id": "automated-compliance",
+      "patch": {
+        "group": "security"
+      }
+    },
+    {
+      "op": "overrideNode",
+      "id": "third-party-integrations",
+      "patch": {
+        "group": "device-mgmt"
+      }
+    },
+    {
+      "op": "overrideNode",
+      "id": "it-management",
+      "patch": {
+        "group": "device-mgmt"
+      }
+    },
+    {
+      "op": "overrideNode",
+      "id": "it-overview",
+      "patch": {
+        "group": "device-mgmt"
+      }
+    },
     {
       "op": "addPlan",
       "id": "peo",
       "label": "Rippling PEO",
       "description": "Co-employment client. Rippling is the legal employer of record; HR/Payroll/Benefits/Time/Compliance are bundled and delivered through Rippling's PEO entity.",
-      "ownedSuites": ["hr", "payroll", "benefits", "time", "custom-apps", "data", "platform"],
-      "conditions": ["isPeoClient"],
+      "ownedSuites": [
+        "hr",
+        "payroll",
+        "benefits",
+        "time",
+        "custom-apps",
+        "data",
+        "platform"
+      ],
+      "conditions": [
+        "isPeoClient"
+      ],
       "afterPlan": "hr-payroll-benefits"
+    },
+    {
+      "op": "addPlan",
+      "id": "hr-services",
+      "label": "HR Services",
+      "description": "ASO client. Rippling provides HR admin services (payroll tax, workers comp, compliance support) but is not the legal employer of record. PEO-lite.",
+      "ownedSuites": [
+        "hr",
+        "payroll",
+        "benefits",
+        "time",
+        "custom-apps",
+        "data",
+        "platform"
+      ],
+      "conditions": [
+        "isAsoClient"
+      ],
+      "afterPlan": "peo"
     }
   ],
   "_notes": [
-    "User Management is moved out of Identity BEFORE the identity→it merge so it ends up in Platform, not bundled with IT.",
     "manual-user-management (separate spoke MANUAL_USER_MANAGEMENT) is folded into the unified user-management app.",
     "Directory is new — the catalog has no Directory app today.",
-    "Identity apps (RPass, Okta, AzureAD, SCIM, SSO, Yubikey, Two-FA, Access Reviews, Groups) end up under IT.",
-    "PEO becomes a *plan*, not a suite — it's a commercial mode, not a separate product surface. The plan's `conditions: [\"isPeoClient\"]` causes the HR-resident PEO compliance apps (Workplace Posters, State Tax Accounts) to render only for PEO customers.",
+    "PEO and HR Services (ASO) both become *plans*, not suites/apps — they're commercial modes (clientType), not separate product surfaces. The HR-resident compliance apps (Workplace Posters, State Tax Accounts) gate on `isPeoClient || isAsoClient` to render for either co-employment mode.",
+    "HR Services was modeled as an app under HR with no L3 nav and no real /hr-services route — it was always a clientType gate, not a destination. Promoted to plan to match how it actually works in the live product.",
     "PEO Overview is dropped from L2 nav — would become an HR-home dashboard card for PEO customers (out of scope for L2 catalog).",
     "PEO Join / PEO Leave flows from the backend (is_peo_join_visible, is_peo_leave_visible) are not modeled here; cross-sell to non-PEO customers can be handled at the plan level later."
   ]

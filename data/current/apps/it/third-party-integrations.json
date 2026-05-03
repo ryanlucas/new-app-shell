@@ -1,82 +1,82 @@
 {
   "appId": "third-party-integrations",
-  "appLabel": "Apps (Third-Party Integrations)",
-  "appPath": "/it/integrations",
+  "appLabel": "Integrations",
+  "appPath": "/it/third-party-access",
   "appProductGate": "INTEGRATIONS",
   "nav": [
     {
-      "id": "all",
-      "label": "All Integrations",
-      "icon": "Stack",
-      "path": "/it/integrations/overview?tab=all",
+      "id": "overview",
+      "label": "Overview",
+      "icon": "SquaresFour",
+      "path": "/it/third-party-access/overview",
       "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "app_admin"
-        ],
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
         "productGate": "INTEGRATIONS"
       },
-      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:97"
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:33"
     },
     {
-      "id": "connected",
-      "label": "Connected",
-      "icon": "Lightning",
-      "path": "/it/integrations/overview?tab=connected",
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "app_admin"
-        ],
-        "productGate": "INTEGRATIONS"
-      },
-      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:109"
-    },
-    {
-      "id": "partial-install",
-      "label": "Partial Install",
-      "icon": "Hourglass",
-      "path": "/it/integrations/overview?tab=partial",
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "app_admin"
-        ],
-        "productGate": "INTEGRATIONS"
-      },
-      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:121"
-    },
-    {
-      "id": "disconnected",
-      "label": "Disconnected",
+      "id": "connections",
+      "label": "Connections",
       "icon": "Plugs",
-      "path": "/it/integrations/overview?tab=disconnected",
+      "path": "/it/third-party-access/connections",
       "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "app_admin"
-        ],
-        "productGate": "INTEGRATIONS"
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "INTEGRATIONS",
+        "conditions": ["isFluxFFEnabled"]
       },
-      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:133"
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:43"
+    },
+    {
+      "id": "access-reviews",
+      "label": "Access Reviews",
+      "icon": "ShieldCheck",
+      "path": "/it/third-party-access/access-reviews",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "ACCESS_REVIEWS",
+        "conditions": ["isAccessReviewEnabled"]
+      },
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:48"
+    },
+    {
+      "id": "access-reviews.my-reviews",
+      "label": "My Reviews",
+      "icon": "User",
+      "path": "/it/third-party-access/access-reviews/my-reviews",
+      "parent": "access-reviews",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "ACCESS_REVIEWS",
+        "conditions": ["isMyReviewsSubTabVisible"]
+      },
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:58"
+    },
+    {
+      "id": "access-reviews.all-reviews",
+      "label": "All Reviews",
+      "icon": "ListChecks",
+      "path": "/it/third-party-access/access-reviews/all-reviews",
+      "parent": "access-reviews",
+      "visibility": {
+        "personas": ["full", "partial"],
+        "scopeForPartial": ["app_admin"],
+        "productGate": "ACCESS_REVIEWS",
+        "conditions": ["isCampaignsSubTabVisible"]
+      },
+      "source": "app/products/it/Apps/modules/Integrations/Containers/IntegrationDashboard/IntegrationDashboard.constants.ts:68"
     }
   ],
   "_meta": {
-    "generatedBy": "phase-2C",
     "uncertainties": [
-      "This is the umbrella catalog/list-of-apps view. Each provisioning integration (Slack, GitHub, Salesforce, Okta, etc. — 70+ apps) renders the same per-app AppNavBar described in _integration.json. Do NOT generate per-app files for each integration; render against _integration.json with the appName from the catalog."
+      "Live route is /it/third-party-access (INTEGRATIONS_APP_URL_V2). The /it/integrations path may still exist as legacy.",
+      "Connections tab is feature-flagged (isFluxFFEnabled).",
+      "Access Reviews tab and its sub-tabs are gated by AccessReviewTabVisibilityResponse from a backend RPC — visibility flags fetched per-company.",
+      "Each integration (Slack, GitHub, Salesforce, Okta, etc. — 250+ apps) renders the same per-app AppNavBar described in _integration.json. Do NOT generate per-app files for each integration."
     ]
   }
 }

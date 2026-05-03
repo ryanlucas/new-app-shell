@@ -229,57 +229,6 @@
           "source": "app/apps/utils/navigation_bar.py:1627 (legacy variant, hidden when TIME_PLATFORM installed via should_hide_legacy_time_apps())"
         },
         {
-          "id": "hr-services",
-          "label": "HR Services",
-          "icon": "Handshake",
-          "path": "/hr-services",
-          "parent": "hr",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "hr_admin"
-            ],
-            "productGate": "HR360",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavHrManagement"
-            }
-          },
-          "source": "app/cross_sell/unpurchased_sku/unpurchased_sku_nav_items.py:224"
-        },
-        {
-          "id": "hr-helpdesk",
-          "label": "HR Help Desk",
-          "icon": "Lifebuoy",
-          "path": "/hr-helpdesk",
-          "parent": "hr",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "ee"
-            ],
-            "scopeForPartial": [
-              "hr_admin"
-            ],
-            "productGate": "HRHELPDESKTHINKHR",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavHrManagement"
-            }
-          },
-          "source": "app/hub/spoke_models.py:779"
-        },
-        {
           "id": "anniversaryapp",
           "label": "Anniversaries",
           "icon": "Cake",
@@ -312,7 +261,7 @@
         },
         {
           "id": "eeoc",
-          "label": "EEOC",
+          "label": "EEO and CPDR reporting",
           "icon": "ClipboardText",
           "path": "/eeoc/report-filings",
           "parent": "hr",
@@ -1669,6 +1618,22 @@
           "source": "rippling-main:apps/utils/dummy_apps.py IT_OVERVIEW_DUMMY_APP"
         },
         {
+          "id": "my-it",
+          "label": "My IT",
+          "icon": "Laptop",
+          "path": "/it/my-it",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial",
+              "manager",
+              "ee"
+            ]
+          },
+          "source": "app/apps/utils/dummy_apps.py IT_MY_IT_DUMMY_APP"
+        },
+        {
           "id": "it-management",
           "label": "IT Management",
           "icon": "Users",
@@ -1732,7 +1697,7 @@
           "id": "third-party-integrations",
           "label": "Integrations",
           "icon": "Plugs",
-          "path": "/it/integrations",
+          "path": "/it/third-party-access",
           "parent": "it",
           "visibility": {
             "personas": [
@@ -1745,41 +1710,6 @@
             "productGate": "APP_MANAGEMENT"
           },
           "source": "rippling-main:apps/data/apps/internal/integrations.json"
-        },
-        {
-          "id": "custom-integrations",
-          "label": "Custom Integrations",
-          "icon": "Code",
-          "path": "/apps/custom-integrations",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ]
-          },
-          "source": "rippling-main:apps/data/apps/internal/customSamlService.json"
-        },
-        {
-          "id": "it-automations",
-          "label": "IT Automations",
-          "icon": "Lightning",
-          "path": "/it/automations",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "IT_AUTOMATIONS"
-          },
-          "source": "rippling-main:apps/data/apps/internal/"
         },
         {
           "id": "rpass",
@@ -1801,42 +1731,6 @@
           "source": "rippling-main:apps/data/apps/internal/rpass.json"
         },
         {
-          "id": "ssh",
-          "label": "SSH",
-          "icon": "Terminal",
-          "path": "/it/ssh",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "SSH"
-          },
-          "source": "rippling-main:apps/data/apps/internal/ssh.json"
-        },
-        {
-          "id": "vldap",
-          "label": "Virtual LDAP",
-          "icon": "Database",
-          "path": "/ldap",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "RIPPLING_LDAP"
-          },
-          "source": "rippling-main:apps/data/apps/internal/vldap.json"
-        },
-        {
           "id": "automated-compliance",
           "label": "Automated Compliance",
           "icon": "ShieldCheck",
@@ -1853,415 +1747,6 @@
             "productGate": "AUTOMATED_COMPLIANCE"
           },
           "source": "rippling-main:apps/data/apps/internal/automated_compliance.json"
-        },
-        {
-          "id": "security-monitoring",
-          "label": "Security Monitoring",
-          "icon": "ShieldWarning",
-          "path": "/security",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "SECURITY_MONITORING"
-          },
-          "source": "rippling-main:apps/data/apps/internal/security_monitoring.json"
-        },
-        {
-          "id": "sentinelone",
-          "label": "SentinelOne",
-          "icon": "ShieldStar",
-          "path": "/sentinelone",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "SENTINELONE"
-          },
-          "source": "rippling-main:apps/data/apps/internal/sentinelone.json"
-        },
-        {
-          "id": "apple-mdm",
-          "label": "Apple MDM",
-          "icon": "DeviceMobile",
-          "path": "/it/hardware/apple",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "DEVICE_MANAGEMENT"
-          },
-          "source": ""
-        },
-        {
-          "id": "windows-mdm",
-          "label": "Windows MDM",
-          "icon": "Desktop",
-          "path": "/it/hardware/windows",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "DEVICE_MANAGEMENT"
-          },
-          "source": ""
-        },
-        {
-          "id": "conditional-access",
-          "label": "Conditional Access",
-          "icon": "ShieldCheck",
-          "path": "/it/conditional-access",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "RPASS"
-          },
-          "source": ""
-        },
-        {
-          "id": "zero-trust",
-          "label": "Zero Trust",
-          "icon": "Shield",
-          "path": "/it/zero-trust",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "RPASS"
-          },
-          "source": ""
-        },
-        {
-          "id": "rbac",
-          "label": "Role-Based Access",
-          "icon": "UserGear",
-          "path": "/permissions/overview",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ]
-          },
-          "source": ""
-        },
-        {
-          "id": "device-buyback",
-          "label": "Device Buyback",
-          "icon": "Tag",
-          "path": "/it/buyback",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "DEVICE_MANAGEMENT"
-          },
-          "source": ""
-        },
-        {
-          "id": "global-warehousing",
-          "label": "Global Warehousing",
-          "icon": "Buildings",
-          "path": "/it/warehouse",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "DEVICE_MANAGEMENT"
-          },
-          "source": ""
-        },
-        {
-          "id": "os-patching",
-          "label": "OS Patching",
-          "icon": "ArrowsClockwise",
-          "path": "/it/patching",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "DEVICE_MANAGEMENT"
-          },
-          "source": ""
-        },
-        {
-          "id": "device-trust",
-          "label": "Device Trust",
-          "icon": "ShieldCheckered",
-          "path": "/it/device-trust",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "DEVICE_MANAGEMENT"
-          },
-          "source": ""
-        },
-        {
-          "id": "lifecycle-management",
-          "label": "Lifecycle Management",
-          "icon": "ArrowsClockwise",
-          "path": "/it/lifecycle",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ]
-          },
-          "source": ""
-        },
-        {
-          "id": "endpoint-detection",
-          "label": "Endpoint Detection & Response",
-          "icon": "ShieldWarning",
-          "path": "/security/edr",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ],
-            "productGate": "SECURITY_MONITORING"
-          },
-          "source": ""
-        },
-        {
-          "id": "activity-logs",
-          "label": "Activity Logs",
-          "icon": "ListMagnifyingGlass",
-          "path": "/it-management/activity-logs",
-          "parent": "it",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "it_admin"
-            ]
-          },
-          "source": ""
-        }
-      ]
-    },
-    {
-      "id": "identity",
-      "label": "Identity",
-      "icon": "Key",
-      "path": "/identity-management",
-      "visibility": {
-        "personas": [
-          "full",
-          "partial"
-        ],
-        "scopeForPartial": [
-          "identity_admin"
-        ],
-        "whenUnowned": {
-          "showLockedTo": [
-            "full",
-            "partial"
-          ],
-          "campaign": "SidenavIdentityManagement"
-        }
-      },
-      "group": "tech",
-      "description": "SSO, MFA, user access",
-      "source": "app/cross_sell/constants.py:104",
-      "apps": [
-        {
-          "id": "saml-service",
-          "label": "Custom SAML",
-          "icon": "Lock",
-          "path": "/apps/custom-integrations",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "CUSTOMSAMLSERVICE"
-          },
-          "source": "app/hub/spoke_models.py:734"
-        },
-        {
-          "id": "duo",
-          "label": "Duo MFA",
-          "icon": "DeviceMobile",
-          "path": "/it/integrations",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "DUO"
-          },
-          "source": "app/hub/spoke_models.py:751"
-        },
-        {
-          "id": "yubikey",
-          "label": "YubiKey",
-          "icon": "Key",
-          "path": "/yubikey",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "YUBIKEY"
-          },
-          "source": "app/hub/spoke_models.py:788"
-        },
-        {
-          "id": "user-management",
-          "label": "User Management",
-          "icon": "UserGear",
-          "path": "/user-management",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "USER_MANAGEMENT",
-            "whenUnowned": {
-              "showLockedTo": [
-                "full",
-                "partial"
-              ],
-              "campaign": "SidenavIdentityManagement"
-            }
-          },
-          "source": "app/hub/spoke_models.py:880"
-        },
-        {
-          "id": "manual-user-management",
-          "label": "Manual Users",
-          "icon": "UserPlus",
-          "path": "/manual-users",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "MANUAL_USER_MANAGEMENT"
-          },
-          "source": "app/hub/spoke_models.py:829"
-        },
-        {
-          "id": "group-manager",
-          "label": "Groups",
-          "icon": "UsersThree",
-          "path": "/group-manager",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "GROUP_MANAGER"
-          },
-          "source": "app/hub/spoke_models.py:830"
-        },
-        {
-          "id": "extended-access",
-          "label": "Extended Access",
-          "icon": "Shield",
-          "path": "/extended-access",
-          "parent": "identity",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "identity_admin"
-            ],
-            "productGate": "EXTENDED_ACCESS"
-          },
-          "source": "app/hub/spoke_models.py:791"
         }
       ]
     },
@@ -3126,6 +2611,24 @@
             "tools"
           ],
           "source": "app/hub/spoke_models.py:808"
+        },
+        {
+          "id": "group-manager",
+          "label": "Saved Supergroups",
+          "icon": "UsersThree",
+          "path": "/group-manager",
+          "parent": "settings",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "identity_admin"
+            ],
+            "productGate": "GROUP_MANAGER"
+          },
+          "source": "app/apps/data/apps/internal/group_manager.json"
         }
       ]
     }
