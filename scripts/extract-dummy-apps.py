@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 RIPPLING_MAIN = Path.home() / 'dev/code/rippling-main'
 DUMMY_APPS = RIPPLING_MAIN / 'app/apps/utils/dummy_apps.py'
-OUT = ROOT / 'research/source-of-truth'
+OUT = Path('/tmp/rippling-shell-research/source-of-truth')
 
 if not DUMMY_APPS.exists():
     print(f"Missing {DUMMY_APPS}", file=sys.stderr)
