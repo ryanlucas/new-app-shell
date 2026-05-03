@@ -56,7 +56,7 @@ export function DevHud({ catalog }: Props) {
   )
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 flex w-96 flex-col gap-3 rounded-lg border border-neutral-300 bg-white p-4 text-sm shadow-2xl">
+    <div className="fixed bottom-4 right-4 z-[100] flex w-96 flex-col gap-3 rounded-lg border border-neutral-300 bg-white p-4 text-sm shadow-2xl">
       <header className="flex items-center justify-between">
         <h2 className="font-semibold">Dev HUD</h2>
         <span className="text-xs text-neutral-400">

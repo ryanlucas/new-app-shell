@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
-import { MagnifyingGlass } from '@phosphor-icons/react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import type { CatalogResponse } from '@/api/nav.ts'
+import { cn } from '@/lib/cn.ts'
 import { MegaMenu } from './MegaMenu.tsx'
 
 interface Props {
@@ -9,18 +10,57 @@ interface Props {
   catalog: CatalogResponse
 }
 
+const EXIT_MS = 140
+
+/** Smoothly animates height when content changes. ResizeObserver tracks
+ *  the inner content's natural height; framer-motion drives the wrapper
+ *  with a spring. */
+function HeightMotion({ children }: { children: React.ReactNode }) {
+  const innerRef = useRef<HTMLDivElement>(null)
+  const [height, setHeight] = useState<number | undefined>()
+
+  useLayoutEffect(() => {
+    if (!innerRef.current) return
+    setHeight(innerRef.current.offsetHeight)
+    const obs = new ResizeObserver((entries) => {
+      const h = entries[0]?.contentRect.height
+      if (typeof h === 'number') setHeight(h)
+    })
+    obs.observe(innerRef.current)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <motion.div
+      initial={false}
+      animate={{ height }}
+      transition={{ type: 'spring', stiffness: 380, damping: 36, mass: 0.9 }}
+      style={{ overflow: 'hidden' }}
+    >
+      <div ref={innerRef}>{children}</div>
+    </motion.div>
+  )
+}
+
 export function EverythingBar({ open, onClose, catalog }: Props) {
-  const [query, setQuery] = useState('')
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [mounted, setMounted] = useState(open)
+  const [exiting, setExiting] = useState(false)
 
   useEffect(() => {
     if (open) {
-      setQuery('')
-      requestAnimationFrame(() => inputRef.current?.focus())
+      setMounted(true)
+      setExiting(false)
+    } else if (mounted) {
+      setExiting(true)
+      const t = setTimeout(() => {
+        setMounted(false)
+        setExiting(false)
+      }, EXIT_MS)
+      return () => clearTimeout(t)
     }
-  }, [open])
+  }, [open, mounted])
 
-  if (!open) return null
+  if (!mounted) return null
 
   const handleSelect = (node: { kind: 'suite' | 'app'; id: string; label: string }) => {
     // eslint-disable-next-line no-console
@@ -29,30 +69,25 @@ export function EverythingBar({ open, onClose, catalog }: Props) {
   }
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-start justify-center bg-black/40 p-4 pt-[10vh] backdrop-blur-sm"
-      onClick={onClose}
-    >
+    <>
       <div
-        className="flex w-auto flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl"
+        className={cn(
+          'fixed inset-0 z-40 bg-black/30 backdrop-blur-[1px]',
+          exiting ? 'menu-overlay-exit' : 'menu-overlay',
+        )}
+        onClick={onClose}
+      />
+      <div
+        className={cn(
+          'fixed left-3 top-14 z-50 flex w-[520px] flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl',
+          exiting ? 'menu-pop-exit' : 'menu-pop',
+        )}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center gap-3 border-b border-neutral-100 px-4 py-3">
-          <MagnifyingGlass size={18} className="text-neutral-400" />
-          <input
-            ref={inputRef}
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search Rippling or browse all apps"
-            className="w-[460px] bg-transparent text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none"
-          />
-          <kbd className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-[10px] text-neutral-500">
-            esc
-          </kbd>
-        </div>
-        <MegaMenu catalog={catalog} query={query} onSelect={handleSelect} />
+        <HeightMotion>
+          <MegaMenu catalog={catalog} query="" onSelect={handleSelect} />
+        </HeightMotion>
       </div>
-    </div>
+    </>
   )
 }

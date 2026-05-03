@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Lock } from '@phosphor-icons/react'
+import { Lock, Star } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
 import type { App, Suite, SuiteGroupDef } from '@/lib/types.ts'
 import { Icon } from '@/lib/icon.tsx'
@@ -8,9 +8,10 @@ import {
   buildConditionSet,
   type ResolveContext,
 } from '@/lib/visibility.ts'
-import { deriveSpine, type L1Entry } from '@/lib/derive.ts'
+import { deriveSpine, FAVORITES_FLOOR, type L1Entry } from '@/lib/derive.ts'
 import { cn } from '@/lib/cn.ts'
 import { useHud } from '@/state/HudContext.tsx'
+import { useFavorites } from '@/state/FavoritesContext.tsx'
 
 type Selection = { kind: 'suite' | 'app'; id: string; label: string }
 
@@ -61,6 +62,7 @@ function entryKey(e: L1Entry): string {
   if (e.kind === 'suite') return `s:${e.suite.id}`
   if (e.kind === 'group') return `g:${e.suite.id}/${e.group.id}`
   if (e.kind === 'my-cluster') return `my:cluster`
+  if (e.kind === 'favorites') return `fav:cluster`
   return `a:${e.app.id}`
 }
 
@@ -75,9 +77,27 @@ function BrowseTwoPane({
   ownedSuites: Set<string>
   onSelect: (node: Selection) => void
 }) {
+  const { favorites, isFavorite, toggle: toggleFavorite } = useFavorites()
+
   // Derived L1 spine — applies hide / flatten-sparse / keep-dense /
   // collapse-dominant rules to the resolved tree.
-  const spine = useMemo(() => deriveSpine(catalog.suites, ctx), [catalog.suites, ctx])
+  const spine = useMemo(
+    () => deriveSpine(catalog.suites, ctx, { favorites }),
+    [catalog.suites, ctx, favorites],
+  )
+
+  // Favorites feature is "on" only when content density crosses the floor.
+  // Toggle UI is hidden below this — there's no point in starring 3 items.
+  const totalVisibleApps = useMemo(() => {
+    let n = 0
+    for (const s of catalog.suites.suites) {
+      for (const a of s.apps ?? []) {
+        if (resolve(a, { ...ctx, suiteId: s.id }) === 'visible') n++
+      }
+    }
+    return n
+  }, [catalog.suites.suites, ctx])
+  const favoritesEnabled = totalVisibleApps >= FAVORITES_FLOOR
 
   // First entry wins as initial active (any kind — flat apps now show a
   // graphical preview pane too).
@@ -207,6 +227,13 @@ function BrowseTwoPane({
         title: 'My Rippling',
       }
     }
+    if (activeEntry.kind === 'favorites') {
+      return {
+        apps: activeEntry.apps.map(({ app }) => ({ app })),
+        showGroups: false,
+        title: 'Favorites',
+      }
+    }
     // Flattened single app — no pane content.
     return { apps: [], showGroups: false }
   }, [activeEntry, catalog.suites.suites, ctx])
@@ -222,7 +249,9 @@ function BrowseTwoPane({
       <div
         className={cn(
           'flex flex-col py-2',
-          hasPaneCapableEntry ? 'w-[300px]' : 'w-[540px]',
+          hasPaneCapableEntry
+            ? 'w-fit min-w-[220px] max-w-[340px]'
+            : 'w-full flex-1',
         )}
       >
         {spine.collapsed && (
@@ -237,6 +266,7 @@ function BrowseTwoPane({
           // personal zone.
           const isPersonal = (e: L1Entry) =>
             e.kind === 'my-cluster' ||
+            e.kind === 'favorites' ||
             (e.kind === 'app' &&
               (e.app.pinAtL1 ||
                 e.app.id.startsWith('my-') ||
@@ -273,6 +303,15 @@ function BrowseTwoPane({
             if (e.kind === 'my-cluster') {
               return (
                 <MyClusterRow
+                  key={key}
+                  active={isActive}
+                  onHover={() => handleEntryHover(key)}
+                />
+              )
+            }
+            if (e.kind === 'favorites') {
+              return (
+                <FavoritesClusterRow
                   key={key}
                   active={isActive}
                   onHover={() => handleEntryHover(key)}
@@ -338,7 +377,7 @@ function BrowseTwoPane({
           <div
             ref={rightPanelRef}
             onMouseEnter={handleRightEnter}
-            className="flex w-[280px] flex-col py-3"
+            className="flex flex-1 flex-col py-3"
           >
             {activeEntry && activeEntry.kind === 'app' ? (
               <FlatAppEmptyState
@@ -354,7 +393,11 @@ function BrowseTwoPane({
                     No apps available.
                   </div>
                 ) : rightPane.showGroups && activeEntry.kind === 'suite' ? (
-                  renderGroupedAppList(activeEntry, onSelect)
+                  renderGroupedAppList(activeEntry, onSelect, {
+                    favoritesEnabled,
+                    isFavorite,
+                    onToggleFavorite: toggleFavorite,
+                  })
                 ) : (
                   rightPane.apps.map((entry) => (
                     <AppRow
@@ -362,6 +405,9 @@ function BrowseTwoPane({
                       entry={entry}
                       owned
                       onSelect={onSelect}
+                      favoritesEnabled={favoritesEnabled}
+                      isFavorite={isFavorite(entry.app.id)}
+                      onToggleFavorite={toggleFavorite}
                     />
                   ))
                 )}
@@ -377,6 +423,8 @@ function BrowseTwoPane({
         else if (activeEntry?.kind === 'group') desc = activeEntry.group.description
         else if (activeEntry?.kind === 'my-cluster')
           desc = 'Your personal items, scoped to just you across whatever Rippling products your company uses.'
+        else if (activeEntry?.kind === 'favorites')
+          desc = 'Apps you star. Click the star on any item in the menu to pin it here.'
         if (!desc) return null
         return (
           <div className="border-t border-neutral-200 px-4 py-2 text-[11px] leading-snug text-neutral-500">
@@ -392,7 +440,20 @@ function BrowseTwoPane({
 function renderGroupedAppList(
   entry: Extract<L1Entry, { kind: 'suite' }>,
   onSelect: (n: { kind: 'app' | 'suite'; id: string; label: string }) => void,
+  favs?: {
+    favoritesEnabled: boolean
+    isFavorite: (id: string) => boolean
+    onToggleFavorite: (id: string) => void
+  },
 ) {
+  const favProps = (id: string) =>
+    favs
+      ? {
+          favoritesEnabled: favs.favoritesEnabled,
+          isFavorite: favs.isFavorite(id),
+          onToggleFavorite: favs.onToggleFavorite,
+        }
+      : {}
   return (
     <>
       {entry.visibleGroups.map((vg) => (
@@ -401,14 +462,26 @@ function renderGroupedAppList(
             {vg.group.label}
           </div>
           {vg.apps.map((app) => (
-            <AppRow key={`g-${app.id}`} entry={{ app }} owned onSelect={onSelect} />
+            <AppRow
+              key={`g-${app.id}`}
+              entry={{ app }}
+              owned
+              onSelect={onSelect}
+              {...favProps(app.id)}
+            />
           ))}
         </div>
       ))}
       {entry.visibleApps.length > 0 && (
         <div className="mt-2">
           {entry.visibleApps.map((app) => (
-            <AppRow key={`f-${app.id}`} entry={{ app }} owned onSelect={onSelect} />
+            <AppRow
+              key={`f-${app.id}`}
+              entry={{ app }}
+              owned
+              onSelect={onSelect}
+              {...favProps(app.id)}
+            />
           ))}
         </div>
       )}
@@ -453,6 +526,30 @@ function MyClusterRow({
       <Icon name="UserCircle" size={15} className="mt-0.5 shrink-0 text-neutral-600" />
       <div className="min-w-0 flex-1">
         <div className="truncate text-[13px] font-medium text-neutral-900">My Rippling</div>
+      </div>
+    </button>
+  )
+}
+
+function FavoritesClusterRow({
+  active,
+  onHover,
+}: {
+  active: boolean
+  onHover: () => void
+}) {
+  return (
+    <button
+      type="button"
+      onMouseEnter={onHover}
+      className={cn(
+        'flex w-full items-start gap-2.5 px-4 py-1.5 text-left',
+        active ? 'bg-neutral-100' : 'hover:bg-neutral-50',
+      )}
+    >
+      <Star size={15} weight="fill" className="mt-0.5 shrink-0 text-amber-500" />
+      <div className="min-w-0 flex-1">
+        <div className="truncate text-[13px] font-medium text-neutral-900">Favorites</div>
       </div>
     </button>
   )
@@ -526,32 +623,61 @@ function AppRow({
   entry,
   owned,
   onSelect,
+  favoritesEnabled,
+  isFavorite,
+  onToggleFavorite,
 }: {
   entry: { app: App; linkedFrom?: Suite }
   owned: boolean
   onSelect: (n: { kind: 'app' | 'suite'; id: string; label: string }) => void
+  favoritesEnabled?: boolean
+  isFavorite?: boolean
+  onToggleFavorite?: (id: string) => void
 }) {
   const { app, linkedFrom } = entry
   return (
-    <button
-      type="button"
-      onClick={() => (owned ? onSelect({ kind: 'app', id: app.id, label: app.label }) : undefined)}
-      disabled={!owned}
-      title={linkedFrom ? `Linked from ${linkedFrom.label}` : undefined}
+    <div
       className={cn(
-        'flex w-full items-center gap-2.5 px-3 py-1.5 text-left text-[13px]',
+        'group/row flex w-full items-center gap-2.5 px-3 py-1.5 text-[13px]',
         owned
           ? 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900'
           : 'cursor-default text-neutral-400',
       )}
     >
-      <Icon name={app.icon} size={14} className={owned ? 'text-neutral-500' : 'text-neutral-300'} />
-      <span className="flex-1 truncate">{app.label}</span>
-      {linkedFrom && (
-        <span className="text-[10px] text-neutral-400">{linkedFrom.label}</span>
+      <button
+        type="button"
+        onClick={() => (owned ? onSelect({ kind: 'app', id: app.id, label: app.label }) : undefined)}
+        disabled={!owned}
+        title={linkedFrom ? `Linked from ${linkedFrom.label}` : undefined}
+        className="flex flex-1 items-center gap-2.5 text-left"
+      >
+        <Icon name={app.icon} size={14} className={owned ? 'text-neutral-500' : 'text-neutral-300'} />
+        <span className="flex-1 truncate">{app.label}</span>
+        {linkedFrom && (
+          <span className="text-[10px] text-neutral-400">{linkedFrom.label}</span>
+        )}
+        {!owned && <Lock size={11} className="text-neutral-300" />}
+      </button>
+      {favoritesEnabled && owned && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            onToggleFavorite?.(app.id)
+          }}
+          title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          className={cn(
+            'shrink-0 rounded p-0.5 transition-colors',
+            isFavorite
+              ? 'text-amber-500'
+              : 'text-neutral-300 hover:text-amber-500 group-hover/row:text-neutral-500',
+          )}
+        >
+          <Star size={14} weight={isFavorite ? 'fill' : 'regular'} />
+        </button>
       )}
-      {!owned && <Lock size={11} className="text-neutral-300" />}
-    </button>
+    </div>
   )
 }
 

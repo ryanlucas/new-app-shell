@@ -17,12 +17,13 @@ import { resolve, type ResolveContext, type Resolution } from './visibility.ts'
  */
 
 
-/** L1 spine entry — the renderer handles four shapes. */
+/** L1 spine entry — the renderer handles five shapes. */
 export type L1Entry =
   | { kind: 'suite'; suite: Suite; visibleApps: App[]; visibleGroups: VisibleAppGroup[] }
   | { kind: 'group'; suite: Suite; group: SuiteGroupDef; visibleApps: App[] }
   | { kind: 'app'; app: App; suite: Suite; resolution: Resolution }
   | { kind: 'my-cluster'; apps: Array<{ app: App; suite: Suite }> }
+  | { kind: 'favorites'; apps: Array<{ app: App; suite: Suite }> }
 
 /** When ≥ this many "my" apps are at L1, *consider* collapsing them into a
  *  single My Rippling container. Cluster only actually fires when there's
@@ -33,6 +34,10 @@ export const MY_CLUSTER_THRESHOLD = 4
  *  contrast against. If the menu is already short, leave personal items
  *  inline rather than hiding them behind a hover. */
 export const MY_CLUSTER_BACKDROP_THRESHOLD = 3
+/** Favorites floor: the favorites cluster only fires when there's enough
+ *  total visible content to justify an extra organizing surface. Below
+ *  this, the entire favorites concept is dormant. */
+export const FAVORITES_FLOOR = 12
 
 function isMyApp(app: App): boolean {
   return app.id.startsWith('my-') || app.label.startsWith('My ')
@@ -120,6 +125,7 @@ function groupApps(
 export function deriveSpine(
   shellSuites: ShellSuites,
   ctx: ResolveContext,
+  options: { favorites?: Set<string> } = {},
 ): DerivedSpine {
   const allSuites = shellSuites.suites
   const tree = buildResolvedTree(allSuites, ctx)
@@ -254,6 +260,36 @@ export function deriveSpine(
     }
   }
   const nonPersonalCount = entries.length - personalIndexes.length
+  // Favorites cluster: emitted at the very top of L1 when the favorites
+  // feature is "enabled" by content density (>= FAVORITES_FLOOR total
+  // visible apps) AND the user has at least one favorite that resolves
+  // visible. Below the floor, no favorites cluster, no toggle UI.
+  const favoritesEnabled = totalVisible >= FAVORITES_FLOOR
+  let favoritesEntry: L1Entry | null = null
+  if (favoritesEnabled && options.favorites && options.favorites.size > 0) {
+    const favApps: Array<{ app: App; suite: Suite }> = []
+    const seenFav = new Set<string>()
+    // Pull favorited apps out of: pinned/personal entries + per-suite tree.
+    for (const e of pinnedEntries) {
+      if (e.kind === 'app' && options.favorites.has(e.app.id) && !seenFav.has(e.app.id)) {
+        favApps.push({ app: e.app, suite: e.suite })
+        seenFav.add(e.app.id)
+      }
+    }
+    for (const suite of allSuites) {
+      const visibleApps = tree.get(suite.id) ?? []
+      for (const app of visibleApps) {
+        if (options.favorites.has(app.id) && !seenFav.has(app.id)) {
+          favApps.push({ app, suite })
+          seenFav.add(app.id)
+        }
+      }
+    }
+    if (favApps.length > 0) {
+      favoritesEntry = { kind: 'favorites', apps: favApps }
+    }
+  }
+
   if (
     personalIndexes.length >= MY_CLUSTER_THRESHOLD &&
     nonPersonalCount >= MY_CLUSTER_BACKDROP_THRESHOLD
@@ -264,6 +300,7 @@ export function deriveSpine(
     })
     const removed = new Set(personalIndexes)
     const collapsed: L1Entry[] = [{ kind: 'my-cluster', apps: personalApps }]
+    if (favoritesEntry) collapsed.push(favoritesEntry)
     for (let i = 0; i < entries.length; i++) {
       if (removed.has(i)) continue
       collapsed.push(entries[i])
@@ -271,5 +308,21 @@ export function deriveSpine(
     return { entries: collapsed }
   }
 
+  // No my-cluster path: favorites still slots in after the inline personal
+  // items but before the suites. Find the first non-personal entry index;
+  // splice favorites there.
+  if (favoritesEntry) {
+    const lastPersonalIdx = (() => {
+      let last = -1
+      for (let i = 0; i < entries.length; i++) {
+        const e = entries[i]
+        if (e.kind === 'app' && (e.app.pinAtL1 || isMyApp(e.app))) last = i
+      }
+      return last
+    })()
+    const out = [...entries]
+    out.splice(lastPersonalIdx + 1, 0, favoritesEntry)
+    return { entries: out }
+  }
   return { entries }
 }

@@ -372,7 +372,7 @@
     {
       "id": "talent",
       "label": "Talent",
-      "icon": "Star",
+      "icon": "Trophy",
       "path": "/talent",
       "visibility": {
         "personas": [

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useHud } from '@/state/HudContext.tsx'
 import { useCatalog } from '@/state/useCatalog.ts'
-import { Sidebar } from './Sidebar.tsx'
 import { TopBar } from './TopBar.tsx'
 import { ContentPlaceholder } from './ContentPlaceholder.tsx'
 import { AiChatPanel } from './AiChatPanel.tsx'
@@ -40,7 +39,6 @@ export function AppShell() {
         onOpenBar={() => bar.setOpen(true)}
       />
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar catalog={catalog} selectedAppId={selectedAppId} onSelect={setSelectedAppId} />
         <ContentPlaceholder catalog={catalog} selectedAppId={selectedAppId} />
       </div>
       <AiChatPanel open={chatOpen} onClose={() => setChatOpen(false)} />
