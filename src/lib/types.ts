@@ -1,28 +1,48 @@
-// Shared types for the catalog, proposals, and composer.
-// Used by scripts and (later) the prototype shell.
+// Catalog data model. Used by the composer, the MSW mock backend, and the
+// shell. Designed to be cleanly serializable as JSON in data/current/.
+//
+// Key idea: `NavNode` is the universal shape for every nav-able thing
+// (suite, app, sidebar item, top-bar widget, user-menu entry). Suites add
+// `apps[]` plus suite-level grouping/description. Visibility resolution
+// (persona/plan/condition) is in `lib/visibility.ts`.
 
+/** The four user roles modeled. Combinable; not mutually exclusive. */
 export type Persona = 'full' | 'partial' | 'manager' | 'ee'
 
+/** Cross-sell metadata: who should see a locked tile when this product
+ *  isn't owned, and which campaign id to attribute it to. */
 export interface CrossSell {
   showLockedTo: Persona[]
   campaign: string | null
 }
 
+/**
+ * Visibility gate. All fields are optional — omit when unset (don't write
+ * empty arrays / null placeholders to JSON). The resolver treats:
+ *   - missing personas → not visible (must be set explicitly)
+ *   - missing scopeForPartial → no extra gate when persona='partial'
+ *   - missing productGate → fall back to suite ownership
+ *   - missing permissionGate → no extra gate (informational only today)
+ *   - missing conditions → always satisfied
+ *   - missing whenUnowned → hide when product not owned
+ */
 export interface Visibility {
-  personas: Persona[]
-  scopeForPartial: string[]
-  productGate: string | null
-  permissionGate: string | null
-  conditions: string[]
-  whenUnowned: CrossSell | null
+  personas?: Persona[]
+  scopeForPartial?: string[]
+  productGate?: string | null
+  permissionGate?: string | null
+  conditions?: string[]
+  whenUnowned?: CrossSell | null
 }
 
+/** Per-persona overrides for label / path / icon (rare). */
 export interface PersonaVariant {
   label?: string
   path?: string
   icon?: string
 }
 
+/** Provenance breadcrumb left by the composer when a proposal touches a node. */
 export interface ProposalNote {
   proposalId: string
   op: string
@@ -34,32 +54,42 @@ export interface NavNode {
   id: string
   label: string
   icon: string
-  path: string | null
-  parent: string | null
-  visibility: Visibility
-  personaVariants: Partial<Record<Persona, PersonaVariant>>
-  source: string
+  /** Route. `null` means the node is a parent/grouping that doesn't navigate. */
+  path?: string | null
+  /** Suite id for apps; null/undefined for suite roots. */
+  parent?: string | null
+  visibility?: Visibility
+  /** Per-persona label/path/icon overrides. Omit when empty. */
+  personaVariants?: Partial<Record<Persona, PersonaVariant>>
+  /** Where this came from in the source codebases — debug breadcrumb only. */
+  source?: string
+  /** Same logical feature appears under multiple ids; resolver picks one. */
   logicalId?: string
   /**
-   * Whether this is a discrete product (lives in one place) or a horizontal
-   * capability that's consumed across the platform. Defaults to 'product'.
+   * Discrete product (lives in one place) vs horizontal capability consumed
+   * across the platform. Defaults to product.
    */
   kind?: 'product' | 'capability'
   /**
-   * For capabilities: additional suite ids the node should surface in.
-   * The node remains canonically defined under its `parent` suite; mega-menu
-   * renderers cross-list it under each `appearsIn` suite with a "linked from"
-   * annotation pointing back to the primary home.
+   * For capabilities: additional suite ids the node surfaces in. Renderers
+   * cross-list with a "linked from {primary}" annotation pointing back to
+   * the suite specified by `parent`.
    */
   appearsIn?: string[]
   /**
    * Mirrors `invisible: true` / `showInLeftNav: false` on backend app
-   * definitions: the route exists and is reachable, but the node should
-   * not auto-render in default sidebar listings. It remains catalogued
-   * (for search, cross-sell, deep-link, etc.) — how it surfaces is a
-   * presentation-layer decision.
+   * definitions. Route is real and reachable, but the node should not
+   * auto-render in default sidebar listings. Renderers may still surface
+   * it via search / cross-sell / deep-link.
    */
   hiddenInSidenav?: boolean
+  /**
+   * Editorial grouping. On suites: which top-level group (people, finance,
+   * tech, …) — see `ShellSuites.groups`. On apps: which sub-group within
+   * the parent suite — see `Suite.appGroups`.
+   */
+  group?: string
+  /** Composer-set on proposal output. Not present in canonical `current`. */
   _proposalNotes?: ProposalNote[]
 }
 
@@ -67,10 +97,14 @@ export interface App extends NavNode {}
 
 export interface Suite extends NavNode {
   apps: App[]
-  /** Editorial group id (e.g. "people", "finance") — drives mega-menu grouping. */
-  group?: string
-  /** Short tagline shown in launcher/menu surfaces. */
+  /** Short tagline. */
   description?: string
+  /**
+   * Editorial sub-groups for L2 apps within this suite. Apps reference one
+   * via `App.group`. Optional — many suites are flat. Used by IT to bucket
+   * apps into Identity & Access / Device Management / Logistics / Security.
+   */
+  appGroups?: SuiteGroupDef[]
 }
 
 export interface SuiteGroupDef {

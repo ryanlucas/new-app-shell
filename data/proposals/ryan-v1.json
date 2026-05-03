@@ -131,10 +131,9 @@
       "id": "it",
       "patch": {
         "appGroups": [
-          { "id": "identity", "label": "Identity & Access", "order": 1 },
+          { "id": "identity", "label": "Identity & Access Management", "order": 1 },
           { "id": "device-mgmt", "label": "Device Management", "order": 2 },
-          { "id": "logistics", "label": "Device Logistics", "order": 3 },
-          { "id": "security", "label": "Security & Compliance", "order": 4 }
+          { "id": "security", "label": "Security & Compliance", "order": 3 }
         ]
       }
     },
@@ -156,9 +155,9 @@
     { "op": "overrideNode", "id": "lifecycle-management",   "patch": { "group": "device-mgmt" } },
     { "op": "overrideNode", "id": "device-trust",           "patch": { "group": "device-mgmt" } },
     { "op": "overrideNode", "id": "it-automations",         "patch": { "group": "device-mgmt" } },
-    { "op": "overrideNode", "id": "device-store",           "patch": { "group": "logistics" } },
-    { "op": "overrideNode", "id": "device-buyback",         "patch": { "group": "logistics" } },
-    { "op": "overrideNode", "id": "global-warehousing",     "patch": { "group": "logistics" } },
+    { "op": "overrideNode", "id": "device-store",           "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "device-buyback",         "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "global-warehousing",     "patch": { "group": "device-mgmt" } },
     { "op": "overrideNode", "id": "endpoint-detection",     "patch": { "group": "security" } },
     { "op": "overrideNode", "id": "automated-compliance",   "patch": { "group": "security" } },
     { "op": "overrideNode", "id": "security-monitoring",    "patch": { "group": "security" } },
