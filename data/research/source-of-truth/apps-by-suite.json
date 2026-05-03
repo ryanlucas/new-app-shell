@@ -1,0 +1,4033 @@
+{
+  "spend": [
+    {
+      "id": "payroll",
+      "name": "Payroll",
+      "displayName": "Payroll",
+      "path": "/payroll/dashboard",
+      "navigationSortPriority": -1000000000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "PAYROLL"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/payroll.json",
+      "raw": {
+        "access_management": [],
+        "billingPlanTypes": [
+          "PAYROLL"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.finance"
+        ],
+        "navigationSortPriority": -1000000000,
+        "categories": [
+          "human_resources.payroll_benefits",
+          "rippling_managed"
+        ],
+        "dashboard_url": "/payroll/dashboard",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Let us take care of your payroll.",
+        "ee_dashboard_url": "/payroll/employee/paystubs",
+        "ee_dashboard_display_name": "Payroll",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_61769d90-5018-4e26-b542-a47a873cbc30.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_bdbf32c3-0946-4163-a8c8-55e427fc26b6.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_53dbec22-4ca3-48a0-9386-b9ef9b85935d.webm",
+        "id": "payroll",
+        "installation_url": "/payroll/setup",
+        "invisible": false,
+        "managedByTeam": "PAYROLL",
+        "name": "Payroll",
+        "primary_slug": "payroll",
+        "spoke": {
+          "config": {
+            "billing_class": "PayrollBillingInterface",
+            "module": "payroll"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "accounting_integrations",
+      "name": "AccountingIntegrations",
+      "displayName": "Accounting Integrations",
+      "path": "/accounting-integrations/dashboard",
+      "navigationSortPriority": -10000,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/accounting_integrations.json",
+      "raw": {
+        "_displayName": "Accounting Integrations",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/accounting-integrations/dashboard",
+        "navigation_base_url": "/accounting-integrations/dashboard",
+        "installation_url": "/accounting-integrations/dashboard",
+        "description": "Accounting Integrations",
+        "icon": "https://cdn.rippling.com/static/apps/logos/Q4_2021/accounting_integrations.png",
+        "id": "accounting_integrations",
+        "invisible": true,
+        "managedByTeam": "PAYROLL",
+        "name": "AccountingIntegrations",
+        "navigation_categories": [
+          "navigation_bar_subcategory.finance"
+        ],
+        "navigationSortPriority": -10000,
+        "primary_slug": "accounting-integrations",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "spoke": {
+          "config": {
+            "module": "accounting_integrations"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "MYPAY",
+      "name": "Mypay",
+      "displayName": "My Pay",
+      "path": "/my-pay/pay",
+      "navigationSortPriority": -10000,
+      "invisible": true,
+      "billingPlanTypes": [
+        "PAYROLL"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/payroll_my_pay.json",
+      "raw": {
+        "_displayName": "My Pay",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "PAYROLL"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.finance"
+        ],
+        "navigationSortPriority": -10000,
+        "dashboard_url": "/my-pay/pay",
+        "ee_navigation_base_url": "/my-pay/",
+        "navigation_base_url": "/my-pay/",
+        "description": "Let us take care of your payroll.",
+        "ee_dashboard_url": "/my-pay/pay",
+        "ee_dashboard_display_name": "My Pay",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_61769d90-5018-4e26-b542-a47a873cbc30.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_bdbf32c3-0946-4163-a8c8-55e427fc26b6.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_53dbec22-4ca3-48a0-9386-b9ef9b85935d.webm",
+        "id": "MYPAY",
+        "installation_url": "/payroll/setup",
+        "invisible": true,
+        "managedByTeam": "PAYROLL",
+        "name": "Mypay",
+        "primary_slug": "mypay",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "global_payroll",
+      "name": "GlobalPayroll",
+      "displayName": "Global Payroll",
+      "path": "/global-payroll/admin/overview",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/international_payroll.json",
+      "raw": {
+        "_displayName": "Global Payroll",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/global-payroll/admin/overview",
+        "description": "Global Payroll",
+        "ee_dashboard_url": "/global-payroll/employee",
+        "ee_dashboard_display_name": "Global Payroll",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_4a76432f-7729-4df5-8f18-a1d00531497c.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_c7875bf5-bbf5-4f75-aac7-edb84e438a8a.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_f472350b-1b0c-4b8f-a1d6-085effec9650.webm",
+        "id": "global_payroll",
+        "installation_url": "/global-payroll/setup/",
+        "invisible": true,
+        "managedByTeam": "GLOBAL_PAYROLL",
+        "name": "GlobalPayroll",
+        "navigation_categories": [
+          "navigation_bar_subcategory.finance"
+        ],
+        "primary_slug": "global_payroll",
+        "recommendedProvisionRoleState": "ACCEPTED",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "spendmanagement",
+      "name": "SpendManagement",
+      "displayName": "Spend",
+      "path": "/spend-management",
+      "navigationSortPriority": 10,
+      "invisible": false,
+      "billingPlanTypes": [
+        "PAYROLL"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/spend_management.json",
+      "raw": {
+        "_displayName": "Spend",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "PAYROLL"
+        ],
+        "capabilities": [
+          "OAUTH_PLATFORM"
+        ],
+        "categories": [
+          "rippling_managed",
+          "finance_legal.banking",
+          "finance_legal.expense_management"
+        ],
+        "dashboard_url": "/spend-management",
+        "description": "Spend",
+        "ee_dashboard_url": "/spend-management",
+        "ee_dashboard_display_name": "Spend",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_aec45437-86f9-45af-a39e-8de355751361.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_c1950018-f88b-4ced-9238-e8d76855b918.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_bcaea778-d076-41b2-9b6e-0a56a663cbff.webm",
+        "id": "spendmanagement",
+        "installation_url": "/spend-management/setupV3",
+        "invisible": false,
+        "managedByTeam": "SPEND",
+        "name": "SpendManagement",
+        "navigation_categories": [
+          "navigation_bar_subcategory.spend"
+        ],
+        "navigationSortPriority": 10,
+        "primary_slug": "spend-management",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "spoke": {
+          "config": {
+            "module": "spend_management",
+            "webhook_class": "VeryfiWebhook"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "SPEND_MY_FINANCES_DUMMY_APP_ID",
+      "name": "SPEND_MY_FINANCES_NAME",
+      "displayName": "SPEND_MY_FINANCES_NAME",
+      "path": "/spend-management/dashboard/my-finances",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_MY_FINANCES_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_MY_FINANCES_DUMMY_APP_ID",
+        "name": "SPEND_MY_FINANCES_NAME"
+      }
+    },
+    {
+      "id": "SPEND_FINANCE_OVERVIEW_DUMMY_APP_ID",
+      "name": "SPEND_FINANCE_OVERVIEW_NAME",
+      "displayName": "SPEND_FINANCE_OVERVIEW_NAME",
+      "path": "/spend-management/dashboard/overview",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_FINANCE_OVERVIEW_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_FINANCE_OVERVIEW_DUMMY_APP_ID",
+        "name": "SPEND_FINANCE_OVERVIEW_NAME"
+      }
+    },
+    {
+      "id": "SPEND_CARDS_DUMMY_APP_ID",
+      "name": "SPEND_CARDS_NAME",
+      "displayName": "SPEND_CARDS_NAME",
+      "path": "/spend-management/dashboard/cards",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_CARDS_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_CARDS_DUMMY_APP_ID",
+        "name": "SPEND_CARDS_NAME"
+      }
+    },
+    {
+      "id": "SPEND_REIMBURSEMENTS_DUMMY_APP_ID",
+      "name": "SPEND_REIMBURSEMENTS_NAME",
+      "displayName": "SPEND_REIMBURSEMENTS_NAME",
+      "path": "/spend-management/dashboard/expenses",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_REIMBURSEMENTS_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_REIMBURSEMENTS_DUMMY_APP_ID",
+        "name": "SPEND_REIMBURSEMENTS_NAME"
+      }
+    },
+    {
+      "id": "SPEND_TRANSACTIONS_DUMMY_APP_ID",
+      "name": "SPEND_TRANSACTIONS_NAME",
+      "displayName": "SPEND_TRANSACTIONS_NAME",
+      "path": "/spend-management/dashboard/transactions",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_TRANSACTIONS_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_TRANSACTIONS_DUMMY_APP_ID",
+        "name": "SPEND_TRANSACTIONS_NAME"
+      }
+    },
+    {
+      "id": "SPEND_BILL_PAY_DUMMY_APP_ID",
+      "name": "SPEND_BILL_PAY_NAME",
+      "displayName": "SPEND_BILL_PAY_NAME",
+      "path": "/spend-management/dashboard/bills",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_BILL_PAY_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_BILL_PAY_DUMMY_APP_ID",
+        "name": "SPEND_BILL_PAY_NAME"
+      }
+    },
+    {
+      "id": "SPEND_PROCUREMENT_DUMMY_APP_ID",
+      "name": "SPEND_PROCUREMENT_NAME",
+      "displayName": "SPEND_PROCUREMENT_NAME",
+      "path": "/spend-management/dashboard/procurement",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_PROCUREMENT_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_PROCUREMENT_DUMMY_APP_ID",
+        "name": "SPEND_PROCUREMENT_NAME"
+      }
+    },
+    {
+      "id": "SPEND_ACCOUNTING_DUMMY_APP_ID",
+      "name": "SPEND_ACCOUNTING_NAME",
+      "displayName": "SPEND_ACCOUNTING_NAME",
+      "path": "/spend-management/dashboard/accounting",
+      "navigationSortPriority": "<SPEND_NAV_FEATURE_ORDER[SPEND_ACCOUNTING_DUMMY_APP_ID]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:SPEND_DUMMY_APPS",
+      "raw": {
+        "id": "SPEND_ACCOUNTING_DUMMY_APP_ID",
+        "name": "SPEND_ACCOUNTING_NAME"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "id": "log_in_as",
+      "name": "LogInAs",
+      "displayName": "Log in As",
+      "path": "/log-in-as",
+      "navigationSortPriority": -100000,
+      "invisible": true,
+      "billingPlanTypes": [
+        "LOG_IN_AS"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/log_in_as.json",
+      "raw": {
+        "_displayName": "Log in As",
+        "id": "log_in_as",
+        "name": "LogInAs",
+        "access_management": [],
+        "billingPlanTypes": [
+          "LOG_IN_AS"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -100000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/log-in-as",
+        "installation_url": "/log-in-as",
+        "description": "Log in As",
+        "icon": "https://static-assets.ripplingcdn.com/identity/login-as-logo.svg",
+        "invisible": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "reports",
+      "name": "Reports",
+      "displayName": "Reports",
+      "path": "/reports",
+      "navigationSortPriority": -100000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/reports.json",
+      "raw": {
+        "_displayName": "Reports",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -100000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/reports",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Rippling HRIS Reporting System.",
+        "ee_dashboard_url": "/reports",
+        "ee_dashboard_display_name": "Reports",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_ed148517-a8f7-4d0b-893e-d0659571e761.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_ba578865-b72d-4aa0-b92a-0d193c2be9a9.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_444f03c7-84e2-4044-9151-859ed8479d53.webm",
+        "id": "reports",
+        "installation_url": "/reports",
+        "invisible": false,
+        "managedByTeam": "HUB",
+        "name": "Reports",
+        "primary_slug": "reports",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "activity_log",
+      "name": "Activity Log",
+      "displayName": "Activity Log",
+      "path": "/activity-log",
+      "navigationSortPriority": -1000,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/activity_log.json",
+      "raw": {
+        "_displayName": "Activity Log",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -1000,
+        "capabilities": [],
+        "categories": [
+          "it_security.security",
+          "rippling_managed"
+        ],
+        "spoke": {
+          "config": {
+            "module": "event_log"
+          }
+        },
+        "dashboard_url": "/activity-log",
+        "navigation_base_url": "/activity-log",
+        "description": "Monitor all audit logs in one place.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_f2f153cb-8730-4708-bc76-4ca9f1c04ffc.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_59d29e47-e67f-429f-b398-25eee88153d4.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_f3ee0473-7f21-4c1a-a1c8-9f9df9fc3127.webm",
+        "id": "activity_log",
+        "managedByTeam": "IT_SECURITY",
+        "invisible": true,
+        "name": "Activity Log",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "documentapp",
+      "name": "DocumentsApp",
+      "displayName": "Documents",
+      "path": "/documents/overview",
+      "navigationSortPriority": -1000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/documents_app.json",
+      "raw": {
+        "_displayName": "Documents",
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -1000,
+        "categories": [],
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "dashboard_url": "/documents/overview",
+        "description": "Track all documents status in one place.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_af6aee24-ef0b-4b67-aeb9-be6b28cdfd14.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_e592def0-1eb3-46a6-a267-27917f5aeb92.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_c324db74-0fe0-4a1b-a96f-71e7ae4af1dc.webm",
+        "id": "documentapp",
+        "installation_url": "/documents/overview",
+        "invisible": false,
+        "managedByTeam": "HUB",
+        "name": "DocumentsApp",
+        "primary_slug": "documents",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "recipes",
+      "name": "Recipes",
+      "displayName": "Recipes",
+      "path": "/recipes/dashboard",
+      "navigationSortPriority": -1000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/recipes.json",
+      "raw": {
+        "_displayName": "Recipes",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -1000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/recipes/dashboard",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Spoke to handle access to Rippling defined recipes",
+        "ee_dashboard_url": "/recipes/dashboard",
+        "ee_dashboard_display_name": "recipes",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_21cb0c96-0f4a-45bf-8fc9-90489e2d0346.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_50eebc78-27af-42b1-9d1c-3709c45a02bb.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_ee3601dd-4413-4332-b471-3323b02cf88e.webm",
+        "id": "recipes",
+        "installation_url": "/recipes/dashboard",
+        "invisible": false,
+        "managedByTeam": "HUB",
+        "name": "Recipes",
+        "primary_slug": "recipes",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "checklistapp",
+      "name": "Checklist",
+      "displayName": "Tasks",
+      "path": "/checklist/Checklist",
+      "navigationSortPriority": -100,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/checklist.json",
+      "raw": {
+        "_displayName": "Tasks",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/checklist/Checklist",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Create template \"tasks\" for people in your company that are triggered automatically whenever you hire or offboard an employee.",
+        "ee_dashboard_url": "/checklist/Checklist/outstanding-tasks",
+        "ee_dashboard_display_name": "My tasks",
+        "features": [
+          {
+            "desc": "<br/> • Assign tasks based on role (for example, \"a new hire's manager\") <br/> • Set due dates relative to an employee's hire date or termination date (for example, \"Due 7 days after a new hire starts work\") <br/> • Keep everyone on track with automatic email reminders",
+            "src": "https://s3-us-west-2.amazonaws.com/com.rippling.images/1dd60950-8671-4c43-a6a8-3eb12894d6a3",
+            "title": "Powerful custom task assignment for hiring and offboarding"
+          },
+          {
+            "desc": "<br/> • Take your new hire out to lunch within 7 days of their start date <br/> • Conduct a 90-day performance check-in with your new hire <br/> • Collect your departing employee's computer on their last day of work",
+            "src": "https://s3-us-west-2.amazonaws.com/com.rippling.images/bc8855bf-4b01-4f32-9f8a-7ba8cf6bb89f",
+            "title": "Examples"
+          }
+        ],
+        "forceProvisionRoleState": true,
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_98876c59-0ac3-4b5c-a3b4-75d2f7bff0db.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_06b469bc-0771-498c-8331-906117c405cf.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_67cd66c0-ec80-48ee-a066-94545c662ba8.webm",
+        "id": "checklistapp",
+        "installation_url": "/checklist/Checklist/setup",
+        "invisible": false,
+        "managedByTeam": "HUB",
+        "name": "Checklist",
+        "primary_slug": "tasks",
+        "recommendedProvisionRoleState": "ACCEPTED",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "customer_sandbox",
+      "name": "Customer Sandbox",
+      "displayName": "Sandbox",
+      "path": "/sandbox/dashboard",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/customer_sandbox.json",
+      "raw": {
+        "_displayName": "Sandbox",
+        "access_management": [],
+        "capabilities": [
+          "SAML",
+          "PROVISIONING"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/sandbox/dashboard",
+        "description": "Customer Sandbox",
+        "ee_dashboard_url": "/sandbox/dashboard",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_sandbox.svg",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_sandbox.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_sandbox.webm",
+        "installation_url": "/sandbox/install",
+        "id": "customer_sandbox",
+        "spoke": {
+          "supports_multiple_owners": true
+        },
+        "invisible": true,
+        "managedByTeam": "HRIS",
+        "name": "Customer Sandbox",
+        "primary_slug": "customer_sandbox",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "inbox",
+      "name": "Inbox",
+      "displayName": "Inbox",
+      "path": "/inbox",
+      "navigationSortPriority": -60,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/inbox.json",
+      "raw": {
+        "_displayName": "Inbox",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -60,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/inbox",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Rippling Task Inbox",
+        "ee_dashboard_url": "/inbox",
+        "ee_dashboard_display_name": "Inbox",
+        "forceProvisionRoleState": true,
+        "icon": "https://static-assets.ripplingcdn.com/hub-platform/inbox/inbox-icon.svg",
+        "id": "inbox",
+        "installation_url": "/inbox",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "Inbox",
+        "primary_slug": "inbox",
+        "recommendedProvisionRoleState": "ACCEPTED",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "notification_center",
+      "name": "Notification_Center",
+      "displayName": "Notification Center",
+      "path": "/notification-center",
+      "navigationSortPriority": -50,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/notification_center.json",
+      "raw": {
+        "_displayName": "Notification Center",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -50,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/notification-center",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Rippling Notification Center",
+        "ee_dashboard_url": "/notification-center",
+        "ee_dashboard_display_name": "Notification Center",
+        "forceProvisionRoleState": true,
+        "icon": "https://static-assets.ripplingcdn.com/hub-platform/notifications/notification-center.png",
+        "id": "notification_center",
+        "installation_url": "/notification-center",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "Notification_Center",
+        "primary_slug": "notification-center",
+        "recommendedProvisionRoleState": "ACCEPTED",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "alerts",
+      "name": "Alerts",
+      "displayName": "Workflow Studio",
+      "path": "/custom-workflows",
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/alerts.json",
+      "raw": {
+        "_displayName": "Workflow Studio",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/custom-workflows",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Rippling Custom Workflows",
+        "ee_dashboard_url": "/custom-workflows",
+        "ee_dashboard_display_name": "Workflow Studio",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_ca7f5f06-cb7b-4cf2-81f2-22fbe7888553.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_2d34945a-d131-4b20-a268-35f015a485be.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_3d3b905b-7d1e-4b75-b364-6e14124aa2fd.webm",
+        "id": "alerts",
+        "installation_url": "/custom-workflows",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "Alerts",
+        "primary_slug": "alerts",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "app_manager",
+      "name": "App Manager",
+      "displayName": "App Studio",
+      "path": "/app-studio",
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/app_manager.json",
+      "raw": {
+        "_displayName": "App Studio",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/app-studio",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Manage your Unity apps",
+        "ee_dashboard_url": "/app-studio",
+        "ee_dashboard_display_name": "App Studio",
+        "icon": "https://static-assets.ripplingcdn.com/hub-platform/custom-apps/app-icons/app-manager.png",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/hub-platform/custom-apps/app-icons/app-manager-animated-icon.webm",
+        "id": "app_manager",
+        "installation_url": "/app-studio",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "App Manager",
+        "primary_slug": "app_manager",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "conditional_approvals",
+      "name": "Conditional_Approvals",
+      "displayName": "Approvals",
+      "path": "/approvals",
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/conditional_approvals.json",
+      "raw": {
+        "_displayName": "Approvals",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/approvals",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Rippling Approvals",
+        "ee_dashboard_url": "/approvals",
+        "ee_dashboard_display_name": "Approvals",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_b3caec15-604f-4efb-a9cd-a9a913b2362a.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_b6d7b2fe-8aa8-4406-8bed-6851334aeba0.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_4bb8e3f5-3fa0-4aa4-928b-d82ec011b754.webm",
+        "id": "conditional_approvals",
+        "installation_url": "/approvals",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "Conditional_Approvals",
+        "primary_slug": "conditional_approvals",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "developer",
+      "name": "Developer",
+      "displayName": "Developer",
+      "path": "/developer",
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/developer.json",
+      "raw": {
+        "_displayName": "Developer",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/developer",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Rippling Developer",
+        "ee_dashboard_url": "/developer",
+        "ee_dashboard_display_name": "Developer",
+        "icon": "https://static-assets.ripplingcdn.com/hub-platform/developer/functions/functions-berry.png",
+        "id": "developer",
+        "installation_url": "/developer",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "Developer",
+        "primary_slug": "developer",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "dummy_functions",
+      "name": "Functions",
+      "displayName": "Functions",
+      "path": null,
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/dummy_functions.json",
+      "raw": {
+        "_displayName": "Functions",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Dummy spoke created to manage groups associated with functions admin privilege. Please note that this is not a real app in Rippling - we need to create this since groups are tied to spokes.",
+        "invisible": true,
+        "managedByTeam": "DataManager",
+        "id": "dummy_functions",
+        "name": "Functions",
+        "primary_slug": "dummy_functions",
+        "recommendedProvisionRoleState": "INIT",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "dummy_unity_admin",
+      "name": "Unity Admin",
+      "displayName": "Custom Apps",
+      "path": null,
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/dummy_unity_admin.json",
+      "raw": {
+        "_displayName": "Custom Apps",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Dummy spoke created to manage groups associated with unity admin privilege. Please note that this is not a real app in Rippling - we need to create this since groups are tied to spokes.",
+        "invisible": true,
+        "managedByTeam": "DataManager",
+        "id": "dummy_unity_admin",
+        "name": "Unity Admin",
+        "primary_slug": "dummy_unity_admin",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "icon": "https://static-assets.ripplingcdn.com/hub-platform/custom-apps/app-icons/app-manager.png",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "chat",
+      "name": "Chat",
+      "displayName": "Chat",
+      "path": "/chat",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/chat.json",
+      "raw": {
+        "_displayName": "Chat",
+        "_isBeta": true,
+        "id": "chat",
+        "name": "Chat",
+        "access_management": [],
+        "primary_slug": "chat",
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/chat",
+        "ee_dashboard_url": "/chat",
+        "ee_dashboard_display_name": "Chat",
+        "description": "Group channels and direct messages",
+        "icon": "https://static-assets.ripplingcdn.com/scheduling/chat/logo.png",
+        "installation_url": "/chat/install",
+        "invisible": true,
+        "type": "INTERNAL",
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": []
+      }
+    },
+    {
+      "id": "custom_translation",
+      "name": "Custom Translations",
+      "displayName": "Custom Translations",
+      "path": "/custom-translations",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/custom_translation.json",
+      "raw": {
+        "_displayName": "Custom Translations",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.tools"
+        ],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/custom-translations",
+        "description": "Custom Translations",
+        "ee_dashboard_url": "/custom-translations",
+        "ee_dashboard_display_name": "Custom Translations",
+        "forceProvisionRoleState": true,
+        "id": "custom_translation",
+        "handle": "CUSTOM_TRANSLATION",
+        "installation_url": "/custom-translations/install",
+        "invisible": true,
+        "managedByTeam": "HUB",
+        "name": "Custom Translations",
+        "primary_slug": "custom-translation",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": true,
+        "type": "INTERNAL"
+      }
+    }
+  ],
+  "hr": [
+    {
+      "id": "global_contractor",
+      "name": "GLOBAL_CONTRACTOR",
+      "displayName": "Contractor Hub",
+      "path": "/contractors/admin/overview",
+      "navigationSortPriority": -100000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/global_contractor.json",
+      "raw": {
+        "_displayName": "Contractor Hub",
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": -100000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/contractors/admin/overview",
+        "description": "Global Contractor Managment System.",
+        "ee_dashboard_url": "/contractors/invoicing",
+        "ee_dashboard_display_name": "Contractor Hub",
+        "ee_navigation_base_url": "/contractors/invoicing",
+        "icon": "https://static-assets.ripplingcdn.com/hr-products/contractors.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/hr-products/app-icon-contractors-v1.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/hr-products/app-icon-contractors-v1.webm",
+        "id": "global_contractor",
+        "installation_url": "contractors/setup/admin/welcome",
+        "invisible": false,
+        "name": "GLOBAL_CONTRACTOR",
+        "primary_slug": "global_contractor",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "leaves",
+      "name": "Leaves",
+      "displayName": "Leave Management",
+      "path": "/apps/leaves/dashboard",
+      "navigationSortPriority": -1000,
+      "invisible": true,
+      "billingPlanTypes": [
+        "APP",
+        "GLOBAL_PAYROLL_UK"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/leaves.json",
+      "raw": {
+        "id": "leaves",
+        "_displayName": "Leave Management",
+        "access_management": [],
+        "billingPlanTypes": [
+          "APP",
+          "GLOBAL_PAYROLL_UK"
+        ],
+        "dashboard_url": "/apps/leaves/dashboard",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_4929cc3e-488b-407d-959b-045fe0e1755d.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_75f94332-47b1-46cf-8a25-38ebc6e37942.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_d3408a5b-a24d-4de9-a6af-d45e3d146f8a.webm",
+        "navigation_base_url": "/apps/leaves/dashboard",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": -1000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "installation_url": "/apps/leaves/setup",
+        "invisible": true,
+        "managedByTeam": "APPS",
+        "name": "Leaves",
+        "type": "INTERNAL",
+        "visible_for_demo_companies": false
+      }
+    },
+    {
+      "id": "pto",
+      "name": "PTO",
+      "displayName": "Time Off",
+      "path": "/pto/",
+      "navigationSortPriority": -1000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "PAYROLL"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/pto.json",
+      "raw": {
+        "_displayName": "Time Off",
+        "access_management": [
+          "GROUP"
+        ],
+        "billingPlanTypes": [
+          "PAYROLL"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": -1000,
+        "categories": [
+          "human_resources.payroll_benefits",
+          "rippling_managed"
+        ],
+        "dashboard_url": "/pto/",
+        "navigation_base_url": "/pto/",
+        "ee_navigation_base_url": "/pto/",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Let us help you track your Paid Time Off",
+        "ee_dashboard_url": "/pto/",
+        "ee_dashboard_display_name": "Time Off",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_427ffe17-1f26-42a3-963d-a939ca6d396c.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_6da3d7d9-1ef0-4468-beaa-211b2b93d0fa.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_d7a0ab20-3da1-4b4f-94b7-84b93cd0a3b9.webm",
+        "id": "pto",
+        "installation_url": "/pto/setup",
+        "invisible": false,
+        "managedByTeam": "PAYROLL",
+        "name": "PTO",
+        "primary_slug": "pto",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "PEOPLE_FAKE_APP",
+      "name": "People",
+      "displayName": "People",
+      "path": "/employee-list/list",
+      "navigationSortPriority": "-1000",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:PEOPLE_FAKE_APP",
+      "raw": {
+        "id": "PEOPLE_FAKE_APP",
+        "name": "People"
+      }
+    },
+    {
+      "id": "scheduling",
+      "name": "Scheduling",
+      "displayName": "Scheduling",
+      "path": "/scheduling/dashboard",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/scheduling.json",
+      "raw": {
+        "_displayName": "Scheduling",
+        "access_management": [],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/scheduling/dashboard",
+        "description": "Make lots of schedules",
+        "ee_dashboard_url": "/scheduling/dashboard",
+        "icon": "https://static-assets.ripplingcdn.com/scheduling/logo.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/scheduling/logo.png",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/scheduling/logo.png",
+        "installation_url": "/scheduling/setup",
+        "id": "scheduling",
+        "invisible": true,
+        "managedByTeam": "SCHEDULING",
+        "name": "Scheduling",
+        "primary_slug": "scheduling",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "timeattendance",
+      "name": "TimeAttendance",
+      "displayName": "Time & Attendance",
+      "path": "/time-attendance/dashboard",
+      "navigationSortPriority": -100,
+      "invisible": false,
+      "billingPlanTypes": [
+        "TIMEATTENDANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/time_attendance.json",
+      "raw": {
+        "_displayName": "Time & Attendance",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "TIMEATTENDANCE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed",
+          "human_resources.time_and_attendance"
+        ],
+        "dashboard_url": "/time-attendance/dashboard",
+        "description": "Just your friendly neighbourhood time tracker & scheduling.",
+        "ee_dashboard_url": "/time-attendance/dashboard",
+        "ee_dashboard_display_name": "Time & Attendance",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_d99f2974-f13a-4a98-b010-ac3b7e220e38.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_de93aed8-fb83-4b52-8c24-21cc8c808ad6.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_4b510fb4-a115-412a-8c9d-47991faf4360.webm",
+        "id": "timeattendance",
+        "installation_url": "/time-attendance/setup",
+        "invisible": false,
+        "managedByTeam": "TIME",
+        "name": "TimeAttendance",
+        "primary_slug": "time-attendance",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "anniversaryapp",
+      "name": "AnniversaryApp",
+      "displayName": "Anniversaries",
+      "path": "/anniversary/overview",
+      "navigationSortPriority": -10,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/anniversary_app.json",
+      "raw": {
+        "_displayName": "Anniversaries",
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/anniversary/overview",
+        "description": "Anniversaries & Birthdays",
+        "ee_dashboard_url": "/anniversary/overview",
+        "ee_dashboard_display_name": "Anniversaries & Birthdays",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_8bdcaad0-db6c-46fc-8eca-bea7788e3993.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_4e15185a-7bf8-45d0-ba6b-a3ca4d3fd449.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_9cb3e5c6-82f0-4f82-8e12-62cb2fccd4b5.webm",
+        "id": "anniversaryapp",
+        "installation_url": "/anniversary/overview",
+        "invisible": true,
+        "name": "AnniversaryApp",
+        "primary_slug": "anniversaries-birthdays",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "HR_PRODUCTS_OVERVIEW_FAKE_APP",
+      "name": "HR Overview",
+      "displayName": "HR Overview",
+      "path": "/hr-products-overview",
+      "navigationSortPriority": "-10",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:HR_PRODUCTS_OVERVIEW_FAKE_APP",
+      "raw": {
+        "id": "HR_PRODUCTS_OVERVIEW_FAKE_APP",
+        "name": "HR Overview"
+      }
+    },
+    {
+      "id": "everify",
+      "name": "EVerify",
+      "displayName": "E-Verify",
+      "path": "/everify/home",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [
+        "EVERIFY"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/everify.json",
+      "raw": {
+        "_displayName": "E-Verify",
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "EVERIFY"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": 0,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/everify/home",
+        "description": "Spoke to handle employee authorization through E-Verify",
+        "ee_dashboard_url": "/everify",
+        "ee_dashboard_display_name": "E-Verify",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_514d61f4-9829-47a9-8f2f-55b19801dbcf.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_c046e43b-a8c0-412f-a07e-960d92ca01da.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_c2cf0ab8-dd96-446c-9f8b-397e2d65e4fd.webm",
+        "id": "everify",
+        "installation_url": "/everify/setup",
+        "invisible": true,
+        "name": "EVerify",
+        "primary_slug": "e-verify",
+        "spoke": {
+          "config": {
+            "billing_class": "EverifyBillingInterface",
+            "module": "hub"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "forecasting",
+      "name": "Forecasting",
+      "displayName": "Forecasting",
+      "path": "/forecasting",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/forecasting.json",
+      "raw": {
+        "_displayName": "Forecasting",
+        "_isBeta": true,
+        "id": "forecasting",
+        "name": "Forecasting",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/forecasting",
+        "description": "Forecasting your labor",
+        "icon": "https://static-assets.ripplingcdn.com/scheduling/logo.png",
+        "installation_url": "/forecasting",
+        "invisible": true,
+        "primary_slug": "forecasting",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "I9_EVERIFY_DUMMY_APP",
+      "name": "Employment Authorization",
+      "displayName": "Employment Authorization",
+      "path": "/employment-authorization",
+      "navigationSortPriority": 0,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:I9_EVERIFY_DUMMY_APP",
+      "raw": {
+        "id": "I9_EVERIFY_DUMMY_APP",
+        "name": "Employment Authorization"
+      }
+    },
+    {
+      "id": "COMPLIANCE_DASHBOARD_DUMMY_APP",
+      "name": "Compliance 360",
+      "displayName": "Compliance 360",
+      "path": "/compliance/overview",
+      "navigationSortPriority": 0,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:COMPLIANCE_DASHBOARD_DUMMY_APP",
+      "raw": {
+        "id": "COMPLIANCE_DASHBOARD_DUMMY_APP",
+        "name": "Compliance 360"
+      }
+    },
+    {
+      "id": "eeoc",
+      "name": "EEOC",
+      "displayName": "EEO/CPDR Reporting",
+      "path": "/eeoc/report-filings",
+      "navigationSortPriority": 10,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/eeoc.json",
+      "raw": {
+        "_displayName": "EEO/CPDR Reporting",
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": 10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/eeoc/report-filings",
+        "description": "Spoke to handle collection and reporting of EEO data",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_b4e1e823-20d7-4ea9-b7c0-cf85f763bd7f.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_e0d80a0d-d0ac-4098-8b76-c6094e90aeb0.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_a879ce6b-3cb9-4615-8dfc-80730269da23.webm",
+        "id": "eeoc",
+        "installation_url": "/eeoc/setup",
+        "invisible": false,
+        "managedByTeam": "HUB",
+        "name": "EEOC",
+        "primary_slug": "eeo-reporting",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "employmentverifications",
+      "name": "employment-verifications",
+      "displayName": "Employment Verifications",
+      "path": "/apps/employment-verifications",
+      "navigationSortPriority": 20,
+      "invisible": false,
+      "billingPlanTypes": [
+        "PAYROLL"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/employment_verifications.json",
+      "raw": {
+        "_displayName": "Employment Verifications",
+        "capabilities": [
+          "ON_INSTALL_FORCE_DONE",
+          "EMPLOYMENT_VERIFICATIONS",
+          "SHOW_OVERVIEW_PAGE",
+          "HIDE_APPS_SHOP_REQUESTS"
+        ],
+        "billingPlanTypes": [
+          "PAYROLL"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.hr_management"
+        ],
+        "navigationSortPriority": 20,
+        "categories": [
+          "rippling_managed"
+        ],
+        "description": "Automate income and employment verification requests through Truework, and eliminate the back and forth of emails, phone calls and faxes.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_4f32b7da-cbc2-4bfe-b9f8-dea24718caea.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_61a4037d-5b56-4eed-bd4e-087d34438e72.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_fe0d40b9-a935-483e-9b6b-fb6f45125a22.webm",
+        "id": "employmentverifications",
+        "invisible": false,
+        "name": "employment-verifications",
+        "primary_slug": "employment-verifications",
+        "g2crowd_slug": "truework",
+        "type": "INTERNAL",
+        "_isBeta": false,
+        "installation_url": "/apps/INTERNAL/employment-verifications",
+        "dashboard_url": "/apps/employment-verifications",
+        "case_insensitive_spoke_id": true,
+        "internal_app_has_app_shop_listing": true
+      }
+    }
+  ],
+  "settings": [
+    {
+      "id": "api_tokens",
+      "name": "APITokens",
+      "displayName": "API Tokens",
+      "path": "/api-tokens",
+      "navigationSortPriority": -100000,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/api_token.json",
+      "raw": {
+        "_displayName": "API Tokens",
+        "id": "api_tokens",
+        "name": "APITokens",
+        "primary_slug": "apitokens",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.settings"
+        ],
+        "navigationSortPriority": -100000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/api-tokens",
+        "description": "Companies API Tokens",
+        "icon": "https://static-assets.ripplingcdn.com/apps-platform/rippling_internal/third-party-apps.png",
+        "installation_url": "/api-tokens",
+        "invisible": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "PERMISSIONS_DUMMY_APP_ID",
+      "name": "Permissions",
+      "displayName": "Permissions",
+      "path": "/permissions/overview",
+      "navigationSortPriority": "-1000",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:PERMISSIONS_DUMMY_APP",
+      "raw": {
+        "id": "PERMISSIONS_DUMMY_APP_ID",
+        "name": "Permissions"
+      }
+    },
+    {
+      "id": "custominfo",
+      "name": "CustomInfo",
+      "displayName": "Custom Fields",
+      "path": "/custom-fields/overview",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/customInfo.json",
+      "raw": {
+        "_displayName": "Custom Fields",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.settings"
+        ],
+        "navigationSortPriority": -100,
+        "capabilities": [],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/custom-fields/overview",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Spoke to handle collection of custom fields for each role",
+        "icon": "https://cdn.rippling.com/static/apps/logos/Q4_2021/custom_fields.png",
+        "id": "custominfo",
+        "installation_url": "/custom-fields/overview",
+        "invisible": true,
+        "isDeprecated": true,
+        "newAppVersion": "DataManager",
+        "name": "CustomInfo",
+        "primary_slug": "custom-fields",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "datamanager",
+      "name": "DataManager",
+      "displayName": "Data Manager",
+      "path": "/data-manager/field-selector",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/datamanager.json",
+      "raw": {
+        "_displayName": "Data Manager",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.settings"
+        ],
+        "navigationSortPriority": -100,
+        "capabilities": [],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/data-manager/field-selector",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Spoke to handle collection of custom fields for each role",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_0cacc513-3a49-46cf-a533-0b60f86f870e.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_8062915d-72a8-49f7-9833-17e640499cbf.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_5d8aa15f-038a-4718-ade1-a899ffe4a893.webm",
+        "id": "datamanager",
+        "installation_url": "/data-manager/field-selector",
+        "invisible": true,
+        "name": "DataManager",
+        "primary_slug": "data-manager",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "group_manager",
+      "name": "GroupManager",
+      "displayName": "Saved Supergroups",
+      "path": "/group-manager/dashboard",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/group_manager.json",
+      "raw": {
+        "_displayName": "Saved Supergroups",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.settings"
+        ],
+        "navigationSortPriority": -100,
+        "capabilities": [],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/group-manager/dashboard",
+        "ee_dashboard_url": "/group-manager/dashboard",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Spoke to handle group management",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_d44094be-f24b-4367-986f-8bcd9941a602.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_9ba995fa-a630-4772-bd9a-236d2fe09a47.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_147c4ecb-f724-4593-9e8a-fd97cb0536ff.webm",
+        "id": "group_manager",
+        "installation_url": "/group-manager/dashboard",
+        "invisible": true,
+        "name": "GroupManager",
+        "primary_slug": "group-manager",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "universal_search",
+      "name": "UniversalSearch",
+      "displayName": "Universal Search",
+      "path": "/universal-search/dashboard",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "UNIVERSAL_SEARCH"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/universal_search.json",
+      "raw": {
+        "_displayName": "Universal Search",
+        "access_management": [],
+        "billingPlanTypes": [
+          "UNIVERSAL_SEARCH"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.settings"
+        ],
+        "navigationSortPriority": -100,
+        "capabilities": [],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/universal-search/dashboard",
+        "ee_dashboard_url": "/universal-search/dashboard",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Spoke to handle universal search",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_d44094be-f24b-4367-986f-8bcd9941a602.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_9ba995fa-a630-4772-bd9a-236d2fe09a47.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_147c4ecb-f724-4593-9e8a-fd97cb0536ff.webm",
+        "id": "universal_search",
+        "installation_url": "/universal-search/dashboard",
+        "invisible": true,
+        "name": "UniversalSearch",
+        "primary_slug": "universal-search",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "security",
+      "name": "Security",
+      "displayName": "Security",
+      "path": "/company-security",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/security.json",
+      "raw": {
+        "_displayName": "Security",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.settings"
+        ],
+        "capabilities": [
+          "HIDE_APPS_SHOP_REQUESTS"
+        ],
+        "categories": [
+          "it_security.security",
+          "rippling_managed"
+        ],
+        "spoke": {
+          "config": {
+            "module": "security"
+          }
+        },
+        "dashboard_url": "/company-security",
+        "navigation_base_url": "/company-security",
+        "description": "Security App",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_9657a5a2-1152-450f-9777-db7bdd8af722.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_49b54466-082c-4e69-85d7-a904d846331b.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_6057233d-dda8-4bfb-a188-b360c26e0a56.webm",
+        "id": "security",
+        "managedByTeam": "IT_SECURITY",
+        "invisible": true,
+        "name": "Security",
+        "type": "INTERNAL"
+      }
+    }
+  ],
+  "talent": [
+    {
+      "id": "tune",
+      "name": "Tune",
+      "displayName": "Talent Signal",
+      "path": "/talent-signal/dashboard",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/tune.json",
+      "raw": {
+        "_displayName": "Talent Signal",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/talent-signal/dashboard",
+        "ee_dashboard_url": "/talent-signal/dashboard",
+        "icon": "https://static-assets.ripplingcdn.com/talent-signals/talent-signal-app-icon.png",
+        "installation_url": "/talent-signal/setup",
+        "id": "tune",
+        "invisible": true,
+        "managedByTeam": "applied_ml",
+        "name": "Tune",
+        "primary_slug": "talent-signal",
+        "showInLeftNav": false,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "TALENT_OVERVIEW_DUMMY_APP",
+      "name": "Talent Overview",
+      "displayName": "Talent Overview",
+      "path": "/talent",
+      "navigationSortPriority": "-10",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TALENT_OVERVIEW_DUMMY_APP",
+      "raw": {
+        "id": "TALENT_OVERVIEW_DUMMY_APP",
+        "name": "Talent Overview"
+      }
+    },
+    {
+      "id": "ats2",
+      "name": "RipplingATS2",
+      "displayName": "Recruiting",
+      "path": "/ats",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/ats2.json",
+      "raw": {
+        "_displayName": "Recruiting",
+        "_billingName": "Rippling Recruiting",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "capabilities": [
+          "GET_ATS_JOBS",
+          "ATS_CANDIDATES",
+          "HIDE_APPS_SHOP_REQUESTS"
+        ],
+        "defaultProvisioningRule": null,
+        "categories": [
+          "human_resources.recruiting_applicant_tracking",
+          "rippling_managed"
+        ],
+        "spoke": {
+          "config": {
+            "module": "ats2_provisioning",
+            "billing_class": "ATS2BillingInterface"
+          }
+        },
+        "dashboard_url": "/ats",
+        "installation_url": "/ats/setup",
+        "description": "Rippling Recruiting",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_f91be4fd-1d52-4c77-9d54-d8c5af384f37.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_f91be4fd-1d52-4c77-9d54-d8c5af384f37.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_f91be4fd-1d52-4c77-9d54-d8c5af384f37.webm",
+        "id": "ats2",
+        "invisible": true,
+        "name": "RipplingATS2",
+        "type": "INTERNAL",
+        "ee_dashboard_url": "/ats/employee"
+      }
+    },
+    {
+      "id": "compensation_management_app",
+      "name": "Compensation Bands",
+      "displayName": "Compensation Bands",
+      "path": "/compensation",
+      "navigationSortPriority": 0,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/compensation_management.json",
+      "raw": {
+        "id": "compensation_management_app",
+        "invisible": true,
+        "name": "Compensation Bands",
+        "primary_slug": "compensation-management-app",
+        "type": "INTERNAL",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "dashboard_url": "/compensation",
+        "ee_dashboard_url": "/compensation",
+        "ee_dashboard_display_name": "Compensation Bands"
+      }
+    },
+    {
+      "id": "headcount",
+      "name": "Headcount Planning",
+      "displayName": "Headcount Planning",
+      "path": "/headcount-planning",
+      "navigationSortPriority": 0,
+      "invisible": false,
+      "billingPlanTypes": [
+        "HEADCOUNT"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/headcount.json",
+      "raw": {
+        "_displayName": "Headcount Planning",
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "HEADCOUNT"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": 0,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/headcount-planning",
+        "description": "Headcount Planning",
+        "ee_dashboard_url": "/headcount-planning",
+        "ee_dashboard_display_name": "Headcount",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_d44094be-f24b-4367-986f-8bcd9941a602.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_9ba995fa-a630-4772-bd9a-236d2fe09a47.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_147c4ecb-f724-4593-9e8a-fd97cb0536ff.webm",
+        "id": "headcount",
+        "installation_url": "/headcount-planning",
+        "invisible": false,
+        "name": "Headcount Planning",
+        "primary_slug": "headcount",
+        "spoke": {
+          "config": {
+            "billing_class": "HeadcountBillingInterface",
+            "module": "hub"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "COMPENSATION_MANAGEMENT_DUMMY_APP",
+      "name": "Compensation Bands",
+      "displayName": "Compensation Bands",
+      "path": "/compensation",
+      "navigationSortPriority": 0,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:COMPENSATION_MANAGEMENT_DUMMY_APP",
+      "raw": {
+        "id": "COMPENSATION_MANAGEMENT_DUMMY_APP",
+        "name": "Compensation Bands"
+      }
+    },
+    {
+      "id": "pulse",
+      "name": "Pulse",
+      "displayName": "Surveys",
+      "path": "/surveys",
+      "navigationSortPriority": 30,
+      "invisible": false,
+      "billingPlanTypes": [
+        "PULSE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/pulse.json",
+      "raw": {
+        "_displayName": "Surveys",
+        "access_management": [],
+        "billingPlanTypes": [
+          "PULSE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": 30,
+        "categories": [
+          "rippling_managed",
+          "human_resources.performance_management"
+        ],
+        "dashboard_url": "/surveys",
+        "description": "Employee engagement surveys and other ways for employees to voice feedback",
+        "ee_dashboard_url": "/surveys",
+        "ee_dashboard_display_name": "Surveys",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_06bb8df4-9c29-41a8-9e66-b7940b914254.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_4ca547fd-c0aa-4c8c-83de-98a407555421.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_22aa7341-619c-4e36-9b1d-ca0c26c42ffb.webm",
+        "id": "pulse",
+        "installation_url": "/surveys/install",
+        "invisible": false,
+        "managedByTeam": "PERFORMANCE_MANAGEMENT",
+        "name": "Pulse",
+        "primary_slug": "surveys",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "feedback",
+      "name": "Feedback",
+      "displayName": "Feedback",
+      "path": "/feedback/dashboard",
+      "navigationSortPriority": 40,
+      "invisible": true,
+      "billingPlanTypes": [
+        "REVIEW_CYCLES"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/feedback.json",
+      "raw": {
+        "_displayName": "Feedback",
+        "access_management": [],
+        "billingPlanTypes": [
+          "REVIEW_CYCLES"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": 40,
+        "categories": [
+          "rippling_managed",
+          "human_resources.performance_management"
+        ],
+        "dashboard_url": "/feedback/dashboard",
+        "description": "Give or receive ad hoc feedback",
+        "ee_dashboard_url": "/feedback/dashboard",
+        "ee_dashboard_display_name": "Feedback",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/performance-management/feedback_logo.png",
+        "id": "feedback",
+        "installation_url": "/feedback/install",
+        "invisible": true,
+        "managedByTeam": "PERFORMANCE_MANAGEMENT",
+        "name": "Feedback",
+        "primary_slug": "feedback",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "goals",
+      "name": "Goals",
+      "displayName": "Goals",
+      "path": "/goals/dashboard",
+      "navigationSortPriority": 40,
+      "invisible": true,
+      "billingPlanTypes": [
+        "REVIEW_CYCLES"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/goals.json",
+      "raw": {
+        "_displayName": "Goals",
+        "access_management": [],
+        "billingPlanTypes": [
+          "REVIEW_CYCLES"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": 40,
+        "categories": [
+          "rippling_managed",
+          "human_resources.performance_management"
+        ],
+        "dashboard_url": "/goals/dashboard",
+        "description": "Set and track employee goals",
+        "ee_dashboard_url": "/goals/dashboard",
+        "ee_dashboard_display_name": "Goals",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/performance-management/goals_logo.png",
+        "id": "goals",
+        "installation_url": "/goals/install",
+        "invisible": true,
+        "managedByTeam": "PERFORMANCE_MANAGEMENT",
+        "name": "Goals",
+        "primary_slug": "goals",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "one_on_ones",
+      "name": "OneOnOnes",
+      "displayName": "1:1s",
+      "path": "/one-on-ones/dashboard",
+      "navigationSortPriority": 40,
+      "invisible": true,
+      "billingPlanTypes": [
+        "REVIEW_CYCLES"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/one_on_ones.json",
+      "raw": {
+        "_displayName": "1:1s",
+        "access_management": [],
+        "billingPlanTypes": [
+          "REVIEW_CYCLES"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": 40,
+        "categories": [
+          "rippling_managed",
+          "human_resources.performance_management"
+        ],
+        "dashboard_url": "/one-on-ones/dashboard",
+        "description": "Conduct and document 1:1 meetings",
+        "ee_dashboard_url": "/one-on-ones/dashboard",
+        "ee_dashboard_display_name": "1:1s",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/performance-management/one_on_ones_logo.png",
+        "id": "one_on_ones",
+        "installation_url": "/one-on-ones/install",
+        "invisible": true,
+        "managedByTeam": "PERFORMANCE_MANAGEMENT",
+        "name": "OneOnOnes",
+        "primary_slug": "one-on-ones",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "review_cycles",
+      "name": "ReviewCycles",
+      "displayName": "Review Cycles",
+      "path": "/review-cycles/dashboard",
+      "navigationSortPriority": 40,
+      "invisible": true,
+      "billingPlanTypes": [
+        "REVIEW_CYCLES"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/review_cycles.json",
+      "raw": {
+        "_displayName": "Review Cycles",
+        "access_management": [],
+        "billingPlanTypes": [
+          "REVIEW_CYCLES"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.talent"
+        ],
+        "navigationSortPriority": 40,
+        "categories": [
+          "rippling_managed",
+          "human_resources.performance_management"
+        ],
+        "dashboard_url": "/review-cycles/dashboard",
+        "description": "Employee review cycles for performance and compensation",
+        "ee_dashboard_url": "/review-cycles/dashboard",
+        "ee_dashboard_display_name": "Review Cycles",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/performance-management/performance_management_logo.png",
+        "id": "review_cycles",
+        "installation_url": "/review-cycles/install",
+        "invisible": true,
+        "managedByTeam": "PERFORMANCE_MANAGEMENT",
+        "name": "ReviewCycles",
+        "primary_slug": "review-cycles",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "type": "INTERNAL"
+      }
+    }
+  ],
+  "it": [
+    {
+      "id": "integrations",
+      "name": "Integrations",
+      "displayName": "Integrations",
+      "path": "/integrations",
+      "navigationSortPriority": -10000,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/integrations.json",
+      "raw": {
+        "_displayName": "Integrations",
+        "id": "integrations",
+        "name": "Integrations",
+        "primary_slug": "integrations",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -10000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/integrations",
+        "description": "Rippling Integrations Manager",
+        "icon": "https://static-assets.ripplingcdn.com/apps-platform/rippling_internal/third-party-apps.png",
+        "installation_url": "/apps/API/Integrations",
+        "invisible": true,
+        "install_steps": [
+          "finished"
+        ],
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware",
+      "displayName": "Devices",
+      "path": "/it/hardware/overview",
+      "navigationSortPriority": -1000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "HARDWARE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/hardware.json",
+      "raw": {
+        "_billingName": "Device Management",
+        "access_management": [
+          "GROUP"
+        ],
+        "billingPlanTypes": [
+          "HARDWARE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -1000,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/it/hardware/overview",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "description": "Let us automate your IT needs.",
+        "ee_dashboard_url": "/it/hardware/employee",
+        "ee_dashboard_display_name": "Devices",
+        "_displayName": "Devices",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_9c4a0d85-c1b4-4cbc-bda8-3e35afa8f49b.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_91d0a15c-68e4-4f94-b895-db8dfd5b53a1.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_2a0ab8b9-b68a-432e-a943-21e3d8748126.webm",
+        "id": "hardware",
+        "installation_url": "/it/hardware/overview",
+        "invisible": false,
+        "managedByTeam": "HARDWARE",
+        "name": "Hardware",
+        "primary_slug": "hardware",
+        "spoke": {
+          "config": {
+            "billing_class": "HardwareBillingInterface",
+            "module": "hardware"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "it_management",
+      "name": "IT Management",
+      "displayName": "IT Management",
+      "path": "/it-management",
+      "navigationSortPriority": -1000,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/it_management.json",
+      "raw": {
+        "_displayName": "IT Management",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -1000,
+        "id": "it_management",
+        "invisible": true,
+        "categories": [
+          "rippling_managed"
+        ],
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_it_home.png",
+        "dashboard_url": "/it-management",
+        "ee_dashboard_url": "/it-management",
+        "installation_url": "/it-management",
+        "navigation_base_url": "/it-management",
+        "name": "IT Management",
+        "primary_slug": "it-management",
+        "spoke": {
+          "config": {
+            "module": "it_management"
+          }
+        },
+        "type": "INTERNAL",
+        "description": "Centralized dashboard for IT admins"
+      }
+    },
+    {
+      "id": "security_monitoring",
+      "name": "Security Monitoring",
+      "displayName": "Security Monitoring",
+      "path": "/security-monitoring",
+      "navigationSortPriority": -1000,
+      "invisible": true,
+      "billingPlanTypes": [
+        "AUTOMATED_COMPLIANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/security_monitoring.json",
+      "raw": {
+        "_displayName": "Security Monitoring",
+        "additional_search_tags": [],
+        "access_management": [],
+        "billingPlanTypes": [
+          "AUTOMATED_COMPLIANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -1000,
+        "capabilities": [],
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/security-monitoring",
+        "installation_url": "/security-monitoring/install",
+        "navigation_base_url": "/security-monitoring",
+        "description": "Security monitoring",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_31b24a5c-c41e-4ad1-a9cc-a04e36d1eda3.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_2b349c19-a88d-4923-a369-f8099c776d5d.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_2b349c19-a88d-4923-a369-f8099c776d5d.webm",
+        "id": "security_monitoring",
+        "managedByTeam": "AUTOMATED_COMPLIANCE",
+        "invisible": true,
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "name": "Security Monitoring",
+        "type": "INTERNAL",
+        "showInLeftNav": false,
+        "spoke": {
+          "config": {
+            "module": "security_monitoring"
+          }
+        }
+      }
+    },
+    {
+      "id": "sentinelone",
+      "name": "SentinelOne",
+      "displayName": "SentinelOne",
+      "path": "/hardware/threats",
+      "navigationSortPriority": -1000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "HARDWARE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/sentinelone.json",
+      "raw": {
+        "access_management": [],
+        "_billingName": "SentinelOne",
+        "id": "sentinelone",
+        "installation_url": "/hardware/sentinel-one-install",
+        "internal_app_has_app_shop_listing": true,
+        "invisible": false,
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -1000,
+        "capabilities": [
+          "SAML",
+          "HARDWARE_THREAT_DETECTION"
+        ],
+        "categories": [
+          "rippling_managed"
+        ],
+        "billingPlanTypes": [
+          "HARDWARE"
+        ],
+        "overrideBetaFlag": false,
+        "icon": "https://hardware-cdn.rippling.com/SentinelAgent_macos.png",
+        "_displayName": "SentinelOne",
+        "dashboard_url": "/hardware/threats",
+        "name": "SentinelOne",
+        "managedByTeam": "HARDWARE",
+        "primary_slug": "sentinelone",
+        "spoke": {
+          "config": {
+            "billing_class": "BillingInterface",
+            "module": "billing"
+          }
+        },
+        "supportsSAML": true,
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "ssh",
+      "name": "SSH",
+      "displayName": "SSH Key Manager",
+      "path": "/ssh/overview",
+      "navigationSortPriority": -1000,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/ssh.json",
+      "raw": {
+        "_displayName": "SSH Key Manager",
+        "capabilities": [
+          "PROVISIONING",
+          "CREATE_GROUP",
+          "DELETE_GROUP",
+          "ADD_MEMBER_GROUP",
+          "UPDATE_GROUP"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -1000,
+        "categories": [
+          "developer.access_management",
+          "rippling_managed"
+        ],
+        "dashboard_url": "/ssh/overview",
+        "description": "Secure Shell (SSH) is a cryptographic network protocol for operating network services securely over an unsecured network. With Rippling's SSH key management, employees self-manage their public keys inside of Rippling, you configure your servers and other services to point to Rippling's public key repo, and you can then conditionally provide employees access to services. New hires are automatically given SSH access to services, and terminating them in Rippling automatically revokes access.",
+        "ee_dashboard_url": "/ssh/employee",
+        "ee_dashboard_display_name": "SSH",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_622fe901-fdb2-4ed7-82cb-634528c192b1.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_2295af99-b677-4b21-ba2d-e568bf4d9728.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_3159543b-891d-4493-bede-588eb651c2da.webm",
+        "id": "ssh",
+        "installation_url": "/ssh/setup",
+        "invisible": false,
+        "name": "SSH",
+        "primary_slug": "ssh-key-management",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "automated_compliance",
+      "name": "Automated Compliance",
+      "displayName": "Automated Compliance",
+      "path": "/grc",
+      "navigationSortPriority": -500,
+      "invisible": true,
+      "billingPlanTypes": [
+        "AUTOMATED_COMPLIANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/automated_compliance.json",
+      "raw": {
+        "_displayName": "Automated Compliance",
+        "additional_search_tags": [
+          "soc",
+          "soc2",
+          "soc 2",
+          "soc-2",
+          "sock 2",
+          "sock2",
+          "soc two",
+          "soctwo",
+          "controls",
+          "security",
+          "secure",
+          "audit",
+          "audits",
+          "auditor",
+          "iso",
+          "iso 27001",
+          "iso27001",
+          "it",
+          "aicpa",
+          "tsc",
+          "trust",
+          "trust services criteria",
+          "vanta",
+          "drata",
+          "laika",
+          "secureframe",
+          "align",
+          "data",
+          "cybersecurity",
+          "cyber"
+        ],
+        "access_management": [],
+        "billingPlanTypes": [
+          "AUTOMATED_COMPLIANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -500,
+        "capabilities": [
+          "EXTERNAL_ADMIN_SUPPORT"
+        ],
+        "categories": [
+          "rippling_managed"
+        ],
+        "spoke": {
+          "config": {
+            "module": "automated_compliance"
+          }
+        },
+        "dashboard_url": "/grc",
+        "navigation_base_url": "/grc",
+        "description": "Automated compliance",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_31b24a5c-c41e-4ad1-a9cc-a04e36d1eda3.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_2b349c19-a88d-4923-a369-f8099c776d5d.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_2b349c19-a88d-4923-a369-f8099c776d5d.webm",
+        "id": "automated_compliance",
+        "managedByTeam": "AUTOMATED_COMPLIANCE",
+        "invisible": true,
+        "installation_url": "/grc",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "name": "Automated Compliance",
+        "type": "INTERNAL",
+        "showInLeftNav": false
+      }
+    },
+    {
+      "id": "rpass",
+      "name": "RPass",
+      "displayName": "RPass",
+      "path": "/it/rpass",
+      "navigationSortPriority": -100,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/rpass.json",
+      "raw": {
+        "access_management": [
+          "GROUP"
+        ],
+        "capabilities": [
+          "OAUTH_PLATFORM"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/it/rpass",
+        "description": "Rippling Password Manager",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_f749092b-154e-46a4-bb77-d976e8a6ba85.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_eef8e238-a420-449e-a85e-cb62fea40cf7.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_c46e614b-6caf-4336-b2f2-93bf7b53a1bc.webm",
+        "id": "rpass",
+        "installation_url": "/rpass/setup",
+        "invisible": false,
+        "name": "RPass",
+        "primary_slug": "rpass",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "vldap",
+      "name": "VLDAP",
+      "displayName": "Virtual LDAP",
+      "path": "/ldap/overview",
+      "navigationSortPriority": -100,
+      "invisible": false,
+      "billingPlanTypes": [
+        "APP"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/vldap.json",
+      "raw": {
+        "_displayName": "Virtual LDAP",
+        "access_management": [],
+        "capabilities": [
+          "PROVISIONING",
+          "CREATE_GROUP",
+          "DELETE_GROUP",
+          "ADD_MEMBER_GROUP",
+          "UPDATE_GROUP"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "billingPlanTypes": [
+          "APP"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "developer.access_management",
+          "rippling_managed"
+        ],
+        "dashboard_url": "/ldap/overview",
+        "description": "LDAP (Lightweight Directory Access Protocol) is a protocol that lets you connect applications to Rippling that don't otherwise have an integration, particularly on-premise services, or custom, in-house software. <br/><br/>LDAP is used to access, query, and modify directories using the X.500 data model. Rippling's Virtual LDAP Service (VLDAP) enables you to use Rippling as a cloud-based LDAP directory, providing another standard way of authenticating and authorizing your users.",
+        "features": [],
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_10b5e1a0-23da-49ed-b890-f47637fc6382.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_c94ff677-1c6c-49a2-a821-0c619d517b6a.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_b09d798c-7aeb-45d3-8c9c-470f1887310b.webm",
+        "id": "vldap",
+        "installation_url": "/ldap/setup",
+        "invisible": false,
+        "name": "VLDAP",
+        "primary_slug": "virtual-ldap",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "customsamlservice",
+      "name": "CustomSAMLService",
+      "displayName": "Custom Integrations",
+      "path": "/apps/custom-app",
+      "navigationSortPriority": -10,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/customSamlService.json",
+      "raw": {
+        "_displayName": "Custom Integrations",
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.it_management"
+        ],
+        "navigationSortPriority": -10,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/apps/custom-app",
+        "description": "Create and manage custom apps",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_3ce8185d-43ef-428c-aba4-4ae55bb094ff.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_0d633504-3c3d-4e7b-9577-a7298b71096e.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_3e0765d7-310d-4b22-a8a3-9723de56ca2e.webm",
+        "id": "customsamlservice",
+        "installation_url": "/apps/custom-app/setup",
+        "invisible": false,
+        "name": "CustomSAMLService",
+        "primary_slug": "custom-app",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "ACCESS_REVIEW_DUMMY_APP",
+      "name": "Access Review",
+      "displayName": "Access Review",
+      "path": "/it/third-party-access/access-reviews",
+      "navigationSortPriority": 0,
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:ACCESS_REVIEW_DUMMY_APP",
+      "raw": {
+        "id": "ACCESS_REVIEW_DUMMY_APP",
+        "name": "Access Review"
+      }
+    }
+  ],
+  "benefits": [
+    {
+      "id": "my-benefits",
+      "name": "MyBenefits",
+      "displayName": "My Benefits",
+      "path": "/employee/insurance/",
+      "navigationSortPriority": -20000,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/benefits.json",
+      "raw": {
+        "_displayName": "My Benefits",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -20000,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/employee/insurance/",
+        "description": "My Benefits",
+        "ee_dashboard_url": "/employee/insurance/",
+        "ee_dashboard_display_name": "My Benefits",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_my_benefits.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_my_benefits.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_my_benefits.webm",
+        "id": "my-benefits",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "MyBenefits",
+        "primary_category": "rippling_managed",
+        "primary_slug": "my-benefits",
+        "spoke": {
+          "config": {
+            "module": "insurance"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "insurance",
+      "name": "Insurance",
+      "displayName": "Benefits Admin",
+      "path": "/insurance/admin",
+      "navigationSortPriority": -10000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_billingName": "Benefits Administration",
+        "_displayName": "Benefits Admin",
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "access_management": [],
+        "capabilities": [
+          "CREATE_GROUP",
+          "DELETE_GROUP",
+          "UPDATE_GROUP"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -10000,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/insurance/admin",
+        "description": "Offer health insurance to employees. -> Setup and manage health insurance, flex, and ancillary benefits for employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_benefits_admin.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_benefits_admin.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_benefits_admin.webm",
+        "id": "insurance",
+        "installation_url": "/insurance/setup",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "Insurance",
+        "primary_category": "rippling_managed",
+        "primary_slug": "insurance",
+        "spoke": {
+          "config": {
+            "billing_class": "InsuranceBillingInterface",
+            "module": "insurance",
+            "groupForm_class": "InsuranceGroupForm",
+            "groupForm_path": ".apis.group_form.api"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "medical",
+      "name": "Medical",
+      "displayName": "Medical",
+      "path": "/medical",
+      "navigationSortPriority": -200,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -200,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/medical",
+        "description": "Offer medical insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_143bf4e3-e0bf-4999-8f28-4b23781e3dce.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_3db2b6a6-ac13-4eb1-a2a6-cfa961d397c7.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_f1f799cc-f1ac-4b48-8ef8-483a22ff43ab.webm",
+        "id": "medical",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Medical",
+        "primary_category": "rippling_managed",
+        "primary_slug": "medical",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "dental",
+      "name": "Dental",
+      "displayName": "Dental",
+      "path": "/dental",
+      "navigationSortPriority": -190,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -190,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/dental",
+        "description": "Offer dental insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_574cb6ab-681c-4d4f-9c1b-a6bbe281ce40.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_e169a6cf-5dec-40e1-8e8c-7e33a3db833f.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_f8b96565-fd81-47ea-a829-bfafee3b04d2.webm",
+        "id": "dental",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Dental",
+        "primary_category": "rippling_managed",
+        "primary_slug": "dental",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "vision",
+      "name": "Vision",
+      "displayName": "Vision",
+      "path": "/vision",
+      "navigationSortPriority": -180,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -180,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/vision",
+        "description": "Offer vision insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_ba815d5e-da32-497b-b332-e8e60546b8bb.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_efdeb6b8-573a-4bc1-b5fc-c2a21ff7d074.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_727df9ee-eb47-4dc6-b587-3db7b3150f27.webm",
+        "id": "vision",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Vision",
+        "primary_category": "rippling_managed",
+        "primary_slug": "vision",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "fsa",
+      "name": "FSA",
+      "displayName": "FSA",
+      "path": "/fsa-benefits/dashboard",
+      "navigationSortPriority": -170,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BENEFITS"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/benefits.json",
+      "raw": {
+        "_displayName": "FSA",
+        "_isBeta": false,
+        "billingPlanTypes": [
+          "BENEFITS"
+        ],
+        "access_management": [],
+        "capabilities": [],
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -170,
+        "dashboard_url": "/fsa-benefits/dashboard",
+        "description": "Flexible Spending Account.",
+        "ee_dashboard_url": "/fsa-benefits/employee/dashboard",
+        "ee_dashboard_display_name": "Flexible Spending Account",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_613f1f1c-3c01-4eb6-9503-f7c6f8ff93fd.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_f562e634-f460-420d-9826-9c7edcccb66a.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_4e5b7fb4-303d-42cb-80b7-dcf757fcc6ae.webm",
+        "id": "fsa",
+        "installation_url": "/fsa-benefits/setup",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "FSA",
+        "primary_slug": "flexible-spending-account",
+        "spoke": {
+          "config": {
+            "billing_class": "FSABillingInterface",
+            "module": "fsa"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "hsa",
+      "name": "HSA",
+      "displayName": "HSA",
+      "path": "/hsa-benefits/dashboard/overview",
+      "navigationSortPriority": -160,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BENEFITS"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/benefits.json",
+      "raw": {
+        "_displayName": "HSA",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "BENEFITS"
+        ],
+        "capabilities": [
+          "SAML",
+          "SAML_JIT"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -160,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "customData": {
+          "samlData": {
+            "disableInResponseTo": true,
+            "metadataUrl": "https://auth.wealthcareadmin.com/federationmetadata/2007-06/federationmetadata.xml",
+            "relay_state": "RPID=https://rippling.wealthcareportal.com/&wctx=/page/accountssummary",
+            "signing_algorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+          }
+        },
+        "dashboard_url": "/hsa-benefits/dashboard/overview",
+        "description": "Health Savings Account.",
+        "ee_dashboard_url": "/hsa-benefits/employee/dashboard",
+        "ee_dashboard_display_name": "Health Savings Account",
+        "icon": "https://cdn.rippling.com/static/apps/logos/Q4_2021/hsa.png",
+        "id": "hsa",
+        "installation_url": "/hsa-benefits/setup",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "HSA",
+        "primary_slug": "health-savings-account",
+        "spoke": {
+          "config": {
+            "billing_class": "HSABillingInterface",
+            "module": "hsa"
+          }
+        },
+        "type": "INTERNAL",
+        "useLegacySamlEntityId": true
+      }
+    },
+    {
+      "id": "life",
+      "name": "Life",
+      "displayName": "Life",
+      "path": "/life",
+      "navigationSortPriority": -150,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -150,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/life",
+        "description": "Offer life insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_0f1bcdff-aa3f-4a4d-b47a-762df1535f91.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_c46b4e0c-ff3f-4a7c-9bc4-6a4b6c8b1813.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_7b9876d8-dd94-4b9f-b830-eaf265e1a9c9.webm",
+        "id": "life",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Life",
+        "primary_category": "rippling_managed",
+        "primary_slug": "life",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "commuter",
+      "name": "Commuter",
+      "displayName": "Commuter",
+      "path": "/commuter-benefits/dashboard/overview",
+      "navigationSortPriority": -140,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BENEFITS"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/benefits.json",
+      "raw": {
+        "_displayName": "Commuter",
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "billingPlanTypes": [
+          "BENEFITS"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -140,
+        "dashboard_url": "/commuter-benefits/dashboard/overview",
+        "description": "Offer Commuter Benefits to employees.",
+        "ee_dashboard_url": "/commuter-benefits/employee/dashboard",
+        "ee_dashboard_display_name": "Commuter Benefits",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_f3ea8f72-47e4-4efb-8faa-b9f31ff1e61e.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_cc9a6ebd-11b7-4087-8116-311b4057bab2.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_c8f506bd-452c-4981-9594-6ee2c312be63.webm",
+        "id": "commuter",
+        "installation_url": "/commuter-benefits/setup",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "Commuter",
+        "primary_slug": "commuter-benefits",
+        "spoke": {
+          "config": {
+            "billing_class": "CommuterBillingInterface",
+            "module": "commuter"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "short_disability",
+      "name": "Short Term Disability",
+      "displayName": "Short Term Disability",
+      "path": "/short-disability",
+      "navigationSortPriority": -130,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -130,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/short-disability",
+        "description": "Offer short term disability insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_33f0bb50-7649-4a82-8e24-3debd7843ba5.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_822b12d9-956e-41ac-8d15-e408a8dee3a4.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_faaedcf2-e844-431a-98b4-633081863417.webm",
+        "id": "short_disability",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Short Term Disability",
+        "primary_category": "rippling_managed",
+        "primary_slug": "short-term-disability",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "long_disability",
+      "name": "Long Term Disability",
+      "displayName": "Long Term Disability",
+      "path": "/long-disability",
+      "navigationSortPriority": -120,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -120,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/long-disability",
+        "description": "Offer long term disability insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_d84df1e0-e399-43b4-b4f2-7644171de859.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_f6b14263-b8f8-4add-be8e-d04b41dcb48f.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_171fe01c-fc85-46a6-b70b-efcf5e138009.webm",
+        "id": "long_disability",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Long Term Disability",
+        "primary_category": "rippling_managed",
+        "primary_slug": "long-term-disability",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "cancer",
+      "name": "Cancer",
+      "displayName": "Cancer",
+      "path": "/cancer",
+      "navigationSortPriority": -110,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -110,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/cancer",
+        "description": "Offer Cancer Indemnity insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_77e249f9-5fa8-43e5-858b-39b1ff0e2c7c.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_e97eabe8-ff3b-4eb2-9527-963f67170cd7.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_f7f63516-bce1-4055-ac51-186a4b11e4e2.webm",
+        "id": "cancer",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Cancer",
+        "primary_category": "rippling_managed",
+        "primary_slug": "cancer",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "critical_illness",
+      "name": "Critical Illness",
+      "displayName": "Critical Illness",
+      "path": "/critical-illness",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -100,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/critical-illness",
+        "description": "Offer Critical illness insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_c2613c83-07e4-43a1-b1ac-02ba5631bcbb.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_e50dfcde-0feb-44fc-a8dc-9b05c39c99df.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_00a65da0-0279-417c-a53a-3ac557de79c2.webm",
+        "id": "critical_illness",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Critical Illness",
+        "primary_category": "rippling_managed",
+        "primary_slug": "critical-illness",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "hospital",
+      "name": "Hospital",
+      "displayName": "Hospital",
+      "path": "/hospital",
+      "navigationSortPriority": -90,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -90,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/hospital",
+        "description": "Offer Hospital Indemnity insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_86c7fc34-3802-47db-a0b9-9a5c3ac91019.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_5d782913-82c7-49fe-9a9b-e8a1c1810ad4.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_114e0844-ce28-47c7-90a9-f516a78f1a00.webm",
+        "id": "hospital",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Hospital",
+        "primary_category": "rippling_managed",
+        "primary_slug": "hospital",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "accident",
+      "name": "Accident",
+      "displayName": "Accident",
+      "path": "/accident",
+      "navigationSortPriority": -80,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -80,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/accident",
+        "description": "Offer Accident Indemnity insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_4b7a12f2-d4d9-46c6-be05-519f7114e441.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_7468614f-be7a-4f11-b019-3ee18cdda89d.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_3f7e9a9a-cfcd-4e9a-b18e-4b98b602634f.webm",
+        "id": "accident",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Accident",
+        "primary_category": "rippling_managed",
+        "primary_slug": "accident",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "workerscomp",
+      "name": "Workerscomp",
+      "displayName": "Workers' Comp",
+      "path": "/workers-comp/dashboard/overview",
+      "navigationSortPriority": -70,
+      "invisible": false,
+      "billingPlanTypes": [
+        "PAYROLL"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/workerscomp.json",
+      "raw": {
+        "_displayName": "Workers' Comp",
+        "access_management": [],
+        "billingPlanTypes": [
+          "PAYROLL"
+        ],
+        "capabilities": [
+          "WORKERS_COMP"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -70,
+        "categories": [
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/workers-comp/dashboard/overview",
+        "description": "Providing wage replacement and medical benefits to employees injured in the course of employment",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_ba0193c9-4ae8-4b9e-a766-e190cc913513.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_cc5d8b75-44ce-4518-a8cf-cea70c648c51.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_ba3feb4a-388b-4dd1-ac16-dee23535700b.webm",
+        "id": "workerscomp",
+        "installation_url": "/workers-comp/intro",
+        "internal_app_has_app_shop_listing": true,
+        "invisible": false,
+        "invisibleForPeoClients": true,
+        "managedByTeam": "PAYROLL",
+        "name": "Workerscomp",
+        "primary_slug": "workers-comp-by-ap-intego",
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "cobra",
+      "name": "Cobra",
+      "displayName": "COBRA",
+      "path": "/cobra",
+      "navigationSortPriority": -60,
+      "invisible": false,
+      "billingPlanTypes": [
+        "COMPLIANCE",
+        "COBRA"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "_displayName": "COBRA",
+        "billingPlanTypes": [
+          "COMPLIANCE",
+          "COBRA"
+        ],
+        "access_management": [],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -60,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/cobra",
+        "description": "Offer continued insurance coverage to terminated employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_7242ad63-3196-42e1-8f15-fb97bcfb2687.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_9d184693-08bc-4ed8-83db-c76c7c47de6f.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_5e7cac6c-ff10-492c-b93c-9d4b3a991327.webm",
+        "id": "cobra",
+        "installation_url": "/cobra/setup",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "Cobra",
+        "primary_category": "rippling_managed",
+        "primary_slug": "cobra",
+        "spoke": {
+          "config": {
+            "billing_class": "CobraBillingInterface",
+            "module": "insurance"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "ACA",
+      "name": "ACA",
+      "displayName": "ACA",
+      "path": "/aca",
+      "navigationSortPriority": -50,
+      "invisible": false,
+      "billingPlanTypes": [
+        "COMPLIANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "COMPLIANCE"
+        ],
+        "capabilities": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "navigationSortPriority": -50,
+        "dashboard_url": "/aca",
+        "description": "Stay compliant with the Affordable Care Act employer mandate",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_fc9c22ee-f501-44d3-82f5-37b3005ddbd1.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_828c9a26-5282-4963-b86d-9f757c3b14aa.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_1270c622-6acd-432d-ab44-d9b78d487fc5.webm",
+        "id": "ACA",
+        "installation_url": "/aca/overview",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "ACA",
+        "primary_category": "rippling_managed",
+        "primary_slug": "aca",
+        "spoke": {
+          "config": {
+            "billing_class": "AcaBillingInterface",
+            "module": "insurance"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "other_benefits",
+      "name": "Other Benefits",
+      "displayName": "Other Benefits",
+      "path": "/insurance/other-benefits",
+      "navigationSortPriority": -40,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": true,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -40,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/insurance/other-benefits",
+        "description": "Offer other benefits to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_8223c9f1-fec2-47ab-9e02-d63d395dd70d.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_165e74c2-8351-4f24-aa7e-8accff2c37cb.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_6f8a61a8-1d8a-44ea-9c60-fc00c643b9a5.webm",
+        "id": "other_benefits",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Other Benefits",
+        "primary_category": "rippling_managed",
+        "primary_slug": "other-benefits",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "secondary_life",
+      "name": "Secondary Life",
+      "displayName": "Secondary Life",
+      "path": "/secondary-life",
+      "navigationSortPriority": -17,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -17,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/secondary-life",
+        "description": "Offer Secondary life insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_2039c1f3-a76d-4693-b3c5-91e443f4e40e.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_1db70e08-22f9-4f9c-ac6d-d4d69e641057.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_b2dfe4c1-e914-4c39-b03f-ad721f9754e7.webm",
+        "id": "secondary_life",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Secondary Life",
+        "primary_category": "rippling_managed",
+        "primary_slug": "secondary-life",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "voluntary_life",
+      "name": "Voluntary Life",
+      "displayName": "Voluntary Life",
+      "path": "/voluntary-life",
+      "navigationSortPriority": -11,
+      "invisible": true,
+      "billingPlanTypes": [
+        "INSURANCE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/insurance.json",
+      "raw": {
+        "_isBeta": false,
+        "access_management": [],
+        "capabilities": [],
+        "billingPlanTypes": [
+          "INSURANCE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": -11,
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/voluntary-life",
+        "description": "Offer Secondary life insurance to employees.",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_0f1bcdff-aa3f-4a4d-b47a-762df1535f91.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_c46b4e0c-ff3f-4a7c-9bc4-6a4b6c8b1813.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_7b9876d8-dd94-4b9f-b830-eaf265e1a9c9.webm",
+        "id": "voluntary_life",
+        "installation_url": "/insurance/setup",
+        "invisible": true,
+        "managedByTeam": "BENEFITS",
+        "name": "Voluntary Life",
+        "primary_category": "rippling_managed",
+        "primary_slug": "voluntary-life",
+        "spoke": {},
+        "type": "INTERNAL"
+      }
+    },
+    {
+      "id": "PENSIONMANAGEMENT",
+      "name": "PensionManagement",
+      "displayName": "Retirements",
+      "path": "/pension-management",
+      "navigationSortPriority": 10000,
+      "invisible": false,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/pension_management.json",
+      "raw": {
+        "_displayName": "Retirements",
+        "_isBeta": false,
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "capabilities": [],
+        "categories": [
+          "rippling_managed",
+          "human_resources.payroll_benefits"
+        ],
+        "dashboard_url": "/pension-management",
+        "description": "Pension Management ",
+        "ee_dashboard_url": "/pension-management",
+        "ee_dashboard_display_name": "Pension Management",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_6e855d26-e110-44e9-925d-c23719dbaead.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_71443a72-1593-42b0-8d7b-ae49531a2c9d.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_88e88027-63e0-41fb-8b47-8506976bbe8c.webm",
+        "id": "PENSIONMANAGEMENT",
+        "installation_url": "/pension-management/setup",
+        "invisible": false,
+        "managedByTeam": "BENEFITS",
+        "name": "PensionManagement",
+        "navigation_categories": [
+          "navigation_bar_subcategory.insurance_benefits"
+        ],
+        "navigationSortPriority": 10000,
+        "primary_slug": "pension-management",
+        "recommendedProvisionRoleState": "ACTIVE",
+        "showInLeftNav": false,
+        "spoke": {
+          "config": {
+            "module": "pension_management"
+          }
+        },
+        "type": "INTERNAL"
+      }
+    }
+  ],
+  "data": [
+    {
+      "id": "derived_objects",
+      "name": "DerivedObjects",
+      "displayName": "Transformations",
+      "path": "/transformations/overview",
+      "navigationSortPriority": -5,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/derived_objects.json",
+      "raw": {
+        "_displayName": "Transformations",
+        "id": "derived_objects",
+        "name": "DerivedObjects",
+        "access_management": [],
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "navigation_categories": [
+          "navigation_bar_subcategory.data"
+        ],
+        "navigationSortPriority": -5,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/transformations/overview",
+        "installation_url": "/transformations/install",
+        "ee_dashboard_url": "/transformations/overview",
+        "ee_dashboard_display_name": "Transformations",
+        "description": "Transformations",
+        "icon": "https://static-assets.ripplingcdn.com/hub-platform/derived-objects/derived-objects-app-icon.svg",
+        "invisible": true,
+        "type": "INTERNAL"
+      }
+    }
+  ],
+  "partner": [
+    {
+      "id": "partner",
+      "name": "Partner",
+      "displayName": "Partner",
+      "path": "/partner/dashboard",
+      "navigationSortPriority": 90,
+      "invisible": true,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/data/apps/internal/partner.json",
+      "raw": {
+        "_displayName": "Partner",
+        "additional_search_tags": [
+          "partner",
+          "ccc",
+          "clients",
+          "accountant",
+          "broker",
+          "client command center",
+          "client command centre"
+        ],
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.partner"
+        ],
+        "navigationSortPriority": 90,
+        "categories": [
+          "rippling_managed"
+        ],
+        "dashboard_url": "/partner/dashboard",
+        "ee_dashboard_url": "/partner/dashboard",
+        "navigation_base_url": "/partner",
+        "ee_navigation_base_url": "/partner",
+        "description": "Partner",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_partner_ccc.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_partner_ccc.webm",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_partner_ccc.webm",
+        "id": "partner",
+        "managedByTeam": "PARTNER",
+        "invisible": true,
+        "installation_url": "/partner",
+        "defaultProvisioningRule": {
+          "_cls": "GroupRuleConstant",
+          "comment": "DefaultGroup:ALL_W2_EMPLOYEES_AND_CONTRACTORS",
+          "const": "True",
+          "typename": "BOOL"
+        },
+        "recommendedProvisionRoleState": "ACTIVE",
+        "name": "Partner",
+        "type": "INTERNAL",
+        "showInLeftNav": false
+      }
+    }
+  ],
+  "peo": [
+    {
+      "id": "peoworkerscomp",
+      "name": "PeoWorkersComp",
+      "displayName": "PEO Workers' Comp",
+      "path": "/peo/workers-comp/dashboard/overview",
+      "navigationSortPriority": -100,
+      "invisible": true,
+      "billingPlanTypes": [
+        "BASE"
+      ],
+      "source": "rippling-main:app/apps/data/apps/internal/peo_workerscomp.json",
+      "raw": {
+        "_displayName": "PEO Workers' Comp",
+        "access_management": [],
+        "navigation_categories": [
+          "navigation_bar_subcategory.peo"
+        ],
+        "navigationSortPriority": -100,
+        "billingPlanTypes": [
+          "BASE"
+        ],
+        "dashboard_url": "/peo/workers-comp/dashboard/overview",
+        "description": "Providing wage replacement and medical benefits to employees of Integra PEO injured in the course of employment",
+        "icon": "https://static-assets.ripplingcdn.com/apps/app_config/icon_35df13c8-8ef2-417f-962c-730fcb6f3285.png",
+        "animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/animated_icon_0c7ee592-5056-493b-b432-2ddeb428928c.gif",
+        "new_animated_icon": "https://static-assets.ripplingcdn.com/apps/app_config/new_animated_icon_bba7225d-f04f-4dea-af5e-d3e4555bc603.webm",
+        "id": "peoworkerscomp",
+        "installation_url": "/peo/workers-comp/",
+        "invisible": true,
+        "name": "PeoWorkersComp",
+        "onlyVisibleToPeoClients": true,
+        "primary_slug": "peo-workers-comp",
+        "spoke": {
+          "config": {
+            "billing_class": "PeoWorkersCompBillingInterface",
+            "module": "peo.peo_insurance"
+          }
+        },
+        "type": "INTERNAL",
+        "visible_for_demo_companies": false,
+        "_isBeta": false
+      }
+    }
+  ],
+  "payroll": [
+    {
+      "id": "MY_PAY_DUMMY_APP",
+      "name": "My Pay",
+      "displayName": "My Pay",
+      "path": "/my-pay",
+      "navigationSortPriority": "-1000",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:MY_PAY_DUMMY_APP",
+      "raw": {
+        "id": "MY_PAY_DUMMY_APP",
+        "name": "My Pay"
+      }
+    }
+  ],
+  "time": [
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_OVERVIEW]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_OVERVIEW]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_OVERVIEW]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.NAV_OVERVIEW]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.NAV_OVERVIEW]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_OVERVIEW]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_OVERVIEW]>"
+      }
+    },
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_MY_TIME]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_MY_TIME]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_MY_TIME]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.NAV_MY_TIME]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.NAV_MY_TIME]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_MY_TIME]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_MY_TIME]>"
+      }
+    },
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_SCHEDULE]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_SCHEDULE]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_SCHEDULE]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.NAV_SCHEDULE]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.NAV_SCHEDULE]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_SCHEDULE]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_SCHEDULE]>"
+      }
+    },
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_TIMECARDS]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_TIMECARDS]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_TIMECARDS]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.NAV_TIMECARDS]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.NAV_TIMECARDS]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_TIMECARDS]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_TIMECARDS]>"
+      }
+    },
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_TIME_OFF]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_TIME_OFF]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_TIME_OFF]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.NAV_TIME_OFF]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.NAV_TIME_OFF]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_TIME_OFF]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.NAV_TIME_OFF]>"
+      }
+    },
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.INSTALL_TIME_TRACKING]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_TRACKING]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_TRACKING]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.INSTALL_TIME_TRACKING]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.INSTALL_TIME_TRACKING]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.INSTALL_TIME_TRACKING]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_TRACKING]>"
+      }
+    },
+    {
+      "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.INSTALL_TIME_OFF]>",
+      "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_OFF]>",
+      "displayName": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_OFF]>",
+      "path": "<TIME_PRODUCTS_DASHBOARD_ACTION_URLS[CoreFeatureKeys.INSTALL_TIME_OFF]>",
+      "navigationSortPriority": "<NAV_FEATURE_ORDER[CoreFeatureKeys.INSTALL_TIME_OFF]>",
+      "invisible": false,
+      "billingPlanTypes": [],
+      "source": "rippling-main:app/apps/utils/dummy_apps.py:TIME_PRODUCTS_DUMMY_APPS",
+      "raw": {
+        "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.INSTALL_TIME_OFF]>",
+        "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_OFF]>"
+      }
+    }
+  ]
+}
