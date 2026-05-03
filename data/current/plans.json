@@ -12,7 +12,6 @@
         "time",
         "benefits",
         "it",
-        "identity",
         "data",
         "banking",
         "global",
@@ -57,7 +56,6 @@
       "description": "Standalone IT customer — devices, identity, and integrations only.",
       "ownedSuites": [
         "it",
-        "identity",
         "custom-apps",
         "settings"
       ],

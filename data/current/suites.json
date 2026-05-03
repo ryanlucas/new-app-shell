@@ -24,6 +24,11 @@
       "id": "services",
       "label": "Global & PEO",
       "order": 5
+    },
+    {
+      "id": "partner",
+      "label": "Partner",
+      "order": 6
     }
   ],
   "suites": [
@@ -131,31 +136,6 @@
             ]
           },
           "source": "app/apps/utils/dummy_apps.py:125"
-        },
-        {
-          "id": "documents",
-          "label": "Documents",
-          "icon": "FileText",
-          "path": "/documents",
-          "parent": "hr",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "manager",
-              "ee"
-            ],
-            "scopeForPartial": [
-              "documents_admin"
-            ],
-            "permissionGate": "PERM_DOCUMENTS_APP_READ"
-          },
-          "kind": "capability",
-          "appearsIn": [
-            "spend",
-            "settings"
-          ],
-          "source": "app/apps/utils/navigation_bar.py:136"
         },
         {
           "id": "leaves",
@@ -2110,24 +2090,6 @@
       "source": "app/apps/scripts/app_navigation_categories_data.py:195-204",
       "apps": [
         {
-          "id": "rippling-solution",
-          "label": "Solutions",
-          "icon": "Stack",
-          "path": "/solutions",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ],
-            "productGate": "RIPPLING_SOLUTION"
-          },
-          "source": "app/hub/spoke_models.py:851"
-        },
-        {
           "id": "unlimited-custom-apps",
           "label": "Custom Apps",
           "icon": "PuzzlePiece",
@@ -2144,42 +2106,6 @@
             "productGate": "UNLIMITED_CUSTOM_APPS"
           },
           "source": "app/hub/spoke_models.py:847"
-        },
-        {
-          "id": "custom-objects",
-          "label": "Custom Objects",
-          "icon": "Stack",
-          "path": "/custom-objects",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ],
-            "productGate": "UNLIMITED_CUSTOM_OBJECTS"
-          },
-          "source": "app/hub/spoke_models.py:848"
-        },
-        {
-          "id": "recipes",
-          "label": "Recipes",
-          "icon": "FlowArrow",
-          "path": "/recipes",
-          "parent": "custom-apps",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "apps_admin"
-            ],
-            "productGate": "RECIPES"
-          },
-          "source": "app/hub/spoke_models.py:800"
         }
       ]
     },
@@ -2225,23 +2151,6 @@
           "source": "app/hub/spoke_models.py:845"
         },
         {
-          "id": "universal-search",
-          "label": "Search",
-          "icon": "MagnifyingGlass",
-          "path": "/search",
-          "parent": "tools",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "manager",
-              "ee"
-            ],
-            "productGate": "UNIVERSAL_SEARCH"
-          },
-          "source": "app/hub/spoke_models.py:844"
-        },
-        {
           "id": "notification-center",
           "label": "Notifications",
           "icon": "Bell",
@@ -2277,9 +2186,9 @@
         },
         {
           "id": "alerts",
-          "label": "Alerts",
+          "label": "Workflow Studio",
           "icon": "WarningCircle",
-          "path": "/alerts",
+          "path": "/custom-workflows",
           "parent": "tools",
           "visibility": {
             "personas": [
@@ -2289,24 +2198,6 @@
             "productGate": "ALERTS"
           },
           "source": "app/hub/spoke_models.py:781"
-        },
-        {
-          "id": "workflows",
-          "label": "Workflows",
-          "icon": "FlowArrow",
-          "path": "/workflows",
-          "parent": "tools",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "workflows_admin"
-            ],
-            "productGate": "WORKFLOWS_UTIL"
-          },
-          "source": "app/hub/spoke_models.py:782"
         },
         {
           "id": "approvals",
@@ -2331,25 +2222,8 @@
           "source": "app/hub/spoke_models.py:783"
         },
         {
-          "id": "rippling-intelligence",
-          "label": "Rippling AI",
-          "icon": "Sparkle",
-          "path": "/ai/settings/policy-hub",
-          "parent": "tools",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial",
-              "manager",
-              "ee"
-            ],
-            "productGate": "RIPPLING_INTELLIGENCE"
-          },
-          "source": "app/hub/spoke_models.py:879"
-        },
-        {
           "id": "developer",
-          "label": "Rippling Build",
+          "label": "Developer",
           "icon": "Code",
           "path": "/developer",
           "parent": "tools",
@@ -2376,30 +2250,28 @@
           "source": "rippling-main:app/apps/data/apps/internal/developer.json + rippling-webapp:app/products/platform/Developer/routes-v6/developer.routes.tsx"
         },
         {
-          "id": "forms",
-          "label": "Forms",
-          "icon": "NotePencil",
-          "path": "/forms",
+          "id": "recipes",
+          "label": "Recipes",
+          "icon": "FlowArrow",
+          "path": "/recipes",
           "parent": "tools",
           "visibility": {
             "personas": [
               "full",
-              "partial",
-              "ee"
+              "partial"
             ],
             "scopeForPartial": [
               "apps_admin"
             ],
-            "productGate": "FORMS"
+            "productGate": "RECIPES"
           },
-          "source": "app/hub/spoke_models.py:759",
-          "hiddenInSidenav": true
+          "source": "app/hub/spoke_models.py:800"
         },
         {
-          "id": "checklist-app",
-          "label": "Tasks",
-          "icon": "CheckSquare",
-          "path": "/checklists",
+          "id": "documents",
+          "label": "Documents",
+          "icon": "FileText",
+          "path": "/documents",
           "parent": "tools",
           "visibility": {
             "personas": [
@@ -2409,11 +2281,39 @@
               "ee"
             ],
             "scopeForPartial": [
-              "apps_admin"
+              "documents_admin"
             ],
-            "productGate": "CHECKLISTAPP"
+            "permissionGate": "PERM_DOCUMENTS_APP_READ"
           },
-          "source": "app/hub/spoke_models.py:710"
+          "kind": "capability",
+          "appearsIn": [
+            "hr",
+            "spend"
+          ],
+          "source": "app/apps/utils/navigation_bar.py:136"
+        },
+        {
+          "id": "audit-log",
+          "label": "Audit Log",
+          "icon": "FileText",
+          "path": "/company-settings/audit-logs",
+          "parent": "tools",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "audit_admin"
+            ],
+            "productGate": "ACTIVITY_LOG"
+          },
+          "kind": "capability",
+          "appearsIn": [
+            "it",
+            "tools"
+          ],
+          "source": "app/hub/spoke_models.py:808"
         }
       ]
     },
@@ -2436,7 +2336,7 @@
           "campaign": "SidenavPartner"
         }
       },
-      "group": "platform",
+      "group": "partner",
       "description": "Partner administration",
       "source": "app/apps/scripts/app_navigation_categories_data.py:119-127",
       "apps": [
@@ -2517,23 +2417,6 @@
           "source": "app/apps/utils/dummy_apps.py:165"
         },
         {
-          "id": "field-management",
-          "label": "Field Management",
-          "icon": "FunnelSimple",
-          "path": "/data-manager/field-selector",
-          "parent": "settings",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "settings_admin"
-            ]
-          },
-          "source": "app/apps/utils/dummy_apps.py:419"
-        },
-        {
           "id": "company-details",
           "label": "Organizational Data",
           "icon": "TreeStructure",
@@ -2569,29 +2452,6 @@
           "source": "app/hub/spoke_models.py:740"
         },
         {
-          "id": "audit-log",
-          "label": "Audit Log",
-          "icon": "FileText",
-          "path": "/company-settings/audit-logs",
-          "parent": "settings",
-          "visibility": {
-            "personas": [
-              "full",
-              "partial"
-            ],
-            "scopeForPartial": [
-              "audit_admin"
-            ],
-            "productGate": "ACTIVITY_LOG"
-          },
-          "kind": "capability",
-          "appearsIn": [
-            "it",
-            "tools"
-          ],
-          "source": "app/hub/spoke_models.py:808"
-        },
-        {
           "id": "group-manager",
           "label": "Saved Supergroups",
           "icon": "UsersThree",
@@ -2608,6 +2468,21 @@
             "productGate": "GROUP_MANAGER"
           },
           "source": "app/apps/data/apps/internal/group_manager.json"
+        },
+        {
+          "id": "ai-settings",
+          "label": "AI Settings",
+          "icon": "Brain",
+          "path": "/ai/settings/policy-hub",
+          "parent": "settings",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "productGate": "RIPPLING_INTELLIGENCE"
+          },
+          "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ChatAssistant/components/promotionCards/cards/SettingsContentCard.tsx (RIPPLING_INTELLIGENCE_SETTINGS_ROUTE)"
         }
       ]
     }

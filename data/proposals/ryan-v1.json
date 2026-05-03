@@ -1,7 +1,7 @@
 {
   "id": "ryan-v1",
-  "label": "Ryan v1 — Finance, Platform foundations, PEO cleanup",
-  "description": "First-pass IA proposal: (1) rename Spend → Finance and fold Banking into it; (2) collapse Tools and Settings into a single Platform foundations suite; (3) add User Management and Directory as ungated foundation primitives in Platform; (4) merge Global Payroll into a single Payroll entry (US + global as one product); drop the phantom Global suite (Global Workforce was a cross-sell tile, not a real product surface — see docs/cross-sell.md); drop the legacy Forecasting HR app — superseded by Workforce Management labor plans (per Q2 QPR); (5) PEO cleanup — drop the PEO suite, redistribute its 2 compliance artifacts (Workplace Posters, State Tax Accounts) into HR and gate them on isPeoClient || isAsoClient; PEO and HR Services (ASO) become plans rather than nav entries.",
+  "label": "Ryan v1 — Finance, Data/Studio split, Settings preserved, PEO cleanup",
+  "description": "First-pass IA proposal: (1) rename Spend → Finance and fold Banking into it; (2) restructure Data + Custom Apps into Data (raw substrate: pipelines, transformations, custom objects, custom fields, data manager) and Studio (build artifacts: custom apps, reports, workflows, recipes); (3) keep Tools and Settings as separate L1 suites — Tools for ambient productivity (Inbox absorbs Approvals + Notifications per the unified-inbox direction; plus Documents, Audit Log, Meetings, Rippling Build), Settings for company configuration (Company Settings, Permissions, Org Data, User Management, etc.); (4) PEO cleanup — drop the PEO suite, redistribute its 2 compliance artifacts (Workplace Posters, State Tax Accounts) into HR and gate them on isPeoClient || isAsoClient; PEO and HR Services (ASO) become plans rather than nav entries.",
   "ops": [
     {
       "op": "renameSuite",
@@ -15,20 +15,79 @@
       "into": "finance"
     },
     {
-      "op": "renameSuite",
-      "id": "tools",
-      "newId": "platform",
-      "newLabel": "Platform",
-      "newIcon": "Layers"
+      "op": "overrideNode",
+      "id": "data-manager",
+      "patch": {
+        "label": "Data Catalog",
+        "path": "/data/catalog"
+      }
     },
     {
-      "op": "mergeSuite",
-      "from": "settings",
-      "into": "platform"
+      "op": "renameSuite",
+      "id": "custom-apps",
+      "newId": "studio",
+      "newLabel": "Studio",
+      "newIcon": "AppWindow"
+    },
+    {
+      "op": "addApp",
+      "suiteId": "data",
+      "id": "external-objects",
+      "label": "External Objects",
+      "icon": "Cloud",
+      "path": "/data/external-objects",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial"
+        ],
+        "productGate": "EXTERNAL_OBJECTS"
+      },
+      "source": "rippling-webapp/app/products/platform/HubPlatform/modules/ExternalObjects (Data Bridge & Connectors team per Data Cloud QPR — BigQuery, Databricks, Snowflake federation)"
+    },
+    {
+      "op": "addApp",
+      "suiteId": "studio",
+      "id": "dashboards",
+      "label": "Dashboards",
+      "icon": "ChartLineUp",
+      "path": "/dashboards",
+      "visibility": {
+        "personas": [
+          "full",
+          "partial",
+          "manager"
+        ],
+        "productGate": "DASHBOARDS"
+      },
+      "source": "Data Cloud Q2 QPR — Analytics sub-team owns Reports + Dashboards as parallel surfaces (own design lead, eng manager, p95 < 5s goal)"
+    },
+    {
+      "op": "moveApp",
+      "appId": "reports",
+      "toSuite": "studio"
+    },
+    {
+      "op": "moveApp",
+      "appId": "alerts",
+      "toSuite": "studio"
+    },
+    {
+      "op": "moveApp",
+      "appId": "developer",
+      "toSuite": "studio"
     },
     {
       "op": "removeApp",
       "appId": "pto"
+    },
+    {
+      "op": "removeApp",
+      "appId": "approvals"
+    },
+    {
+      "op": "removeApp",
+      "appId": "notification-center"
     },
     {
       "op": "removeApp",
@@ -49,7 +108,7 @@
     },
     {
       "op": "addApp",
-      "suiteId": "platform",
+      "suiteId": "settings",
       "id": "user-management",
       "label": "User Management",
       "icon": "UserGear",
@@ -58,22 +117,6 @@
         "personas": [
           "full",
           "partial"
-        ]
-      }
-    },
-    {
-      "op": "addApp",
-      "suiteId": "platform",
-      "id": "directory",
-      "label": "Directory",
-      "icon": "BookUser",
-      "path": "/directory",
-      "visibility": {
-        "personas": [
-          "full",
-          "partial",
-          "manager",
-          "ee"
         ]
       }
     },
@@ -221,9 +264,10 @@
         "payroll",
         "benefits",
         "time",
-        "custom-apps",
+        "studio",
         "data",
-        "platform"
+        "tools",
+        "settings"
       ],
       "conditions": [
         "isPeoClient"
@@ -240,9 +284,10 @@
         "payroll",
         "benefits",
         "time",
-        "custom-apps",
+        "studio",
         "data",
-        "platform"
+        "tools",
+        "settings"
       ],
       "conditions": [
         "isAsoClient"
@@ -259,6 +304,9 @@
     "PEO Join / PEO Leave flows from the backend (is_peo_join_visible, is_peo_leave_visible) are not modeled here; cross-sell to non-PEO customers can be handled at the plan level later.",
     "Forecasting removed: the standalone HR Forecasting tile is being superseded by Workforce Management labor-plan surfaces per the 2026-Q2 Workforce Management QPR. The backend (app/forecasting/) continues as plumbing for those new surfaces, but the L2 nav tile no longer warrants its own real estate.",
     "Global Payroll merged into Payroll: live product is moving toward a single unified payroll surface. Drop the separate Global Payroll L2 in favor of one Payroll entry that handles US + international.",
-    "Global suite removed: 'Global Workforce' was modeling a cross-sell tile as a fake suite. Real product (Global Payroll) lives in the Payroll suite. Cross-sell tiles for unowned bundles are a separate modeling concern documented in docs/cross-sell.md."
+    "Global suite removed: 'Global Workforce' was modeling a cross-sell tile as a fake suite. Real product (Global Payroll) lives in the Payroll suite. Cross-sell tiles for unowned bundles are a separate modeling concern documented in docs/cross-sell.md.",
+    "Data + Studio split: 'Data' owns the substrate (Pipelines, Transformations, Custom Objects, Custom Fields, Data Manager), 'Studio' owns build artifacts (Custom Apps, Reports, Workflows, Recipes, Forms, Tasks). The line between report/dashboard/custom app is fuzzy by design — Studio collects all admin-built artifacts under one suite. Custom Fields promoted from L3 (Settings > Company Details) to L2 in Data.",
+    "Inbox consolidation: per the 2026-Q2 Tasks & Approvals QPR, Approvals + Tasks are merging into a single unified Inbox. Notifications follows the same pattern (passive updates ≈ inbox items). v1 drops Approvals and Notification Center as separate L2 entries; Inbox is the single destination.",
+    "Data Manager → Data Catalog: live product is migrating /data-manager → /data/catalog (gated by data-app FF) per Data Cloud Q2 QPR. Same surface, expanded scope (semantic layer, search, lineage, Data Answers). v1 ships the new branding."
   ]
 }

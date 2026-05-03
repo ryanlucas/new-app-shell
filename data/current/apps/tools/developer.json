@@ -1,6 +1,6 @@
 {
   "appId": "developer",
-  "appLabel": "Rippling Build",
+  "appLabel": "Developer",
   "appPath": "/developer",
   "appProductGate": "RIPPLING_BUILD",
   "nav": [
