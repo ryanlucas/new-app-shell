@@ -1,8 +1,14 @@
-import { X } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { CaretDown, CaretRight, X } from '@phosphor-icons/react'
+import { useMemo, useState } from 'react'
 import type { CatalogResponse } from '@/api/nav.ts'
 import type { Persona } from '@/lib/types.ts'
-import { useHud } from '@/state/HudContext.tsx'
+import {
+  LIFECYCLE_OPTIONS,
+  SURFACE_OPTIONS,
+  useHud,
+  type Lifecycle,
+  type Surface,
+} from '@/state/HudContext.tsx'
 import { cn } from '@/lib/cn.ts'
 
 const PERSONAS: Array<{ id: Persona; label: string }> = [
@@ -12,15 +18,6 @@ const PERSONAS: Array<{ id: Persona; label: string }> = [
   { id: 'ee', label: 'Employee' },
 ]
 
-const CONDITION_FLAGS = [
-  'isPeoClient',
-  'isStandaloneCompany',
-  'isITTrial',
-  'isContractWaiting',
-  'timePlatformInstalled',
-  'hasOnboardingImplementationPlan',
-]
-
 interface Props {
   catalog: CatalogResponse | null
 }
@@ -28,6 +25,26 @@ interface Props {
 export function DevHud({ catalog }: Props) {
   const hud = useHud()
   const [scopeFilter, setScopeFilter] = useState('')
+  const [flagsOpen, setFlagsOpen] = useState(false)
+
+  // All flags currently active, with the source they came from. Read-only —
+  // toggle them by changing plan / lifecycle / surface above.
+  const flagSources = useMemo(() => {
+    const out: Array<{ flag: string; source: string }> = []
+    const plan = catalog?.plans.plans.find((p) => p.id === hud.planId)
+    for (const c of plan?.conditions ?? []) {
+      out.push({ flag: c, source: `plan: ${plan?.label ?? hud.planId}` })
+    }
+    const lc = LIFECYCLE_OPTIONS.find((o) => o.id === hud.lifecycle)
+    for (const c of lc?.conditions ?? []) {
+      out.push({ flag: c, source: `lifecycle: ${lc?.label}` })
+    }
+    const sf = SURFACE_OPTIONS.find((o) => o.id === hud.surface)
+    for (const c of sf?.conditions ?? []) {
+      out.push({ flag: c, source: `surface: ${sf?.label}` })
+    }
+    return out
+  }, [catalog, hud.planId, hud.lifecycle, hud.surface])
 
   if (!hud.hudVisible) return null
 
@@ -141,29 +158,89 @@ export function DevHud({ catalog }: Props) {
         </Section>
       )}
 
-      {/* Condition flags */}
-      <Section label="Company-state conditions">
-        <div className="flex flex-wrap gap-1">
-          {CONDITION_FLAGS.map((c) => {
-            const active = hud.conditions.includes(c)
-            return (
-              <button
-                key={c}
-                type="button"
-                onClick={() => hud.toggleCondition(c)}
-                className={cn(
-                  'rounded border px-2 py-0.5 font-mono text-[11px]',
-                  active
-                    ? 'border-violet-600 bg-violet-100 text-violet-700'
-                    : 'border-neutral-200 bg-neutral-50 text-neutral-500',
-                )}
-              >
-                {c}
-              </button>
-            )
-          })}
-        </div>
+      {/* Lifecycle */}
+      <Section label="Lifecycle">
+        <RadioGroup
+          value={hud.lifecycle}
+          options={LIFECYCLE_OPTIONS}
+          onChange={(v) => hud.setLifecycle(v as Lifecycle)}
+        />
       </Section>
+
+      {/* Surface */}
+      <Section label="Surface">
+        <RadioGroup
+          value={hud.surface}
+          options={SURFACE_OPTIONS}
+          onChange={(v) => hud.setSurface(v as Surface)}
+        />
+      </Section>
+
+      {/* Read-only active flags (derived from plan + lifecycle + surface) */}
+      <div>
+        <button
+          type="button"
+          onClick={() => setFlagsOpen((v) => !v)}
+          className="flex w-full items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-neutral-500 hover:text-neutral-700"
+        >
+          {flagsOpen ? <CaretDown size={11} /> : <CaretRight size={11} />}
+          Active flags ({flagSources.length})
+        </button>
+        {flagsOpen && (
+          <div className="mt-1 rounded border border-neutral-200 bg-neutral-50 p-1.5">
+            {flagSources.length === 0 ? (
+              <div className="px-1 py-0.5 text-[11px] text-neutral-400">
+                No flags active. Change plan / lifecycle / surface above to see implications.
+              </div>
+            ) : (
+              <ul className="flex flex-col gap-0.5">
+                {flagSources.map(({ flag, source }) => (
+                  <li
+                    key={flag + source}
+                    className="flex items-center justify-between px-1 py-0.5 text-[10px]"
+                  >
+                    <span className="font-mono text-violet-700">{flag}</span>
+                    <span className="text-neutral-400">{source}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function RadioGroup<T extends string>({
+  value,
+  options,
+  onChange,
+}: {
+  value: T
+  options: Array<{ id: T; label: string }>
+  onChange: (v: T) => void
+}) {
+  return (
+    <div className="flex flex-wrap gap-1">
+      {options.map((opt) => {
+        const active = value === opt.id
+        return (
+          <button
+            key={opt.id}
+            type="button"
+            onClick={() => onChange(opt.id)}
+            className={cn(
+              'rounded px-2 py-1 text-xs',
+              active
+                ? 'bg-violet-600 text-white'
+                : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200',
+            )}
+          >
+            {opt.label}
+          </button>
+        )
+      })}
     </div>
   )
 }

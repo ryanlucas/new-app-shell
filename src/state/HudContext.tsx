@@ -1,8 +1,34 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { Persona } from '@/lib/types.ts'
 
-const STORAGE_KEY = 'app-shell-prototype-hud'
+const STORAGE_KEY = 'app-shell-prototype-hud-v3'
 const TOGGLE_KEY = '.' // Cmd+. (Ctrl+. on non-Mac)
+
+export type Lifecycle = 'active' | 'onboarding' | 'pre-contract'
+export type Surface = 'direct' | 'logged-in-as' | 'partner' | 'mobile'
+
+/** Lifecycle options → which company-state flags they imply. */
+export const LIFECYCLE_OPTIONS: Array<{ id: Lifecycle; label: string; conditions: string[] }> = [
+  { id: 'active', label: 'Active', conditions: [] },
+  { id: 'onboarding', label: 'Onboarding', conditions: ['hasOnboardingImplementationPlan'] },
+  {
+    id: 'pre-contract',
+    label: 'Pre-contract',
+    conditions: ['isContractWaiting', 'isSelfServeCompanyWithoutContractSigned'],
+  },
+]
+
+/** Surface options → which session/access flags they imply. */
+export const SURFACE_OPTIONS: Array<{ id: Surface; label: string; conditions: string[] }> = [
+  { id: 'direct', label: 'Direct', conditions: [] },
+  { id: 'logged-in-as', label: 'Logged-in-as', conditions: ['isSpoofed', 'isLoggedInAs'] },
+  {
+    id: 'partner',
+    label: 'Partner accessing',
+    conditions: ['isPartnerAccessingClient', 'isPartnerDashBoard'],
+  },
+  { id: 'mobile', label: 'Mobile', conditions: ['isMobile', 'isSmallScreen'] },
+]
 
 export interface HudState {
   /** Which personas are active (non-exclusive). */
@@ -11,8 +37,10 @@ export interface HudState {
   planId: string
   /** Partial-admin scopes the user has; only meaningful when 'partial' ∈ personas. */
   partialScopes: string[]
-  /** Free-form company-state flags toggled in the HUD (PEO, standalone, etc.). */
-  conditions: string[]
+  /** Where the company sits in its lifecycle. Implies a set of conditions. */
+  lifecycle: Lifecycle
+  /** How the user is accessing the shell (direct / spoofed / partner / mobile). */
+  surface: Surface
   /** Which "backend" the shell is reading from. 'current' = ground truth; otherwise a proposal id. */
   view: 'current' | string
   /** Whether the dev HUD panel is visible. */
@@ -23,7 +51,8 @@ const DEFAULT_STATE: HudState = {
   personas: ['full'],
   planId: 'full',
   partialScopes: [],
-  conditions: [],
+  lifecycle: 'active',
+  surface: 'direct',
   view: 'current',
   hudVisible: false,
 }
@@ -40,11 +69,15 @@ function load(): HudState {
 }
 
 interface HudContextValue extends HudState {
+  /** Conditions implied by current {lifecycle, surface}. The plan's conditions
+   *  are folded in separately by buildConditionSet (so plan changes work). */
+  derivedConditions: string[]
   setPersonas: (p: Persona[]) => void
   togglePersona: (p: Persona) => void
   setPlanId: (id: string) => void
   setPartialScopes: (s: string[]) => void
-  toggleCondition: (c: string) => void
+  setLifecycle: (l: Lifecycle) => void
+  setSurface: (s: Surface) => void
   setView: (v: string) => void
   toggleHud: () => void
   setHudVisible: (v: boolean) => void
@@ -75,9 +108,15 @@ export function HudProvider({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
-  const value = useMemo<HudContextValue>(
-    () => ({
+  const value = useMemo<HudContextValue>(() => {
+    const lifecycleConditions =
+      LIFECYCLE_OPTIONS.find((o) => o.id === state.lifecycle)?.conditions ?? []
+    const surfaceConditions = SURFACE_OPTIONS.find((o) => o.id === state.surface)?.conditions ?? []
+    const derivedConditions = [...lifecycleConditions, ...surfaceConditions]
+
+    return {
       ...state,
+      derivedConditions,
       setPersonas: (personas) => setState((s) => ({ ...s, personas })),
       togglePersona: (p) =>
         setState((s) => ({
@@ -86,19 +125,13 @@ export function HudProvider({ children }: { children: ReactNode }) {
         })),
       setPlanId: (planId) => setState((s) => ({ ...s, planId })),
       setPartialScopes: (partialScopes) => setState((s) => ({ ...s, partialScopes })),
-      toggleCondition: (c) =>
-        setState((s) => ({
-          ...s,
-          conditions: s.conditions.includes(c)
-            ? s.conditions.filter((x) => x !== c)
-            : [...s.conditions, c],
-        })),
+      setLifecycle: (lifecycle) => setState((s) => ({ ...s, lifecycle })),
+      setSurface: (surface) => setState((s) => ({ ...s, surface })),
       setView: (view) => setState((s) => ({ ...s, view })),
       toggleHud: () => setState((s) => ({ ...s, hudVisible: !s.hudVisible })),
       setHudVisible: (hudVisible) => setState((s) => ({ ...s, hudVisible })),
-    }),
-    [state],
-  )
+    }
+  }, [state])
 
   return <HudContext.Provider value={value}>{children}</HudContext.Provider>
 }

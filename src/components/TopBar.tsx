@@ -20,7 +20,7 @@ export function TopBar({ catalog, onOpenChat, onOpenBar }: Props) {
     ownedSuites: new Set(
       catalog.plans.plans.find((p) => p.id === hud.planId)?.ownedSuites ?? [],
     ),
-    conditions: buildConditionSet(hud.conditions, catalog.plans, hud.planId),
+    conditions: buildConditionSet(hud.derivedConditions, catalog.plans, hud.planId),
   }
 
   // The frame's topBar is a flat list. We render visible widgets only.

@@ -32,6 +32,9 @@
         "custom-apps",
         "data",
         "settings"
+      ],
+      "conditions": [
+        "isStandaloneCompany"
       ]
     },
     {

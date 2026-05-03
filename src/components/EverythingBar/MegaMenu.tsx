@@ -30,9 +30,9 @@ export function MegaMenu({ catalog, query, onSelect }: Props) {
       personas: new Set(hud.personas),
       partialScopes: new Set(hud.partialScopes),
       ownedSuites,
-      conditions: buildConditionSet(hud.conditions, catalog.plans, hud.planId),
+      conditions: buildConditionSet(hud.derivedConditions, catalog.plans, hud.planId),
     }),
-    [hud.personas, hud.partialScopes, ownedSuites, hud.conditions, catalog.plans, hud.planId],
+    [hud.personas, hud.partialScopes, ownedSuites, hud.derivedConditions, catalog.plans, hud.planId],
   )
 
   const q = query.trim().toLowerCase()
