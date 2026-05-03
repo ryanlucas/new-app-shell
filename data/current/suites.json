@@ -1889,6 +1889,219 @@
             "productGate": "SENTINELONE"
           },
           "source": "rippling-main:apps/data/apps/internal/sentinelone.json"
+        },
+        {
+          "id": "apple-mdm",
+          "label": "Apple MDM",
+          "icon": "DeviceMobile",
+          "path": "/it/hardware/apple",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "DEVICE_MANAGEMENT"
+          },
+          "source": ""
+        },
+        {
+          "id": "windows-mdm",
+          "label": "Windows MDM",
+          "icon": "Desktop",
+          "path": "/it/hardware/windows",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "DEVICE_MANAGEMENT"
+          },
+          "source": ""
+        },
+        {
+          "id": "conditional-access",
+          "label": "Conditional Access",
+          "icon": "ShieldCheck",
+          "path": "/it/conditional-access",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "RPASS"
+          },
+          "source": ""
+        },
+        {
+          "id": "zero-trust",
+          "label": "Zero Trust",
+          "icon": "Shield",
+          "path": "/it/zero-trust",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "RPASS"
+          },
+          "source": ""
+        },
+        {
+          "id": "rbac",
+          "label": "Role-Based Access",
+          "icon": "UserGear",
+          "path": "/permissions/overview",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ]
+          },
+          "source": ""
+        },
+        {
+          "id": "device-buyback",
+          "label": "Device Buyback",
+          "icon": "Tag",
+          "path": "/it/buyback",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "DEVICE_MANAGEMENT"
+          },
+          "source": ""
+        },
+        {
+          "id": "global-warehousing",
+          "label": "Global Warehousing",
+          "icon": "Buildings",
+          "path": "/it/warehouse",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "DEVICE_MANAGEMENT"
+          },
+          "source": ""
+        },
+        {
+          "id": "os-patching",
+          "label": "OS Patching",
+          "icon": "ArrowsClockwise",
+          "path": "/it/patching",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "DEVICE_MANAGEMENT"
+          },
+          "source": ""
+        },
+        {
+          "id": "device-trust",
+          "label": "Device Trust",
+          "icon": "ShieldCheckered",
+          "path": "/it/device-trust",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "DEVICE_MANAGEMENT"
+          },
+          "source": ""
+        },
+        {
+          "id": "lifecycle-management",
+          "label": "Lifecycle Management",
+          "icon": "ArrowsClockwise",
+          "path": "/it/lifecycle",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ]
+          },
+          "source": ""
+        },
+        {
+          "id": "endpoint-detection",
+          "label": "Endpoint Detection & Response",
+          "icon": "ShieldWarning",
+          "path": "/security/edr",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ],
+            "productGate": "SECURITY_MONITORING"
+          },
+          "source": ""
+        },
+        {
+          "id": "activity-logs",
+          "label": "Activity Logs",
+          "icon": "ListMagnifyingGlass",
+          "path": "/it-management/activity-logs",
+          "parent": "it",
+          "visibility": {
+            "personas": [
+              "full",
+              "partial"
+            ],
+            "scopeForPartial": [
+              "it_admin"
+            ]
+          },
+          "source": ""
         }
       ]
     },

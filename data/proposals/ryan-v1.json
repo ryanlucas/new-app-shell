@@ -127,6 +127,48 @@
       "appId": "snowflake"
     },
     {
+      "op": "overrideNode",
+      "id": "it",
+      "patch": {
+        "appGroups": [
+          { "id": "identity", "label": "Identity & Access", "order": 1 },
+          { "id": "device-mgmt", "label": "Device Management", "order": 2 },
+          { "id": "logistics", "label": "Device Logistics", "order": 3 },
+          { "id": "security", "label": "Security & Compliance", "order": 4 }
+        ]
+      }
+    },
+    { "op": "overrideNode", "id": "rpass",                  "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "custom-integrations",    "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "saml-service",           "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "duo",                    "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "yubikey",                "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "group-manager",          "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "extended-access",        "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "vldap",                  "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "rbac",                   "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "conditional-access",     "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "zero-trust",             "patch": { "group": "identity" } },
+    { "op": "overrideNode", "id": "device-management",      "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "apple-mdm",              "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "windows-mdm",            "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "os-patching",            "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "lifecycle-management",   "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "device-trust",           "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "it-automations",         "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "device-store",           "patch": { "group": "logistics" } },
+    { "op": "overrideNode", "id": "device-buyback",         "patch": { "group": "logistics" } },
+    { "op": "overrideNode", "id": "global-warehousing",     "patch": { "group": "logistics" } },
+    { "op": "overrideNode", "id": "endpoint-detection",     "patch": { "group": "security" } },
+    { "op": "overrideNode", "id": "automated-compliance",   "patch": { "group": "security" } },
+    { "op": "overrideNode", "id": "security-monitoring",    "patch": { "group": "security" } },
+    { "op": "overrideNode", "id": "sentinelone",            "patch": { "group": "security" } },
+    { "op": "overrideNode", "id": "activity-logs",          "patch": { "group": "security" } },
+    { "op": "overrideNode", "id": "third-party-integrations","patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "it-management",          "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "it-overview",            "patch": { "group": "device-mgmt" } },
+    { "op": "overrideNode", "id": "ssh",                    "patch": { "group": "identity" } },
+    {
       "op": "addPlan",
       "id": "peo",
       "label": "Rippling PEO",
