@@ -997,7 +997,7 @@
       {
         "id": "developer",
         "issues": [
-          "suite mismatch: ours=settings truth=tools"
+          "label: ours='Rippling Build' truth='Developer'"
         ]
       }
     ]
@@ -1578,31 +1578,6 @@
         },
         "personaVariants": {},
         "source": "app/apps/utils/dummy_apps.py:355"
-      },
-      {
-        "id": "developer",
-        "label": "Developer",
-        "icon": "Code",
-        "path": "/developer",
-        "parent": "settings",
-        "visibility": {
-          "personas": [
-            "full",
-            "partial"
-          ],
-          "scopeForPartial": [
-            "developer_admin"
-          ],
-          "productGate": "DEVELOPER",
-          "permissionGate": null,
-          "conditions": [],
-          "whenUnowned": {
-            "showLockedTo": [],
-            "campaign": null
-          }
-        },
-        "personaVariants": {},
-        "source": "app/hub/spoke_models.py:846"
       },
       {
         "id": "api-tokens",
@@ -2723,6 +2698,342 @@
         }
       },
       {
+        "id": "BENEFITS_ADMIN_OVERVIEW",
+        "name": "BENEFITS_ADMIN_OVERVIEW",
+        "displayName": "Benefits Overview",
+        "path": "/insurance/admin/us/overview",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:208-218",
+        "raw": {
+          "id": "BENEFITS_ADMIN_OVERVIEW",
+          "name": "BENEFITS_ADMIN_OVERVIEW"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_ENROLLMENTS",
+        "name": "BENEFITS_ADMIN_ENROLLMENTS",
+        "displayName": "Enrollments",
+        "path": "/insurance/admin/us/employees",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:219-227",
+        "raw": {
+          "id": "BENEFITS_ADMIN_ENROLLMENTS",
+          "name": "BENEFITS_ADMIN_ENROLLMENTS"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_DEDUCTIONS",
+        "name": "BENEFITS_ADMIN_DEDUCTIONS",
+        "displayName": "Deductions",
+        "path": "/insurance/admin/us/deductions",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:232-240",
+        "raw": {
+          "id": "BENEFITS_ADMIN_DEDUCTIONS",
+          "name": "BENEFITS_ADMIN_DEDUCTIONS"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_SETTINGS",
+        "name": "BENEFITS_ADMIN_SETTINGS",
+        "displayName": "Benefits Settings",
+        "path": "/insurance/admin/us/settings",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:242-251",
+        "raw": {
+          "id": "BENEFITS_ADMIN_SETTINGS",
+          "name": "BENEFITS_ADMIN_SETTINGS"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_INTEGRATIONS",
+        "name": "BENEFITS_ADMIN_INTEGRATIONS",
+        "displayName": "Integrations",
+        "path": "/insurance/admin/us/carrier-transmission",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:160-170",
+        "raw": {
+          "id": "BENEFITS_ADMIN_INTEGRATIONS",
+          "name": "BENEFITS_ADMIN_INTEGRATIONS"
+        }
+      },
+      {
+        "id": "benefits",
+        "name": "benefits",
+        "displayName": "Benefits",
+        "path": "/insurance/admin/overview",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:25-36",
+        "raw": {
+          "id": "benefits",
+          "name": "benefits"
+        }
+      },
+      {
+        "id": "employeeDetails",
+        "name": "employeeDetails",
+        "displayName": "Employee details",
+        "path": "/insurance/admin/employees",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:39-45",
+        "raw": {
+          "id": "employeeDetails",
+          "name": "employeeDetails"
+        }
+      },
+      {
+        "id": "transfer",
+        "name": "transfer",
+        "displayName": "Transfer",
+        "path": "/insurance/admin/transfer/{transferEventId}",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:65-75",
+        "raw": {
+          "id": "transfer",
+          "name": "transfer"
+        }
+      },
+      {
+        "id": "enrollmentHistory",
+        "name": "enrollmentHistory",
+        "displayName": "Enrollment history",
+        "path": "/insurance/admin/employees/change-report",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:76-83",
+        "raw": {
+          "id": "enrollmentHistory",
+          "name": "enrollmentHistory"
+        }
+      },
+      {
+        "id": "deductions",
+        "name": "deductions",
+        "displayName": "Deductions",
+        "path": "/insurance/admin/deductions",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:84-90",
+        "raw": {
+          "id": "deductions",
+          "name": "deductions"
+        }
+      },
+      {
+        "id": "upcomingEvents",
+        "name": "upcomingEvents",
+        "displayName": "Upcoming events",
+        "path": "/insurance/admin/employees/upcoming-events",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:92-101",
+        "raw": {
+          "id": "upcomingEvents",
+          "name": "upcomingEvents"
+        }
+      },
+      {
+        "id": "additionalMaterials",
+        "name": "additionalMaterials",
+        "displayName": "Additional materials",
+        "path": "/insurance/admin/overview/materials",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:102-109",
+        "raw": {
+          "id": "additionalMaterials",
+          "name": "additionalMaterials"
+        }
+      },
+      {
+        "id": "overviewOnly",
+        "name": "overviewOnly",
+        "displayName": "Overview",
+        "path": "/insurance/admin/carrier-transmission",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:110-120",
+        "raw": {
+          "id": "overviewOnly",
+          "name": "overviewOnly"
+        }
+      },
+      {
+        "id": "accountStructure",
+        "name": "accountStructure",
+        "displayName": "Account structure",
+        "path": "/insurance/admin/carrier-transmission/account-structure",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:121-130",
+        "raw": {
+          "id": "accountStructure",
+          "name": "accountStructure"
+        }
+      },
+      {
+        "id": "sequoiaCensusFile",
+        "name": "sequoiaCensusFile",
+        "displayName": "Sequoia Census File",
+        "path": "/insurance/admin/carrier-transmission/sequoia",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:131-140",
+        "raw": {
+          "id": "sequoiaCensusFile",
+          "name": "sequoiaCensusFile"
+        }
+      },
+      {
+        "id": "qle",
+        "name": "qle",
+        "displayName": "QLE",
+        "path": "/insurance/admin/employees/qualifying-life-events",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:141-150",
+        "raw": {
+          "id": "qle",
+          "name": "qle"
+        }
+      },
+      {
+        "id": "eoi",
+        "name": "eoi",
+        "displayName": "EOI",
+        "path": "/insurance/admin/employees/evidence-of-insurability",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:151-160",
+        "raw": {
+          "id": "eoi",
+          "name": "eoi"
+        }
+      },
+      {
+        "id": "settings",
+        "name": "settings",
+        "displayName": "Settings",
+        "path": "/insurance/admin/settings",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:161-170",
+        "raw": {
+          "id": "settings",
+          "name": "settings"
+        }
+      },
+      {
+        "id": "companyDetails",
+        "name": "companyDetails",
+        "displayName": "Company details",
+        "path": "/insurance/admin/settings/details",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:171-197",
+        "raw": {
+          "id": "companyDetails",
+          "name": "companyDetails"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_OVERVIEW",
+        "name": "BENEFITS_ADMIN_OVERVIEW",
+        "displayName": "Benefits Overview",
+        "path": "/insurance/admin/{countryId}/overview",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:96-108",
+        "raw": {
+          "id": "BENEFITS_ADMIN_OVERVIEW",
+          "name": "BENEFITS_ADMIN_OVERVIEW"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_ENROLLMENTS",
+        "name": "BENEFITS_ADMIN_ENROLLMENTS",
+        "displayName": "Enrollments",
+        "path": "/insurance/admin/{countryId}/enrollments/{EMPLOYEES_TAB_PATH}",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:112-120",
+        "raw": {
+          "id": "BENEFITS_ADMIN_ENROLLMENTS",
+          "name": "BENEFITS_ADMIN_ENROLLMENTS"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_ENROLLMENT_EVENTS",
+        "name": "BENEFITS_ADMIN_ENROLLMENT_EVENTS",
+        "displayName": "Open Enrollment",
+        "path": "/insurance/admin/{countryId}/open_enrollments/{EVENT_TAB_PATH}/{eventId}",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:122-132",
+        "raw": {
+          "id": "BENEFITS_ADMIN_ENROLLMENT_EVENTS",
+          "name": "BENEFITS_ADMIN_ENROLLMENT_EVENTS"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_DEDUCTIONS_DEDUCTION_SYNCING",
+        "name": "BENEFITS_ADMIN_DEDUCTIONS_DEDUCTION_SYNCING",
+        "displayName": "Benefits Settings",
+        "path": "/insurance/admin/{countryId}/settings/DEDUCTION_SYNCING",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:138-150",
+        "raw": {
+          "id": "BENEFITS_ADMIN_DEDUCTIONS_DEDUCTION_SYNCING",
+          "name": "BENEFITS_ADMIN_DEDUCTIONS_DEDUCTION_SYNCING"
+        }
+      },
+      {
+        "id": "BENEFITS_ADMIN_DEDUCTIONS",
+        "name": "BENEFITS_ADMIN_DEDUCTIONS",
+        "displayName": "Deductions",
+        "path": "/insurance/admin/{countryId}/deductions",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:152-164",
+        "raw": {
+          "id": "BENEFITS_ADMIN_DEDUCTIONS",
+          "name": "BENEFITS_ADMIN_DEDUCTIONS"
+        }
+      },
+      {
         "id": "PENSIONMANAGEMENT",
         "name": "PensionManagement",
         "displayName": "Retirements",
@@ -3416,6 +3727,300 @@
           "id": "MY_PAY_DUMMY_APP",
           "name": "My Pay"
         }
+      },
+      {
+        "id": "titleOverview",
+        "name": "titleOverview",
+        "displayName": "Overview",
+        "path": "/global-payroll/admin/overview",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:331-393",
+        "raw": {
+          "id": "titleOverview",
+          "name": "titleOverview"
+        }
+      },
+      {
+        "id": "upcomingAndDraft",
+        "name": "upcomingAndDraft",
+        "displayName": "Upcoming and Draft",
+        "path": "/global-payroll/admin/overview?section=upcomingAndDraft",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:335-344",
+        "raw": {
+          "id": "upcomingAndDraft",
+          "name": "upcomingAndDraft"
+        }
+      },
+      {
+        "id": "tabFailedRuns",
+        "name": "tabFailedRuns",
+        "displayName": "Failed runs",
+        "path": "/global-payroll/admin/overview?section=failed",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:346-352",
+        "raw": {
+          "id": "tabFailedRuns",
+          "name": "tabFailedRuns"
+        }
+      },
+      {
+        "id": "submitted",
+        "name": "submitted",
+        "displayName": "Submitted",
+        "path": "/global-payroll/admin/overview?section=submitted",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:354-358",
+        "raw": {
+          "id": "submitted",
+          "name": "submitted"
+        }
+      },
+      {
+        "id": "tabCompleted",
+        "name": "tabCompleted",
+        "displayName": "Completed",
+        "path": "/global-payroll/admin/overview?section=completed",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:359-363",
+        "raw": {
+          "id": "tabCompleted",
+          "name": "tabCompleted"
+        }
+      },
+      {
+        "id": "corrections",
+        "name": "corrections",
+        "displayName": "Corrections",
+        "path": "/global-payroll/admin/overview?section=corrections",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:364-371",
+        "raw": {
+          "id": "corrections",
+          "name": "corrections"
+        }
+      },
+      {
+        "id": "tabArchived",
+        "name": "tabArchived",
+        "displayName": "Archived",
+        "path": "/global-payroll/admin/overview?section=archived",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:373-377",
+        "raw": {
+          "id": "tabArchived",
+          "name": "tabArchived"
+        }
+      },
+      {
+        "id": "tabLegacyPayroll",
+        "name": "tabLegacyPayroll",
+        "displayName": "Legacy Payroll",
+        "path": "/global-payroll/admin/overview?section=legacyPayroll",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:378-392",
+        "raw": {
+          "id": "tabLegacyPayroll",
+          "name": "tabLegacyPayroll"
+        }
+      },
+      {
+        "id": "titlePeople",
+        "name": "titlePeople",
+        "displayName": "People",
+        "path": "/global-payroll/admin/people",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:395-398",
+        "raw": {
+          "id": "titlePeople",
+          "name": "titlePeople"
+        }
+      },
+      {
+        "id": "titleSettings",
+        "name": "titleSettings",
+        "displayName": "Settings",
+        "path": "/global-payroll/admin/settings",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:399-402",
+        "raw": {
+          "id": "titleSettings",
+          "name": "titleSettings"
+        }
+      },
+      {
+        "id": "titleEntities",
+        "name": "titleEntities",
+        "displayName": "Entities",
+        "path": "/global-payroll/admin/entities",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:403-406",
+        "raw": {
+          "id": "titleEntities",
+          "name": "titleEntities"
+        }
+      },
+      {
+        "id": "titleAccounting",
+        "name": "titleAccounting",
+        "displayName": "Accounting",
+        "path": "/global-payroll/admin/accounting",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:407-410",
+        "raw": {
+          "id": "titleAccounting",
+          "name": "titleAccounting"
+        }
+      },
+      {
+        "id": "titleBalances",
+        "name": "titleBalances",
+        "displayName": "Balances",
+        "path": "/global-payroll/admin/balances",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:413-418",
+        "raw": {
+          "id": "titleBalances",
+          "name": "titleBalances"
+        }
+      },
+      {
+        "id": "titleReports",
+        "name": "titleReports",
+        "displayName": "Reports",
+        "path": "/global-payroll/admin/reports",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:420-421",
+        "raw": {
+          "id": "titleReports",
+          "name": "titleReports"
+        }
+      },
+      {
+        "id": "titleEarnings",
+        "name": "titleEarnings",
+        "displayName": "Earnings",
+        "path": "/global-payroll/admin/earnings",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:423-426",
+        "raw": {
+          "id": "titleEarnings",
+          "name": "titleEarnings"
+        }
+      },
+      {
+        "id": "titleDeductions",
+        "name": "titleDeductions",
+        "displayName": "Deductions",
+        "path": "/global-payroll/admin/deductions",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:428-431",
+        "raw": {
+          "id": "titleDeductions",
+          "name": "titleDeductions"
+        }
+      },
+      {
+        "id": "titleGarnishments",
+        "name": "titleGarnishments",
+        "displayName": "Garnishments",
+        "path": "/global-payroll/admin/garnishments",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:457-460",
+        "raw": {
+          "id": "titleGarnishments",
+          "name": "titleGarnishments"
+        }
+      },
+      {
+        "id": "titleFilings",
+        "name": "titleFilings",
+        "displayName": "Filings",
+        "path": "/global-payroll/admin/filings",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:463-467",
+        "raw": {
+          "id": "titleFilings",
+          "name": "titleFilings"
+        }
+      },
+      {
+        "id": "titlePartner",
+        "name": "titlePartner",
+        "displayName": "Partner",
+        "path": "/global-payroll/admin/partner",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:504-518",
+        "raw": {
+          "id": "titlePartner",
+          "name": "titlePartner"
+        }
+      },
+      {
+        "id": "titleProofOfInvestment",
+        "name": "titleProofOfInvestment",
+        "displayName": "Proof of Investment",
+        "path": "/global-payroll/admin/partner?section=proofOfInvestment",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:507-515",
+        "raw": {
+          "id": "titleProofOfInvestment",
+          "name": "titleProofOfInvestment"
+        }
+      },
+      {
+        "id": "titleTrustedBeneficiariesTab",
+        "name": "titleTrustedBeneficiariesTab",
+        "displayName": "Missing Trusted Beneficiaries",
+        "path": "/global-payroll/admin/missingInfo",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:525-537",
+        "raw": {
+          "id": "titleTrustedBeneficiariesTab",
+          "name": "titleTrustedBeneficiariesTab"
+        }
       }
     ],
     "onlyInOurs": [
@@ -3714,6 +4319,20 @@
           "id": "<TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.INSTALL_TIME_OFF]>",
           "name": "<TIME_PRODUCTS_DASHBOARD_NAMES[CoreFeatureKeys.INSTALL_TIME_OFF]>"
         }
+      },
+      {
+        "id": "time",
+        "name": "time",
+        "displayName": "My Time",
+        "path": "/time-products/dashboard/my-time",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:40-47",
+        "raw": {
+          "id": "time",
+          "name": "time"
+        }
       }
     ],
     "onlyInOurs": [
@@ -3824,6 +4443,222 @@
         },
         "personaVariants": {},
         "source": "rippling-main/app/time_products/types/constants.py:16-17, rippling-main/app/apps/utils/dummy_apps.py:229-238"
+      }
+    ],
+    "mismatches": []
+  },
+  "custom-apps": {
+    "onlyInTruth": [
+      {
+        "id": "dashboard",
+        "name": "dashboard",
+        "displayName": "Dashboard",
+        "path": "/contractor/dashboard",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:15-22",
+        "raw": {
+          "id": "dashboard",
+          "name": "dashboard"
+        }
+      },
+      {
+        "id": "myMoney",
+        "name": "myMoney",
+        "displayName": "My Money",
+        "path": "/contractor/my-money",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:24-31",
+        "raw": {
+          "id": "myMoney",
+          "name": "myMoney"
+        }
+      },
+      {
+        "id": "invoices",
+        "name": "invoices",
+        "displayName": "Invoices",
+        "path": "/contractor/my-invoices",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:32-39",
+        "raw": {
+          "id": "invoices",
+          "name": "invoices"
+        }
+      },
+      {
+        "id": "clients",
+        "name": "clients",
+        "displayName": "Clients",
+        "path": "/contractor/clients",
+        "navigationSortPriority": 0,
+        "invisible": false,
+        "billingPlanTypes": [],
+        "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:48-55",
+        "raw": {
+          "id": "clients",
+          "name": "clients"
+        }
+      }
+    ],
+    "onlyInOurs": [
+      {
+        "id": "rippling-solution",
+        "label": "Solutions",
+        "icon": "Stack",
+        "path": "/solutions",
+        "parent": "custom-apps",
+        "visibility": {
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "apps_admin"
+          ],
+          "productGate": "RIPPLING_SOLUTION",
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": {
+            "showLockedTo": [],
+            "campaign": null
+          }
+        },
+        "personaVariants": {},
+        "source": "app/hub/spoke_models.py:851"
+      },
+      {
+        "id": "unlimited-custom-apps",
+        "label": "Custom Apps",
+        "icon": "PuzzlePiece",
+        "path": "/app-studio",
+        "parent": "custom-apps",
+        "visibility": {
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "apps_admin"
+          ],
+          "productGate": "UNLIMITED_CUSTOM_APPS",
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": {
+            "showLockedTo": [],
+            "campaign": null
+          }
+        },
+        "personaVariants": {},
+        "source": "app/hub/spoke_models.py:847"
+      },
+      {
+        "id": "custom-objects",
+        "label": "Custom Objects",
+        "icon": "Stack",
+        "path": "/custom-objects",
+        "parent": "custom-apps",
+        "visibility": {
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "apps_admin"
+          ],
+          "productGate": "UNLIMITED_CUSTOM_OBJECTS",
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": {
+            "showLockedTo": [],
+            "campaign": null
+          }
+        },
+        "personaVariants": {},
+        "source": "app/hub/spoke_models.py:848"
+      },
+      {
+        "id": "recipes",
+        "label": "Recipes",
+        "icon": "FlowArrow",
+        "path": "/recipes",
+        "parent": "custom-apps",
+        "visibility": {
+          "personas": [
+            "full",
+            "partial"
+          ],
+          "scopeForPartial": [
+            "apps_admin"
+          ],
+          "productGate": "RECIPES",
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": {
+            "showLockedTo": [],
+            "campaign": null
+          }
+        },
+        "personaVariants": {},
+        "source": "app/hub/spoke_models.py:800"
+      },
+      {
+        "id": "forms",
+        "label": "Forms",
+        "icon": "NotePencil",
+        "path": "/forms",
+        "parent": "custom-apps",
+        "visibility": {
+          "personas": [
+            "full",
+            "partial",
+            "ee"
+          ],
+          "scopeForPartial": [
+            "apps_admin"
+          ],
+          "productGate": "FORMS",
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": {
+            "showLockedTo": [],
+            "campaign": null
+          }
+        },
+        "personaVariants": {},
+        "source": "app/hub/spoke_models.py:759"
+      },
+      {
+        "id": "checklist-app",
+        "label": "Checklists",
+        "icon": "CheckSquare",
+        "path": "/checklists",
+        "parent": "custom-apps",
+        "visibility": {
+          "personas": [
+            "full",
+            "partial",
+            "manager",
+            "ee"
+          ],
+          "scopeForPartial": [
+            "apps_admin"
+          ],
+          "productGate": "CHECKLISTAPP",
+          "permissionGate": null,
+          "conditions": [],
+          "whenUnowned": {
+            "showLockedTo": [],
+            "campaign": null
+          }
+        },
+        "personaVariants": {},
+        "source": "app/hub/spoke_models.py:710"
       }
     ],
     "mismatches": []

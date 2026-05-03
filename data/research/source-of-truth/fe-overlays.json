@@ -1,0 +1,411 @@
+{
+  "extractedAt": "2026-05-02T00:00:00Z",
+  "entries": [
+    {
+      "id": "BENEFITS_ADMIN_OVERVIEW",
+      "label": "Benefits Overview",
+      "path": "/insurance/admin/us/overview",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:208-218"
+    },
+    {
+      "id": "BENEFITS_ADMIN_ENROLLMENTS",
+      "label": "Enrollments",
+      "path": "/insurance/admin/us/employees",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:219-227"
+    },
+    {
+      "id": "BENEFITS_ADMIN_DEDUCTIONS",
+      "label": "Deductions",
+      "path": "/insurance/admin/us/deductions",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:232-240"
+    },
+    {
+      "id": "BENEFITS_ADMIN_SETTINGS",
+      "label": "Benefits Settings",
+      "path": "/insurance/admin/us/settings",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:242-251"
+    },
+    {
+      "id": "BENEFITS_ADMIN_INTEGRATIONS",
+      "label": "Integrations",
+      "path": "/insurance/admin/us/carrier-transmission",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts:160-170",
+      "condition": "if shouldShowIntegrationsTab"
+    },
+    {
+      "id": "benefits",
+      "label": "Benefits",
+      "path": "/insurance/admin/overview",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:25-36"
+    },
+    {
+      "id": "employeeDetails",
+      "label": "Employee details",
+      "path": "/insurance/admin/employees",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:39-45"
+    },
+    {
+      "id": "transfer",
+      "label": "Transfer",
+      "path": "/insurance/admin/transfer/{transferEventId}",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:65-75",
+      "condition": "if state?.recentBORCompanyEvents?.[0]?.id exists"
+    },
+    {
+      "id": "enrollmentHistory",
+      "label": "Enrollment history",
+      "path": "/insurance/admin/employees/change-report",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:76-83"
+    },
+    {
+      "id": "deductions",
+      "label": "Deductions",
+      "path": "/insurance/admin/deductions",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:84-90"
+    },
+    {
+      "id": "upcomingEvents",
+      "label": "Upcoming events",
+      "path": "/insurance/admin/employees/upcoming-events",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:92-101",
+      "condition": "if state?.shouldShowUpcomingEvents"
+    },
+    {
+      "id": "additionalMaterials",
+      "label": "Additional materials",
+      "path": "/insurance/admin/overview/materials",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:102-109"
+    },
+    {
+      "id": "overviewOnly",
+      "label": "Overview",
+      "path": "/insurance/admin/carrier-transmission",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:110-120",
+      "condition": "if state?.shouldShowFormContact"
+    },
+    {
+      "id": "accountStructure",
+      "label": "Account structure",
+      "path": "/insurance/admin/carrier-transmission/account-structure",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:121-130",
+      "condition": "if state?.shouldShowFormContact"
+    },
+    {
+      "id": "sequoiaCensusFile",
+      "label": "Sequoia Census File",
+      "path": "/insurance/admin/carrier-transmission/sequoia",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:131-140",
+      "condition": "if state?.shouldShowSequoiaTab"
+    },
+    {
+      "id": "qle",
+      "label": "QLE",
+      "path": "/insurance/admin/employees/qualifying-life-events",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:141-150",
+      "condition": "if state?.shouldShowQualifyingLifeEventsTab"
+    },
+    {
+      "id": "eoi",
+      "label": "EOI",
+      "path": "/insurance/admin/employees/evidence-of-insurability",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:151-160",
+      "condition": "if state?.shouldShowEoiTab"
+    },
+    {
+      "id": "settings",
+      "label": "Settings",
+      "path": "/insurance/admin/settings",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:161-170",
+      "condition": "if state?.shouldShowAdvanceSettings"
+    },
+    {
+      "id": "companyDetails",
+      "label": "Company details",
+      "path": "/insurance/admin/settings/details",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts:171-197",
+      "condition": "if state?.roleInsurancePermissions?.included_all_roles"
+    },
+    {
+      "id": "BENEFITS_ADMIN_OVERVIEW",
+      "label": "Benefits Overview",
+      "path": "/insurance/admin/{countryId}/overview",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:96-108"
+    },
+    {
+      "id": "BENEFITS_ADMIN_ENROLLMENTS",
+      "label": "Enrollments",
+      "path": "/insurance/admin/{countryId}/enrollments/{EMPLOYEES_TAB_PATH}",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:112-120",
+      "condition": "if companyEvents?.length"
+    },
+    {
+      "id": "BENEFITS_ADMIN_ENROLLMENT_EVENTS",
+      "label": "Open Enrollment",
+      "path": "/insurance/admin/{countryId}/open_enrollments/{EVENT_TAB_PATH}/{eventId}",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:122-132",
+      "condition": "if finalizedOEEvents.length && companyEvents?.length"
+    },
+    {
+      "id": "BENEFITS_ADMIN_DEDUCTIONS_DEDUCTION_SYNCING",
+      "label": "Benefits Settings",
+      "path": "/insurance/admin/{countryId}/settings/DEDUCTION_SYNCING",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:138-150",
+      "condition": "if companyEvents?.length"
+    },
+    {
+      "id": "BENEFITS_ADMIN_DEDUCTIONS",
+      "label": "Deductions",
+      "path": "/insurance/admin/{countryId}/deductions",
+      "suite": "benefits",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts:152-164",
+      "condition": "if companyEvents?.length && showDeductions"
+    },
+    {
+      "id": "titleOverview",
+      "label": "Overview",
+      "path": "/global-payroll/admin/overview",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:331-393"
+    },
+    {
+      "id": "upcomingAndDraft",
+      "label": "Upcoming and Draft",
+      "path": "/global-payroll/admin/overview?section=upcomingAndDraft",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:335-344"
+    },
+    {
+      "id": "tabFailedRuns",
+      "label": "Failed runs",
+      "path": "/global-payroll/admin/overview?section=failed",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:346-352"
+    },
+    {
+      "id": "submitted",
+      "label": "Submitted",
+      "path": "/global-payroll/admin/overview?section=submitted",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:354-358"
+    },
+    {
+      "id": "tabCompleted",
+      "label": "Completed",
+      "path": "/global-payroll/admin/overview?section=completed",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:359-363"
+    },
+    {
+      "id": "corrections",
+      "label": "Corrections",
+      "path": "/global-payroll/admin/overview?section=corrections",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:364-371",
+      "condition": "if apiData.canDisplayCorrectionTab"
+    },
+    {
+      "id": "tabArchived",
+      "label": "Archived",
+      "path": "/global-payroll/admin/overview?section=archived",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:373-377"
+    },
+    {
+      "id": "tabLegacyPayroll",
+      "label": "Legacy Payroll",
+      "path": "/global-payroll/admin/overview?section=legacyPayroll",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:378-392",
+      "condition": "if hasLegacyPayrollTab"
+    },
+    {
+      "id": "titlePeople",
+      "label": "People",
+      "path": "/global-payroll/admin/people",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:395-398"
+    },
+    {
+      "id": "titleSettings",
+      "label": "Settings",
+      "path": "/global-payroll/admin/settings",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:399-402"
+    },
+    {
+      "id": "titleEntities",
+      "label": "Entities",
+      "path": "/global-payroll/admin/entities",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:403-406"
+    },
+    {
+      "id": "titleAccounting",
+      "label": "Accounting",
+      "path": "/global-payroll/admin/accounting",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:407-410"
+    },
+    {
+      "id": "titleBalances",
+      "label": "Balances",
+      "path": "/global-payroll/admin/balances",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:413-418",
+      "condition": "if apiData?.isManagingTotalBalancesEnabled"
+    },
+    {
+      "id": "titleReports",
+      "label": "Reports",
+      "path": "/global-payroll/admin/reports",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:420-421",
+      "condition": "if apiData?.isGlobalPayrollFullAdmin || apiData?.partnerCompany"
+    },
+    {
+      "id": "titleEarnings",
+      "label": "Earnings",
+      "path": "/global-payroll/admin/earnings",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:423-426",
+      "condition": "if apiData?.isGlobalPayrollFullAdmin || apiData?.partnerCompany"
+    },
+    {
+      "id": "titleDeductions",
+      "label": "Deductions",
+      "path": "/global-payroll/admin/deductions",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:428-431",
+      "condition": "if apiData?.isGlobalPayrollFullAdmin || apiData?.partnerCompany"
+    },
+    {
+      "id": "titleGarnishments",
+      "label": "Garnishments",
+      "path": "/global-payroll/admin/garnishments",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:457-460",
+      "condition": "if apiData?.isGlobalPayrollFullAdmin || apiData?.partnerCompany"
+    },
+    {
+      "id": "titleFilings",
+      "label": "Filings",
+      "path": "/global-payroll/admin/filings",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:463-467"
+    },
+    {
+      "id": "titlePartner",
+      "label": "Partner",
+      "path": "/global-payroll/admin/partner",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:504-518",
+      "condition": "if apiData?.partnerCompany && (use_case is GLOBAL_PAYROLL_FILINGS or GLOBAL_PAYROLL_FILINGS_DRWPC)"
+    },
+    {
+      "id": "titleProofOfInvestment",
+      "label": "Proof of Investment",
+      "path": "/global-payroll/admin/partner?section=proofOfInvestment",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:507-515",
+      "condition": "if showPartnerPoi"
+    },
+    {
+      "id": "titleTrustedBeneficiariesTab",
+      "label": "Missing Trusted Beneficiaries",
+      "path": "/global-payroll/admin/missingInfo",
+      "suite": "payroll",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx:525-537",
+      "condition": "if missingInfo (Object.values(apiData.isTrustedBeneficiariesRequired).some(scaRequired => scaRequired))"
+    },
+    {
+      "id": "dashboard",
+      "label": "Dashboard",
+      "path": "/contractor/dashboard",
+      "suite": "custom-apps",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:15-22"
+    },
+    {
+      "id": "myMoney",
+      "label": "My Money",
+      "path": "/contractor/my-money",
+      "suite": "custom-apps",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:24-31"
+    },
+    {
+      "id": "invoices",
+      "label": "Invoices",
+      "path": "/contractor/my-invoices",
+      "suite": "custom-apps",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:32-39"
+    },
+    {
+      "id": "time",
+      "label": "My Time",
+      "path": "/time-products/dashboard/my-time",
+      "suite": "time",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:40-47"
+    },
+    {
+      "id": "clients",
+      "label": "Clients",
+      "path": "/contractor/clients",
+      "suite": "custom-apps",
+      "source": "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx:48-55"
+    }
+  ],
+  "uncertain": [
+    {
+      "id": "partners",
+      "reason": "SpendManagement PageNavigation is pagination component, not L2 sidebar nav; Spend suite main nav not in specified file list"
+    },
+    {
+      "id": "PensionManagement navbar",
+      "reason": "PensionManagement navbar uses useAppNavBarLinks hook not directly in the specified files; entry logic is dynamic based on country enrollment status. Constants file only defines Title='Retirement'"
+    },
+    {
+      "id": "PartnerStandaloneNavigation",
+      "reason": "Partner nav entries are dynamic and fetched from getPartnerNonDRWPCLinks(partnerCompany, t) utility; no static entry definitions found in the specified files"
+    }
+  ],
+  "filesScanned": [
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/utils.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/insurance-admin-nav-bar.tsx",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/use-insurance-nav-links.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/types.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/StandaloneNavigation/types.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Insurance/components/StandaloneNavigation/buildSideNavigationLinks.tsx",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/types.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalBenefits/containers/Navigation/StandaloneNavigation/utils/filterBenefitsAdminSpokeGlobal.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/finance/SpendManagement/components/pageNavigation/PageNavigation.tsx",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/queries/navbar/navbar.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/finance/GlobalPayroll/containers/admin/overview/navbar.tsx",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/PensionManagement/containers/navbar/types.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/PensionManagement/containers/navbar/constants.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/PensionManagement/containers/navbar/hooks/useNavbarData.ts",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/GlobalContractors/components/contractorStandaloneNavigation/ContractorStandaloneNavigation.tsx",
+    "/Users/ryan/dev/code/rippling-webapp/app/products/hr/Accountant/components/partnerStandaloneNavigation/PartnerStandaloneNavigation.tsx"
+  ]
+}

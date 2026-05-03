@@ -139,6 +139,28 @@ if (existsSync(DUMMY_APPS_JSON)) {
   }
 }
 
+// Merge in FE-overlay entries (rippling-webapp standaloneNavigation, admin
+// navbars, etc.) if the agent extraction has been written.
+const FE_OVERLAYS_JSON = `${OUT_DIR}/fe-overlays.json`
+if (existsSync(FE_OVERLAYS_JSON)) {
+  const overlay = JSON.parse(readFileSync(FE_OVERLAYS_JSON, 'utf8')) as {
+    entries: Array<{ id: string; label: string; path: string; suite: string; source: string }>
+  }
+  for (const e of overlay.entries ?? []) {
+    ;(bySuite[e.suite] ??= []).push({
+      id: e.id,
+      name: e.id,
+      displayName: e.label,
+      path: e.path ?? null,
+      navigationSortPriority: 0,
+      invisible: false,
+      billingPlanTypes: [],
+      source: e.source,
+      raw: { id: e.id, name: e.id } as InternalApp,
+    })
+  }
+}
+
 // Sort each suite by navigationSortPriority asc (lower priority comes first)
 for (const suite of Object.keys(bySuite)) {
   bySuite[suite].sort((a, b) => a.navigationSortPriority - b.navigationSortPriority)

@@ -54,11 +54,10 @@ export interface NavNode {
   appearsIn?: string[]
   /**
    * Mirrors `invisible: true` / `showInLeftNav: false` on backend app
-   * definitions: the route exists and is reachable, but the live sidebar
-   * does not auto-render this entry. Renderers should:
-   *   - skip these in the main sidebar
-   *   - keep them in the everything-bar palette / search / cross-sell so
-   *     they remain discoverable
+   * definitions: the route exists and is reachable, but the node should
+   * not auto-render in default sidebar listings. It remains catalogued
+   * (for search, cross-sell, deep-link, etc.) — how it surfaces is a
+   * presentation-layer decision.
    */
   hiddenInSidenav?: boolean
   _proposalNotes?: ProposalNote[]

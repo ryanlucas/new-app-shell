@@ -1,12 +1,18 @@
 # Source-of-truth extraction
 
-Static extractor that walks `~/dev/code/rippling-main` to build a comparison
-catalog and diff against `data/current/suites.json`. Re-run any time:
+Static extractor that walks `~/dev/code/rippling-main` and `~/dev/code/rippling-webapp`
+to build a comparison catalog and diff against `data/current/suites.json`.
+Re-run any time:
 
 ```sh
 python3 scripts/extract-dummy-apps.py     # parse Python AST → dummy-apps-by-suite.json
-node scripts/extract-source-of-truth.ts   # walk JSONs + merge dummy → diff
+node scripts/extract-source-of-truth.ts   # walk JSONs + merge dummy + FE overlays → diff
 ```
+
+The TS script merges:
+1. `app/apps/data/apps/internal/*.json` — backend app definitions
+2. `dummy-apps-by-suite.json` — synthetic L2 entries from `dummy_apps.py`
+3. `fe-overlays.json` — frontend overlay nav entries (one-shot agent extraction)
 
 ## What it covers
 
@@ -18,16 +24,16 @@ node scripts/extract-source-of-truth.ts   # walk JSONs + merge dummy → diff
   entries (Spend's Tasks/Cards/Bills, HR's People, IT Overview, Time's
   Overview/My Time/Schedules/etc.) defined as Python dicts. Extracted via
   `ast` since they're statically declared.
+- **FE overlay entries** — `rippling-webapp/app/products/**/*navbar*` and
+  `*standaloneNavigation*` files. ~50 entries covering Benefits admin
+  sections (Overview, Enrollments, Integrations, Deductions, Settings),
+  Global Payroll's full L2 (22 entries), Global Contractors standalone
+  surfaces. i18n keys resolved to en-US strings via the agent extraction.
 
-## What it doesn't cover
+## What it still doesn't cover
 
-1. **Frontend overlay layers** — `rippling-webapp` injects its own L2
-   entries via:
-   - `app/products/hr/Benefits/Benefits-ERX/modules/standaloneNavigation/`
-   - `app/products/hr/Insurance/components/admin/insurance-admin-nav-bar/`
-   - `app/products/finance/GlobalPayroll/queries/navbar/`
-   - `app/products/hr/PensionManagement/containers/navbar/`
-   These run client-side and don't have static analogs in rippling-main.
+1. **Pension Management** — uses dynamic hooks; static extraction was
+   inconclusive. ~3-5 entries likely missing.
 2. **Enum-keyed dict accesses** — some `dummy_apps.py` entries use
    `TIME_PRODUCTS_DUMMY_APP_IDS[CoreFeatureKeys.NAV_OVERVIEW]` style
    lookups. We render those as `<TIME_PRODUCTS_DUMMY_APP_IDS[...]>` placeholders.
@@ -38,6 +44,12 @@ node scripts/extract-source-of-truth.ts   # walk JSONs + merge dummy → diff
 4. **ID normalization** — our catalog uses kebab-case lowercase IDs; source
    uses uppercase or camelCase. The diff shows many "only-in-ours" /
    "only-in-truth" pairs that are actually the same entry under different IDs.
+5. **`invisible: true` semantics** — that flag in source app definitions is
+   not a uniform "hide from sidebar" signal. Many apps marked invisible
+   (Goals, Feedback, Travel, Procurement) appear in the live sidebar via
+   `dummy_apps.py` injection or category-based routing. Use the flag as a
+   hint, not a directive — verify per app before propagating into the
+   catalog as `hiddenInSidenav`.
 
 ## How to read the diff
 
