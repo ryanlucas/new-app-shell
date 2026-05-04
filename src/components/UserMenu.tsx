@@ -369,7 +369,7 @@ function SubmenuItem({
   activeId,
   onPick,
 }: {
-  icon: React.ComponentType<{ size?: number; weight?: string; className?: string }>
+  icon: React.ComponentType<{ size?: number; className?: string }>
   label: string
   items: Array<{ id: string; label: string }>
   activeId?: string

@@ -15,7 +15,7 @@ export function ContentPlaceholder({ catalog, selectedAppId }: Props) {
     ...catalog.frame.sidebar.thirdSection,
   ]) {
     if (surface.id === selectedAppId) {
-      app = { id: surface.id, label: surface.label, path: surface.path }
+      app = { id: surface.id, label: surface.label, path: surface.path ?? null }
       break
     }
   }
@@ -23,7 +23,7 @@ export function ContentPlaceholder({ catalog, selectedAppId }: Props) {
     for (const suite of catalog.suites.suites) {
       const found = (suite.apps ?? []).find((a) => a.id === selectedAppId)
       if (found) {
-        app = { id: found.id, label: found.label, path: found.path }
+        app = { id: found.id, label: found.label, path: found.path ?? null }
         suiteLabel = suite.label
         break
       }
