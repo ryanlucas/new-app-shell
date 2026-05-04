@@ -26,11 +26,7 @@ const CURRENT_USER = {
   photo: '/avatar.png',
 }
 
-const PLUM = 'rgb(74, 0, 57)'
-const ELEVATION_OVERLAY =
-  '0 16px 40px -8px rgba(0,0,0,0.35), 0 6px 16px -4px rgba(0,0,0,0.18)'
-const INSET_BEVEL =
-  'inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.4)'
+const PLUM = 'rgb(112, 22, 88)'
 
 // --- Tilt hook ---
 
@@ -227,12 +223,17 @@ function BadgeCard({
   cursorX: MotionValue<number>
   cursorY: MotionValue<number>
 }) {
-  const shadowX = useTransform(rotateY, [-3, 3], [6, -6])
-  const shadowY = useTransform(rotateX, [-3, 3], [-3, 8])
+  const shadowX = useTransform(rotateY, [-3, 3], [3, -3])
+  const shadowY = useTransform(rotateX, [-3, 3], [-2, 5])
   const shadow = useTransform(
     [shadowX, shadowY],
     ([sx, sy]: number[]) =>
-      `${sx}px ${sy}px 28px rgba(40,0,30,0.5), 0 2px 6px rgba(0,0,0,0.3), 0 0 0 0.5px rgba(120,40,100,0.3)`,
+      // Tighter contact shadow, plus a soft plum glow that always
+      // surrounds the badge regardless of tilt.
+      `${sx}px ${sy}px 14px rgba(40,0,30,0.2),` +
+      `0 0 24px rgba(140,40,110,0.22),` +
+      `0 1px 2px rgba(0,0,0,0.12),` +
+      `0 0 0 0.5px rgba(120,40,100,0.25)`,
   )
 
   return (
@@ -243,16 +244,18 @@ function BadgeCard({
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
     >
       <div className="relative overflow-hidden rounded-[10px]" style={{ background: PLUM }}>
-        <div className="relative overflow-hidden" style={{ height: 180 }}>
+        <div
+          className="relative overflow-hidden"
+          style={{ height: 180, background: 'rgb(70, 12, 56)' }}
+        >
           <img
             src={CURRENT_USER.photo}
             alt={CURRENT_USER.name}
             className="absolute inset-0 h-full w-full object-cover object-center"
-            style={{ filter: 'grayscale(1) contrast(1.15) brightness(0.95)' }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'rgba(74, 0, 57, 0.55)', mixBlendMode: 'color' }}
+            style={{
+              filter: 'contrast(1.05) brightness(1.05)',
+              mixBlendMode: 'luminosity',
+            }}
           />
           <svg
             className="absolute bottom-0 left-0 w-full"
@@ -262,7 +265,7 @@ function BadgeCard({
           >
             <polygon points="0,60 232,20 232,60" fill={PLUM} />
           </svg>
-          <div className="absolute left-4 top-3.5 z-10" style={{ opacity: 0.7 }}>
+          <div className="absolute left-4 top-3.5 z-10">
             <svg width="22" height="16" viewBox="0 0 128 96" fill="none">
               <path d={LOGO_PATH} fill="white" />
             </svg>
@@ -417,13 +420,13 @@ function SubmenuItem({
         ref={buttonRef}
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          'flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-300 transition-colors hover:bg-white/10 hover:text-white',
-          open && 'bg-white/10 text-white',
+          'flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900',
+          open && 'bg-neutral-100 text-neutral-900',
         )}
       >
         <Icon size={16} />
         <span className="flex-1 text-left">{label}</span>
-        <CaretRight size={12} className="text-neutral-500" />
+        <CaretRight size={12} className="text-neutral-400" />
       </button>
 
       {open && pos &&
@@ -437,11 +440,7 @@ function SubmenuItem({
               initial={{ opacity: 0, x: -4 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.12 }}
-              className="w-[200px] rounded-xl p-[6px]"
-              style={{
-                boxShadow: `${ELEVATION_OVERLAY}, ${INSET_BEVEL}`,
-                backgroundColor: '#1c1c1e',
-              }}
+              className="w-[200px] rounded-xl border border-neutral-200 bg-white p-[6px] shadow-2xl"
             >
               {items.map((item) => (
                 <button
@@ -450,10 +449,10 @@ function SubmenuItem({
                     setOpen(false)
                     onPick()
                   }}
-                  className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-[13px] text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+                  className="flex w-full items-center gap-2 rounded-md px-3 py-1.5 text-[13px] text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
                 >
                   <span className="flex-1 text-left">{item.label}</span>
-                  {activeId === item.id && <Check size={12} className="text-neutral-300" />}
+                  {activeId === item.id && <Check size={12} className="text-neutral-500" />}
                 </button>
               ))}
             </motion.div>
@@ -503,23 +502,8 @@ export function UserMenu({ open, onClose, anchorRef }: Props) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 8 }}
           transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-          className="fixed bottom-[20px] left-[58px] z-50 flex w-[500px] overflow-hidden rounded-xl"
-          style={{
-            boxShadow: `${ELEVATION_OVERLAY}, ${INSET_BEVEL}`,
-            backgroundColor: '#1c1c1e',
-          }}
+          className="fixed bottom-[20px] left-[58px] z-50 flex w-[500px] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl"
         >
-          <div
-            className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl"
-            style={{ opacity: 0.1 }}
-          >
-            <svg width="100%" height="100%">
-              <filter id="avatar-grain">
-                <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
-              </filter>
-              <rect width="100%" height="100%" filter="url(#avatar-grain)" />
-            </svg>
-          </div>
 
           <div
             className="shrink-0 p-4"
@@ -543,14 +527,14 @@ export function UserMenu({ open, onClose, anchorRef }: Props) {
               <button
                 key={item.label}
                 onClick={onClose}
-                className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
               >
                 <item.icon size={16} />
                 <span>{item.label}</span>
               </button>
             ))}
 
-            <div className="my-1 mx-2 border-t border-white/10" />
+            <div className="my-1 mx-2 border-t border-neutral-200" />
 
             {[
               { icon: Question, label: 'Help' },
@@ -560,7 +544,7 @@ export function UserMenu({ open, onClose, anchorRef }: Props) {
               <button
                 key={item.label}
                 onClick={onClose}
-                className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+                className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
               >
                 <item.icon size={16} />
                 <span>{item.label}</span>
@@ -574,7 +558,7 @@ export function UserMenu({ open, onClose, anchorRef }: Props) {
               onPick={onClose}
             />
 
-            <div className="my-1 mx-2 border-t border-white/10" />
+            <div className="my-1 mx-2 border-t border-neutral-200" />
 
             <SubmenuItem
               icon={Buildings}
@@ -585,22 +569,22 @@ export function UserMenu({ open, onClose, anchorRef }: Props) {
             />
             <button
               onClick={onClose}
-              className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+              className="flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-[13px] text-neutral-700 transition-colors hover:bg-neutral-100 hover:text-neutral-900"
             >
               <SignOut size={16} />
               <span>Sign out</span>
             </button>
 
-            <div className="mx-3 mt-3 flex flex-wrap gap-x-2 gap-y-1 text-[10px] text-neutral-500">
-              <button onClick={onClose} className="hover:text-neutral-300">
+            <div className="mx-3 mt-3 flex flex-wrap gap-x-2 gap-y-1 text-[10px] text-neutral-400">
+              <button onClick={onClose} className="hover:text-neutral-700">
                 Legal
               </button>
-              <span className="text-neutral-600">·</span>
-              <button onClick={onClose} className="hover:text-neutral-300">
+              <span className="text-neutral-300">·</span>
+              <button onClick={onClose} className="hover:text-neutral-700">
                 Terms
               </button>
-              <span className="text-neutral-600">·</span>
-              <button onClick={onClose} className="hover:text-neutral-300">
+              <span className="text-neutral-300">·</span>
+              <button onClick={onClose} className="hover:text-neutral-700">
                 Accessibility
               </button>
             </div>
