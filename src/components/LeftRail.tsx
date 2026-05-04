@@ -9,6 +9,7 @@ interface Props {
   inboxOpen: boolean
   onToggleChat: () => void
   chatOpen: boolean
+  chatAvailable?: boolean
   onOpenSearch?: () => void
   onGoHome?: () => void
 }
@@ -21,6 +22,7 @@ export function LeftRail({
   inboxOpen,
   onToggleChat,
   chatOpen,
+  chatAvailable = true,
   onOpenSearch,
   onGoHome,
 }: Props) {
@@ -49,12 +51,14 @@ export function LeftRail({
         onClick={onToggleInbox}
         active={inboxOpen}
       />
-      <RailButton
-        icon={<ChatCircle size={20} weight={chatOpen ? 'fill' : 'duotone'} />}
-        label={chatOpen ? 'Close Chat' : 'Open Chat'}
-        onClick={onToggleChat}
-        active={chatOpen}
-      />
+      {chatAvailable && (
+        <RailButton
+          icon={<ChatCircle size={20} weight={chatOpen ? 'fill' : 'duotone'} />}
+          label={chatOpen ? 'Close Chat' : 'Open Chat'}
+          onClick={onToggleChat}
+          active={chatOpen}
+        />
+      )}
       <RailButton
         icon={<Sparkle size={20} weight={aiOpen ? 'fill' : 'duotone'} />}
         label={aiOpen ? 'Close Rippling AI' : 'Open Rippling AI'}

@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useHud } from '@/state/HudContext.tsx'
 import { useCatalog } from '@/state/useCatalog.ts'
 import { useRecents } from '@/state/useRecents.ts'
@@ -54,6 +54,14 @@ export function AppShell() {
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const avatarRef = useRef<HTMLButtonElement>(null)
 
+  // Chat ships on top of the Time platform — hide the rail icon (and
+  // close the panel if it was open) when Time isn't part of the plan.
+  const activePlan = catalog?.plans.plans.find((p) => p.id === hud.planId)
+  const chatAvailable = !!activePlan?.ownedSuites.includes('time')
+  useEffect(() => {
+    if (!chatAvailable && sidePanel === 'chat') setSidePanel(null)
+  }, [chatAvailable, sidePanel])
+
   if (loading && !catalog) {
     return (
       <div className="flex h-full items-center justify-center text-sm text-neutral-500">
@@ -81,6 +89,7 @@ export function AppShell() {
           inboxOpen={inboxOpen}
           onToggleChat={toggleChat}
           chatOpen={chatOpen}
+          chatAvailable={chatAvailable}
           onOpenSearch={() => cmd.setOpen(true)}
           onGoHome={() => setSelectedAppId(null)}
         />
