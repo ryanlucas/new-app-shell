@@ -1,6 +1,5 @@
-import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { createContext, useContext, useId, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { motion, AnimatePresence } from 'framer-motion'
 import { CaretRight, Lock, Star } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
 import type { App, Suite } from '@/lib/types.ts'
@@ -245,20 +244,22 @@ function BrowseList({
   }
 
   return (
-    <div className="flex flex-col">
-      {standaloneProductLabel && (
-        <div className="bg-neutral-50 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-400">
-          {standaloneProductLabel}
-        </div>
-      )}
-      <div className="flex w-[300px] flex-col py-2">
-        {myEntries.map(renderEntry)}
-        {myEntries.length > 0 && otherEntries.length > 0 && (
-          <hr className="mx-4 my-2 border-neutral-200" />
+    <FlyoutGroupProvider>
+      <div className="flex flex-col">
+        {standaloneProductLabel && (
+          <div className="bg-neutral-50 px-4 py-2.5 text-[10px] font-medium uppercase tracking-[0.14em] text-neutral-400">
+            {standaloneProductLabel}
+          </div>
         )}
-        {otherEntries.map(renderOther)}
+        <div className="flex w-[300px] flex-col py-2">
+          {myEntries.map(renderEntry)}
+          {myEntries.length > 0 && otherEntries.length > 0 && (
+            <hr className="mx-4 my-2 border-neutral-200" />
+          )}
+          {otherEntries.map(renderOther)}
+        </div>
       </div>
-    </div>
+    </FlyoutGroupProvider>
   )
 }
 
@@ -295,11 +296,46 @@ interface FlyoutItemProps {
   content: FlyoutContent
 }
 
+/** Single-flyout-at-a-time controller — only one flyout renders open
+ *  across the whole menu, so switching between rows is instant (no fade,
+ *  no stacking). Each FlyoutItem registers a unique id; on hover it sets
+ *  itself active in the context. */
+const FlyoutGroupContext = createContext<{
+  activeId: string | null
+  setActive: (id: string | null) => void
+} | null>(null)
+
+function FlyoutGroupProvider({ children }: { children: React.ReactNode }) {
+  const [activeId, setActiveId] = useState<string | null>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const setActive = (id: string | null) => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current)
+      closeTimer.current = null
+    }
+    if (id === null) {
+      // Defer close briefly so a quick exit/enter into the flyout itself
+      // doesn't make it flicker.
+      closeTimer.current = setTimeout(() => setActiveId(null), 80)
+    } else {
+      setActiveId(id)
+    }
+  }
+
+  return (
+    <FlyoutGroupContext.Provider value={{ activeId, setActive }}>
+      {children}
+    </FlyoutGroupContext.Provider>
+  )
+}
+
 function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
-  const [open, setOpen] = useState(false)
+  const id = useId()
+  const group = useContext(FlyoutGroupContext)
+  const open = group?.activeId === id
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const measure = () => {
     if (!buttonRef.current) return
@@ -327,14 +363,8 @@ function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
-  const handleEnter = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current)
-    setOpen(true)
-  }
-  const handleLeave = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current)
-    closeTimer.current = setTimeout(() => setOpen(false), 100)
-  }
+  const handleEnter = () => group?.setActive(id)
+  const handleLeave = () => group?.setActive(null)
 
   return (
     <div ref={buttonRef} onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
@@ -357,14 +387,11 @@ function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
             onMouseLeave={handleLeave}
             style={{ position: 'fixed', top: pos.top, left: pos.left, zIndex: 60 }}
           >
-            <motion.div
-              initial={{ opacity: 0, x: -4 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.12 }}
-              className="w-[300px] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl"
-            >
+            {/* No entrance animation — the whole point of the single-
+                flyout controller is that switching is instant. */}
+            <div className="w-[300px] overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-2xl">
               <FlyoutBody content={content} />
-            </motion.div>
+            </div>
           </div>,
           document.body,
         )}
