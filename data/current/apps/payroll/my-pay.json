@@ -6,7 +6,7 @@
   "nav": [
     {
       "id": "pay",
-      "label": "Pay",
+      "label": "Pay Stubs",
       "icon": "Wallet",
       "path": "/my-pay/pay",
       "visibility": {
