@@ -1,4 +1,13 @@
-import { createContext, useContext, useId, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import { createPortal } from 'react-dom'
 import { CaretRight, Lock, Star } from '@phosphor-icons/react'
 import type { CatalogResponse } from '@/api/nav.ts'
@@ -296,35 +305,123 @@ interface FlyoutItemProps {
   content: FlyoutContent
 }
 
-/** Single-flyout-at-a-time controller — only one flyout renders open
- *  across the whole menu, so switching between rows is instant (no fade,
- *  no stacking). Each FlyoutItem registers a unique id; on hover it sets
- *  itself active in the context. */
+/** Single-flyout-at-a-time controller with a "safe triangle" so the
+ *  cursor can travel diagonally from a parent row to its open flyout
+ *  without accidentally triggering rows it passes over.
+ *
+ *  - Only one flyout renders open across the whole menu.
+ *  - Each FlyoutItem registers a unique id; hover sets it active.
+ *  - When a different row's hover would change the active row AND the
+ *    cursor is currently inside the safe triangle (anchor=activation
+ *    point, base=open flyout's left edge), the switch is deferred.
+ *  - Once the cursor leaves the triangle, the new row commits. */
 const FlyoutGroupContext = createContext<{
   activeId: string | null
   setActive: (id: string | null) => void
+  registerFlyoutRect: (rect: DOMRect | null) => void
 } | null>(null)
+
+function pointInTriangle(
+  p: { x: number; y: number },
+  a: { x: number; y: number },
+  b: { x: number; y: number },
+  c: { x: number; y: number },
+): boolean {
+  const sign = (
+    p1: { x: number; y: number },
+    p2: { x: number; y: number },
+    p3: { x: number; y: number },
+  ) => (p1.x - p3.x) * (p2.y - p3.y) - (p2.x - p3.x) * (p1.y - p3.y)
+  const d1 = sign(p, a, b)
+  const d2 = sign(p, b, c)
+  const d3 = sign(p, c, a)
+  const hasNeg = d1 < 0 || d2 < 0 || d3 < 0
+  const hasPos = d1 > 0 || d2 > 0 || d3 > 0
+  return !(hasNeg && hasPos)
+}
 
 function FlyoutGroupProvider({ children }: { children: React.ReactNode }) {
   const [activeId, setActiveId] = useState<string | null>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const switchTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const cursor = useRef({ x: 0, y: 0 })
+  const activationPoint = useRef({ x: 0, y: 0 })
+  const flyoutRect = useRef<DOMRect | null>(null)
+  const pendingId = useRef<string | null>(null)
+
+  // Track cursor globally so the safe-triangle check has fresh data.
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      cursor.current = { x: e.clientX, y: e.clientY }
+      // If a switch is pending and the cursor leaves the safe triangle,
+      // commit the switch immediately. (Otherwise the deferred timer
+      // commits after a short window.)
+      if (pendingId.current && flyoutRect.current) {
+        const a = activationPoint.current
+        const r = flyoutRect.current
+        const b = { x: r.left, y: r.top }
+        const c = { x: r.left, y: r.bottom }
+        if (!pointInTriangle(cursor.current, a, b, c)) {
+          if (switchTimer.current) clearTimeout(switchTimer.current)
+          const id = pendingId.current
+          pendingId.current = null
+          setActiveId(id)
+        }
+      }
+    }
+    document.addEventListener('mousemove', onMove)
+    return () => document.removeEventListener('mousemove', onMove)
+  }, [])
 
   const setActive = (id: string | null) => {
     if (closeTimer.current) {
       clearTimeout(closeTimer.current)
       closeTimer.current = null
     }
+    if (switchTimer.current) {
+      clearTimeout(switchTimer.current)
+      switchTimer.current = null
+    }
+    pendingId.current = null
+
     if (id === null) {
       // Defer close briefly so a quick exit/enter into the flyout itself
-      // doesn't make it flicker.
+      // doesn't flicker.
       closeTimer.current = setTimeout(() => setActiveId(null), 80)
-    } else {
-      setActiveId(id)
+      return
     }
+
+    // Safe-triangle check: only fires when switching between rows while
+    // a flyout is already open.
+    if (activeId && id !== activeId && flyoutRect.current) {
+      const r = flyoutRect.current
+      const a = activationPoint.current
+      const b = { x: r.left, y: r.top }
+      const c = { x: r.left, y: r.bottom }
+      if (pointInTriangle(cursor.current, a, b, c)) {
+        // Cursor is heading toward the open flyout — defer.
+        pendingId.current = id
+        switchTimer.current = setTimeout(() => {
+          if (pendingId.current === id) {
+            pendingId.current = null
+            setActiveId(id)
+          }
+        }, 300)
+        return
+      }
+    }
+
+    activationPoint.current = { ...cursor.current }
+    setActiveId(id)
+  }
+
+  const registerFlyoutRect = (rect: DOMRect | null) => {
+    flyoutRect.current = rect
   }
 
   return (
-    <FlyoutGroupContext.Provider value={{ activeId, setActive }}>
+    <FlyoutGroupContext.Provider value={{ activeId, setActive, registerFlyoutRect }}>
       {children}
     </FlyoutGroupContext.Provider>
   )
@@ -336,6 +433,7 @@ function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
   const open = group?.activeId === id
   const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
   const buttonRef = useRef<HTMLDivElement>(null)
+  const flyoutRef = useRef<HTMLDivElement>(null)
 
   const measure = () => {
     if (!buttonRef.current) return
@@ -363,6 +461,15 @@ function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
+  // Once the flyout has rendered, report its rect to the controller so
+  // the safe-triangle check has accurate geometry.
+  useLayoutEffect(() => {
+    if (!open) return
+    if (flyoutRef.current) group?.registerFlyoutRect(flyoutRef.current.getBoundingClientRect())
+    return () => group?.registerFlyoutRect(null)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, pos])
+
   const handleEnter = () => group?.setActive(id)
   const handleLeave = () => group?.setActive(null)
 
@@ -383,6 +490,7 @@ function FlyoutItem({ trigger, onTriggerClick, content }: FlyoutItemProps) {
       {open && pos &&
         createPortal(
           <div
+            ref={flyoutRef}
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
             style={{ position: 'fixed', top: pos.top, left: pos.left, zIndex: 60 }}
